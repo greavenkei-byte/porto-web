@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Kreatif</title>
+    <!-- Hubungkan ke file CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts ala Komik/Manga (Bangers & Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR / MENU ATAS -->
+    <header class="navbar">
+        <div class="logo">PORTFOLIO<span>.</span></div>
+        <nav class="nav-links">
+            <a href="#" onclick="tampilHalaman('home')" class="nav-btn active">Home</a>
+            <a href="#" onclick="tampilHalaman('karya')" class="nav-btn">Karya</a>
+            <a href="#" onclick="tampilHalaman('pengalaman')" class="nav-btn">Pengalaman</a>
+        </nav>
+    </header>
+
+    <!-- KONTEN UTAMA -->
+    <main class="container">
+
+        <!-- HALAMAN 1: HOME (Profil & Bio) -->
+        <section id="page-home" class="page active">
+            <div class="hero-box">
+                <div class="foto-container">
+                    <!-- GANTI LINK FOTO DI SINI -->
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80" alt="Foto Profil">
+                </div>
+                <div class="hero-text">
+                    <span class="badge">MANGA STYLE EDITION</span>
+                    <!-- GANTI NAMA KAMU DI SINI -->
+                    <h1>Halo, Saya <span class="highlight">Nama Kamu</span></h1>
+                    <p class="bio-desc">
+                        Selamat datang di web portofolio saya! Seorang pelajar kreatif yang berfokus di dunia animasi 3D, video editing, videografi, dan 3D modeling. Halaman ini merangkum seluruh perjalanan dan karya terbaik saya.
+                    </p>
+                    <div class="cta-buttons">
+                        <button onclick="tampilHalaman('karya')" class="btn-primary">Lihat Karya Saya</button>
+                        <button onclick="tampilHalaman('pengalaman')" class="btn-secondary">Cek Pengalaman</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HALAMAN 2: KARYA (Videografer, Animator, Editor, Modeling) -->
+        <section id="page-karya" class="page">
+            <div class="section-title">
+                <h2>KARYA & PROYEK</h2>
+                <p>Koleksi karya di bidang videografi, animasi, editing, dan modeling.</p>
+            </div>
+
+            <!-- Tombol Filter Kategori -->
+            <div class="filter-container">
+                <button onclick="filterKarya('semua')" class="filter-btn active">Semua</button>
+                <button onclick="filterKarya('videografer')" class="filter-btn">Videografer (1)</button>
+                <button onclick="filterKarya('animator')" class="filter-btn">Animator (3)</button>
+                <button onclick="filterKarya('editor')" class="filter-btn">Editor (1)</button>
+                <button onclick="filterKarya('modeling')" class="filter-btn">Modeling (3)</button>
+            </div>
+
+            <!-- DAFTAR KARYA (Gampang diubah teks dan gambarnya) -->
+            <div class="karya-grid">
+
+                <!-- 1. Videografer -->
+                <div class="karya-card" data-kategori="videografer">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="Videografi">
+                    <div class="card-body">
+                        <span class="tag-kategori">Videografer</span>
+                        <h3>Dokumentasi Event Sekolah</h3>
+                        <p>Perekaman video sinematik menggunakan kamera untuk acara penting sekolah.</p>
+                        <a href="#" class="card-link">Lihat Detail &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- 2. Animator 1 -->
+                <div class="karya-card" data-kategori="animator">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="Animasi">
+                    <div class="card-body">
+                        <span class="tag-kategori">Animator</span>
+                        <h3>Animasi Karakter 3D</h3>
+                        <p>Eksperimen rigging dan gerakan berjalan karakter menggunakan Blender.</p>
+                        <a href="#" class="card-link">Lihat Detail &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- 3. Animator 2 -->
+                <div class="karya-card" data-kategori="animator">
+                    <img src="https://images.unsplash.com/photo-1633469965646-6085a6a3b028?auto=format&fit=crop&w=600&q=80" alt="Animasi">
+                    <div class="card-body">
+                        <span class="tag-kategori">Animator</span>
+                        <h3>3D Logo Bumper</h3>
+                        <p>Animasi logo sekolah dengan efek visual dinamis dan pencahayaan studio.</p>
+                        <a href="#" class="card-link">Lihat Detail &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- 4. Animator 3 -->
+                <div class="karya-card" data-kategori="animator">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="Animasi">
+                    <div class="card-body">
+                        <span class="tag-kategori">Animator</span>
+                        <h3>Simulasi Gerak Pendek</h3>
+                        <p>Proyek latihan animasi pendek berdurasi 15 detik dengan Blender.</p>
+                        <a href="#" class="card-link">Lihat Detail &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- 5. Editor -->
+                <div class="karya-card" data-kategori="editor">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="Editor">
+                    <div class="card-body">
+                        <span class="tag-kategori">Editor</span>
+                        <h3>After Movie Kegiatan OSIS</h3>
+                        <p>Editing video ringkasan acara dengan transisi cepat dan color grading sinematik.</p>
+                        <a href="#" class="card-link">Lihat Detail &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- 6. Modeling 1 -->
+                <div class="karya-card" data-kategori="modeling">
+                    <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80" alt="Modeling">
+                    <div class="card-body">
+                        <span class="tag-kategori">Modeling</span>
+                        <h3>Model Aset Ruangan 3D</h3>
+                        <p>Pembuatan model furnitur dan interior ruangan kelas secara detail.</p>
+                        <a href="#" class="card-link">Lihat Detail &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- 7. Modeling 2 -->
+                <div class="kategori-hidden karya-card" data-kategori="modeling">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Modeling">
+                    <div class="card-body">
+                        <span class="tag-kategori">Modeling</span>
+                        <h3>Hard Surface Weapon Prop</h3>
+                        <p>Pemodelan objek senjata futuristik dengan teknik hard surface modeling.</p>
+                        <a href="#" class="card-link">Lihat Detail &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- 8. Modeling 3 -->
+                <div class="kategori-hidden karya-card" data-kategori="modeling">
+                    <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" alt="Modeling">
+                    <div class="card-body">
+                        <span class="tag-kategori">Modeling</span>
+                        <h3>Low Poly Environment</h3>
+                        <p>Desain lanskap dunia game dengan gaya low poly yang bersih dan cerah.</p>
+                        <a href="#" class="card-link">Lihat Detail &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- HALAMAN 3: PENGALAMAN (OSIS, Kerja, dll) -->
+        <section id="page-pengalaman" class="page">
+            <div class="section-title">
+                <h2>PENGALAMAN KREATIF</h2>
+                <p>Jejak pengalaman organisasi, kepanitiaan, dan proyek kerja kreatif.</p>
+            </div>
+
+            <div class="timeline">
+                <!-- Pengalaman 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="tahun">2025 - Sekarang</span>
+                        <h3>Pengurus OSIS / Anggota Kreatif</h3>
+                        <p>Bertanggung jawab dalam dokumentasi video, pembuatan poster event sekolah, serta pengelolaan media sosial organisasi.</p>
+                    </div>
+                </div>
+
+                <!-- Pengalaman 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="tahun">2025 / 2026</span>
+                        <h3>Freelance Video Editor & Videografer</h3>
+                        <p>Mengerjakan berbagai proyek lepas pembuatan video dokumentasi acara, reels/shorts kreatif, dan editing video promosi.</p>
+                    </div>
+                </div>
+
+                <!-- Pengalaman 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="tahun">Proyek Sekolah</span>
+                        <h3>Tim Produksi Animasi 3D</h3>
+                        <p>Aktif berpartisipasi dalam pembuatan film pendek animasi kolaborasi kelas menggunakan software Blender.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Nama Kamu. Dibuat dengan gaya Manga & Comic Theme.</p>
+    </footer>
+
+    <!-- Hubungkan ke file JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
