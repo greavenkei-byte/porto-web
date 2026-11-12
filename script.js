@@ -1,4 +1,4 @@
-// Mobile Menu Toggle
+// Mobile Menu Toggle (Tombol menu garis tiga di HP)
 const hamburgerBtn = document.getElementById('hamburger-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
@@ -15,8 +15,9 @@ const projectCards = document.querySelectorAll('.project-card');
 if (filterBtns.length > 0) {
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Hapus active dari semua tombol
+            // Hapus class 'active' dari semua tombol filter
             filterBtns.forEach(b => b.classList.remove('active'));
+            // Tambahkan class 'active' ke tombol yang sedang diklik
             btn.classList.add('active');
 
             const filterValue = btn.getAttribute('data-filter');
@@ -33,7 +34,7 @@ if (filterBtns.length > 0) {
     });
 }
 
-// Interactive Hanging Card Movement (untuk halaman about.html)
+// Interactive Hanging Card Movement (untuk kartu gantung di halaman about.html)
 const hangingCard = document.getElementById('hanging-card');
 if (hangingCard) {
     document.addEventListener('mousemove', (e) => {
@@ -41,4 +42,23 @@ if (hangingCard) {
         const yAxis = (window.innerHeight / 2 - e.pageY) / 40;
         hangingCard.style.transform = `rotate(${xAxis}deg) translateY(${yAxis}px)`;
     });
+}
+
+// Optimization: Pause video background hero saat tidak terlihat di layar
+const bgVideo = document.querySelector('.hero-bg-video');
+if (bgVideo) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                bgVideo.play().catch(() => {});
+            } else {
+                bgVideo.pause();
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) {
+        observer.observe(heroSection);
+    }
 }
