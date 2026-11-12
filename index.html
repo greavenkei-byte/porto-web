@@ -72,20 +72,25 @@
         </div>
     </section>
 
-    <!-- TEKS BERJALAN (MARQUEE) -->
+    <!-- TEKS BERJALAN (MARQUEE) MULUS TANPA PUTUS -->
     <section class="marquee-section">
         <div class="marquee-track">
-            <span>3D Modeling</span><span class="dot">•</span>
-            <span>3D Animation</span><span class="dot">•</span>
-            <span>Video Editing</span><span class="dot">•</span>
-            <span>Videography</span><span class="dot">•</span>
-            <span>Photography</span><span class="dot">•</span>
-            <!-- Duplikasi untuk infinite loop yang mulus -->
-            <span>3D Modeling</span><span class="dot">•</span>
-            <span>3D Animation</span><span class="dot">•</span>
-            <span>Video Editing</span><span class="dot">•</span>
-            <span>Videography</span><span class="dot">•</span>
-            <span>Photography</span><span class="dot">•</span>
+            <!-- Set pertama -->
+            <div class="marquee-content">
+                <span class="marquee-item">3D Modeling</span><span class="marquee-item dot">•</span>
+                <span class="marquee-item">3D Animation</span><span class="marquee-item dot">•</span>
+                <span class="marquee-item">Video Editing</span><span class="marquee-item dot">•</span>
+                <span class="marquee-item">Videography</span><span class="marquee-item dot">•</span>
+                <span class="marquee-item">Photography</span><span class="marquee-item dot">•</span>
+            </div>
+            <!-- Set kedua (Duplikat persis agar perulangan tanpa jeda/putus) -->
+            <div class="marquee-content" aria-hidden="true">
+                <span class="marquee-item">3D Modeling</span><span class="marquee-item dot">•</span>
+                <span class="marquee-item">3D Animation</span><span class="marquee-item dot">•</span>
+                <span class="marquee-item">Video Editing</span><span class="marquee-item dot">•</span>
+                <span class="marquee-item">Videography</span><span class="marquee-item dot">•</span>
+                <span class="marquee-item">Photography</span><span class="marquee-item dot">•</span>
+            </div>
         </div>
     </section>
 
