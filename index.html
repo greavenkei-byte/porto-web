@@ -6,7 +6,7 @@
     <title>Greaven K.P. | 3D Artist & Multimedia Creator</title>
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="home.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -35,100 +35,248 @@
         <a href="projects.html">Projects</a>
         <a href="experience.html">Experience</a>
         <a href="contact.html">Contact</a>
-        <a href="assets/cv-greaven-kp.pdf" target="_blank" class="btn-cv-mobile">Download CV</a>
+        <a href="assets/cv-greaven-kp.pdf" target="_blank">Download CV</a>
     </div>
 
-    <!-- HERO SECTION -->
-    <section class="hero-section">
+    <!-- HERO SECTION (VIDEO BACKGROUND) -->
+    <section class="hero-wrapper">
+        <video class="hero-bg-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1400&q=80">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+
         <div class="hero-container">
             <div class="hero-content">
-                <span class="hero-badge">3D & MULTIMEDIA CREATOR</span>
-                <h1>Halo, saya <span class="highlight">Greaven K.P.</span></h1>
-                <p class="hero-tagline">"Mengubah Ide Menjadi Cerita Visual."</p>
-                <p class="hero-desc">Siswa jurusan Animasi di SMKN 4 Madiun yang mengeksplorasi 3D, animasi, video, dan berbagai bentuk visual storytelling.</p>
+                <span class="hero-badge">HALLO, SAYA GREAVEN K.P.</span>
+                <h1>Mengubah Ide Menjadi <span class="gradient-text">Cerita</span> Visual.</h1>
+                <p class="hero-desc">
+                    3D Animator, Video Editor, dan Multimedia Creator dari SMKN 4 Madiun. Fokus mengeksplorasi pergerakan karakter 3D, visual bumper, dan penceritaan sinematik.
+                </p>
                 <div class="hero-buttons">
-                    <a href="projects.html" class="btn-primary">Lihat Karya</a>
-                    <a href="about.html" class="btn-secondary">Tentang Saya</a>
+                    <a href="projects.html" class="btn-primary">Lihat Karya &rarr;</a>
+                    <a href="assets/cv-greaven-kp.pdf" target="_blank" class="btn-secondary">Download CV</a>
                 </div>
             </div>
 
-            <!-- SHOWREEL CARD -->
-            <div class="hero-showreel-card">
-                <div class="showreel-thumbnail" style="background: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;">
-                    <div class="play-button-overlay">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <a href="#showreel-sec" class="hero-showreel-card">
+                <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80" alt="Showreel Preview">
+                <div class="play-overlay">
+                    <div class="play-circle">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                     </div>
-                    <span class="showreel-label">FEATURED SHOWREEL</span>
+                </div>
+                <span class="showreel-tag">FEATURED SHOWREEL</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-group">
+                <span>3D Animation</span><span class="dot">•</span>
+                <span>Video Editing</span><span class="dot">•</span>
+                <span>Videography</span><span class="dot">•</span>
+                <span>Motion Bumper</span><span class="dot">•</span>
+                <span>Visual Storytelling</span><span class="dot">•</span>
+            </div>
+            <div class="marquee-group">
+                <span>3D Animation</span><span class="dot">•</span>
+                <span>Video Editing</span><span class="dot">•</span>
+                <span>Videography</span><span class="dot">•</span>
+                <span>Motion Bumper</span><span class="dot">•</span>
+                <span>Visual Storytelling</span><span class="dot">•</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 00 — SHOWREEL -->
+    <section class="home-section" id="showreel-sec">
+        <span class="section-label">00 —— SHOWREEL</span>
+        <div class="showreel-box">
+            <div class="showreel-text">
+                <h3>Kumpulan momen visual dalam satu reel.</h3>
+                <p>Cuplikan eksplorasi animasi 3D, pergerakan kamera, motion graphic bumper, dan dokumentasi video yang telah saya kerjakan.</p>
+                <a href="projects.html" class="link-arrow">Eksplorasi Semua Karya &rarr;</a>
+            </div>
+            <div class="showreel-video-wrapper">
+                <video controls poster="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=80">
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- 01 — WHAT I DO -->
+    <section class="home-section">
+        <div class="section-heading">
+            <span class="section-label">01 —— WHAT I DO</span>
+            <h2>Fokus & keahlian utama.</h2>
+        </div>
+        <div class="what-grid">
+            <div class="what-card">
+                <div>
+                    <h3>3D Animation</h3>
+                    <p>Menghidupkan karakter dan objek melalui prinsip timing, spacing, rigging dasar, serta pembuatan 3D logo bumper yang dinamis.</p>
+                </div>
+                <div class="tools-badges">
+                    <span>Blender</span>
+                    <span>Prisma3D</span>
+                    <span>Character Motion</span>
+                    <span>3D Rendering</span>
+                </div>
+            </div>
+            <div class="what-card">
+                <div>
+                    <h3>Video & Multimedia</h3>
+                    <p>Pengambilan gambar sinematik (videografi), live streaming multi-kamera, hingga penyuntingan video after-movie dan color grading.</p>
+                </div>
+                <div class="tools-badges">
+                    <span>After Effects</span>
+                    <span>Premiere Pro</span>
+                    <span>CapCut</span>
+                    <span>Videography</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02 — FEATURED WORKS (ZIGZAG SPOILER) -->
+    <section class="home-section">
+        <div class="section-heading">
+            <span class="section-label">02 —— FEATURED WORKS</span>
+            <h2>Karya pilihan.</h2>
+        </div>
+
+        <div class="featured-list">
+            <!-- Item 1 -->
+            <div class="featured-item">
+                <div class="featured-img">
+                    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80" alt="3D Animation Test 01">
+                </div>
+                <div class="featured-content">
+                    <span class="featured-meta">3D Animation • 2026</span>
+                    <h3>3D Animation Test 01</h3>
+                    <p>Eksplorasi mekanika gerak karakter (walk cycle & body mechanics) menggunakan Blender untuk melatih keluwesan dan bobot gerakan.</p>
+                    <a href="project-detail.html?id=anim-01" class="link-arrow">Lihat Project &rarr;</a>
                 </div>
             </div>
 
-    <!-- TEKS BERJALAN (MARQUEE) -->
-    <section class="marquee-section">
-        <div class="marquee-track">
-            <div class="marquee-content">
-                <span class="marquee-item">3D Modeling</span><span class="marquee-item dot">•</span>
-                <span class="marquee-item">3D Animation</span><span class="marquee-item dot">•</span>
-                <span class="marquee-item">Video Editing</span><span class="marquee-item dot">•</span>
-                <span class="marquee-item">Videography</span><span class="marquee-item dot">•</span>
-                <span class="marquee-item">Photography</span><span class="marquee-item dot">•</span>
+            <!-- Item 2 (Reverse) -->
+            <div class="featured-item reverse">
+                <div class="featured-img">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="3D Bumper Forum BKK">
+                </div>
+                <div class="featured-content">
+                    <span class="featured-meta">3D Animation • 2026</span>
+                    <h3>3D Logo Bumper — Forum BKK Jatim</h3>
+                    <p>Produksi bumper video 3D resmi dan aset visual promosi acara dengan pencahayaan studio dan transisi kamera dinamis.</p>
+                    <a href="project-detail.html?id=anim-02" class="link-arrow">Lihat Project &rarr;</a>
+                </div>
             </div>
-            <div class="marquee-content" aria-hidden="true">
-                <span class="marquee-item">3D Modeling</span><span class="marquee-item dot">•</span>
-                <span class="marquee-item">3D Animation</span><span class="marquee-item dot">•</span>
-                <span class="marquee-item">Video Editing</span><span class="marquee-item dot">•</span>
-                <span class="marquee-item">Videography</span><span class="marquee-item dot">•</span>
-                <span class="marquee-item">Photography</span><span class="marquee-item dot">•</span>
+
+            <!-- Item 3 -->
+            <div class="featured-item">
+                <div class="featured-img">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="Video Editing Reel">
+                </div>
+                <div class="featured-content">
+                    <span class="featured-meta">Video Editing • 2026</span>
+                    <h3>After Movie & Event Recap OSIS</h3>
+                    <p>Penyuntingan video dokumentasi kegiatan sekolah dengan ritme cepat, sound design, dan color grading sinematik.</p>
+                    <a href="project-detail.html?id=edit-01" class="link-arrow">Lihat Project &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="center-btn-wrap">
+            <a href="projects.html" class="btn-secondary">Lihat Semua Projects &rarr;</a>
+        </div>
+    </section>
+
+    <!-- 03 — CREATIVE PROCESS -->
+    <section class="home-section">
+        <div class="section-heading">
+            <span class="section-label">03 —— CREATIVE PROCESS</span>
+            <h2>Setiap karya adalah proses.</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-step">
+                <span class="step-num">01</span>
+                <h4>Ide</h4>
+                <p>Merumuskan konsep cerita, pesan visual, dan tujuan karya.</p>
+            </div>
+            <div class="process-step">
+                <span class="step-num">02</span>
+                <h4>Reference</h4>
+                <p>Mengumpulkan referensi gerak, pencahayaan, dan moodboard.</p>
+            </div>
+            <div class="process-step">
+                <span class="step-num">03</span>
+                <h4>Exploration</h4>
+                <p>Uji coba komposisi kamera, blocking gerakan, dan ritme.</p>
+            </div>
+            <div class="process-step">
+                <span class="step-num">04</span>
+                <h4>Creation</h4>
+                <p>Eksekusi utama animasi 3D, pengambilan footage, atau editing.</p>
+            </div>
+            <div class="process-step">
+                <span class="step-num">05</span>
+                <h4>Refinement</h4>
+                <p>Penyempurnaan grafik kurva (spline), warna, dan audio.</p>
+            </div>
+            <div class="process-step">
+                <span class="step-num">06</span>
+                <h4>Final Output</h4>
+                <p>Rendering resolusi tinggi dan siap dipublikasikan.</p>
             </div>
         </div>
     </section>
 
-    <!-- WHAT I DO -->
-    <section class="section">
-        <div class="section-header">
-            <span class="section-number">01 —— KEAHLIAN UTAMA</span>
-            <h2>What I Do</h2>
-        </div>
-        <div class="grid-4">
-            <div class="card">
-                <h3>3D Creation</h3>
-                <p>Exploring 3D creation through modeling, texturing, and rendering.</p>
-                <span class="card-tools">Blender • Prisma3D</span>
-            </div>
-            <div class="card">
-                <h3>3D Animation</h3>
-                <p>Mengembangkan objek dan karakter menjadi visual yang bergerak melalui proses animasi.</p>
-                <span class="card-tools">Blender • Prisma3D</span>
-            </div>
-            <div class="card">
-                <h3>Video & Multimedia</h3>
-                <p>Mengolah footage dan memproduksi konten visual melalui editing, videografi, dokumentasi, dan live streaming.</p>
-                <span class="card-tools">CapCut • Alight Motion • After Effects</span>
-            </div>
-            <div class="card">
-                <h3>Visual & Traditional Art</h3>
-                <p>Mengeksplorasi visual melalui fotografi, desain grafis sederhana, dan karya seni tradisional.</p>
-                <span class="card-tools">Canva • Picsart • Traditional Drawing</span>
+    <!-- CTA BANNER -->
+    <section class="home-section">
+        <div class="cta-banner">
+            <h2>Mari wujudkan cerita visual berikutnya.</h2>
+            <p>Terbuka untuk diskusi proyek kreatif, kolaborasi animasi 3D, dokumentasi video, maupun editing.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn-primary">Hubungi Saya</a>
+                <a href="mailto:greaven.kei@gmail.com" class="btn-secondary">Kirim Email</a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER 3 KOLOM -->
     <footer class="footer">
-        <div class="footer-content">
-            <div>
+        <div class="footer-grid">
+            <div class="footer-brand">
                 <h3>Greaven K.P.</h3>
-                <p>3D Artist & Multimedia Creator · SMKN 4 Madiun</p>
-                <p class="footer-email">greaven.kei@gmail.com</p>
+                <p>3D Animator & Multimedia Creator. Siswa Jurusan Animasi SMKN 4 Madiun.</p>
+                <a href="mailto:greaven.kei@gmail.com" class="footer-email">greaven.kei@gmail.com</a>
             </div>
-            <div class="footer-socials">
-                <a href="https://instagram.com/joprass_" target="_blank" rel="noopener noreferrer">Instagram (@joprass_)</a>
-                <a href="https://tiktok.com/@keiyoshi.16" target="_blank" rel="noopener noreferrer">TikTok (@keiyoshi.16)</a>
-                <a href="https://youtube.com/@Joprass16" target="_blank" rel="noopener noreferrer">YouTube (@Joprass16)</a>
-                <a href="https://wa.me/62895622607368" target="_blank" rel="noopener noreferrer">WhatsApp (+62 895-6226-07368)</a>
+            <div class="footer-col">
+                <h4>Navigasi</h4>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="experience.html">Experience</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Social Media</h4>
+                <div class="footer-links">
+                    <a href="https://instagram.com/joprass_" target="_blank" rel="noopener noreferrer">Instagram (@joprass_)</a>
+                    <a href="https://tiktok.com/@keiyoshi.16" target="_blank" rel="noopener noreferrer">TikTok (@keiyoshi.16)</a>
+                    <a href="https://youtube.com/@Joprass16" target="_blank" rel="noopener noreferrer">YouTube (@Joprass16)</a>
+                    <a href="https://wa.me/62895622607368" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Greaven K.P. All Rights Reserved.</p>
+            <span>&copy; 2026 Greaven Keiyoshi Prasojo. All Rights Reserved.</span>
+            <span>Madiun, Jawa Timur</span>
         </div>
     </footer>
 
