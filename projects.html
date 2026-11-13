@@ -9,7 +9,6 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <header class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">Greaven K.P.<span>.</span></a>
@@ -27,7 +26,6 @@
         </div>
     </header>
 
-    <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobile-menu">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -37,97 +35,43 @@
         <a href="assets/cv-greaven-kp.pdf" target="_blank" class="btn-cv-mobile">Download CV</a>
     </div>
 
-    <!-- PROJECTS SECTION -->
-    <section class="section projects-section">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-number">04 —— PORTOFOLIO KARYA</span>
-                <h2>Featured & Recent Projects</h2>
-                <p>Eksplorasi karya di bidang 3D modeling, animasi, video editing, dan multimedia.</p>
+    <section class="section">
+        <div class="section-header">
+            <span class="section-number">03 —— PORTOFOLIO KARYA</span>
+            <h2>Projects & Works</h2>
+        </div>
+
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">Semua</button>
+            <button class="filter-btn" data-filter="3d">3D Modeling & Animation</button>
+            <button class="filter-btn" data-filter="video">Video & Multimedia</button>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card" data-category="3d">
+                <div class="project-thumb"><span class="thumb-placeholder">3D ASSET / BLENDER</span></div>
+                <div class="project-info">
+                    <span class="project-cat">3D Modeling</span>
+                    <h3>Karakter & Aset 3D Sederhana</h3>
+                    <p>Eksperimen pemodelan objek dan karakter menggunakan Blender.</p>
+                    <div class="project-tags"><span>Blender</span><span>Rendering</span></div>
+                </div>
             </div>
 
-            <!-- FILTER BUTTONS -->
-            <div class="filter-container">
-                <button class="filter-btn active" data-filter="all">Semua</button>
-                <button class="filter-btn" data-filter="3d">3D Modeling & Animation</button>
-                <button class="filter-btn" data-filter="video">Video & Multimedia</button>
-                <button class="filter-btn" data-filter="photography">Photography & Art</button>
-            </div>
-
-            <!-- PROJECTS GRID -->
-            <div class="projects-grid">
-                
-                <!-- Project 1 -->
-                <div class="project-card" data-category="3d">
-                    <div class="project-thumb">
-                        <div class="thumb-placeholder">3D ASSET / BLENDER</div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-cat">3D Modeling</span>
-                        <h3>Karakter & Aset 3D Sederhana</h3>
-                        <p>Eksperimen pemodelan objek dan karakter menggunakan Blender.</p>
-                        <div class="project-tags">
-                            <span>Blender</span>
-                            <span>Rendering</span>
-                        </div>
-                    </div>
+            <div class="project-card" data-category="video">
+                <div class="project-thumb"><span class="thumb-placeholder">AFTER MOVIE / OSIS</span></div>
+                <div class="project-info">
+                    <span class="project-cat">Video Editing</span>
+                    <h3>Dokumentasi & After Movie Event Sekolah</h3>
+                    <p>Pengolahan video kegiatan OSIS dan dokumentasi acara sekolah.</p>
+                    <div class="project-tags"><span>CapCut</span><span>After Effects</span></div>
                 </div>
-
-                <!-- Project 2 -->
-                <div class="project-card" data-category="video">
-                    <div class="project-thumb">
-                        <div class="thumb-placeholder">AFTER MOVIE / OSIS</div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-cat">Video Editing</span>
-                        <h3>Dokumentasi & After Movie Event Sekolah</h3>
-                        <p>Pengolahan video kegiatan OSIS dan dokumentasi acara sekolah.</p>
-                        <div class="project-tags">
-                            <span>CapCut</span>
-                            <span>After Effects</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card" data-category="3d">
-                    <div class="project-thumb">
-                        <div class="thumb-placeholder">3D ANIMATION</div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-cat">3D Animation</span>
-                        <h3>Animasi Gerak Pendek</h3>
-                        <p>Latihan pengembangan gerak animasi objek 3D di Blender.</p>
-                        <div class="project-tags">
-                            <span>Blender</span>
-                            <span>Animation</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-card" data-category="photography">
-                    <div class="project-thumb">
-                        <div class="thumb-placeholder">PHOTOGRAPHY / VISUAL</div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-cat">Photography</span>
-                        <h3>Dokumentasi & Visual Study</h3>
-                        <p>Eksperimen komposisi, pencahayaan, dan framing visual.</p>
-                        <div class="project-tags">
-                            <span>Photography</span>
-                            <span>Composition</span>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer">
-        <div class="container footer-content">
+        <div class="footer-content">
             <div>
                 <h3>Greaven K.P.</h3>
                 <p>3D Artist & Multimedia Creator · SMKN 4 Madiun</p>
