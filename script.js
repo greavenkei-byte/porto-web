@@ -1,43 +1,168 @@
-// Mobile Menu Toggle
-const hamburgerBtn = document.getElementById('hamburger-btn');
-const mobileMenu = document.getElementById('mobile-menu');
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. MOBILE HAMBURGER MENU
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-if (hamburgerBtn && mobileMenu) {
-    hamburgerBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active');
-    });
-}
+    if (hamburgerBtn && mobileMenu) {
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+    }
 
-// Project Filter Logic
-const filterBtns = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
+    // 2. INTERACTIVE HANGING ID CARD (ABOUT PAGE)
+    const hangingCard = document.getElementById('hanging-card');
+    if (hangingCard) {
+        hangingCard.addEventListener('mousemove', (e) => {
+            const rect = hangingCard.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
 
-if (filterBtns.length > 0) {
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+            const rotateX = ((y - centerY) / centerY) * -12;
+            const rotateY = ((x - centerX) / centerX) * 12;
 
-            const filterValue = btn.getAttribute('data-filter');
+            hangingCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
 
-            projectCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                if (filterValue === 'all' || category === filterValue) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
+        hangingCard.addEventListener('mouseleave', () => {
+            hangingCard.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+        });
+    }
+
+    // 3. PROJECT CATEGORY FILTER (PROJECTS PAGE)
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    if (filterBtns.length > 0 && projectCards.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filterValue === 'all' || category === filterValue) {
+                        card.style.display = 'flex';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 20);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(10px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 250);
+                    }
+                });
             });
         });
-    });
-}
+    }
 
-// Interactive Hanging Card Movement
-const hangingCard = document.getElementById('hanging-card');
-if (hangingCard) {
-    document.addEventListener('mousemove', (e) => {
-        const xAxis = (window.innerWidth / 2 - e.pageX) / 40;
-        const yAxis = (window.innerHeight / 2 - e.pageY) / 40;
-        hangingCard.style.transform = `rotate(${xAxis}deg) translateY(${yAxis}px)`;
-    });
-}
+    // 4. DYNAMIC PROJECT DETAIL PAGE & PREV/NEXT NAVIGATION
+    const detailContainer = document.getElementById('project-detail-root');
+    if (detailContainer) {
+        const projectsData = [
+            {
+                id: 'anim-01',
+                title: '3D Animation Test 01',
+                category: '3D Animation',
+                year: '2026',
+                role: '3D Animator',
+                tools: 'Blender',
+                client: 'Personal Study',
+                videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
+                posterUrl: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Eksplorasi mekanika gerak karakter (walk cycle dan body mechanics) menggunakan Blender untuk melatih pemahaman terhadap prinsip animasi dasar.',
+                challenge: 'Menjaga konsistensi timing, spacing, dan perpindahan pusat gravitasi (center of gravity) agar gerakan karakter terasa memiliki bobot dan natural.',
+                steps: ['01 Referensi', '02 Blocking', '03 Spline', '04 Render'],
+                result: 'Menghasilkan siklus gerakan karakter yang halus dengan kurva animasi yang bersih serta pencahayaan studio dasar.'
+            },
+            {
+                id: 'anim-02',
+                title: '3D Logo Bumper — Forum BKK Jatim',
+                category: '3D Animation',
+                year: '2026',
+                role: '3D Animator & Motion Designer',
+                tools: 'Blender, After Effects',
+                client: 'Forum BKK Jawa Timur',
+                videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
+                posterUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Produksi video bumper pembuka 3D resmi dan aset visual promosi untuk acara regional Forum Bursa Kerja Khusus (BKK) Jawa Timur.',
+                challenge: 'Menyelaraskan pergerakan kamera 3D dengan aksen suara (sound effects) dalam durasi singkat agar terlihat megah dan profesional.',
+                steps: ['01 Konsep & Moodboard', '02 Camera Anim', '03 Lighting & Shader', '04 Compositing'],
+                result: 'Bumper 3D beresolusi tinggi yang digunakan sebagai pembuka resmi rangkaian acara dan publikasi media.'
+            },
+            {
+                id: 'edit-01',
+                title: 'After Movie & Event Recap OSIS',
+                category: 'Video Editing',
+                year: '2026',
+                role: 'Video Editor & Director',
+                tools: 'Premiere Pro, After Effects, CapCut',
+                client: 'OSIS SMKN 4 Madiun (Sekbid 9)',
+                videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
+                posterUrl: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Penyuntingan video ringkasan kegiatan sekolah dan acara OSIS dengan transisi cepat, sinkronisasi beat musik, dan color grading.',
+                challenge: 'Menyortir ratusan klip rekaman dari berbagai sudut kamera dengan kondisi pencahayaan yang berbeda-beda menjadi satu alur cerita yang padu.',
+                steps: ['01 Footage Sorting', '02 Rough Cut', '03 Rhythm Editing', '04 Color & Audio'],
+                result: 'Video dokumentasi yang energik dan mendapat respons positif di kanal media sosial resmi sekolah.'
+            },
+            {
+                id: 'video-01',
+                title: 'Dokumentasi Event & Produksi Live Streaming',
+                category: 'Videography',
+                year: '2025 - 2026',
+                role: 'Cameraman & Visual Switcher',
+                tools: 'DSLR/Mirrorless, OBS Studio, Video Switcher',
+                client: 'Dokumentasi Gereja & Event Sekolah',
+                videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
+                posterUrl: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Pengambilan gambar sinematik serta pengoperasian kamera dan visual switcher untuk siaran langsung acara berskala besar.',
+                challenge: 'Menjaga stabilitas framing kamera secara real-time dan memastikan perpindahan antar sudut kamera berjalan mulus tanpa jeda.',
+                steps: ['01 Setup Alat', '02 Framing & Angle', '03 Live Switching', '04 Archive'],
+                result: 'Siaran langsung dan arsip dokumentasi visual yang jernih, stabil, dan tertata rapi.'
+            }
+        ];
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentId = urlParams.get('id') || 'anim-01';
+        const currentIndex = projectsData.findIndex(p => p.id === currentId);
+        const project = projectsData[currentIndex !== -1 ? currentIndex : 0];
+
+        const prevIndex = (currentIndex - 1 + projectsData.length) % projectsData.length;
+        const nextIndex = (currentIndex + 1) % projectsData.length;
+        const prevProject = projectsData[prevIndex];
+        const nextProject = projectsData[nextIndex];
+
+        document.getElementById('dt-cat-year').textContent = `${project.category} • ${project.year}`;
+        document.getElementById('dt-title').textContent = project.title;
+        document.getElementById('dt-video').setAttribute('poster', project.posterUrl);
+        document.getElementById('dt-video-src').setAttribute('src', project.videoUrl);
+        document.getElementById('dt-video').load();
+
+        document.getElementById('dt-desc').textContent = project.desc;
+        document.getElementById('dt-challenge').textContent = project.challenge;
+        document.getElementById('dt-result').textContent = project.result;
+
+        const stepsContainer = document.getElementById('dt-steps');
+        stepsContainer.innerHTML = project.steps.map(step => `<span class="step-pill">${step}</span>`).join('');
+
+        document.getElementById('info-year').textContent = project.year;
+        document.getElementById('info-cat').textContent = project.category;
+        document.getElementById('info-role').textContent = project.role;
+        document.getElementById('info-tools').textContent = project.tools;
+        document.getElementById('info-client').textContent = project.client;
+
+        const prevBtn = document.getElementById('nav-prev');
+        const nextBtn = document.getElementById('nav-next');
+        prevBtn.href = `project-detail.html?id=${prevProject.id}`;
+        document.getElementById('prev-title').textContent = prevProject.title;
+
+        nextBtn.href = `project-detail.html?id=${nextProject.id}`;
+        document.getElementById('next-title').textContent = nextProject.title;
+    }
+});
