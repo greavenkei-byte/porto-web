@@ -1,0 +1,222 @@
+.exp-section {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.exp-header {
+    margin-bottom: 45px;
+}
+
+.exp-header h1 {
+    font-size: clamp(32px, 4.5vw, 46px);
+}
+
+/* 3 KARTU PENGALAMAN UTAMA */
+.exp-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 60px;
+}
+
+.exp-card {
+    position: relative;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px 36px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.exp-card:hover {
+    border-color: var(--accent-purple);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+}
+
+.exp-watermark {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 110px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.03);
+    pointer-events: none;
+    user-select: none;
+}
+
+.exp-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.exp-title-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+}
+
+.exp-title-row h2 {
+    font-size: 22px;
+}
+
+.year-pill {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent-purple);
+    background-color: rgba(139, 92, 246, 0.12);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    padding: 4px 12px;
+    border-radius: 50px;
+}
+
+.exp-role {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent-cyan);
+    display: block;
+    margin-bottom: 14px;
+}
+
+.exp-desc {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 780px;
+    margin-bottom: 20px;
+}
+
+.fokus-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.fokus-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.fokus-tags span {
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 6px;
+    color: var(--text-main);
+}
+
+/* GRID LOMBA & PELATIHAN */
+.sub-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.sub-col-title {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    color: var(--accent-purple);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.sub-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mini-card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 24px;
+    transition: 0.3s ease;
+}
+
+.mini-card:hover {
+    border-color: var(--accent-cyan);
+}
+
+.mini-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.mini-top h3 {
+    font-size: 17px;
+}
+
+.mini-badge {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    background: rgba(34, 211, 238, 0.1);
+    padding: 4px 10px;
+    border-radius: 50px;
+    white-space: nowrap;
+}
+
+.mini-card p {
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* KARTU PENDIDIKAN LEBAR PENUH */
+.edu-banner {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 26px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.edu-banner h3 {
+    font-size: 19px;
+    margin-bottom: 4px;
+}
+
+.edu-banner p {
+    color: var(--text-muted);
+    font-size: 13.5px;
+}
+
+@media (max-width: 800px) {
+    .sub-grid-2 {
+        grid-template-columns: 1fr;
+    }
+    .exp-watermark {
+        font-size: 70px;
+        right: 16px;
+        top: 24px;
+        transform: none;
+    }
+}
