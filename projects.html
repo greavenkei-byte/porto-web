@@ -39,34 +39,109 @@
         <div class="section-header">
             <span class="section-number">03 —— PORTOFOLIO KARYA</span>
             <h2>Projects & Works</h2>
+            <p style="color: var(--text-muted); font-size: 14px; margin-top: 5px;">Koleksi karya di bidang videografi, animasi, editing, dan 3D modeling.</p>
         </div>
 
+        <!-- FILTER TOMBOL KATEGORI -->
         <div class="filter-container">
             <button class="filter-btn active" data-filter="all">Semua</button>
-            <button class="filter-btn" data-filter="3d">3D Modeling & Animation</button>
-            <button class="filter-btn" data-filter="video">Video & Multimedia</button>
+            <button class="filter-btn" data-filter="videografer">Videografer</button>
+            <button class="filter-btn" data-filter="animator">Animator</button>
+            <button class="filter-btn" data-filter="editor">Editor</button>
+            <button class="filter-btn" data-filter="modeling">Modeling</button>
         </div>
 
+        <!-- GRID KARYA -->
         <div class="projects-grid">
-            <div class="project-card" data-category="3d">
-                <div class="project-thumb"><span class="thumb-placeholder">3D ASSET / BLENDER</span></div>
+            
+            <!-- 1. Videografer -->
+            <div class="project-card" data-category="videografer">
+                <div class="project-thumb"><span class="thumb-placeholder">VIDEOGRAPHY / EVENT</span></div>
                 <div class="project-info">
-                    <span class="project-cat">3D Modeling</span>
-                    <h3>Karakter & Aset 3D Sederhana</h3>
-                    <p>Eksperimen pemodelan objek dan karakter menggunakan Blender.</p>
+                    <span class="project-cat">Videografer</span>
+                    <h3>Dokumentasi Event & Kegiatan Sekolah</h3>
+                    <p>Perekaman video sinematik menggunakan kamera untuk acara penting sekolah.</p>
+                    <div class="project-tags"><span>Videography</span><span>Shooting</span></div>
+                </div>
+            </div>
+
+            <!-- 2. Animator 1 -->
+            <div class="project-card" data-category="animator">
+                <div class="project-thumb"><span class="thumb-placeholder">3D CHARACTER ANIMATION</span></div>
+                <div class="project-info">
+                    <span class="project-cat">Animator</span>
+                    <h3>Animasi Karakter Pendek</h3>
+                    <p>Eksperimen rigging dan gerakan berjalan karakter menggunakan Blender.</p>
+                    <div class="project-tags"><span>Blender</span><span>Animation</span></div>
+                </div>
+            </div>
+
+            <!-- 3. Animator 2 -->
+            <div class="project-card" data-category="animator">
+                <div class="project-thumb"><span class="thumb-placeholder">3D LOGO BUMPER</span></div>
+                <div class="project-info">
+                    <span class="project-cat">Animator</span>
+                    <h3>3D Logo Bumper Animation</h3>
+                    <p>Animasi logo sekolah dengan efek visual dinamis dan pencahayaan studio.</p>
                     <div class="project-tags"><span>Blender</span><span>Rendering</span></div>
                 </div>
             </div>
 
-            <div class="project-card" data-category="video">
-                <div class="project-thumb"><span class="thumb-placeholder">AFTER MOVIE / OSIS</span></div>
+            <!-- 4. Animator 3 -->
+            <div class="project-card" data-category="animator">
+                <div class="project-thumb"><span class="thumb-placeholder">MOTION & SIMULATION</span></div>
                 <div class="project-info">
-                    <span class="project-cat">Video Editing</span>
-                    <h3>Dokumentasi & After Movie Event Sekolah</h3>
-                    <p>Pengolahan video kegiatan OSIS dan dokumentasi acara sekolah.</p>
+                    <span class="project-cat">Animator</span>
+                    <h3>Simulasi Gerak Pendek 15 Detik</h3>
+                    <p>Proyek latihan animasi pendek dengan detail pergerakan objek di Blender.</p>
+                    <div class="project-tags"><span>Blender</span><span>Prisma3D</span></div>
+                </div>
+            </div>
+
+            <!-- 5. Editor -->
+            <div class="project-card" data-category="editor">
+                <div class="project-thumb"><span class="thumb-placeholder">AFTER MOVIE OSIS</span></div>
+                <div class="project-info">
+                    <span class="project-cat">Editor</span>
+                    <h3>After Movie Kegiatan OSIS & Sekolah</h3>
+                    <p>Editing video ringkasan acara dengan transisi cepat dan color grading sinematik.</p>
                     <div class="project-tags"><span>CapCut</span><span>After Effects</span></div>
                 </div>
             </div>
+
+            <!-- 6. Modeling 1 -->
+            <div class="project-card" data-category="modeling">
+                <div class="project-thumb"><span class="thumb-placeholder">3D INTERIOR MODELING</span></div>
+                <div class="project-info">
+                    <span class="project-cat">Modeling</span>
+                    <h3>Model Aset Ruangan & Furnitur 3D</h3>
+                    <p>Pembuatan model objek interior ruangan kelas dan properti secara detail.</p>
+                    <div class="project-tags"><span>Blender</span><span>Texturing</span></div>
+                </div>
+            </div>
+
+            <!-- 7. Modeling 2 -->
+            <div class="project-card" data-category="modeling">
+                <div class="project-thumb"><span class="thumb-placeholder">HARD SURFACE PROP</span></div>
+                <div class="project-info">
+                    <span class="project-cat">Modeling</span>
+                    <h3>Hard Surface Object Prop</h3>
+                    <p>Pemodelan objek keras menggunakan teknik hardsurface modeling di Blender.</p>
+                    <div class="project-tags"><span>Blender</span><span>Modeling</span></div>
+                </div>
+            </div>
+
+            <!-- 8. Modeling 3 -->
+            <div class="project-card" data-category="modeling">
+                <div class="project-thumb"><span class="thumb-placeholder">LOW POLY ENVIRONMENT</span></div>
+                <div class="project-info">
+                    <span class="project-cat">Modeling</span>
+                    <h3>Low Poly Environment Assets</h3>
+                    <p>Desain aset lanskap objek dengan gaya low poly yang bersih dan rapi.</p>
+                    <div class="project-tags"><span>Blender</span><span>Prisma3D</span></div>
+                </div>
+            </div>
+
         </div>
     </section>
 
