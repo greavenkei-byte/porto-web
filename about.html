@@ -6,11 +6,10 @@
     <title>About | Greaven K.P.</title>
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="about.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <header class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">Greaven K.P.<span>.</span></a>
@@ -28,75 +27,134 @@
         </div>
     </header>
 
-    <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobile-menu">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
         <a href="experience.html">Experience</a>
         <a href="contact.html">Contact</a>
-        <a href="assets/cv-greaven-kp.pdf" target="_blank" class="btn-cv-mobile">Download CV</a>
+        <a href="assets/cv-greaven-kp.pdf" target="_blank">Download CV</a>
     </div>
 
-    <!-- ABOUT SECTION -->
-    <section class="section">
-        <div class="about-grid">
-            
-            <!-- KIRI: INTERACTIVE HANGING CARD -->
-            <div class="hanging-card-wrapper">
-                <div class="string-line"></div>
-                <div class="creative-id-card" id="hanging-card">
-                    <div class="card-photo-box">
-                        <!-- Foto profil sementara (Nanti ganti jadi "assets/greaven-profile.jpg" jika foto aslimu sudah siap) -->
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Greaven Keiyoshi Prasojo" class="card-portrait">
+    <main class="about-section">
+        <div class="about-top-grid">
+            <!-- KIRI: KARTU ID GANTUNG -->
+            <div class="hanging-wrapper">
+                <div class="lanyard-string"></div>
+                <div class="lanyard-clip"></div>
+                <div class="id-card" id="hanging-card">
+                    <div class="id-photo">
+                        <!-- Nanti ganti src ke "assets/greaven-profile.jpg" -->
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Greaven Keiyoshi Prasojo">
                     </div>
-                    <div class="card-info">
+                    <div class="id-details">
                         <h3>GREAVEN K.P.</h3>
-                        <p class="role-title">3D ARTIST</p>
-                        <p class="role-sub">MULTIMEDIA CREATOR</p>
-                        <div class="card-meta">
+                        <span class="id-role">3D ANIMATOR</span>
+                        <span class="id-sub">MULTIMEDIA CREATOR</span>
+                        <div class="id-footer">
                             <span>SMKN 4 MADIUN</span>
-                            <span>ANIMATION STUDENT</span>
+                            <span>ANIMATION</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- KANAN: TEKS TENTANG SAYA -->
-            <div class="about-text-content">
-                <span class="section-number">02 —— TENTANG SAYA</span>
-                <h2>Siswa Animasi yang sedang membangun bahasa visualnya.</h2>
+            <!-- KANAN: BIO -->
+            <div class="about-bio">
+                <span class="section-label">01 —— ABOUT ME</span>
+                <h1>Siswa Animasi yang sedang membangun <span class="gradient-text">bahasa visualnya.</span></h1>
                 <p>
-                    Saya Greaven Keiyoshi Prasojo, siswa jurusan Animasi di SMKN 4 Madiun yang memiliki ketertarikan pada dunia 3D, animasi, video, dan kreativitas visual. Ketertarikan saya pada dunia visual berawal dari rasa penasaran terhadap bagaimana sebuah ide, karakter, dan objek dapat diwujudkan menjadi sebuah karya melalui teknologi dan kreativitas.
+                    Saya Greaven Keiyoshi Prasojo, siswa jurusan Animasi di SMKN 4 Madiun yang berfokus pada eksekusi gerak karakter 3D (3D Animation), produksi video, dan kreativitas multimedia. Ketertarikan saya berawal dari rasa penasaran tentang bagaimana sebuah ide dapat dihidupkan menjadi cerita visual yang berkesan.
                 </p>
                 <p>
-                    Dari ketertarikan tersebut, saya mulai mendalami 3D modeling, texturing, animation, dan rendering menggunakan Blender dan Prisma3D. Bagi saya, 3D menjadi salah satu cara untuk mengeksplorasi bagaimana sebuah konsep dapat berkembang dari bentuk sederhana menjadi sebuah visual yang lebih hidup.
+                    Dalam bidang 3D, saya mendalami prinsip animasi, rigging dasar, dan rendering menggunakan Blender serta Prisma3D. Saya juga telah dipercaya memproduksi bumper video 3D resmi untuk acara regional seperti Forum BKK Jawa Timur.
                 </p>
                 <p>
-                    Selain 3D, saya juga mengembangkan kemampuan di bidang video editing dan videografi menggunakan CapCut, Alight Motion, KineMaster, dan Adobe After Effects, serta aktif di OSIS Sekbid 9 dan produksi live streaming gereja.
+                    Di luar kelas, saya aktif memimpin divisi media dan publikasi sebagai Ketua Sekbid 9 OSIS SMKN 4 Madiun, terlibat dalam tim produksi live streaming gereja, serta berpartisipasi dalam kompetisi film pendek seperti FLS2N dan Klungkung Film Festival.
                 </p>
             </div>
-
         </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div>
-                <h3>Greaven K.P.</h3>
-                <p>3D Artist & Multimedia Creator · SMKN 4 Madiun</p>
-                <p class="footer-email">greaven.kei@gmail.com</p>
+        <!-- 02 — SKILLS & TOOLS (4 KOTAK) -->
+        <div class="skills-heading">
+            <span class="section-label">02 —— SKILLS & TOOLS</span>
+            <h2>Kemampuan & perangkat kerja.</h2>
+        </div>
+
+        <div class="skills-4-grid">
+            <div class="skill-box">
+                <h3>3D & Animation</h3>
+                <div class="skill-tags">
+                    <span>Blender</span>
+                    <span>Prisma3D</span>
+                    <span>Character Animation</span>
+                    <span>3D Logo Bumper</span>
+                    <span>Basic Rigging</span>
+                </div>
             </div>
-            <div class="footer-socials">
-                <a href="https://instagram.com/joprass_" target="_blank" rel="noopener noreferrer">Instagram (@joprass_)</a>
-                <a href="https://tiktok.com/@keiyoshi.16" target="_blank" rel="noopener noreferrer">TikTok (@keiyoshi.16)</a>
-                <a href="https://youtube.com/@Joprass16" target="_blank" rel="noopener noreferrer">YouTube (@Joprass16)</a>
-                <a href="https://wa.me/62895622607368" target="_blank" rel="noopener noreferrer">WhatsApp (+62 895-6226-07368)</a>
+
+            <div class="skill-box">
+                <h3>Video & Multimedia</h3>
+                <div class="skill-tags">
+                    <span>Adobe After Effects</span>
+                    <span>Adobe Premiere Pro</span>
+                    <span>CapCut</span>
+                    <span>Videography</span>
+                    <span>Live Streaming Switcher</span>
+                </div>
+            </div>
+
+            <div class="skill-box">
+                <h3>Soft Skill</h3>
+                <div class="skill-tags">
+                    <span>Visual Storytelling</span>
+                    <span>Team Leadership (OSIS)</span>
+                    <span>Public Relations</span>
+                    <span>Time Management</span>
+                    <span>Problem Solving</span>
+                </div>
+            </div>
+
+            <div class="skill-box">
+                <h3>Pendidikan</h3>
+                <div class="edu-info">
+                    <h4>SMKN 4 Madiun</h4>
+                    <p>Jurusan Animasi (2025 – Sekarang)</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Greaven K.P.</h3>
+                <p>3D Animator & Multimedia Creator. Siswa Jurusan Animasi SMKN 4 Madiun.</p>
+                <a href="mailto:greaven.kei@gmail.com" class="footer-email">greaven.kei@gmail.com</a>
+            </div>
+            <div class="footer-col">
+                <h4>Navigasi</h4>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="experience.html">Experience</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Social Media</h4>
+                <div class="footer-links">
+                    <a href="https://instagram.com/joprass_" target="_blank" rel="noopener noreferrer">Instagram (@joprass_)</a>
+                    <a href="https://tiktok.com/@keiyoshi.16" target="_blank" rel="noopener noreferrer">TikTok (@keiyoshi.16)</a>
+                    <a href="https://youtube.com/@Joprass16" target="_blank" rel="noopener noreferrer">YouTube (@Joprass16)</a>
+                    <a href="https://wa.me/62895622607368" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Greaven K.P. All Rights Reserved.</p>
+            <span>&copy; 2026 Greaven Keiyoshi Prasojo. All Rights Reserved.</span>
+            <span>Madiun, Jawa Timur</span>
         </div>
     </footer>
 
