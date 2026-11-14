@@ -6,7 +6,7 @@
     <title>About | Greaven K.P.</title>
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="about.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -38,29 +38,54 @@
 
     <main class="about-section">
         <div class="about-top-grid">
-            <!-- KIRI: KARTU ID GANTUNG -->
-            <div class="hanging-wrapper">
-                <div class="lanyard-string"></div>
-                <div class="lanyard-clip"></div>
-                <div class="id-card" id="hanging-card">
-                    <div class="id-photo">
-                        <!-- Nanti ganti src ke "assets/greaven-profile.jpg" -->
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Greaven Keiyoshi Prasojo">
-                    </div>
-                    <div class="id-details">
-                        <h3>GREAVEN K.P.</h3>
-                        <span class="id-role">3D ANIMATOR</span>
-                        <span class="id-sub">MULTIMEDIA CREATOR</span>
+            <!-- KIRI: SPRING PHYSICS 2-SIDED HANGING ID CARD -->
+            <div class="hanging-stage">
+                <svg class="lanyard-svg" viewBox="0 0 320 240">
+                    <path id="lanyard-dynamic-line" d="M 160 0 Q 160 42 160 85" stroke="#141414" stroke-width="4" fill="none" stroke-linecap="round"/>
+                </svg>
+
+                <div class="id-card-3d" id="physics-id-card">
+                    <!-- SISI DEPAN -->
+                    <div class="card-face card-front">
+                        <div>
+                            <div class="card-clip-hole"></div>
+                            <div class="id-photo">
+                                <!-- Ganti src ke "assets/greaven-profile.jpg" saat file siap -->
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Greaven Keiyoshi Prasojo">
+                            </div>
+                            <div class="id-details">
+                                <h3>GREAVEN K.P.</h3>
+                                <span class="id-role">3D ANIMATOR & CREATOR</span>
+                            </div>
+                        </div>
                         <div class="id-footer">
                             <span>SMKN 4 MADIUN</span>
-                            <span>ANIMATION</span>
+                            <span>ID-2026</span>
                         </div>
                     </div>
+
+                    <!-- SISI BELAKANG -->
+                    <div class="card-face card-back">
+                        <div class="card-clip-hole" style="background:#2A2A2E; border-color:#3F3F46;"></div>
+                        <span class="back-jp-tag">グレイヴン • CREATIVE PASS</span>
+                        <div class="qr-box">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://instagram.com/joprass_" alt="QR Code Instagram Greaven">
+                        </div>
+                        <div class="back-cta-text">
+                            <h4>CONNECT OUR JOURNEY</h4>
+                            <p>Scan QR untuk terhubung ke Instagram @joprass_</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-controls-hint">
+                    <span>Tarik kartu untuk ayunkan</span>
+                    <button type="button" class="btn-flip" id="flip-card-btn">Putar Kartu &orarr;</button>
                 </div>
             </div>
 
             <!-- KANAN: BIO -->
-            <div class="about-bio">
+            <div class="about-bio reveal">
                 <span class="section-label">01 —— ABOUT ME</span>
                 <h1>Siswa Animasi yang sedang membangun <span class="gradient-text">bahasa visualnya.</span></h1>
                 <p>
@@ -76,12 +101,12 @@
         </div>
 
         <!-- 02 — SKILLS & TOOLS (4 KOTAK) -->
-        <div class="skills-heading">
+        <div class="skills-heading reveal">
             <span class="section-label">02 —— SKILLS & TOOLS</span>
             <h2>Kemampuan & perangkat kerja.</h2>
         </div>
 
-        <div class="skills-4-grid">
+        <div class="skills-4-grid reveal">
             <div class="skill-box">
                 <h3>3D & Animation</h3>
                 <div class="skill-tags">
