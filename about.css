@@ -28,17 +28,17 @@
 
 .lanyard-svg {
     position: absolute;
-    top: 0;
+    top: -15px;
     left: 0;
     width: 320px;
-    height: 240px;
+    height: 260px;
     pointer-events: none;
-    z-index: 1;
+    z-index: 3;
 }
 
 .id-card-3d {
     position: relative;
-    top: 80px;
+    top: 84px;
     width: 280px;
     height: 400px;
     transform-style: preserve-3d;
