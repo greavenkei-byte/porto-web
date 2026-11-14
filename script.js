@@ -138,18 +138,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             idCard.style.transform = `translate3d(${posX}px, ${posY}px, 0) rotateZ(${tiltZ}deg) rotateX(${tiltX}deg) rotateY(${flipAngle}deg)`;
 
-            if (lanyardSvgLine) {
+           if (lanyardSvgLine) {
                 const endX = 160 + posX;
-                const endY = 85 + posY;
-                const ctrlX = 160 + posX * 0.4;
-                const ctrlY = 42 + posY * 0.3;
-                lanyardSvgLine.setAttribute('d', `M 160 0 Q ${ctrlX} ${ctrlY} ${endX} ${endY}`);
-            }
+                const endY = 88 + posY;
+                const ctrlX = 160 + posX * 0.45;
+                const ctrlY = 35 + posY * 0.35;
+                lanyardSvgLine.setAttribute('d', `M 160 -20 Q ${ctrlX} ${ctrlY} ${endX} ${endY}`);
 
-            requestAnimationFrame(animateCard);
-        }
-        animateCard();
-    }
+                const clasp = document.getElementById('lanyard-clasp');
+                if (clasp) {
+                    clasp.setAttribute('transform', `translate(${endX}, ${endY}) rotate(${tiltZ})`);
+                }
+            }
 
     // 5. PROJECT CATEGORY FILTER (PROJECTS PAGE)
     const filterBtns = document.querySelectorAll('.filter-btn');
