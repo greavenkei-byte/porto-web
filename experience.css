@@ -13,7 +13,6 @@
     font-size: clamp(32px, 4.5vw, 46px);
 }
 
-/* 3 KARTU PENGALAMAN UTAMA */
 .exp-cards-list {
     display: flex;
     flex-direction: column;
@@ -23,8 +22,8 @@
 
 .exp-card {
     position: relative;
-    background-color: var(--surface-color);
-    border: 1px solid var(--border-color);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
     border-radius: 16px;
     padding: 32px 36px;
     overflow: hidden;
@@ -32,28 +31,28 @@
 }
 
 .exp-card:hover {
-    border-color: var(--accent-purple);
-    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+    border-color: var(--text-ink);
+    box-shadow: 0 12px 28px rgba(20, 20, 20, 0.05);
 }
 
 .exp-watermark {
     position: absolute;
-    right: 30px;
+    right: 32px;
     top: 50%;
     transform: translateY(-50%);
     font-family: 'Space Grotesk', sans-serif;
     font-size: 110px;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.03);
+    color: rgba(20, 20, 20, 0.04);
     pointer-events: none;
     user-select: none;
 }
 
 .exp-tag {
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 1.5px;
-    color: var(--text-muted);
+    color: var(--text-muted-light);
     display: block;
     margin-bottom: 8px;
 }
@@ -73,23 +72,22 @@
 .year-pill {
     font-size: 11px;
     font-weight: 600;
-    color: var(--accent-purple);
-    background-color: rgba(139, 92, 246, 0.12);
-    border: 1px solid rgba(139, 92, 246, 0.3);
+    color: var(--text-white);
+    background-color: var(--bg-dark);
     padding: 4px 12px;
     border-radius: 50px;
 }
 
 .exp-role {
     font-size: 14px;
-    font-weight: 500;
-    color: var(--accent-cyan);
+    font-weight: 600;
+    color: var(--accent-purple);
     display: block;
     margin-bottom: 14px;
 }
 
 .exp-desc {
-    color: var(--text-muted);
+    color: var(--text-muted-light);
     font-size: 14px;
     line-height: 1.7;
     max-width: 780px;
@@ -98,9 +96,9 @@
 
 .fokus-label {
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 1.5px;
-    color: var(--text-muted);
+    color: var(--text-muted-light);
     text-transform: uppercase;
     display: block;
     margin-bottom: 10px;
@@ -115,15 +113,15 @@
 }
 
 .fokus-tags span {
-    background-color: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border-color);
+    background-color: var(--bg-paper);
+    border: 1px solid var(--border-light);
     font-size: 12px;
+    font-weight: 500;
     padding: 5px 12px;
     border-radius: 6px;
-    color: var(--text-main);
+    color: var(--text-ink);
 }
 
-/* GRID LOMBA & PELATIHAN */
 .sub-grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -133,6 +131,7 @@
 
 .sub-col-title {
     font-size: 12px;
+    font-weight: 700;
     letter-spacing: 1.5px;
     color: var(--accent-purple);
     text-transform: uppercase;
@@ -147,15 +146,15 @@
 }
 
 .mini-card {
-    background-color: var(--surface-color);
-    border: 1px solid var(--border-color);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
     border-radius: 14px;
     padding: 24px;
     transition: 0.3s ease;
 }
 
 .mini-card:hover {
-    border-color: var(--accent-cyan);
+    border-color: var(--text-ink);
 }
 
 .mini-top {
@@ -172,24 +171,23 @@
 
 .mini-badge {
     font-size: 10px;
-    font-weight: 600;
-    color: var(--accent-cyan);
-    background: rgba(34, 211, 238, 0.1);
+    font-weight: 700;
+    color: var(--accent-purple);
+    background: rgba(124, 58, 237, 0.1);
     padding: 4px 10px;
     border-radius: 50px;
     white-space: nowrap;
 }
 
 .mini-card p {
-    color: var(--text-muted);
+    color: var(--text-muted-light);
     font-size: 13px;
     line-height: 1.6;
 }
 
-/* KARTU PENDIDIKAN LEBAR PENUH */
 .edu-banner {
-    background-color: var(--surface-color);
-    border: 1px solid var(--border-color);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
     border-radius: 14px;
     padding: 26px 32px;
     display: flex;
@@ -205,7 +203,7 @@
 }
 
 .edu-banner p {
-    color: var(--text-muted);
+    color: var(--text-muted-light);
     font-size: 13.5px;
 }
 
