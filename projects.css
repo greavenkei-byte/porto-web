@@ -15,11 +15,10 @@
 }
 
 .projects-header p {
-    color: var(--text-muted);
+    color: var(--text-muted-light);
     font-size: 15px;
 }
 
-/* FILTER PILLS */
 .filter-bar {
     display: flex;
     gap: 10px;
@@ -28,24 +27,23 @@
 }
 
 .filter-btn {
-    background-color: var(--surface-color);
-    border: 1px solid var(--border-color);
-    color: var(--text-muted);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
+    color: var(--text-muted-light);
     padding: 9px 20px;
     border-radius: 50px;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.25s ease;
 }
 
 .filter-btn:hover, .filter-btn.active {
-    background-color: var(--accent-purple);
-    border-color: var(--accent-purple);
-    color: #fff;
+    background-color: var(--bg-dark);
+    border-color: var(--bg-dark);
+    color: var(--text-white);
 }
 
-/* GRID 2 KOLOM */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -53,8 +51,8 @@
 }
 
 .project-card {
-    background-color: var(--surface-color);
-    border: 1px solid var(--border-color);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
     border-radius: 16px;
     overflow: hidden;
     text-decoration: none;
@@ -65,9 +63,9 @@
 }
 
 .project-card:hover {
-    border-color: var(--accent-purple);
+    border-color: var(--text-ink);
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 35px rgba(20, 20, 20, 0.08);
 }
 
 .card-thumb {
@@ -75,7 +73,7 @@
     width: 100%;
     aspect-ratio: 16/10;
     overflow: hidden;
-    background-color: #18181b;
+    background-color: var(--bg-dark);
 }
 
 .card-thumb img {
@@ -88,7 +86,7 @@
 .hover-cta {
     position: absolute;
     inset: 0;
-    background: rgba(9, 9, 11, 0.65);
+    background: rgba(20, 20, 20, 0.55);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,12 +95,12 @@
 }
 
 .hover-cta span {
-    background-color: var(--accent-purple);
-    color: #fff;
-    padding: 10px 20px;
+    background-color: var(--bg-card);
+    color: var(--text-ink);
+    padding: 10px 22px;
     border-radius: 50px;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .project-card:hover .card-thumb img {
@@ -130,35 +128,37 @@
 
 .card-year {
     font-size: 12px;
-    color: var(--text-muted);
-    background: rgba(255, 255, 255, 0.05);
+    font-weight: 600;
+    color: var(--text-ink);
+    background: var(--bg-paper);
+    border: 1px solid var(--border-light);
     padding: 3px 10px;
     border-radius: 4px;
 }
 
 .card-cat {
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--accent-purple);
     display: block;
     margin-bottom: 10px;
 }
 
 .card-body p {
-    color: var(--text-muted);
+    color: var(--text-muted-light);
     font-size: 13.5px;
     line-height: 1.6;
 }
 
-/* PROJECT DETAIL PAGE STYLES */
+/* PROJECT DETAIL PAGE */
 .back-link {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: var(--text-muted);
+    color: var(--text-muted-light);
     text-decoration: none;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 24px;
@@ -166,7 +166,7 @@
 }
 
 .back-link:hover {
-    color: var(--accent-cyan);
+    color: var(--text-ink);
 }
 
 .detail-header {
@@ -175,7 +175,7 @@
 
 .detail-badge {
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--accent-purple);
     letter-spacing: 1px;
     display: block;
@@ -192,7 +192,7 @@
     background-color: #000;
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-light);
     margin-bottom: 48px;
 }
 
@@ -215,14 +215,15 @@
 
 .detail-block h3 {
     font-size: 12px;
+    font-weight: 700;
     letter-spacing: 1.5px;
-    color: var(--accent-cyan);
+    color: var(--accent-purple);
     text-transform: uppercase;
     margin-bottom: 12px;
 }
 
 .detail-block p {
-    color: var(--text-muted);
+    color: var(--text-muted-light);
     font-size: 15px;
     line-height: 1.8;
 }
@@ -234,19 +235,18 @@
 }
 
 .step-pill {
-    background-color: var(--surface-color);
-    border: 1px solid var(--border-color);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
     padding: 8px 16px;
     border-radius: 8px;
     font-size: 13px;
-    font-weight: 500;
-    color: var(--text-main);
+    font-weight: 600;
+    color: var(--text-ink);
 }
 
-/* SIDEBAR INFO */
 .info-sidebar {
-    background-color: var(--surface-color);
-    border: 1px solid var(--border-color);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
     border-radius: 16px;
     padding: 28px;
     height: fit-content;
@@ -254,11 +254,12 @@
 
 .info-sidebar h3 {
     font-size: 13px;
+    font-weight: 700;
     letter-spacing: 1.5px;
-    color: var(--accent-purple);
+    color: var(--text-ink);
     margin-bottom: 20px;
     padding-bottom: 12px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-light);
 }
 
 .info-row {
@@ -268,7 +269,7 @@
 .info-row span {
     display: block;
     font-size: 11px;
-    color: var(--text-muted);
+    color: var(--text-muted-light);
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 4px;
@@ -276,21 +277,20 @@
 
 .info-row strong {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
-/* PREV / NEXT NAVIGATION */
 .prev-next-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     padding-top: 40px;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-light);
 }
 
 .nav-project-card {
-    background-color: var(--surface-color);
-    border: 1px solid var(--border-color);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
     border-radius: 14px;
     padding: 24px;
     text-decoration: none;
@@ -299,8 +299,8 @@
 }
 
 .nav-project-card:hover {
-    border-color: var(--accent-purple);
-    background-color: var(--surface-hover);
+    border-color: var(--text-ink);
+    transform: translateY(-2px);
 }
 
 .nav-project-card.next {
@@ -309,7 +309,7 @@
 
 .nav-dir {
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--accent-purple);
     letter-spacing: 1.5px;
     display: block;
