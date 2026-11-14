@@ -6,9 +6,24 @@
     <title>Greaven K.P. | 3D Artist & Multimedia Creator</title>
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="home.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- OPENING / LOADING SCREEN (1X PER SESI) -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-jp jp-display">グレイヴン</div>
+        <div class="preloader-sub">GREAVEN KEIYOSHI PRASOJO — PORTFOLIO</div>
+        <div class="loader-track-wrap">
+            <div class="loader-bar-bg">
+                <div class="loader-bar-fill" id="loader-bar"></div>
+            </div>
+            <div class="loader-meta">
+                <span>LOADING EXPERIENCE</span>
+                <span id="loader-percent">000%</span>
+            </div>
+        </div>
+    </div>
 
     <!-- NAVBAR -->
     <header class="navbar">
@@ -38,7 +53,7 @@
         <a href="assets/cv-greaven-kp.pdf" target="_blank">Download CV</a>
     </div>
 
-    <!-- HERO SECTION (VIDEO BACKGROUND) -->
+    <!-- HERO SECTION -->
     <section class="hero-wrapper">
         <video class="hero-bg-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1400&q=80">
             <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" type="video/mp4">
@@ -62,7 +77,7 @@
                 <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80" alt="Showreel Preview">
                 <div class="play-overlay">
                     <div class="play-circle">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                     </div>
                 </div>
                 <span class="showreel-tag">FEATURED SHOWREEL</span>
@@ -70,7 +85,7 @@
         </div>
     </section>
 
-    <!-- MARQUEE -->
+    <!-- SEAMLESS INFINITE MARQUEE (DARK BLOCK) -->
     <div class="marquee-section">
         <div class="marquee-track">
             <div class="marquee-group">
@@ -79,8 +94,18 @@
                 <span>Videography</span><span class="dot">•</span>
                 <span>Motion Bumper</span><span class="dot">•</span>
                 <span>Visual Storytelling</span><span class="dot">•</span>
+                <span>3D Animation</span><span class="dot">•</span>
+                <span>Video Editing</span><span class="dot">•</span>
+                <span>Videography</span><span class="dot">•</span>
+                <span>Motion Bumper</span><span class="dot">•</span>
+                <span>Visual Storytelling</span><span class="dot">•</span>
             </div>
-            <div class="marquee-group">
+            <div class="marquee-group" aria-hidden="true">
+                <span>3D Animation</span><span class="dot">•</span>
+                <span>Video Editing</span><span class="dot">•</span>
+                <span>Videography</span><span class="dot">•</span>
+                <span>Motion Bumper</span><span class="dot">•</span>
+                <span>Visual Storytelling</span><span class="dot">•</span>
                 <span>3D Animation</span><span class="dot">•</span>
                 <span>Video Editing</span><span class="dot">•</span>
                 <span>Videography</span><span class="dot">•</span>
@@ -91,7 +116,7 @@
     </div>
 
     <!-- 00 — SHOWREEL -->
-    <section class="home-section" id="showreel-sec">
+    <section class="home-section reveal" id="showreel-sec">
         <span class="section-label">00 —— SHOWREEL</span>
         <div class="showreel-box">
             <div class="showreel-text">
@@ -108,7 +133,7 @@
     </section>
 
     <!-- 01 — WHAT I DO -->
-    <section class="home-section">
+    <section class="home-section reveal">
         <div class="section-heading">
             <span class="section-label">01 —— WHAT I DO</span>
             <h2>Fokus & keahlian utama.</h2>
@@ -141,16 +166,15 @@
         </div>
     </section>
 
-    <!-- 02 — FEATURED WORKS (ZIGZAG SPOILER) -->
+    <!-- 02 — FEATURED WORKS (ZIGZAG) -->
     <section class="home-section">
-        <div class="section-heading">
+        <div class="section-heading reveal">
             <span class="section-label">02 —— FEATURED WORKS</span>
             <h2>Karya pilihan.</h2>
         </div>
 
         <div class="featured-list">
-            <!-- Item 1 -->
-            <div class="featured-item">
+            <div class="featured-item reveal">
                 <div class="featured-img">
                     <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80" alt="3D Animation Test 01">
                 </div>
@@ -162,21 +186,19 @@
                 </div>
             </div>
 
-            <!-- Item 2 (Reverse) -->
-            <div class="featured-item reverse">
+            <div class="featured-item reverse reveal">
                 <div class="featured-img">
                     <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="3D Bumper Forum BKK">
                 </div>
                 <div class="featured-content">
                     <span class="featured-meta">3D Animation • 2026</span>
                     <h3>3D Logo Bumper — Forum BKK Jatim</h3>
-                    <p>Produksi bumper video 3D resmi dan aset visual promosi acara dengan pencahayaan studio dan transisi kamera dinamis.</p>
+                    <p>Produksi bumper video 3D resmi dan aset visual promosi acara regional dengan pencahayaan studio dan transisi kamera dinamis.</p>
                     <a href="project-detail.html?id=anim-02" class="link-arrow">Lihat Project &rarr;</a>
                 </div>
             </div>
 
-            <!-- Item 3 -->
-            <div class="featured-item">
+            <div class="featured-item reveal">
                 <div class="featured-img">
                     <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="Video Editing Reel">
                 </div>
@@ -189,59 +211,74 @@
             </div>
         </div>
 
-        <div class="center-btn-wrap">
+        <div class="center-btn-wrap reveal">
             <a href="projects.html" class="btn-secondary">Lihat Semua Projects &rarr;</a>
         </div>
     </section>
 
-    <!-- 03 — CREATIVE PROCESS -->
+    <!-- 03 — CREATIVE PROCESS (VERTICAL TIMELINE) -->
     <section class="home-section">
-        <div class="section-heading">
+        <div class="section-heading reveal">
             <span class="section-label">03 —— CREATIVE PROCESS</span>
             <h2>Setiap karya adalah proses.</h2>
         </div>
-        <div class="process-grid">
-            <div class="process-step">
-                <span class="step-num">01</span>
-                <h4>Ide</h4>
-                <p>Merumuskan konsep cerita, pesan visual, dan tujuan karya.</p>
+
+        <div class="timeline-wrapper" id="process-timeline">
+            <div class="timeline-line-bg"></div>
+            <div class="timeline-line-progress" id="timeline-progress"></div>
+
+            <div class="timeline-step reveal">
+                <span class="timeline-dot"></span>
+                <span class="keyframe-label">01 — KEYFRAME</span>
+                <h3>IDE</h3>
+                <p>Merumuskan konsep cerita, pesan visual, dan tujuan karya yang ingin disampaikan kepada audiens.</p>
             </div>
-            <div class="process-step">
-                <span class="step-num">02</span>
-                <h4>Reference</h4>
-                <p>Mengumpulkan referensi gerak, pencahayaan, dan moodboard.</p>
+
+            <div class="timeline-step reveal">
+                <span class="timeline-dot"></span>
+                <span class="keyframe-label">02 — KEYFRAME</span>
+                <h3>REFERENCE</h3>
+                <p>Mengumpulkan referensi gerak, pencahayaan, sudut kamera, serta menyusun moodboard visual.</p>
             </div>
-            <div class="process-step">
-                <span class="step-num">03</span>
-                <h4>Exploration</h4>
-                <p>Uji coba komposisi kamera, blocking gerakan, dan ritme.</p>
+
+            <div class="timeline-step reveal">
+                <span class="timeline-dot"></span>
+                <span class="keyframe-label">03 — KEYFRAME</span>
+                <h3>EXPLORATION</h3>
+                <p>Uji coba komposisi kamera, blocking gerakan karakter, serta menentukan ritme cerita.</p>
             </div>
-            <div class="process-step">
-                <span class="step-num">04</span>
-                <h4>Creation</h4>
-                <p>Eksekusi utama animasi 3D, pengambilan footage, atau editing.</p>
+
+            <div class="timeline-step reveal">
+                <span class="timeline-dot"></span>
+                <span class="keyframe-label">04 — KEYFRAME</span>
+                <h3>CREATION</h3>
+                <p>Eksekusi utama animasi 3D, pengambilan footage lapangan, atau penyuntingan video secara menyeluruh.</p>
             </div>
-            <div class="process-step">
-                <span class="step-num">05</span>
-                <h4>Refinement</h4>
-                <p>Penyempurnaan grafik kurva (spline), warna, dan audio.</p>
+
+            <div class="timeline-step reveal">
+                <span class="timeline-dot"></span>
+                <span class="keyframe-label">05 — KEYFRAME</span>
+                <h3>REFINEMENT</h3>
+                <p>Penyempurnaan grafik kurva (spline), detail pencahayaan, color grading, serta sinkronisasi audio.</p>
             </div>
-            <div class="process-step">
-                <span class="step-num">06</span>
-                <h4>Final Output</h4>
-                <p>Rendering resolusi tinggi dan siap dipublikasikan.</p>
+
+            <div class="timeline-step reveal">
+                <span class="timeline-dot"></span>
+                <span class="keyframe-label">06 — KEYFRAME</span>
+                <h3>FINAL OUTPUT</h3>
+                <p>Rendering resolusi tinggi dengan kualitas terbaik dan siap dipublikasikan.</p>
             </div>
         </div>
     </section>
 
-    <!-- CTA BANNER -->
-    <section class="home-section">
+    <!-- CTA BANNER (DARK CONTRAST BLOCK) -->
+    <section class="home-section reveal">
         <div class="cta-banner">
             <h2>Mari wujudkan cerita visual berikutnya.</h2>
             <p>Terbuka untuk diskusi proyek kreatif, kolaborasi animasi 3D, dokumentasi video, maupun editing.</p>
             <div class="cta-buttons">
-                <a href="contact.html" class="btn-primary">Hubungi Saya</a>
-                <a href="mailto:greaven.kei@gmail.com" class="btn-secondary">Kirim Email</a>
+                <a href="contact.html" class="btn-cta-light">Hubungi Saya</a>
+                <a href="mailto:greaven.kei@gmail.com" class="btn-cta-outline">Kirim Email</a>
             </div>
         </div>
     </section>
