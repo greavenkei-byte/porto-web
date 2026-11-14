@@ -1,31 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. PRELOADER / OPENING SCREEN (1X PER SESI)
+    // 1. PRELOADER / OPENING SCREEN (AMAN ANTI-NYANGKUT)
     const preloader = document.getElementById('preloader');
     const loaderBar = document.getElementById('loader-bar');
     const loaderPercent = document.getElementById('loader-percent');
 
+    function closePreloader() {
+        if (!preloader) return;
+        preloader.classList.add('slide-up');
+        try {
+            sessionStorage.setItem('gkp_visited', 'true');
+        } catch (e) {}
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+        }, 900);
+    }
+
     if (preloader) {
-        if (sessionStorage.getItem('gkp_visited')) {
+        let alreadyVisited = false;
+        try {
+            alreadyVisited = sessionStorage.getItem('gkp_visited') === 'true';
+        } catch (e) {}
+
+        if (alreadyVisited) {
             preloader.classList.add('hidden');
         } else {
             let progress = 0;
             const interval = setInterval(() => {
-                progress += Math.floor(Math.random() * 7) + 4;
+                progress += Math.floor(Math.random() * 8) + 5;
                 if (progress >= 100) {
                     progress = 100;
                     clearInterval(interval);
                     if (loaderBar) loaderBar.style.width = '100%';
                     if (loaderPercent) loaderPercent.textContent = '100%';
-
-                    setTimeout(() => {
-                        preloader.classList.add('slide-up');
-                        sessionStorage.setItem('gkp_visited', 'true');
-                    }, 300);
+                    setTimeout(closePreloader, 250);
                 } else {
                     if (loaderBar) loaderBar.style.width = progress + '%';
                     if (loaderPercent) loaderPercent.textContent = String(progress).padStart(3, '0') + '%';
                 }
-            }, 35);
+            }, 30);
+
+            // Failsafe mutlak: maksimal 2.5 detik wajib terbuka
+            setTimeout(() => {
+                clearInterval(interval);
+                closePreloader();
+            }, 2500);
         }
     }
 
@@ -41,15 +59,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. SCROLL REVEAL & VERTICAL TIMELINE PROGRESS
     const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.15 });
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
 
-    revealEls.forEach(el => observer.observe(el));
+        revealEls.forEach(el => observer.observe(el));
+    } else {
+        revealEls.forEach(el => el.classList.add('visible'));
+    }
 
     const timeline = document.getElementById('process-timeline');
     const timelineProgress = document.getElementById('timeline-progress');
@@ -138,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             idCard.style.transform = `translate3d(${posX}px, ${posY}px, 0) rotateZ(${tiltZ}deg) rotateX(${tiltX}deg) rotateY(${flipAngle}deg)`;
 
-           if (lanyardSvgLine) {
+            if (lanyardSvgLine) {
                 const endX = 160 + posX;
                 const endY = 88 + posY;
                 const ctrlX = 160 + posX * 0.45;
@@ -150,6 +172,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     clasp.setAttribute('transform', `translate(${endX}, ${endY}) rotate(${tiltZ})`);
                 }
             }
+
+            requestAnimationFrame(animateCard);
+        }
+        animateCard();
+    }
 
     // 5. PROJECT CATEGORY FILTER (PROJECTS PAGE)
     const filterBtns = document.querySelectorAll('.filter-btn');
