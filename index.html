@@ -318,5 +318,46 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Pengaman mutlak langsung di HTML agar preloader tidak pernah macet
+        (function() {
+            var p = document.getElementById('preloader');
+            var b = document.getElementById('loader-bar');
+            var t = document.getElementById('loader-percent');
+            if (!p) return;
+
+            try {
+                if (sessionStorage.getItem('gkp_visited') === 'true') {
+                    p.style.display = 'none';
+                    return;
+                }
+            } catch (e) {}
+
+            var pct = 0;
+            var timer = setInterval(function() {
+                pct += 6;
+                if (pct >= 100) {
+                    pct = 100;
+                    clearInterval(timer);
+                    if (b) b.style.width = '100%';
+                    if (t) t.textContent = '100%';
+                    setTimeout(function() {
+                        p.classList.add('slide-up');
+                        try { sessionStorage.setItem('gkp_visited', 'true'); } catch (e) {}
+                        setTimeout(function() { p.style.display = 'none'; }, 900);
+                    }, 250);
+                } else {
+                    if (b) b.style.width = pct + '%';
+                    if (t) t.textContent = String(pct).padStart(3, '0') + '%';
+                }
+            }, 40);
+
+            setTimeout(function() {
+                clearInterval(timer);
+                p.classList.add('slide-up');
+                setTimeout(function() { p.style.display = 'none'; }, 900);
+            }, 2200);
+        })();
+    </script>
 </body>
 </html>
