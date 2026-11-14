@@ -7,107 +7,196 @@
 
 .about-top-grid {
     display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
+    grid-template-columns: 0.9fr 1.1fr;
     gap: 60px;
     align-items: center;
-    margin-bottom: 80px;
+    margin-bottom: 85px;
 }
 
-/* HANGING ID CARD */
-.hanging-wrapper {
+/* SPRING PHYSICS 2-SIDED HANGING ID CARD */
+.hanging-stage {
+    position: relative;
+    width: 320px;
+    height: 510px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    user-select: none;
+    perspective: 1200px;
 }
 
-.lanyard-string {
-    width: 3px;
-    height: 70px;
-    background: linear-gradient(180deg, var(--border-color), var(--accent-purple));
-    margin-bottom: -4px;
+.lanyard-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 240px;
+    pointer-events: none;
+    z-index: 1;
 }
 
-.lanyard-clip {
-    width: 28px;
-    height: 12px;
-    background-color: #333;
-    border-radius: 4px;
-    border: 1px solid var(--border-color);
-    margin-bottom: -6px;
+.id-card-3d {
+    position: relative;
+    top: 80px;
+    width: 280px;
+    height: 400px;
+    transform-style: preserve-3d;
+    cursor: grab;
     z-index: 2;
 }
 
-.id-card {
-    background-color: var(--surface-color);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    width: 290px;
+.card-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 18px;
     padding: 20px;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
-    transition: transform 0.12s ease-out, border-color 0.3s;
-    cursor: grab;
+    box-shadow: 0 24px 48px rgba(20, 20, 20, 0.16);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.id-card:hover {
-    border-color: var(--accent-purple);
+/* SISI DEPAN */
+.card-front {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
+    color: var(--text-ink);
+}
+
+.card-clip-hole {
+    width: 44px;
+    height: 8px;
+    background-color: var(--bg-paper);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    margin: 0 auto 12px;
 }
 
 .id-photo {
     width: 100%;
-    aspect-ratio: 3/4;
-    border-radius: 10px;
+    height: 225px;
+    border-radius: 12px;
     overflow: hidden;
-    margin-bottom: 16px;
-    border: 1px solid var(--border-color);
-    background-color: #18181b;
+    border: 1px solid var(--border-light);
+    margin-bottom: 14px;
 }
 
 .id-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    pointer-events: none;
 }
 
 .id-details h3 {
     font-size: 19px;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
 }
 
 .id-role {
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: 700;
     color: var(--accent-purple);
     letter-spacing: 1px;
     display: block;
-}
-
-.id-sub {
-    font-size: 11px;
-    color: var(--text-muted);
-    display: block;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
 }
 
 .id-footer {
     display: flex;
     justify-content: space-between;
     font-size: 10px;
-    font-weight: 600;
-    color: var(--accent-cyan);
-    border-top: 1px solid var(--border-color);
+    font-weight: 700;
+    color: var(--text-muted-light);
+    border-top: 1px solid var(--border-light);
     padding-top: 10px;
 }
 
-/* ABOUT TEXT */
+/* SISI BELAKANG (QR CODE + EDITORIAL JAPANESE GRAPHIC) */
+.card-back {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    border: 1px solid var(--border-dark);
+    transform: rotateY(180deg);
+    align-items: center;
+    text-align: center;
+    padding: 24px 20px;
+}
+
+.back-jp-tag {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--accent-cyan-bright);
+    font-weight: 700;
+}
+
+.qr-box {
+    background-color: #FFFFFF;
+    padding: 12px;
+    border-radius: 12px;
+    width: 156px;
+    height: 156px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-box img {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.back-cta-text h4 {
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.back-cta-text p {
+    font-size: 11px;
+    color: var(--text-muted-dark);
+}
+
+.card-controls-hint {
+    margin-top: 92px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    color: var(--text-muted-light);
+}
+
+.btn-flip {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    border: none;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-flip:hover {
+    background-color: var(--accent-purple);
+}
+
+/* ABOUT BIO */
 .about-bio h1 {
-    font-size: clamp(28px, 3.8vw, 40px);
-    line-height: 1.2;
+    font-size: clamp(28px, 3.8vw, 42px);
+    line-height: 1.18;
     margin-bottom: 24px;
+    color: var(--text-ink);
 }
 
 .about-bio p {
-    color: var(--text-muted);
+    color: var(--text-muted-light);
     font-size: 14.5px;
     line-height: 1.8;
     margin-bottom: 18px;
@@ -119,7 +208,8 @@
 }
 
 .skills-heading h2 {
-    font-size: 30px;
+    font-size: 32px;
+    color: var(--text-ink);
 }
 
 .skills-4-grid {
@@ -129,21 +219,22 @@
 }
 
 .skill-box {
-    background-color: var(--surface-color);
-    border: 1px solid var(--border-color);
-    border-radius: 14px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
     padding: 28px;
     transition: 0.3s ease;
 }
 
 .skill-box:hover {
-    border-color: var(--accent-purple);
+    border-color: var(--text-ink);
 }
 
 .skill-box h3 {
-    font-size: 13px;
+    font-size: 12px;
+    font-weight: 700;
     letter-spacing: 1.5px;
-    color: var(--accent-cyan);
+    color: var(--accent-purple);
     text-transform: uppercase;
     margin-bottom: 16px;
 }
@@ -155,10 +246,11 @@
 }
 
 .skill-tags span {
-    background-color: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border-color);
-    color: var(--text-main);
+    background-color: var(--bg-paper);
+    border: 1px solid var(--border-light);
+    color: var(--text-ink);
     font-size: 13px;
+    font-weight: 500;
     padding: 6px 14px;
     border-radius: 8px;
 }
@@ -169,8 +261,8 @@
 }
 
 .edu-info p {
-    color: var(--text-muted);
-    font-size: 13px;
+    color: var(--text-muted-light);
+    font-size: 13.5px;
 }
 
 @media (max-width: 850px) {
