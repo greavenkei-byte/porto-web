@@ -38,10 +38,37 @@
 
     <main class="about-section">
         <div class="about-top-grid">
-            <!-- KIRI: SPRING PHYSICS 2-SIDED HANGING ID CARD -->
+           <!-- KIRI: SPRING PHYSICS 2-SIDED HANGING ID CARD -->
             <div class="hanging-stage">
-                <svg class="lanyard-svg" viewBox="0 0 320 240">
-                    <path id="lanyard-dynamic-line" d="M 160 0 Q 160 42 160 85" stroke="#141414" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <svg class="lanyard-svg" viewBox="0 0 320 260">
+                    <defs>
+                        <!-- Jalur kurva untuk tali tebal & teks JOPRASS -->
+                        <path id="lanyard-dynamic-line" d="M 160 -20 Q 160 35 160 88" />
+                    </defs>
+
+                    <!-- Bayangan Tali -->
+                    <use href="#lanyard-dynamic-line" stroke="rgba(20, 20, 20, 0.18)" stroke-width="32" fill="none" stroke-linecap="butt" transform="translate(3, 3)" />
+
+                    <!-- Tali Lanyard Kain Tebal -->
+                    <use href="#lanyard-dynamic-line" stroke="#141414" stroke-width="28" fill="none" stroke-linecap="butt" />
+
+                    <!-- Garis Jahitan Pinggir Tali (Subtle Stitch) -->
+                    <use href="#lanyard-dynamic-line" stroke="rgba(255, 255, 255, 0.15)" stroke-width="22" stroke-dasharray="3 3" fill="none" />
+                    <use href="#lanyard-dynamic-line" stroke="#141414" stroke-width="19" fill="none" />
+
+                    <!-- Tulisan JOPRASS Mengikuti Lengkungan Tali -->
+                    <text fill="#F4F3EF" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" letter-spacing="3.5" dy="3.5">
+                        <textPath href="#lanyard-dynamic-line" startOffset="52%" text-anchor="middle">
+                            JOPRASS •
+                        </textPath>
+                    </text>
+
+                    <!-- Pengait Klip Metalik di Ujung Tali -->
+                    <g id="lanyard-clasp" transform="translate(160, 88)">
+                        <rect x="-15" y="-12" width="30" height="10" rx="3" fill="#27272A" />
+                        <circle cx="0" cy="-2" r="5" fill="none" stroke="#71717A" stroke-width="2.5" />
+                        <rect x="-5" y="1" width="10" height="13" rx="3" fill="#A1A1AA" />
+                    </g>
                 </svg>
 
                 <div class="id-card-3d" id="physics-id-card">
