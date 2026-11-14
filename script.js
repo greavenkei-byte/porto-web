@@ -1,5 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. MOBILE HAMBURGER MENU
+    // 1. PRELOADER / OPENING SCREEN (1X PER SESI)
+    const preloader = document.getElementById('preloader');
+    const loaderBar = document.getElementById('loader-bar');
+    const loaderPercent = document.getElementById('loader-percent');
+
+    if (preloader) {
+        if (sessionStorage.getItem('gkp_visited')) {
+            preloader.classList.add('hidden');
+        } else {
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.floor(Math.random() * 7) + 4;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    if (loaderBar) loaderBar.style.width = '100%';
+                    if (loaderPercent) loaderPercent.textContent = '100%';
+
+                    setTimeout(() => {
+                        preloader.classList.add('slide-up');
+                        sessionStorage.setItem('gkp_visited', 'true');
+                    }, 300);
+                } else {
+                    if (loaderBar) loaderBar.style.width = progress + '%';
+                    if (loaderPercent) loaderPercent.textContent = String(progress).padStart(3, '0') + '%';
+                }
+            }, 35);
+        }
+    }
+
+    // 2. MOBILE HAMBURGER MENU
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
@@ -9,28 +39,119 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. INTERACTIVE HANGING ID CARD (ABOUT PAGE)
-    const hangingCard = document.getElementById('hanging-card');
-    if (hangingCard) {
-        hangingCard.addEventListener('mousemove', (e) => {
-            const rect = hangingCard.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = ((y - centerY) / centerY) * -12;
-            const rotateY = ((x - centerX) / centerX) * 12;
-
-            hangingCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    // 3. SCROLL REVEAL & VERTICAL TIMELINE PROGRESS
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
         });
+    }, { threshold: 0.15 });
 
-        hangingCard.addEventListener('mouseleave', () => {
-            hangingCard.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+    revealEls.forEach(el => observer.observe(el));
+
+    const timeline = document.getElementById('process-timeline');
+    const timelineProgress = document.getElementById('timeline-progress');
+
+    if (timeline && timelineProgress) {
+        window.addEventListener('scroll', () => {
+            const rect = timeline.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            const totalHeight = rect.height;
+            const scrolled = Math.min(Math.max(windowHeight * 0.65 - rect.top, 0), totalHeight);
+            const percentage = (scrolled / totalHeight) * 100;
+            timelineProgress.style.height = `${percentage}%`;
         });
     }
 
-    // 3. PROJECT CATEGORY FILTER (PROJECTS PAGE)
+    // 4. SPRING PHYSICS DRAGGABLE & 2-SIDED FLIP ID CARD (ABOUT PAGE)
+    const idCard = document.getElementById('physics-id-card');
+    const lanyardSvgLine = document.getElementById('lanyard-dynamic-line');
+    const flipBtn = document.getElementById('flip-card-btn');
+
+    if (idCard) {
+        let isDragging = false;
+        let isFlipped = false;
+        let startX = 0, startY = 0;
+        let posX = 0, posY = 0;
+        let velX = 0, velY = 0;
+
+        const stiffness = 0.08;
+        const damping = 0.82;
+
+        if (flipBtn) {
+            flipBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                isFlipped = !isFlipped;
+            });
+        }
+
+        const onPointerDown = (e) => {
+            if (e.target.closest('#flip-card-btn')) return;
+            isDragging = true;
+            idCard.style.cursor = 'grabbing';
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            startX = clientX - posX;
+            startY = clientY - posY;
+        };
+
+        const onPointerMove = (e) => {
+            if (!isDragging) return;
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            posX = Math.max(-130, Math.min(130, clientX - startX));
+            posY = Math.max(-60, Math.min(130, clientY - startY));
+        };
+
+        const onPointerUp = () => {
+            if (!isDragging) return;
+            isDragging = false;
+            idCard.style.cursor = 'grab';
+        };
+
+        idCard.addEventListener('mousedown', onPointerDown);
+        window.addEventListener('mousemove', onPointerMove);
+        window.addEventListener('mouseup', onPointerUp);
+
+        idCard.addEventListener('touchstart', onPointerDown, { passive: true });
+        window.addEventListener('touchmove', onPointerMove, { passive: true });
+        window.addEventListener('touchend', onPointerUp);
+
+        let time = 0;
+        function animateCard() {
+            time += 0.03;
+            if (!isDragging) {
+                const idleX = Math.sin(time) * 4;
+                const forceX = (idleX - posX) * stiffness;
+                const forceY = (0 - posY) * stiffness;
+                velX = (velX + forceX) * damping;
+                velY = (velY + forceY) * damping;
+                posX += velX;
+                posY += velY;
+            }
+
+            const tiltZ = posX * 0.14;
+            const tiltX = -posY * 0.12;
+            const flipAngle = isFlipped ? 180 : 0;
+
+            idCard.style.transform = `translate3d(${posX}px, ${posY}px, 0) rotateZ(${tiltZ}deg) rotateX(${tiltX}deg) rotateY(${flipAngle}deg)`;
+
+            if (lanyardSvgLine) {
+                const endX = 160 + posX;
+                const endY = 85 + posY;
+                const ctrlX = 160 + posX * 0.4;
+                const ctrlY = 42 + posY * 0.3;
+                lanyardSvgLine.setAttribute('d', `M 160 0 Q ${ctrlX} ${ctrlY} ${endX} ${endY}`);
+            }
+
+            requestAnimationFrame(animateCard);
+        }
+        animateCard();
+    }
+
+    // 5. PROJECT CATEGORY FILTER (PROJECTS PAGE)
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
 
@@ -62,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. DYNAMIC PROJECT DETAIL PAGE & PREV/NEXT NAVIGATION
+    // 6. DYNAMIC PROJECT DETAIL PAGE & PREV/NEXT NAVIGATION
     const detailContainer = document.getElementById('project-detail-root');
     if (detailContainer) {
         const projectsData = [
