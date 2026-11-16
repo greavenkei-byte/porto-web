@@ -1,5 +1,77 @@
+// TERAPKAN TEMA SEBELUM HALAMAN RENDER AGAR TIDAK BERKEDIP
+(function() {
+    try {
+        const savedTheme = localStorage.getItem('gkp_theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    } catch (e) {}
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. PRELOADER / OPENING SCREEN (AMAN ANTI-NYANGKUT)
+    // 0. SUNTIKKAN TOMBOL DARK / LIGHT MODE DI NAVBAR & MOBILE MENU
+    const sunIcon = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+    const moonIcon = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+
+    const navContainer = document.querySelector('.nav-container');
+    const btnCv = navContainer ? navContainer.querySelector('.btn-cv') : null;
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    const themeBtn = document.createElement('button');
+    themeBtn.type = 'button';
+    themeBtn.className = 'theme-toggle-btn';
+    themeBtn.setAttribute('aria-label', 'Ganti Mode Terang / Gelap');
+
+    function updateThemeUI() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        themeBtn.innerHTML = isDark ? sunIcon : moonIcon;
+        if (mobileThemeLink) {
+            mobileThemeLink.textContent = isDark ? '☀ Mode Terang (Light)' : '☾ Mode Gelap (Dark)';
+        }
+    }
+
+    let mobileThemeLink = null;
+    if (mobileMenu) {
+        mobileThemeLink = document.createElement('a');
+        mobileThemeLink.href = '#';
+        mobileThemeLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleTheme();
+        });
+        mobileMenu.appendChild(mobileThemeLink);
+    }
+
+    function toggleTheme() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const nextTheme = isDark ? 'light' : 'dark';
+        if (nextTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+        }
+        try {
+            localStorage.setItem('gkp_theme', nextTheme);
+        } catch (e) {}
+        updateThemeUI();
+    }
+
+    themeBtn.addEventListener('click', toggleTheme);
+
+    if (navContainer) {
+        const actionsWrap = document.createElement('div');
+        actionsWrap.className = 'nav-actions';
+        actionsWrap.appendChild(themeBtn);
+        if (btnCv) actionsWrap.appendChild(btnCv);
+        if (hamburgerBtn) {
+            actionsWrap.appendChild(hamburgerBtn);
+        }
+        navContainer.appendChild(actionsWrap);
+    }
+
+    updateThemeUI();
+
+    // 1. PRELOADER / OPENING SCREEN
     const preloader = document.getElementById('preloader');
     const loaderBar = document.getElementById('loader-bar');
     const loaderPercent = document.getElementById('loader-percent');
@@ -39,18 +111,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }, 30);
 
-            // Failsafe mutlak: maksimal 2.5 detik wajib terbuka
             setTimeout(() => {
                 clearInterval(interval);
                 closePreloader();
-            }, 2500);
+            }, 2200);
         }
     }
 
     // 2. MOBILE HAMBURGER MENU
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
     if (hamburgerBtn && mobileMenu) {
         hamburgerBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
