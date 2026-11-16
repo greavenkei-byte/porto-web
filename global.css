@@ -363,3 +363,10 @@ h1, h2, h3, h4, .logo, .jp-display {
     .footer-grid { grid-template-columns: 1fr; gap: 30px; }
     .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
 }
+
+/* SINKRONISASI TOTAL WARNA SISA KE PALET EARTHY */
+:root, [data-theme="dark"] {
+    --accent-purple: var(--text-ink);
+    --accent-cyan: var(--text-muted-light);
+    --accent-cyan-bright: var(--text-ink);
+}
