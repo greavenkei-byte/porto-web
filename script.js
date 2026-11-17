@@ -20,9 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
         progressBar.style.width = `${progress}%`;
     }
 
-    window.addEventListener('scroll', updateScrollProgress, { passive: true });
-    updateScrollProgress();
-
     // 0B. PAGE TRANSITION CURTAIN & PRELOADER
     const pageTransition = document.getElementById('page-transition');
     const preloader = document.getElementById('preloader');
@@ -135,9 +132,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateThemeUI();
 
+    function setMobileMenuState(isOpen) {
+        if (!mobileMenu || !hamburgerBtn) return;
+        mobileMenu.classList.toggle('active', isOpen);
+        hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
+    }
+
     if (hamburgerBtn && mobileMenu) {
         hamburgerBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
+            const nextState = !mobileMenu.classList.contains('active');
+            setMobileMenuState(nextState);
         });
     }
 
@@ -149,19 +153,11 @@ document.addEventListener('DOMContentLoaded', () => {
     bttBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>`;
     document.body.appendChild(bttBtn);
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 360) {
-            bttBtn.classList.add('show');
-        } else {
-            bttBtn.classList.remove('show');
-        }
-    }, { passive: true });
-
     bttBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // 1. SCROLL REVEAL & VERTICAL TIMELINE PROGRESS
+    // 1. SCROLL REVEAL & VERTICAL TIMELINE PROGRESS (CONSOLIDATED & THROTTLED)
     const revealEls = document.querySelectorAll('.reveal');
     let revealObserver = null;
 
@@ -192,26 +188,83 @@ document.addEventListener('DOMContentLoaded', () => {
 
     refreshReveals();
 
-    window.addEventListener('scroll', () => {
+    const timeline = document.getElementById('process-timeline');
+    const timelineProgress = document.getElementById('timeline-progress');
+
+    function updateTimelineProgress() {
+        if (!timeline || !timelineProgress) return;
+        const rect = timeline.getBoundingClientRect();
+        if (rect.height === 0) return;
+        const windowHeight = window.innerHeight;
+        const scrolled = Math.min(Math.max(windowHeight * 0.65 - rect.top, 0), rect.height);
+        timelineProgress.style.height = `${(scrolled / rect.height) * 100}%`;
+    }
+
+    function checkBottomReveals() {
         if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 12) {
             document.querySelectorAll('.page-view.active .reveal, .footer.reveal').forEach(el => {
                 el.classList.add('visible');
             });
         }
+    }
+
+    const profPanel = document.getElementById('proficiency-panel');
+    let profAnimated = false;
+
+    function runProficiencyAnimation() {
+        if (!profPanel || profAnimated) return;
+        profAnimated = true;
+
+        const items = profPanel.querySelectorAll('.prof-item');
+        items.forEach((item, idx) => {
+            const target = parseInt(item.getAttribute('data-target'), 10) || 0;
+            const fill = item.querySelector('.prof-fill');
+            const pctText = item.querySelector('.prof-pct');
+
+            setTimeout(() => {
+                if (fill) fill.style.width = `${target}%`;
+
+                let current = 0;
+                const duration = 1300;
+                const stepTime = 20;
+                const increment = target / (duration / stepTime);
+
+                const counter = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(counter);
+                    }
+                    if (pctText) pctText.textContent = `${Math.round(current)}%`;
+                }, stepTime);
+            }, idx * 120);
+        });
+    }
+
+    function checkProficiencyVisible() {
+        if (!profPanel || profAnimated || currentActivePage !== 'about') return;
+        const rect = profPanel.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.9 && rect.bottom > 0) {
+            runProficiencyAnimation();
+        }
+    }
+
+    let isScrolling = false;
+    window.addEventListener('scroll', () => {
+        if (!isScrolling) {
+            window.requestAnimationFrame(() => {
+                updateScrollProgress();
+                bttBtn.classList.toggle('show', window.scrollY > 360);
+                updateTimelineProgress();
+                checkBottomReveals();
+                checkProficiencyVisible();
+                isScrolling = false;
+            });
+            isScrolling = true;
+        }
     }, { passive: true });
 
-    const timeline = document.getElementById('process-timeline');
-    const timelineProgress = document.getElementById('timeline-progress');
-
-    if (timeline && timelineProgress) {
-        window.addEventListener('scroll', () => {
-            const rect = timeline.getBoundingClientRect();
-            if (rect.height === 0) return;
-            const windowHeight = window.innerHeight;
-            const scrolled = Math.min(Math.max(windowHeight * 0.65 - rect.top, 0), rect.height);
-            timelineProgress.style.height = `${(scrolled / rect.height) * 100}%`;
-        }, { passive: true });
-    }
+    updateScrollProgress();
 
     // 2. DATA 15 KARYA & DYNAMIC PROJECT DETAIL LOADER
     const projectsData = [
@@ -223,8 +276,8 @@ document.addEventListener('DOMContentLoaded', () => {
             role: '3D Animator',
             tools: 'Blender',
             client: 'Core Focus — Kelas 11',
-            videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
-            posterUrl: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1200&q=80',
+            videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4)',
+            posterUrl: '[https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1200&q=80)',
             desc: 'Eksplorasi mekanika gerak karakter (walk cycle dan body mechanics) menggunakan Blender untuk melatih pemahaman terhadap prinsip animasi.',
             challenge: 'Menjaga konsistensi timing, spacing, dan perpindahan pusat gravitasi agar gerakan karakter terasa memiliki bobot dan natural.',
             steps: ['01 Referensi', '02 Blocking', '03 Spline', '04 Render'],
@@ -238,8 +291,8 @@ document.addEventListener('DOMContentLoaded', () => {
             role: '3D Animator & Motion Designer',
             tools: 'Blender, After Effects',
             client: 'Forum BKK Jawa Timur',
-            videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
-            posterUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
+            videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4)',
+            posterUrl: '[https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80)',
             desc: 'Produksi video bumper pembuka 3D resmi dan aset visual promosi untuk acara regional Forum Bursa Kerja Khusus (BKK) Jawa Timur.',
             challenge: 'Menyelaraskan pergerakan kamera 3D dengan aksen suara dalam durasi singkat agar terlihat megah dan profesional.',
             steps: ['01 Konsep', '02 Camera Anim', '03 Lighting', '04 Compositing'],
@@ -253,8 +306,8 @@ document.addEventListener('DOMContentLoaded', () => {
             role: '3D Character Animator',
             tools: 'Autodesk Maya, Blender',
             client: 'Core Focus — Kelas 11',
-            videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
-            posterUrl: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=1200&q=80',
+            videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4)',
+            posterUrl: '[https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=1200&q=80)',
             desc: 'Latihan akting karakter, gestur tangan, dan ekspresi wajah menggunakan rig karakter anime/stylized.',
             challenge: 'Menyampaikan emosi karakter hanya melalui siluet pose tubuh dan pergerakan mata sebelum dialog masuk.',
             steps: ['01 Video Ref', '02 Key Poses', '03 Facial Pass', '04 Polish'],
@@ -268,8 +321,8 @@ document.addEventListener('DOMContentLoaded', () => {
             role: '3D Animator',
             tools: 'Blender',
             client: 'Core Focus — Kelas 11',
-            videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
-            posterUrl: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80',
+            videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4)',
+            posterUrl: '[https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80)',
             desc: 'Koreografi gerak cepat dengan pergantian sudut kamera sinematik dan efek aksentuasi gerak.',
             challenge: 'Menjaga orientasi penonton saat kamera berpindah sudut dalam tempo cepat.',
             steps: ['01 Storyboard', '02 Camera Block', '03 Action Timing', '04 Render'],
@@ -283,8 +336,8 @@ document.addEventListener('DOMContentLoaded', () => {
             role: '3D Animator',
             tools: 'Blender',
             client: 'Fondasi Jurusan Animasi Kelas 10',
-            videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
-            posterUrl: 'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=1200&q=80',
+            videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4)',
+            posterUrl: '[https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=1200&q=80)',
             desc: 'Fondasi animasi 3D kelas 10: siklus langkah kaki dan simulasi berat benda (pendulum & ball).',
             challenge: 'Memahami kurva F-Curve dan menjaga kontak kaki tetap menempel kuat pada lantai.',
             steps: ['01 Contact Pose', '02 Passing Pose', '03 In-Between', '04 Loop'],
@@ -298,8 +351,8 @@ document.addEventListener('DOMContentLoaded', () => {
             role: '2D Animator',
             tools: 'Adobe After Effects',
             client: 'Tugas Animasi Kelas 10',
-            videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
-            posterUrl: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80',
+            videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4)',
+            posterUrl: '[https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80)',
             desc: 'Penerapan squash & stretch, anticipation, dan follow-through pada animasi 2D dasar.',
             challenge: 'Mengatur kurva kecepatan (easy ease) agar gerak terasa elastis dan tidak kaku.',
             steps: ['01 Sketch', '02 Keyframe', '03 Speed Graph', '04 Export'],
@@ -313,8 +366,8 @@ document.addEventListener('DOMContentLoaded', () => {
             role: 'Motion Designer',
             tools: 'Adobe After Effects',
             client: 'Tugas Animasi Kelas 10',
-            videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
-            posterUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80',
+            videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4)',
+            posterUrl: '[https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80)',
             desc: 'Eksplorasi transisi bentuk geometris dan tipografi dinamis sinkron dengan ketukan musik.',
             challenge: 'Menjaga keterbacaan teks di tengah transisi bentuk yang cepat.',
             steps: ['01 Layout', '02 Masking', '03 Audio Sync', '04 Render'],
@@ -328,8 +381,8 @@ document.addEventListener('DOMContentLoaded', () => {
             role: '3D Modeler (Arsip Kls 10)',
             tools: 'Blender',
             client: 'Arsip Modeling Kelas 10',
-            videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
-            posterUrl: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=1200&q=80',
+            videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4)',
+            posterUrl: '[https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=1200&q=80)',
             desc: 'Arsip kelas 10: pembentukan objek mekanik, pengaturan bevel, dan topologi quad bersih.',
             challenge: 'Menghindari pinching pada permukaan lengkung dengan mengatur edge loop yang rapi.',
             steps: ['01 Blockout', '02 Edge Loop', '03 Shading', '04 Turntable'],
@@ -343,8 +396,8 @@ document.addEventListener('DOMContentLoaded', () => {
             role: '3D Modeler (Arsip Kls 10)',
             tools: 'Blender, Autodesk Maya',
             client: 'Arsip Modeling Kelas 10',
-            videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
-            posterUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
+            videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4)',
+            posterUrl: '[https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80)',
             desc: 'Arsip kelas 10: pemodelan interior ruangan miniatur lengkap dengan pencahayaan studio hangat.',
             challenge: 'Menata komposisi puluhan objek kecil agar terlihat harmonis dalam satu bingkai isometrik.',
             steps: ['01 Room Shell', '02 Furniture', '03 Warm Light', '04 Cycles Render'],
@@ -358,8 +411,8 @@ document.addEventListener('DOMContentLoaded', () => {
             role: '3D Modeler (Arsip Kls 10)',
             tools: 'Autodesk Maya',
             client: 'Arsip Modeling Kelas 10',
-            videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
-            posterUrl: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1200&q=80',
+            videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4)',
+            posterUrl: '[https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1200&q=80)',
             desc: 'Arsip kelas 10: latihan modeling aset bergaya stylized dan pemetaan UV dasar di Maya.',
             challenge: 'Memotong UV seam secara rapi agar tekstur tidak tertarik.',
             steps: ['01 Base Mesh', '02 Sculpt/Detail', '03 UV Unwrap', '04 Render'],
@@ -373,8 +426,8 @@ document.addEventListener('DOMContentLoaded', () => {
             role: 'Ketua Sekbid 9 & Video Editor',
             tools: 'CapCut, Adobe After Effects',
             client: 'OSIS SMKN 4 Madiun',
-            videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
-            posterUrl: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80',
+            videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4)',
+            posterUrl: '[https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80)',
             desc: 'Penyuntingan video dokumentasi acara besar sekolah dan koordinasi tim liputan OSIS.',
             challenge: 'Menggabungkan berbagai rekaman kamera siswa menjadi alur cerita yang energik dalam waktu singkat.',
             steps: ['01 Liputan', '02 Seleksi Klip', '03 Beat Sync', '04 Color Grade'],
@@ -388,8 +441,8 @@ document.addEventListener('DOMContentLoaded', () => {
             role: 'Ketua Sekbid 9 (Media & TIK)',
             tools: 'Kamera DSLR/Mirrorless, CapCut',
             client: 'OSIS SMKN 4 Madiun',
-            videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
-            posterUrl: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=80',
+            videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4)',
+            posterUrl: '[https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=80)',
             desc: 'Momen bertugas di lapangan mengabadikan kegiatan siswa dan mengelola konten media sosial resmi.',
             challenge: 'Menangkap momen krusial panggung secara spontan dalam kondisi pencahayaan berubah-ubah.',
             steps: ['01 Briefing Tim', '02 Fotografi Event', '03 Kurasi Foto', '04 Publikasi'],
@@ -403,8 +456,8 @@ document.addEventListener('DOMContentLoaded', () => {
             role: 'Visual Switcher Operator',
             tools: 'Video Switcher, OBS Studio',
             client: 'Tim Multimedia Gereja',
-            videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
-            posterUrl: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80',
+            videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4)',
+            posterUrl: '[https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80)',
             desc: 'Bertugas mengoperasikan visual switcher dan pengaturan transisi siaran langsung multi-kamera.',
             challenge: 'Menjaga kelancaran perpindahan kamera secara real-time tanpa jeda selama siaran langsung.',
             steps: ['01 Cek Sinyal', '02 Koordinasi Cam', '03 Live Switching', '04 Monitoring'],
@@ -418,8 +471,8 @@ document.addEventListener('DOMContentLoaded', () => {
             role: 'Cameraman / Videografer',
             tools: 'Kamera Broadcast & Tripod Fluid Head',
             client: 'Tim Multimedia Gereja',
-            videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
-            posterUrl: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80',
+            videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4)',
+            posterUrl: '[https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80)',
             desc: 'Pengambilan sudut gambar dinamis dan menjaga komposisi visual selama acara berlangsung.',
             challenge: 'Menjaga pergerakan panning dan zooming tetap halus sepanjang durasi acara.',
             steps: ['01 Setup Rig', '02 Framing', '03 Live Shoot', '04 Wrap'],
@@ -433,8 +486,8 @@ document.addEventListener('DOMContentLoaded', () => {
             role: 'Freelance Videographer & Editor',
             tools: 'CapCut, KineMaster, After Effects',
             client: 'Klien Independen',
-            videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
-            posterUrl: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80',
+            videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4)',
+            posterUrl: '[https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80)',
             desc: 'Mengerjakan perekaman lapangan, operator rekaman, hingga editing video promosi untuk klien.',
             challenge: 'Menyesuaikan gaya penyuntingan dengan kebutuhan spesifik masing-masing klien secara tepat waktu.',
             steps: ['01 Brief Klien', '02 Shooting', '03 Editing & Revisi', '04 Delivery'],
@@ -486,7 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('next-title').textContent = nextProject.title;
     }
 
-    // 3. SINGLE-PAGE VIEW ROUTER (PERPINDAHAN HALAMAN TANPA BANYAK FILE)
+    // 3. SINGLE-PAGE VIEW ROUTER
     const views = {
         home: document.getElementById('view-home'),
         about: document.getElementById('view-about'),
@@ -502,7 +555,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!views[pageName]) pageName = 'home';
         currentActivePage = pageName;
 
-        // Pause video jika meninggalkan halaman yang memutar video
         document.querySelectorAll('video').forEach(v => {
             if (!v.classList.contains('hero-bg-video')) {
                 v.pause();
@@ -511,14 +563,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         Object.entries(views).forEach(([key, el]) => {
             if (!el) return;
-            if (key === pageName) {
-                el.classList.add('active');
-            } else {
-                el.classList.remove('active');
-            }
+            el.classList.toggle('active', key === pageName);
         });
 
-        // Update active state di navbar
         const navHighlight = pageName === 'project-detail' ? 'projects' : pageName;
         document.querySelectorAll('.nav-links a[data-page]').forEach(a => {
             a.classList.toggle('active', a.getAttribute('data-page') === navHighlight);
@@ -547,7 +594,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function transitionToPage(pageName, projectId = null) {
-        if (mobileMenu) mobileMenu.classList.remove('active');
+        setMobileMenuState(false);
 
         if (pageTransition) {
             pageTransition.classList.remove('is-loaded');
@@ -565,7 +612,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Intercept semua klik navigasi internal (#home, #about, #projects, #project-detail?id=...)
     document.addEventListener('click', (e) => {
         const projectLink = e.target.closest('a[data-project-id]');
         if (projectLink) {
@@ -580,7 +626,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const targetPage = pageLink.getAttribute('data-page');
             if (targetPage === currentActivePage && targetPage !== 'project-detail') {
-                if (mobileMenu) mobileMenu.classList.remove('active');
+                setMobileMenuState(false);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 return;
             }
@@ -610,7 +656,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('popstate', parseHashAndLoad);
     parseHashAndLoad();
 
-    // Navigasi keyboard panah kiri/kanan pada halaman Detail Project
     document.addEventListener('keydown', (e) => {
         const previewModal = document.getElementById('preview-modal');
         if (previewModal && previewModal.classList.contains('open')) return;
@@ -624,50 +669,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (nextBtn) nextBtn.click();
         }
     });
-
-    // 4. ANIMATED SOFTWARE PROFICIENCY COUNTER (0% -> TARGET %)
-    const profPanel = document.getElementById('proficiency-panel');
-    let profAnimated = false;
-
-    function runProficiencyAnimation() {
-        if (!profPanel || profAnimated) return;
-        profAnimated = true;
-
-        const items = profPanel.querySelectorAll('.prof-item');
-        items.forEach((item, idx) => {
-            const target = parseInt(item.getAttribute('data-target'), 10) || 0;
-            const fill = item.querySelector('.prof-fill');
-            const pctText = item.querySelector('.prof-pct');
-
-            setTimeout(() => {
-                if (fill) fill.style.width = `${target}%`;
-
-                let current = 0;
-                const duration = 1300;
-                const stepTime = 20;
-                const increment = target / (duration / stepTime);
-
-                const counter = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(counter);
-                    }
-                    if (pctText) pctText.textContent = `${Math.round(current)}%`;
-                }, stepTime);
-            }, idx * 120);
-        });
-    }
-
-    function checkProficiencyVisible() {
-        if (!profPanel || profAnimated || currentActivePage !== 'about') return;
-        const rect = profPanel.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.9 && rect.bottom > 0) {
-            runProficiencyAnimation();
-        }
-    }
-
-    window.addEventListener('scroll', checkProficiencyVisible, { passive: true });
 
     // 5. SPRING PHYSICS DRAGGABLE & 2-SIDED FLIP ID CARD (ABOUT PAGE)
     const idCard = document.getElementById('physics-id-card');
@@ -705,7 +706,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isDragging) return;
             const clientX = e.touches ? e.touches[0].clientX : e.clientX;
             const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-            posX = Math.max(-130, Math.min(130, clientX - startX));
+            const maxDragX = Math.min(130, Math.max(40, (window.innerWidth - 280) / 2));
+            posX = Math.max(-maxDragX, Math.min(maxDragX, clientX - startX));
             posY = Math.max(-60, Math.min(130, clientY - startY));
         };
 
@@ -725,33 +727,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let time = 0;
         function animateCard() {
-            time += 0.03;
-            if (!isDragging) {
-                const idleX = Math.sin(time) * 4;
-                const forceX = (idleX - posX) * stiffness;
-                const forceY = (0 - posY) * stiffness;
-                velX = (velX + forceX) * damping;
-                velY = (velY + forceY) * damping;
-                posX += velX;
-                posY += velY;
-            }
+            if (currentActivePage === 'about') {
+                time += 0.03;
+                if (!isDragging) {
+                    const idleX = Math.sin(time) * 4;
+                    const forceX = (idleX - posX) * stiffness;
+                    const forceY = (0 - posY) * stiffness;
+                    velX = (velX + forceX) * damping;
+                    velY = (velY + forceY) * damping;
+                    posX += velX;
+                    posY += velY;
+                }
 
-            const tiltZ = posX * 0.14;
-            const tiltX = -posY * 0.12;
-            const flipAngle = isFlipped ? 180 : 0;
+                const tiltZ = posX * 0.14;
+                const tiltX = -posY * 0.12;
+                const flipAngle = isFlipped ? 180 : 0;
 
-            idCard.style.transform = `translate3d(${posX}px, ${posY}px, 0) rotateZ(${tiltZ}deg) rotateX(${tiltX}deg) rotateY(${flipAngle}deg)`;
+                idCard.style.transform = `translate3d(${posX}px, ${posY}px, 0) rotateZ(${tiltZ}deg) rotateX(${tiltX}deg) rotateY(${flipAngle}deg)`;
 
-            if (lanyardSvgLine) {
-                const endX = 160 + posX;
-                const endY = 88 + posY;
-                const ctrlX = 160 + posX * 0.45;
-                const ctrlY = 35 + posY * 0.35;
-                lanyardSvgLine.setAttribute('d', `M 160 -20 Q ${ctrlX} ${ctrlY} ${endX} ${endY}`);
+                if (lanyardSvgLine) {
+                    const endX = 160 + posX;
+                    const endY = 88 + posY;
+                    const ctrlX = 160 + posX * 0.45;
+                    const ctrlY = 35 + posY * 0.35;
+                    lanyardSvgLine.setAttribute('d', `M 160 -20 Q ${ctrlX} ${ctrlY} ${endX} ${endY}`);
 
-                const clasp = document.getElementById('lanyard-clasp');
-                if (clasp) {
-                    clasp.setAttribute('transform', `translate(${endX}, ${endY}) rotate(${tiltZ})`);
+                    const clasp = document.getElementById('lanyard-clasp');
+                    if (clasp) {
+                        clasp.setAttribute('transform', `translate(${endX}, ${endY}) rotate(${tiltZ})`);
+                    }
                 }
             }
 
