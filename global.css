@@ -1,34 +1,36 @@
 :root {
-    /* LIGHT MODE PALETTE (#EBE2CC, #DED6C1, #CFC6B1, #B7B09E + Kontras Teks Gelap #1F150C & #412D15) */
-    --bg-paper: #EBE2CC;
-    --bg-card: #DED6C1;
-    --bg-elevated: #CFC6B1;
+    /* BRIGHT & CRISP LIGHT MODE (Putih Gading Cerah + Aksen Warm Palet) */
+    --bg-paper: #FAF8F2;
+    --bg-card: #FFFFFF;
+    --bg-elevated: #F2ECE0;
     --bg-dark: #1F150C;
     --bg-dark-elevated: #412D15;
-    --border-light: #CFC6B1;
-    --border-strong: #B7B09E;
+    --border-light: #E2D9C8;
+    --border-strong: #C9BFA9;
     --border-dark: #412D15;
     --text-ink: #1F150C;
-    --text-muted-light: #412D15;
-    --text-subtle: #6E6556;
-    --text-white: #EBE2CC;
+    --text-muted-light: #4F3D28;
+    --text-subtle: #786A58;
+    --text-white: #FAF8F2;
     --text-muted-dark: #B7B09E;
     --accent-primary: #412D15;
     --accent-secondary: #1F150C;
-    --nav-glass: rgba(235, 226, 204, 0.88);
-    --hero-grad-start: rgba(235, 226, 204, 0.65);
-    --hero-grad-mid: rgba(235, 226, 204, 0.88);
+    --nav-glass: rgba(250, 248, 242, 0.9);
+    --hero-grad-start: rgba(250, 248, 242, 0.72);
+    --hero-grad-mid: rgba(250, 248, 242, 0.92);
+    --card-shadow: 0 10px 30px rgba(31, 21, 12, 0.05);
+    --card-glow: 0 16px 36px rgba(65, 45, 21, 0.14);
 }
 
 [data-theme="dark"] {
     /* DARK MODE PALETTE (#000000, #1F150C, #412D15, #E1DCC9) */
     --bg-paper: #000000;
     --bg-card: #1F150C;
-    --bg-elevated: #2A1D11;
+    --bg-elevated: #2B1D11;
     --bg-dark: #1F150C;
     --bg-dark-elevated: #412D15;
     --border-light: #412D15;
-    --border-strong: #5A4020;
+    --border-strong: #5E4222;
     --border-dark: #412D15;
     --text-ink: #E1DCC9;
     --text-muted-light: #B7B09E;
@@ -40,6 +42,8 @@
     --nav-glass: rgba(0, 0, 0, 0.88);
     --hero-grad-start: rgba(0, 0, 0, 0.65);
     --hero-grad-mid: rgba(0, 0, 0, 0.88);
+    --card-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+    --card-glow: 0 16px 40px rgba(225, 220, 201, 0.12);
 }
 
 * {
@@ -60,7 +64,19 @@ body {
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
+    position: relative;
     transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* SUBTLE EDITORIAL PAPER GRAIN TEXTURE */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 h1, h2, h3, h4, .logo, .jp-display {
@@ -240,7 +256,41 @@ h1, h2, h3, h4, .logo, .jp-display {
     display: flex;
 }
 
-/* OVERRIDE WARNA KOMPONEN AGAR 100% SESUAI PALET BARU */
+/* FLOATING BACK TO TOP BUTTON */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 26px;
+    right: 26px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--text-ink);
+    color: var(--bg-paper);
+    border: 1px solid var(--border-light);
+    box-shadow: 0 10px 25px rgba(31, 21, 12, 0.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 990;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: all 0.3s ease;
+}
+
+.back-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+/* SINKRONISASI WARNA KOMPONEN */
 .id-role, .skill-box h3, .featured-meta, .keyframe-label, .card-cat, .exp-tag, .fokus-label {
     color: var(--text-muted-light) !important;
 }
@@ -248,10 +298,6 @@ h1, h2, h3, h4, .logo, .jp-display {
 .btn-primary {
     background-color: var(--text-ink) !important;
     color: var(--bg-paper) !important;
-}
-
-.btn-primary:hover {
-    opacity: 0.88;
 }
 
 .btn-secondary {
@@ -274,7 +320,7 @@ h1, h2, h3, h4, .logo, .jp-display {
 .timeline-step.visible .timeline-dot {
     border-color: var(--text-ink) !important;
     background-color: var(--text-ink) !important;
-    box-shadow: 0 0 0 5px rgba(65, 45, 21, 0.2) !important;
+    box-shadow: 0 0 0 5px rgba(65, 45, 21, 0.16) !important;
 }
 
 .timeline-line-progress {
@@ -314,7 +360,7 @@ h1, h2, h3, h4, .logo, .jp-display {
 }
 
 .footer-email {
-    color: #EBE2CC;
+    color: #FAF8F2;
     font-size: 13px;
     font-weight: 600;
     text-decoration: underline;
@@ -362,9 +408,9 @@ h1, h2, h3, h4, .logo, .jp-display {
     .hamburger { display: flex; }
     .footer-grid { grid-template-columns: 1fr; gap: 30px; }
     .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+    .back-to-top-btn { bottom: 18px; right: 18px; width: 40px; height: 40px; }
 }
 
-/* SINKRONISASI TOTAL WARNA SISA KE PALET EARTHY */
 :root, [data-theme="dark"] {
     --accent-purple: var(--text-ink);
     --accent-cyan: var(--text-muted-light);
