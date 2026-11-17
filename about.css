@@ -1,275 +1,54 @@
-.about-section {
-    padding: 80px 5%;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.about-top-grid {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 60px;
-    align-items: center;
-    margin-bottom: 85px;
-}
-
-/* SPRING PHYSICS 2-SIDED HANGING ID CARD */
-.hanging-stage {
-    position: relative;
-    width: 320px;
-    height: 510px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    user-select: none;
-    perspective: 1200px;
-}
-
-.lanyard-svg {
-    position: absolute;
-    top: -15px;
-    left: 0;
-    width: 320px;
-    height: 260px;
-    pointer-events: none;
-    z-index: 3;
-}
-
-.id-card-3d {
-    position: relative;
-    top: 84px;
-    width: 280px;
-    height: 400px;
-    transform-style: preserve-3d;
-    cursor: grab;
-    z-index: 2;
-}
-
-.card-face {
-    position: absolute;
-    inset: 0;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    border-radius: 18px;
-    padding: 20px;
-    box-shadow: 0 24px 48px rgba(20, 20, 20, 0.16);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* SISI DEPAN */
-.card-front {
+/* SKILL PROFICIENCY BARS */
+.proficiency-panel {
     background-color: var(--bg-card);
     border: 1px solid var(--border-light);
+    border-radius: 18px;
+    padding: 32px;
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.prof-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.prof-meta strong {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
+    color: var(--text-ink);
+    display: block;
+}
+
+.prof-sub {
+    font-size: 12.5px;
+    color: var(--text-muted-light);
+}
+
+.prof-pct {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
     color: var(--text-ink);
 }
 
-.card-clip-hole {
-    width: 44px;
+.prof-track {
+    width: 100%;
     height: 8px;
     background-color: var(--bg-paper);
     border: 1px solid var(--border-light);
-    border-radius: 10px;
-    margin: 0 auto 12px;
-}
-
-.id-photo {
-    width: 100%;
-    height: 225px;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--border-light);
-    margin-bottom: 14px;
-}
-
-.id-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    pointer-events: none;
-}
-
-.id-details h3 {
-    font-size: 19px;
-    font-weight: 700;
-    letter-spacing: -0.3px;
-}
-
-.id-role {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--accent-purple);
-    letter-spacing: 1px;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.id-footer {
-    display: flex;
-    justify-content: space-between;
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--text-muted-light);
-    border-top: 1px solid var(--border-light);
-    padding-top: 10px;
-}
-
-/* SISI BELAKANG (QR CODE + EDITORIAL JAPANESE GRAPHIC) */
-.card-back {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    border: 1px solid var(--border-dark);
-    transform: rotateY(180deg);
-    align-items: center;
-    text-align: center;
-    padding: 24px 20px;
-}
-
-.back-jp-tag {
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: var(--accent-cyan-bright);
-    font-weight: 700;
-}
-
-.qr-box {
-    background-color: #FFFFFF;
-    padding: 12px;
-    border-radius: 12px;
-    width: 156px;
-    height: 156px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.qr-box img {
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.back-cta-text h4 {
-    font-size: 14px;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
-}
-
-.back-cta-text p {
-    font-size: 11px;
-    color: var(--text-muted-dark);
-}
-
-.card-controls-hint {
-    margin-top: 96px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 11px;
-    color: var(--text-muted-light);
-}
-
-.btn-flip {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    border: none;
-    padding: 6px 14px;
     border-radius: 50px;
-    font-size: 11px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.2s;
+    overflow: hidden;
 }
 
-.btn-flip:hover {
-    background-color: var(--accent-purple);
-}
-
-/* ABOUT BIO */
-.about-bio h1 {
-    font-size: clamp(28px, 3.8vw, 42px);
-    line-height: 1.18;
-    margin-bottom: 24px;
-    color: var(--text-ink);
-}
-
-.about-bio p {
-    color: var(--text-muted-light);
-    font-size: 14.5px;
-    line-height: 1.8;
-    margin-bottom: 18px;
-}
-
-/* 02 — 4 KOTAK SKILLS & TOOLS */
-.skills-heading {
-    margin-bottom: 35px;
-}
-
-.skills-heading h2 {
-    font-size: 32px;
-    color: var(--text-ink);
-}
-
-.skills-4-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-}
-
-.skill-box {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-light);
-    border-radius: 16px;
-    padding: 28px;
-    transition: 0.3s ease;
-}
-
-.skill-box:hover {
-    border-color: var(--text-ink);
-}
-
-.skill-box h3 {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    color: var(--accent-purple);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-}
-
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.skill-tags span {
-    background-color: var(--bg-paper);
-    border: 1px solid var(--border-light);
-    color: var(--text-ink);
-    font-size: 13px;
-    font-weight: 500;
-    padding: 6px 14px;
-    border-radius: 8px;
-}
-
-.edu-info h4 {
-    font-size: 18px;
-    margin-bottom: 4px;
-}
-
-.edu-info p {
-    color: var(--text-muted-light);
-    font-size: 13.5px;
-}
-
-@media (max-width: 850px) {
-    .about-top-grid, .skills-4-grid {
-        grid-template-columns: 1fr;
-    }
-    .about-bio {
-        text-align: center;
-    }
+.prof-fill {
+    height: 100%;
+    background-color: var(--text-ink);
+    border-radius: 50px;
+    transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
