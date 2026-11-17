@@ -68,6 +68,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateThemeUI();
 
+    // FLOATING BACK TO TOP BUTTON
+    const bttBtn = document.createElement('button');
+    bttBtn.type = 'button';
+    bttBtn.className = 'back-to-top-btn';
+    bttBtn.setAttribute('aria-label', 'Kembali ke Atas');
+    bttBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>`;
+    document.body.appendChild(bttBtn);
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 360) {
+            bttBtn.classList.add('show');
+        } else {
+            bttBtn.classList.remove('show');
+        }
+    });
+
+    bttBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
     // 1. PRELOADER / OPENING SCREEN
     const preloader = document.getElementById('preloader');
     const loaderBar = document.getElementById('loader-bar');
@@ -150,6 +170,56 @@ document.addEventListener('DOMContentLoaded', () => {
             const percentage = (scrolled / totalHeight) * 100;
             timelineProgress.style.height = `${percentage}%`;
         });
+    }
+
+    // 3B. ANIMATED SOFTWARE PROFICIENCY COUNTER (0% -> TARGET %) & PROGRESS BAR
+    const profPanel = document.getElementById('proficiency-panel');
+    if (profPanel) {
+        let profAnimated = false;
+
+        function runProficiencyAnimation() {
+            if (profAnimated) return;
+            profAnimated = true;
+
+            const items = profPanel.querySelectorAll('.prof-item');
+            items.forEach((item, idx) => {
+                const target = parseInt(item.getAttribute('data-target'), 10) || 0;
+                const fill = item.querySelector('.prof-fill');
+                const pctText = item.querySelector('.prof-pct');
+
+                setTimeout(() => {
+                    if (fill) fill.style.width = `${target}%`;
+
+                    let current = 0;
+                    const duration = 1300;
+                    const stepTime = 20;
+                    const increment = target / (duration / stepTime);
+
+                    const counter = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(counter);
+                        }
+                        if (pctText) pctText.textContent = `${Math.round(current)}%`;
+                    }, stepTime);
+                }, idx * 120);
+            });
+        }
+
+        if ('IntersectionObserver' in window) {
+            const profObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        runProficiencyAnimation();
+                        profObserver.disconnect();
+                    }
+                });
+            }, { threshold: 0.2 });
+            profObserver.observe(profPanel);
+        } else {
+            runProficiencyAnimation();
+        }
     }
 
     // 4. SPRING PHYSICS DRAGGABLE & 2-SIDED FLIP ID CARD (ABOUT PAGE)
@@ -243,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
         animateCard();
     }
 
-    // 5. HIERARCHICAL PROJECTS FILTER (CABANG 2D/3D -> DIMENSI -> KELAS -> DIVISI & MULTIMEDIA)
+    // 5. HIERARCHICAL PROJECTS FILTER (15 WORKS)
     const branchBtns = document.querySelectorAll('.branch-btn');
     const panel2d3d = document.getElementById('panel-2d3d');
     const panelMulmed = document.getElementById('panel-mulmed');
@@ -327,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
         applyProjectFilters();
     }
 
-    // 6. DYNAMIC PROJECT DETAIL PAGE & PREV/NEXT NAVIGATION
+    // 6. DYNAMIC PROJECT DETAIL PAGE (15 WORKS SYNCED)
     const detailContainer = document.getElementById('project-detail-root');
     if (detailContainer) {
         const projectsData = [
@@ -338,11 +408,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 year: '2026',
                 role: '3D Animator',
                 tools: 'Blender',
-                client: 'Personal Study — Core Focus',
+                client: 'Core Focus — Kelas 11',
                 videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
                 posterUrl: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1200&q=80',
-                desc: 'Eksplorasi mekanika gerak karakter (walk cycle dan body mechanics) menggunakan Blender untuk melatih pemahaman terhadap prinsip animasi dasar.',
-                challenge: 'Menjaga konsistensi timing, spacing, dan perpindahan pusat gravitasi (center of gravity) agar gerakan karakter terasa memiliki bobot dan natural.',
+                desc: 'Eksplorasi mekanika gerak karakter (walk cycle dan body mechanics) menggunakan Blender untuk melatih pemahaman terhadap prinsip animasi.',
+                challenge: 'Menjaga konsistensi timing, spacing, dan perpindahan pusat gravitasi agar gerakan karakter terasa memiliki bobot dan natural.',
                 steps: ['01 Referensi', '02 Blocking', '03 Spline', '04 Render'],
                 result: 'Menghasilkan siklus gerakan karakter yang halus dengan kurva Graph Editor yang bersih.'
             },
@@ -358,38 +428,203 @@ document.addEventListener('DOMContentLoaded', () => {
                 posterUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
                 desc: 'Produksi video bumper pembuka 3D resmi dan aset visual promosi untuk acara regional Forum Bursa Kerja Khusus (BKK) Jawa Timur.',
                 challenge: 'Menyelaraskan pergerakan kamera 3D dengan aksen suara dalam durasi singkat agar terlihat megah dan profesional.',
-                steps: ['01 Konsep & Moodboard', '02 Camera Anim', '03 Lighting & Shader', '04 Compositing'],
+                steps: ['01 Konsep', '02 Camera Anim', '03 Lighting', '04 Compositing'],
                 result: 'Bumper 3D beresolusi tinggi yang digunakan sebagai pembuka resmi rangkaian acara.'
             },
             {
-                id: 'mod-10',
-                title: '3D Prop & Hard Surface Study',
-                category: '3D • Divisi Modeling (Kelas 10)',
-                year: '2025',
-                role: '3D Modeler (Study)',
-                tools: 'Blender, Autodesk Maya',
-                client: 'Tugas Jurusan Animasi Kelas 10',
+                id: 'anim-03',
+                title: '3D Character Acting & Expression',
+                category: '3D • Divisi Animation (Kelas 11)',
+                year: '2026',
+                role: '3D Character Animator',
+                tools: 'Autodesk Maya, Blender',
+                client: 'Core Focus — Kelas 11',
                 videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
-                posterUrl: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=1200&q=80',
-                desc: 'Latihan dasar pembangunan bentuk objek 3D, topologi bersih, serta pencahayaan dasar pada semester awal kelas 10.',
-                challenge: 'Memahami alur kerja mesh dan menjaga proporsi objek agar siap digunakan dalam adegan animasi.',
-                steps: ['01 Blocking Bentuk', '02 Detail & Bevel', '03 Shading', '04 Render'],
-                result: 'Aset 3D prop sederhana sebagai fondasi sebelum memfokuskan diri ke divisi animasi.'
+                posterUrl: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Latihan akting karakter, gestur tangan, dan ekspresi wajah menggunakan rig karakter anime/stylized.',
+                challenge: 'Menyampaikan emosi karakter hanya melalui siluet pose tubuh dan pergerakan mata sebelum dialog masuk.',
+                steps: ['01 Video Ref', '02 Key Poses', '03 Facial Pass', '04 Polish'],
+                result: 'Klip akting karakter ekspresif dengan pose yang terbaca jelas.'
             },
             {
-                id: '2d-10',
-                title: '2D Principles & Motion Graphics',
+                id: 'anim-04',
+                title: '3D Dynamic Action & Camera Cut',
+                category: '3D • Divisi Animation (Kelas 11)',
+                year: '2026',
+                role: '3D Animator',
+                tools: 'Blender',
+                client: 'Core Focus — Kelas 11',
+                videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
+                posterUrl: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Koreografi gerak cepat dengan pergantian sudut kamera sinematik dan efek aksentuasi gerak.',
+                challenge: 'Menjaga orientasi penonton saat kamera berpindah sudut dalam tempo cepat.',
+                steps: ['01 Storyboard', '02 Camera Block', '03 Action Timing', '04 Render'],
+                result: 'Sekuens aksi 3D yang enerjik dengan ritme kamera dinamis.'
+            },
+            {
+                id: 'anim-10-1',
+                title: '3D Walk Cycle & Physics Timing',
+                category: '3D • Divisi Animation (Kelas 10)',
+                year: '2025',
+                role: '3D Animator',
+                tools: 'Blender',
+                client: 'Fondasi Jurusan Animasi Kelas 10',
+                videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
+                posterUrl: 'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Fondasi animasi 3D kelas 10: siklus langkah kaki dan simulasi berat benda (pendulum & ball).',
+                challenge: 'Memahami kurva F-Curve dan menjaga kontak kaki tetap menempel kuat pada lantai.',
+                steps: ['01 Contact Pose', '02 Passing Pose', '03 In-Between', '04 Loop'],
+                result: 'Animasi dasar yang menjadi fondasi lompatan skill di kelas 11.'
+            },
+            {
+                id: '2d-10-1',
+                title: '2D 12 Principles of Animation',
                 category: '2D • Divisi Animation (Kelas 10)',
                 year: '2025',
                 role: '2D Animator',
                 tools: 'Adobe After Effects',
-                client: 'Tugas Jurusan Animasi Kelas 10',
+                client: 'Tugas Animasi Kelas 10',
                 videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
                 posterUrl: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80',
-                desc: 'Penerapan prinsip dasar animasi seperti squash & stretch, anticipation, dan easing dalam format 2D.',
-                challenge: 'Mengatur kurva kecepatan agar pergerakan objek 2D terasa hidup dan tidak kaku.',
-                steps: ['01 Storyboard', '02 Keyframing', '03 Graph Editor', '04 Export'],
-                result: 'Klip animasi 2D yang melatih kepekaan ritme gerak.'
+                desc: 'Penerapan squash & stretch, anticipation, dan follow-through pada animasi 2D dasar.',
+                challenge: 'Mengatur kurva kecepatan (easy ease) agar gerak terasa elastis dan tidak kaku.',
+                steps: ['01 Sketch', '02 Keyframe', '03 Speed Graph', '04 Export'],
+                result: 'Klip studi prinsip dasar animasi 2D.'
+            },
+            {
+                id: '2d-10-2',
+                title: '2D Motion Graphics & Typography',
+                category: '2D • Divisi Animation (Kelas 10)',
+                year: '2025',
+                role: 'Motion Designer',
+                tools: 'Adobe After Effects',
+                client: 'Tugas Animasi Kelas 10',
+                videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
+                posterUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Eksplorasi transisi bentuk geometris dan tipografi dinamis sinkron dengan ketukan musik.',
+                challenge: 'Menjaga keterbacaan teks di tengah transisi bentuk yang cepat.',
+                steps: ['01 Layout', '02 Masking', '03 Audio Sync', '04 Render'],
+                result: 'Video motion graphics pembuka bergaya modern.'
+            },
+            {
+                id: 'mod-10-1',
+                title: '3D Hard Surface & Prop Modeling',
+                category: '3D • Divisi Modeling (Kelas 10)',
+                year: '2025',
+                role: '3D Modeler (Arsip Kls 10)',
+                tools: 'Blender',
+                client: 'Arsip Modeling Kelas 10',
+                videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
+                posterUrl: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Arsip kelas 10: pembentukan objek mekanik, pengaturan bevel, dan topologi quad bersih.',
+                challenge: 'Menghindari pinching pada permukaan lengkung dengan mengatur edge loop yang rapi.',
+                steps: ['01 Blockout', '02 Edge Loop', '03 Shading', '04 Turntable'],
+                result: 'Aset 3D prop bersih sebagai bagian dari pembelajaran dasar di kelas 10.'
+            },
+            {
+                id: 'mod-10-2',
+                title: '3D Isometric Room Environment',
+                category: '3D • Divisi Modeling (Kelas 10)',
+                year: '2025',
+                role: '3D Modeler (Arsip Kls 10)',
+                tools: 'Blender, Autodesk Maya',
+                client: 'Arsip Modeling Kelas 10',
+                videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
+                posterUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Arsip kelas 10: pemodelan interior ruangan miniatur lengkap dengan pencahayaan studio hangat.',
+                challenge: 'Menata komposisi puluhan objek kecil agar terlihat harmonis dalam satu bingkai isometrik.',
+                steps: ['01 Room Shell', '02 Furniture', '03 Warm Light', '04 Cycles Render'],
+                result: 'Render lingkungan ruangan 3D isometrik.'
+            },
+            {
+                id: 'mod-10-3',
+                title: '3D Stylized Asset & UV Mapping',
+                category: '3D • Divisi Modeling (Kelas 10)',
+                year: '2025',
+                role: '3D Modeler (Arsip Kls 10)',
+                tools: 'Autodesk Maya',
+                client: 'Arsip Modeling Kelas 10',
+                videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
+                posterUrl: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Arsip kelas 10: latihan modeling aset bergaya stylized dan pemetaan UV dasar di Maya.',
+                challenge: 'Memotong UV seam secara rapi agar tekstur tidak tertarik.',
+                steps: ['01 Base Mesh', '02 Sculpt/Detail', '03 UV Unwrap', '04 Render'],
+                result: 'Aset 3D siap pakai sebelum fokus penuh beralih ke divisi animasi di kelas 11.'
+            },
+            {
+                id: 'mulmed-01',
+                title: 'After Movie & Event Recap OSIS',
+                category: 'Multimedia • Editing & Videografi',
+                year: '2026',
+                role: 'Ketua Sekbid 9 & Video Editor',
+                tools: 'CapCut, Adobe After Effects',
+                client: 'OSIS SMKN 4 Madiun',
+                videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
+                posterUrl: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Penyuntingan video dokumentasi acara besar sekolah dan koordinasi tim liputan OSIS.',
+                challenge: 'Menggabungkan berbagai rekaman kamera siswa menjadi alur cerita yang energik dalam waktu singkat.',
+                steps: ['01 Liputan', '02 Seleksi Klip', '03 Beat Sync', '04 Color Grade'],
+                result: 'Video rekap resmi yang dipublikasikan di kanal media sosial sekolah.'
+            },
+            {
+                id: 'mulmed-02',
+                title: 'Bertugas Liputan & Publikasi OSIS',
+                category: 'Multimedia • Dokumentasi Lapangan',
+                year: '2026',
+                role: 'Ketua Sekbid 9 (Media & TIK)',
+                tools: 'Kamera DSLR/Mirrorless, CapCut',
+                client: 'OSIS SMKN 4 Madiun',
+                videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
+                posterUrl: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Momen bertugas di lapangan mengabadikan kegiatan siswa dan mengelola konten media sosial resmi.',
+                challenge: 'Menangkap momen krusial panggung secara spontan dalam kondisi pencahayaan berubah-ubah.',
+                steps: ['01 Briefing Tim', '02 Fotografi Event', '03 Kurasi Foto', '04 Publikasi'],
+                result: 'Arsip dokumentasi visual rapi untuk seluruh program kerja OSIS.'
+            },
+            {
+                id: 'mulmed-03',
+                title: 'Tim Mulmed & Visual Switcher',
+                category: 'Multimedia • Live Streaming',
+                year: '2025 - 2026',
+                role: 'Visual Switcher Operator',
+                tools: 'Video Switcher, OBS Studio',
+                client: 'Tim Multimedia Gereja',
+                videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
+                posterUrl: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Bertugas mengoperasikan visual switcher dan pengaturan transisi siaran langsung multi-kamera.',
+                challenge: 'Menjaga kelancaran perpindahan kamera secara real-time tanpa jeda selama siaran langsung.',
+                steps: ['01 Cek Sinyal', '02 Koordinasi Cam', '03 Live Switching', '04 Monitoring'],
+                result: 'Tayangan siaran langsung yang stabil dan enak ditonton.'
+            },
+            {
+                id: 'mulmed-04',
+                title: 'Cameraman Utama Tim Multimedia',
+                category: 'Multimedia • Videografi',
+                year: '2025 - 2026',
+                role: 'Cameraman / Videografer',
+                tools: 'Kamera Broadcast & Tripod Fluid Head',
+                client: 'Tim Multimedia Gereja',
+                videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
+                posterUrl: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Pengambilan sudut gambar dinamis dan menjaga komposisi visual selama acara berlangsung.',
+                challenge: 'Menjaga pergerakan panning dan zooming tetap halus sepanjang durasi acara.',
+                steps: ['01 Setup Rig', '02 Framing', '03 Live Shoot', '04 Wrap'],
+                result: 'Rekaman kamera jernih dan stabil untuk siaran langsung maupun arsip.'
+            },
+            {
+                id: 'mulmed-05',
+                title: 'Freelance Camera & Video Editing',
+                category: 'Multimedia • Freelance Project',
+                year: '2025 - 2026',
+                role: 'Freelance Videographer & Editor',
+                tools: 'CapCut, KineMaster, After Effects',
+                client: 'Klien Independen',
+                videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
+                posterUrl: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Mengerjakan perekaman lapangan, operator rekaman, hingga editing video promosi untuk klien.',
+                challenge: 'Menyesuaikan gaya penyuntingan dengan kebutuhan spesifik masing-masing klien secara tepat waktu.',
+                steps: ['01 Brief Klien', '02 Shooting', '03 Editing & Revisi', '04 Delivery'],
+                result: 'Hasil video komersial dan dokumentasi yang memuaskan klien.'
             }
         ];
 
@@ -431,7 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('next-title').textContent = nextProject.title;
     }
 
-    // 7. QUICK PREVIEW MODAL (VIDEO / FOTO LANGSUNG)
+    // 7. QUICK PREVIEW MODAL
     const previewModal = document.getElementById('preview-modal');
     const modalMediaArea = document.getElementById('modal-media-area');
     const modalTitleText = document.getElementById('modal-title-text');
@@ -468,11 +703,5 @@ document.addEventListener('DOMContentLoaded', () => {
         previewModal.addEventListener('click', (e) => {
             if (e.target === previewModal) closePreviewModal();
         });
-    }
-
-    // 8. AVAILABILITY BADGE (OPEN FOR PKL / INTERNSHIP & FREELANCE)
-    const heroBadge = document.querySelector('.hero-badge');
-    if (heroBadge) {
-        heroBadge.innerHTML = `● OPEN FOR PKL / INTERNSHIP & FREELANCE — GREAVEN K.P.`;
     }
 });
