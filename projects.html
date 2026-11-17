@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Greaven K.P.</title>
+    <title>Projects (15 Works) | Greaven K.P.</title>
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="projects.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -38,30 +38,30 @@
 
     <main class="projects-section">
         <div class="projects-header reveal visible">
-            <span class="section-label">02 —— ARCHIVE & PORTFOLIO</span>
-            <h1>Eksplorasi <span class="gradient-text">karya & lapangan.</span></h1>
-            <p>Pilih jalur karya di bawah ini untuk melihat progres animasi 2D/3D per kelas maupun dokumentasi produksi multimedia.</p>
+            <span class="section-label">02 —— PORTFOLIO ARCHIVE (15 WORKS)</span>
+            <h1>Perjalanan <span class="gradient-text">15 karya & dokumentasi.</span></h1>
+            <p>Kelas 10 berfokus pada <strong>Modeling & Animasi</strong>, sedangkan di Kelas 11 berfokus penuh pada <strong>3D Animation & Multimedia (Editing & Videografi)</strong>.</p>
         </div>
 
-        <!-- LEVEL 0: CABANG UTAMA (KARYA 2D & 3D vs MULTIMEDIA) -->
+        <!-- LEVEL 0: CABANG UTAMA -->
         <div class="branch-switcher">
             <button type="button" class="branch-btn active" data-branch="2d3d">
                 <span class="branch-num">01</span>
                 <div>
-                    <strong>Karya 2D & 3D</strong>
-                    <small>Animasi & Modeling (Kelas 10 – 11)</small>
+                    <strong>Karya 2D & 3D (10 Karya)</strong>
+                    <small>Kelas 10 (Modeling & Animasi) &bull; Kelas 11 (Fokus Animasi)</small>
                 </div>
             </button>
             <button type="button" class="branch-btn" data-branch="mulmed">
                 <span class="branch-num">02</span>
                 <div>
-                    <strong>Multimedia & Dokumentasi</strong>
-                    <small>Foto Bertugas OSIS, Tim Mulmed & Freelance</small>
+                    <strong>Multimedia & Dokumentasi (5 Karya)</strong>
+                    <small>Editing, Videografi & Foto Bertugas (OSIS, Tim Mulmed, Freelance)</small>
                 </div>
             </button>
         </div>
 
-        <!-- PANEL FILTER UNTUK CABANG 2D & 3D (DIMENSI -> KELAS -> DIVISI) -->
+        <!-- PANEL FILTER UNTUK CABANG 2D & 3D -->
         <div class="sub-filter-panel" id="panel-2d3d">
             <div class="filter-row">
                 <span class="filter-step-label">1. Tipe Karya:</span>
@@ -76,8 +76,8 @@
                 <span class="filter-step-label">2. Tingkat Kelas:</span>
                 <div class="filter-pills" id="filter-grade">
                     <button class="filter-btn active" data-val="all">Semua Kelas</button>
-                    <button class="filter-btn" data-val="10">Kelas 10</button>
-                    <button class="filter-btn" data-val="11">Kelas 11</button>
+                    <button class="filter-btn" data-val="10">Kelas 10 (Modeling & Anim)</button>
+                    <button class="filter-btn" data-val="11">Kelas 11 (Fokus Animasi)</button>
                 </div>
             </div>
 
@@ -86,17 +86,17 @@
                 <div class="filter-pills" id="filter-div">
                     <button class="filter-btn active" data-val="all">Semua Divisi</button>
                     <button class="filter-btn" data-val="animation">Animation (Core Focus)</button>
-                    <button class="filter-btn" data-val="modeling">Modeling</button>
+                    <button class="filter-btn" data-val="modeling">Modeling (Khusus Kls 10)</button>
                 </div>
             </div>
         </div>
 
-        <!-- PANEL FILTER UNTUK CABANG MULTIMEDIA (TANPA KELAS) -->
+        <!-- PANEL FILTER UNTUK CABANG MULTIMEDIA -->
         <div class="sub-filter-panel hidden" id="panel-mulmed">
             <div class="filter-row">
                 <span class="filter-step-label">Kategori Tugas:</span>
                 <div class="filter-pills" id="filter-mulmed">
-                    <button class="filter-btn active" data-val="all">Semua Dokumentasi</button>
+                    <button class="filter-btn active" data-val="all">Semua Multimedia (5)</button>
                     <button class="filter-btn" data-val="osis">OSIS (Sekbid 9)</button>
                     <button class="filter-btn" data-val="tim-mulmed">Tim Mulmed & Gereja</button>
                     <button class="filter-btn" data-val="freelance">Kerja Freelance</button>
@@ -104,22 +104,17 @@
             </div>
         </div>
 
-        <!-- GRID KARTU KARYA -->
+        <!-- GRID 15 KARTU KARYA -->
         <div class="projects-grid" id="projects-grid">
 
-            <!-- CONTOH KARYA 3D - KELAS 11 - ANIMATION (CORE FOCUS) -->
+            <!-- ================= KELAS 11: FOKUS 3D ANIMATION (4 KARYA) ================= -->
+            <!-- #01 -->
             <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="11" data-div="animation">
                 <div class="card-thumb">
-                    <span class="core-badge">CORE FOCUS</span>
+                    <span class="core-badge">#01 • CORE FOCUS</span>
                     <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80" alt="3D Character Body Mechanics">
                     <div class="card-overlay-actions">
-                        <button type="button" class="btn-quick-view"
-                            data-type="video"
-                            data-src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4"
-                            data-title="3D Character Body Mechanics & Walk Cycle"
-                            data-meta="3D • Kelas 11 • Divisi Animation (Blender)">
-                            &#9654; Quick Preview
-                        </button>
+                        <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" data-title="3D Character Body Mechanics" data-meta="3D • Kelas 11 • Divisi Animation (Blender)">&#9654; Quick Preview</button>
                         <a href="project-detail.html?id=anim-01" class="btn-detail-link">Studi Kasus &rarr;</a>
                     </div>
                 </div>
@@ -129,23 +124,17 @@
                         <span class="card-year">KLS 11</span>
                     </div>
                     <span class="card-cat">3D • Divisi Animation • Blender</span>
-                    <p>Eksplorasi kurva Graph Editor, weight shift, dan timing karakter 3D menggunakan Blender.</p>
+                    <p>Eksplorasi kurva Graph Editor, perpindahan bobot tubuh, dan timing karakter 3D.</p>
                 </div>
             </div>
 
-            <!-- CONTOH KARYA 3D - KELAS 11 - ANIMATION (BUMPER) -->
+            <!-- #02 -->
             <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="11" data-div="animation">
                 <div class="card-thumb">
-                    <span class="core-badge">CORE FOCUS</span>
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="3D Logo Bumper Forum BKK">
+                    <span class="core-badge">#02 • CORE FOCUS</span>
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="3D Bumper Forum BKK Jatim">
                     <div class="card-overlay-actions">
-                        <button type="button" class="btn-quick-view"
-                            data-type="video"
-                            data-src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4"
-                            data-title="3D Logo Bumper — Forum BKK Jawa Timur"
-                            data-meta="3D • Kelas 11 • Divisi Animation (Blender & After Effects)">
-                            &#9654; Quick Preview
-                        </button>
+                        <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4" data-title="3D Logo Bumper — Forum BKK Jatim" data-meta="3D • Kelas 11 • Divisi Animation (Blender & AE)">&#9654; Quick Preview</button>
                         <a href="project-detail.html?id=anim-02" class="btn-detail-link">Studi Kasus &rarr;</a>
                     </div>
                 </div>
@@ -155,136 +144,266 @@
                         <span class="card-year">KLS 11</span>
                     </div>
                     <span class="card-cat">3D • Divisi Animation • Blender & AE</span>
-                    <p>Animasi kamera 3D dan motion bumper resmi untuk pembukaan acara regional Forum BKK Jatim.</p>
+                    <p>Animasi kamera 3D dan motion bumper resmi pembukaan acara regional Forum BKK Jatim.</p>
                 </div>
             </div>
 
-            <!-- CONTOH KARYA 3D - KELAS 10 - MODELING -->
-            <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="10" data-div="modeling">
+            <!-- #03 -->
+            <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="11" data-div="animation">
                 <div class="card-thumb">
-                    <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=800&q=80" alt="3D Hard Surface Prop Study">
+                    <span class="core-badge">#03 • CORE FOCUS</span>
+                    <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=800&q=80" alt="3D Character Acting & Lip Sync">
                     <div class="card-overlay-actions">
-                        <button type="button" class="btn-quick-view"
-                            data-type="image"
-                            data-src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=1200&q=80"
-                            data-title="3D Hard Surface & Prop Modeling Study"
-                            data-meta="3D • Kelas 10 • Divisi Modeling (Blender / Maya)">
-                            &#128065; Perbesar Karya
-                        </button>
-                        <a href="project-detail.html?id=mod-10" class="btn-detail-link">Studi Kasus &rarr;</a>
+                        <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" data-title="3D Character Acting & Facial Expression" data-meta="3D • Kelas 11 • Divisi Animation (Maya & Blender)">&#9654; Quick Preview</button>
+                        <a href="project-detail.html?id=anim-03" class="btn-detail-link">Studi Kasus &rarr;</a>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="card-top-row">
-                        <h3>3D Prop & Hard Surface Study</h3>
+                        <h3>3D Character Acting & Expression</h3>
+                        <span class="card-year">KLS 11</span>
+                    </div>
+                    <span class="card-cat">3D • Divisi Animation • Maya & Blender</span>
+                    <p>Latihan akting karakter, gestur tangan, dan ekspresi wajah menggunakan rig karakter anime/stylized.</p>
+                </div>
+            </div>
+
+            <!-- #04 -->
+            <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="11" data-div="animation">
+                <div class="card-thumb">
+                    <span class="core-badge">#04 • CORE FOCUS</span>
+                    <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80" alt="3D Dynamic Action & Camera Cut">
+                    <div class="card-overlay-actions">
+                        <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4" data-title="3D Dynamic Action & Camera Sequencing" data-meta="3D • Kelas 11 • Divisi Animation (Blender)">&#9654; Quick Preview</button>
+                        <a href="project-detail.html?id=anim-04" class="btn-detail-link">Studi Kasus &rarr;</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-top-row">
+                        <h3>3D Dynamic Action & Camera Cut</h3>
+                        <span class="card-year">KLS 11</span>
+                    </div>
+                    <span class="card-cat">3D • Divisi Animation • Blender</span>
+                    <p>Koreografi gerak cepat dengan pergantian sudut kamera sinematik dan efek smear/motion blur.</p>
+                </div>
+            </div>
+
+            <!-- ================= KELAS 10: ANIMATION 2D & 3D (3 KARYA) ================= -->
+            <!-- #05 -->
+            <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="10" data-div="animation">
+                <div class="card-thumb">
+                    <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=800&q=80" alt="3D Basic Walk Cycle & Bouncing Ball">
+                    <div class="card-overlay-actions">
+                        <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" data-title="3D Walk Cycle & Physics Timing" data-meta="3D • Kelas 10 • Divisi Animation (Blender)">&#9654; Quick Preview</button>
+                        <a href="project-detail.html?id=anim-10-1" class="btn-detail-link">Studi Kasus &rarr;</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-top-row">
+                        <h3>3D Walk Cycle & Physics Timing</h3>
                         <span class="card-year">KLS 10</span>
                     </div>
-                    <span class="card-cat">3D • Divisi Modeling • Blender & Maya</span>
-                    <p>Latihan dasar topologi objek 3D, bevel, dan pencahayaan dasar pada semester awal kelas 10.</p>
+                    <span class="card-cat">3D • Divisi Animation • Blender</span>
+                    <p>Fondasi animasi 3D kelas 10: siklus langkah kaki dan simulasi berat benda (pendulum & ball).</p>
                 </div>
             </div>
 
-            <!-- CONTOH KARYA 2D - KELAS 10 - ANIMATION -->
+            <!-- #06 -->
             <div class="project-card" data-branch="2d3d" data-dim="2d" data-grade="10" data-div="animation">
                 <div class="card-thumb">
-                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="2D Keyframe & Motion Study">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="2D 12 Principles of Animation">
                     <div class="card-overlay-actions">
-                        <button type="button" class="btn-quick-view"
-                            data-type="video"
-                            data-src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4"
-                            data-title="2D Principle of Animation & Motion Study"
-                            data-meta="2D • Kelas 10 • Divisi Animation (After Effects)">
-                            &#9654; Quick Preview
-                        </button>
-                        <a href="project-detail.html?id=2d-10" class="btn-detail-link">Studi Kasus &rarr;</a>
+                        <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4" data-title="2D 12 Principles of Animation Study" data-meta="2D • Kelas 10 • Divisi Animation (After Effects)">&#9654; Quick Preview</button>
+                        <a href="project-detail.html?id=2d-10-1" class="btn-detail-link">Studi Kasus &rarr;</a>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="card-top-row">
-                        <h3>2D Principles & Motion Graphics</h3>
+                        <h3>2D 12 Principles of Animation</h3>
                         <span class="card-year">KLS 10</span>
                     </div>
                     <span class="card-cat">2D • Divisi Animation • After Effects</span>
-                    <p>Penerapan 12 prinsip dasar animasi (squash & stretch, anticipation) dalam format 2D.</p>
+                    <p>Penerapan squash & stretch, anticipation, dan follow-through pada animasi 2D dasar.</p>
                 </div>
             </div>
 
-            <!-- CONTOH MULTIMEDIA - OSIS (TANPA KELAS) -->
+            <!-- #07 -->
+            <div class="project-card" data-branch="2d3d" data-dim="2d" data-grade="10" data-div="animation">
+                <div class="card-thumb">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80" alt="2D Kinetic Typography & Bumper">
+                    <div class="card-overlay-actions">
+                        <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" data-title="2D Kinetic Typography & Motion Bumper" data-meta="2D • Kelas 10 • Divisi Animation (After Effects)">&#9654; Quick Preview</button>
+                        <a href="project-detail.html?id=2d-10-2" class="btn-detail-link">Studi Kasus &rarr;</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-top-row">
+                        <h3>2D Motion Graphics & Typography</h3>
+                        <span class="card-year">KLS 10</span>
+                    </div>
+                    <span class="card-cat">2D • Divisi Animation • After Effects</span>
+                    <p>Eksplorasi transisi bentuk geometris dan tipografi dinamis sinkron dengan ketukan musik.</p>
+                </div>
+            </div>
+
+            <!-- ================= KELAS 10: MODELING ARCHIVE (3 KARYA) ================= -->
+            <!-- #08 -->
+            <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="10" data-div="modeling">
+                <div class="card-thumb">
+                    <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=800&q=80" alt="3D Hard Surface Prop Modeling">
+                    <div class="card-overlay-actions">
+                        <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=1200&q=80" data-title="3D Hard Surface & Prop Modeling" data-meta="3D • Kelas 10 • Divisi Modeling (Blender)">&#128065; Perbesar Karya</button>
+                        <a href="project-detail.html?id=mod-10-1" class="btn-detail-link">Studi Kasus &rarr;</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-top-row">
+                        <h3>3D Hard Surface & Prop Modeling</h3>
+                        <span class="card-year">KLS 10</span>
+                    </div>
+                    <span class="card-cat">3D • Divisi Modeling • Blender</span>
+                    <p>Arsip kelas 10: pembentukan objek mekanik, pengaturan bevel, dan topologi quad bersih.</p>
+                </div>
+            </div>
+
+            <!-- #09 -->
+            <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="10" data-div="modeling">
+                <div class="card-thumb">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="3D Isometric Room Diorama">
+                    <div class="card-overlay-actions">
+                        <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" data-title="3D Isometric Room Environment Study" data-meta="3D • Kelas 10 • Divisi Modeling (Blender & Maya)">&#128065; Perbesar Karya</button>
+                        <a href="project-detail.html?id=mod-10-2" class="btn-detail-link">Studi Kasus &rarr;</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-top-row">
+                        <h3>3D Isometric Room Environment</h3>
+                        <span class="card-year">KLS 10</span>
+                    </div>
+                    <span class="card-cat">3D • Divisi Modeling • Blender & Maya</span>
+                    <p>Arsip kelas 10: pemodelan interior ruangan miniatur lengkap dengan pencahayaan studio hangat.</p>
+                </div>
+            </div>
+
+            <!-- #10 -->
+            <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="10" data-div="modeling">
+                <div class="card-thumb">
+                    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80" alt="3D Stylized Weapon & Asset">
+                    <div class="card-overlay-actions">
+                        <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1200&q=80" data-title="3D Stylized Game Asset Modeling" data-meta="3D • Kelas 10 • Divisi Modeling (Maya)">&#128065; Perbesar Karya</button>
+                        <a href="project-detail.html?id=mod-10-3" class="btn-detail-link">Studi Kasus &rarr;</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-top-row">
+                        <h3>3D Stylized Asset & UV Mapping</h3>
+                        <span class="card-year">KLS 10</span>
+                    </div>
+                    <span class="card-cat">3D • Divisi Modeling • Autodesk Maya</span>
+                    <p>Arsip kelas 10: latihan modeling aset bergaya stylized dan pewarnaan material dasar.</p>
+                </div>
+            </div>
+
+            <!-- ================= MULTIMEDIA: EDITING, VIDEOGRAFI & BERTUGAS (5 KARYA) ================= -->
+            <!-- #11 -->
             <div class="project-card hidden-card" data-branch="mulmed" data-mulmed="osis">
                 <div class="card-thumb">
-                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="Dokumentasi Bertugas OSIS">
+                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="After Movie & Dokumentasi OSIS">
                     <div class="card-overlay-actions">
-                        <button type="button" class="btn-quick-view"
-                            data-type="image"
-                            data-src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80"
-                            data-title="Bertugas Dokumentasi & Publikasi OSIS SMKN 4 Madiun"
-                            data-meta="Multimedia • Ketua Sekbid 9 OSIS">
-                            &#128065; Lihat Foto
-                        </button>
+                        <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" data-title="After Movie & Event Recap OSIS SMKN 4 Madiun" data-meta="Multimedia • Ketua Sekbid 9 OSIS (CapCut & AE)">&#9654; Quick Preview</button>
+                        <a href="project-detail.html?id=mulmed-01" class="btn-detail-link">Studi Kasus &rarr;</a>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="card-top-row">
-                        <h3>Bertugas Media & Dokumentasi OSIS</h3>
+                        <h3>After Movie & Event Recap OSIS</h3>
                         <span class="card-year">OSIS</span>
                     </div>
-                    <span class="card-cat">Sekbid 9 • SMKN 4 Madiun</span>
-                    <p>Momen di balik layar saat mengoordinasi liputan acara sekolah, fotografi panggung, dan publikasi digital.</p>
+                    <span class="card-cat">Editing & Videografi • Sekbid 9</span>
+                    <p>Penyuntingan video dokumentasi acara besar sekolah dan koordinasi tim liputan OSIS.</p>
                 </div>
             </div>
 
-            <!-- CONTOH MULTIMEDIA - TIM MULMED / GEREJA -->
+            <!-- #12 -->
+            <div class="project-card hidden-card" data-branch="mulmed" data-mulmed="osis">
+                <div class="card-thumb">
+                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=800&q=80" alt="Foto Bertugas Liputan Panggung OSIS">
+                    <div class="card-overlay-actions">
+                        <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=80" data-title="Dokumentasi Bertugas Publikasi & Fotografi OSIS" data-meta="Multimedia • Ketua Sekbid 9 SMKN 4 Madiun">&#128065; Lihat Foto</button>
+                        <a href="project-detail.html?id=mulmed-02" class="btn-detail-link">Studi Kasus &rarr;</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-top-row">
+                        <h3>Bertugas Liputan & Publikasi OSIS</h3>
+                        <span class="card-year">OSIS</span>
+                    </div>
+                    <span class="card-cat">Dokumentasi Lapangan • Sekbid 9</span>
+                    <p>Momen bertugas di lapangan mengabadikan kegiatan siswa dan mengelola konten media sosial resmi.</p>
+                </div>
+            </div>
+
+            <!-- #13 -->
             <div class="project-card hidden-card" data-branch="mulmed" data-mulmed="tim-mulmed">
                 <div class="card-thumb">
-                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80" alt="Tim Multimedia Live Streaming">
+                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80" alt="Tim Multimedia & Visual Switcher">
                     <div class="card-overlay-actions">
-                        <button type="button" class="btn-quick-view"
-                            data-type="image"
-                            data-src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80"
-                            data-title="Tim Multimedia & Visual Switcher Live Streaming"
-                            data-meta="Multimedia • Broadcast & Kamera">
-                            &#128065; Lihat Foto
-                        </button>
+                        <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80" data-title="Tim Multimedia & Visual Switcher Live Streaming" data-meta="Multimedia • Broadcast & Multi-Cam">&#128065; Lihat Foto</button>
+                        <a href="project-detail.html?id=mulmed-03" class="btn-detail-link">Studi Kasus &rarr;</a>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="card-top-row">
-                        <h3>Tim Mulmed & Broadcast Switcher</h3>
+                        <h3>Tim Mulmed & Visual Switcher</h3>
                         <span class="card-year">TIM MULMED</span>
                     </div>
-                    <span class="card-cat">Cameraman & Visual Switcher</span>
-                    <p>Dokumentasi bertugas sebagai operator kamera utama dan pengarah visual siaran langsung acara besar.</p>
+                    <span class="card-cat">Live Streaming & Broadcast</span>
+                    <p>Bertugas mengoperasikan visual switcher dan pengaturan transisi siaran langsung multi-kamera.</p>
                 </div>
             </div>
 
-            <!-- CONTOH MULTIMEDIA - FREELANCE -->
-            <div class="project-card hidden-card" data-branch="mulmed" data-mulmed="freelance">
+            <!-- #14 -->
+            <div class="project-card hidden-card" data-branch="mulmed" data-mulmed="tim-mulmed">
                 <div class="card-thumb">
-                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80" alt="Freelance Videographer & Editor">
+                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="Cameraman Utama Ibadah & Perayaan">
                     <div class="card-overlay-actions">
-                        <button type="button" class="btn-quick-view"
-                            data-type="image"
-                            data-src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80"
-                            data-title="Freelance Videography & Recording Operator"
-                            data-meta="Multimedia • Proyek Independen">
-                            &#128065; Lihat Foto
-                        </button>
+                        <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80" data-title="Operator Kamera Utama — Tim Multimedia Gereja" data-meta="Multimedia • Videografi & Framing">&#128065; Lihat Foto</button>
+                        <a href="project-detail.html?id=mulmed-04" class="btn-detail-link">Studi Kasus &rarr;</a>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="card-top-row">
-                        <h3>Freelance Camera & Event Recording</h3>
+                        <h3>Cameraman Utama Tim Multimedia</h3>
+                        <span class="card-year">TIM MULMED</span>
+                    </div>
+                    <span class="card-cat">Videography & Live Framing</span>
+                    <p>Pengambilan sudut gambar dinamis dan menjaga komposisi visual selama acara berlangsung.</p>
+                </div>
+            </div>
+
+            <!-- #15 -->
+            <div class="project-card hidden-card" data-branch="mulmed" data-mulmed="freelance">
+                <div class="card-thumb">
+                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80" alt="Freelance Videographer & Video Editor">
+                    <div class="card-overlay-actions">
+                        <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4" data-title="Freelance Videography, Recording & Editing" data-meta="Multimedia • Proyek Klien Independen (CapCut & KineMaster)">&#9654; Quick Preview</button>
+                        <a href="project-detail.html?id=mulmed-05" class="btn-detail-link">Studi Kasus &rarr;</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-top-row">
+                        <h3>Freelance Camera & Video Editing</h3>
                         <span class="card-year">FREELANCE</span>
                     </div>
-                    <span class="card-cat">Videographer & Video Editor</span>
-                    <p>Dokumentasi lapangan saat menangani proyek klien independen mulai dari pengambilan gambar hingga editing.</p>
+                    <span class="card-cat">Videography & Editing • Proyek Klien</span>
+                    <p>Mengerjakan perekaman lapangan, operator rekaman, hingga editing video promosi untuk klien.</p>
                 </div>
             </div>
 
         </div>
 
         <div class="empty-filter-msg" id="empty-filter-msg" style="display:none;">
-            Belum ada karya pada kombinasi filter ini. Silakan pilih kategori kelas atau divisi lainnya.
+            Tidak ada karya pada kombinasi ini (ingat: di Kelas 11 divisi Modeling sudah ditinggalkan untuk fokus ke Animasi & Multimedia).
         </div>
     </main>
 
