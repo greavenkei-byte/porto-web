@@ -366,7 +366,8 @@ h1, h2, h3, h4, .logo, .jp-display {
     gap: 10px;
 }
 
-.theme-toggle-btn {
+.theme-toggle-btn,
+.sound-toggle-btn {
     width: 38px;
     height: 38px;
     border-radius: 8px;
@@ -380,10 +381,15 @@ h1, h2, h3, h4, .logo, .jp-display {
     transition: all 0.25s ease;
 }
 
-.theme-toggle-btn:hover {
+.theme-toggle-btn:hover,
+.sound-toggle-btn:hover {
     background-color: var(--bg-elevated);
     border-color: var(--text-ink);
     transform: translateY(-1px);
+}
+
+.sound-toggle-btn.is-muted {
+    opacity: 0.55;
 }
 
 .btn-cv {
