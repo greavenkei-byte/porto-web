@@ -1,4 +1,3 @@
-// TERAPKAN TEMA SEBELUM HALAMAN RENDER AGAR TIDAK BERKEDIP
 (function() {
     try {
         const savedTheme = localStorage.getItem('gkp_theme') || 'light';
@@ -9,7 +8,7 @@
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 0. SUNTIKKAN TOMBOL DARK / LIGHT MODE DI NAVBAR & MOBILE MENU
+    // 0. DARK / LIGHT MODE TOGGLE DI NAVBAR & MOBILE MENU
     const sunIcon = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
     const moonIcon = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
 
@@ -23,14 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     themeBtn.className = 'theme-toggle-btn';
     themeBtn.setAttribute('aria-label', 'Ganti Mode Terang / Gelap');
 
-    function updateThemeUI() {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        themeBtn.innerHTML = isDark ? sunIcon : moonIcon;
-        if (mobileThemeLink) {
-            mobileThemeLink.textContent = isDark ? '☀ Mode Terang (Light)' : '☾ Mode Gelap (Dark)';
-        }
-    }
-
     let mobileThemeLink = null;
     if (mobileMenu) {
         mobileThemeLink = document.createElement('a');
@@ -40,6 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleTheme();
         });
         mobileMenu.appendChild(mobileThemeLink);
+    }
+
+    function updateThemeUI() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        themeBtn.innerHTML = isDark ? sunIcon : moonIcon;
+        if (mobileThemeLink) {
+            mobileThemeLink.textContent = isDark ? '☀ Mode Terang (Light)' : '☾ Mode Gelap (Dark)';
+        }
     }
 
     function toggleTheme() {
@@ -63,9 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         actionsWrap.className = 'nav-actions';
         actionsWrap.appendChild(themeBtn);
         if (btnCv) actionsWrap.appendChild(btnCv);
-        if (hamburgerBtn) {
-            actionsWrap.appendChild(hamburgerBtn);
-        }
+        if (hamburgerBtn) actionsWrap.appendChild(hamburgerBtn);
         navContainer.appendChild(actionsWrap);
     }
 
@@ -246,36 +243,88 @@ document.addEventListener('DOMContentLoaded', () => {
         animateCard();
     }
 
-    // 5. PROJECT CATEGORY FILTER (PROJECTS PAGE)
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
+    // 5. HIERARCHICAL PROJECTS FILTER (CABANG 2D/3D -> DIMENSI -> KELAS -> DIVISI & MULTIMEDIA)
+    const branchBtns = document.querySelectorAll('.branch-btn');
+    const panel2d3d = document.getElementById('panel-2d3d');
+    const panelMulmed = document.getElementById('panel-mulmed');
+    const allProjectCards = document.querySelectorAll('.project-card');
+    const emptyMsg = document.getElementById('empty-filter-msg');
 
-    if (filterBtns.length > 0 && projectCards.length > 0) {
-        filterBtns.forEach(btn => {
+    if (branchBtns.length > 0 && allProjectCards.length > 0) {
+        let state = {
+            branch: '2d3d',
+            dim: 'all',
+            grade: 'all',
+            div: 'all',
+            mulmed: 'all'
+        };
+
+        function applyProjectFilters() {
+            let visibleCount = 0;
+
+            allProjectCards.forEach(card => {
+                const cBranch = card.getAttribute('data-branch');
+                let match = false;
+
+                if (state.branch === '2d3d' && cBranch === '2d3d') {
+                    const mDim = state.dim === 'all' || card.getAttribute('data-dim') === state.dim;
+                    const mGrade = state.grade === 'all' || card.getAttribute('data-grade') === state.grade;
+                    const mDiv = state.div === 'all' || card.getAttribute('data-div') === state.div;
+                    match = mDim && mGrade && mDiv;
+                } else if (state.branch === 'mulmed' && cBranch === 'mulmed') {
+                    match = state.mulmed === 'all' || card.getAttribute('data-mulmed') === state.mulmed;
+                }
+
+                if (match) {
+                    card.classList.remove('hidden-card');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden-card');
+                }
+            });
+
+            if (emptyMsg) {
+                emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
+        }
+
+        branchBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
+                branchBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
+                state.branch = btn.getAttribute('data-branch');
 
-                const filterValue = btn.getAttribute('data-filter');
-
-                projectCards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    if (filterValue === 'all' || category === filterValue) {
-                        card.style.display = 'flex';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, 20);
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(10px)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 250);
-                    }
-                });
+                if (state.branch === '2d3d') {
+                    if (panel2d3d) panel2d3d.classList.remove('hidden');
+                    if (panelMulmed) panelMulmed.classList.add('hidden');
+                } else {
+                    if (panel2d3d) panel2d3d.classList.add('hidden');
+                    if (panelMulmed) panelMulmed.classList.remove('hidden');
+                }
+                applyProjectFilters();
             });
         });
+
+        function bindPillGroup(containerId, stateKey) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            const pills = container.querySelectorAll('.filter-btn');
+            pills.forEach(pill => {
+                pill.addEventListener('click', () => {
+                    pills.forEach(p => p.classList.remove('active'));
+                    pill.classList.add('active');
+                    state[stateKey] = pill.getAttribute('data-val');
+                    applyProjectFilters();
+                });
+            });
+        }
+
+        bindPillGroup('filter-dim', 'dim');
+        bindPillGroup('filter-grade', 'grade');
+        bindPillGroup('filter-div', 'div');
+        bindPillGroup('filter-mulmed', 'mulmed');
+
+        applyProjectFilters();
     }
 
     // 6. DYNAMIC PROJECT DETAIL PAGE & PREV/NEXT NAVIGATION
@@ -284,23 +333,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const projectsData = [
             {
                 id: 'anim-01',
-                title: '3D Animation Test 01',
-                category: '3D Animation',
+                title: '3D Character Body Mechanics',
+                category: '3D • Divisi Animation (Kelas 11)',
                 year: '2026',
                 role: '3D Animator',
                 tools: 'Blender',
-                client: 'Personal Study',
+                client: 'Personal Study — Core Focus',
                 videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
                 posterUrl: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1200&q=80',
                 desc: 'Eksplorasi mekanika gerak karakter (walk cycle dan body mechanics) menggunakan Blender untuk melatih pemahaman terhadap prinsip animasi dasar.',
                 challenge: 'Menjaga konsistensi timing, spacing, dan perpindahan pusat gravitasi (center of gravity) agar gerakan karakter terasa memiliki bobot dan natural.',
                 steps: ['01 Referensi', '02 Blocking', '03 Spline', '04 Render'],
-                result: 'Menghasilkan siklus gerakan karakter yang halus dengan kurva animasi yang bersih serta pencahayaan studio dasar.'
+                result: 'Menghasilkan siklus gerakan karakter yang halus dengan kurva Graph Editor yang bersih.'
             },
             {
                 id: 'anim-02',
                 title: '3D Logo Bumper — Forum BKK Jatim',
-                category: '3D Animation',
+                category: '3D • Divisi Animation (Kelas 11)',
                 year: '2026',
                 role: '3D Animator & Motion Designer',
                 tools: 'Blender, After Effects',
@@ -308,39 +357,39 @@ document.addEventListener('DOMContentLoaded', () => {
                 videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
                 posterUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
                 desc: 'Produksi video bumper pembuka 3D resmi dan aset visual promosi untuk acara regional Forum Bursa Kerja Khusus (BKK) Jawa Timur.',
-                challenge: 'Menyelaraskan pergerakan kamera 3D dengan aksen suara (sound effects) dalam durasi singkat agar terlihat megah dan profesional.',
+                challenge: 'Menyelaraskan pergerakan kamera 3D dengan aksen suara dalam durasi singkat agar terlihat megah dan profesional.',
                 steps: ['01 Konsep & Moodboard', '02 Camera Anim', '03 Lighting & Shader', '04 Compositing'],
-                result: 'Bumper 3D beresolusi tinggi yang digunakan sebagai pembuka resmi rangkaian acara dan publikasi media.'
+                result: 'Bumper 3D beresolusi tinggi yang digunakan sebagai pembuka resmi rangkaian acara.'
             },
             {
-                id: 'edit-01',
-                title: 'After Movie & Event Recap OSIS',
-                category: 'Video Editing',
-                year: '2026',
-                role: 'Video Editor & Director',
-                tools: 'Premiere Pro, After Effects, CapCut',
-                client: 'OSIS SMKN 4 Madiun (Sekbid 9)',
+                id: 'mod-10',
+                title: '3D Prop & Hard Surface Study',
+                category: '3D • Divisi Modeling (Kelas 10)',
+                year: '2025',
+                role: '3D Modeler (Study)',
+                tools: 'Blender, Autodesk Maya',
+                client: 'Tugas Jurusan Animasi Kelas 10',
                 videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
-                posterUrl: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80',
-                desc: 'Penyuntingan video ringkasan kegiatan sekolah dan acara OSIS dengan transisi cepat, sinkronisasi beat musik, dan color grading.',
-                challenge: 'Menyortir ratusan klip rekaman dari berbagai sudut kamera dengan kondisi pencahayaan yang berbeda-beda menjadi satu alur cerita yang padu.',
-                steps: ['01 Footage Sorting', '02 Rough Cut', '03 Rhythm Editing', '04 Color & Audio'],
-                result: 'Video dokumentasi yang energik dan mendapat respons positif di kanal media sosial resmi sekolah.'
+                posterUrl: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Latihan dasar pembangunan bentuk objek 3D, topologi bersih, serta pencahayaan dasar pada semester awal kelas 10.',
+                challenge: 'Memahami alur kerja mesh dan menjaga proporsi objek agar siap digunakan dalam adegan animasi.',
+                steps: ['01 Blocking Bentuk', '02 Detail & Bevel', '03 Shading', '04 Render'],
+                result: 'Aset 3D prop sederhana sebagai fondasi sebelum memfokuskan diri ke divisi animasi.'
             },
             {
-                id: 'video-01',
-                title: 'Dokumentasi Event & Produksi Live Streaming',
-                category: 'Videography',
-                year: '2025 - 2026',
-                role: 'Cameraman & Visual Switcher',
-                tools: 'DSLR/Mirrorless, OBS Studio, Video Switcher',
-                client: 'Dokumentasi Gereja & Event Sekolah',
+                id: '2d-10',
+                title: '2D Principles & Motion Graphics',
+                category: '2D • Divisi Animation (Kelas 10)',
+                year: '2025',
+                role: '2D Animator',
+                tools: 'Adobe After Effects',
+                client: 'Tugas Jurusan Animasi Kelas 10',
                 videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
-                posterUrl: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80',
-                desc: 'Pengambilan gambar sinematik serta pengoperasian kamera dan visual switcher untuk siaran langsung acara berskala besar.',
-                challenge: 'Menjaga stabilitas framing kamera secara real-time dan memastikan perpindahan antar sudut kamera berjalan mulus tanpa jeda.',
-                steps: ['01 Setup Alat', '02 Framing & Angle', '03 Live Switching', '04 Archive'],
-                result: 'Siaran langsung dan arsip dokumentasi visual yang jernih, stabil, dan tertata rapi.'
+                posterUrl: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Penerapan prinsip dasar animasi seperti squash & stretch, anticipation, dan easing dalam format 2D.',
+                challenge: 'Mengatur kurva kecepatan agar pergerakan objek 2D terasa hidup dan tidak kaku.',
+                steps: ['01 Storyboard', '02 Keyframing', '03 Graph Editor', '04 Export'],
+                result: 'Klip animasi 2D yang melatih kepekaan ritme gerak.'
             }
         ];
 
@@ -380,5 +429,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
         nextBtn.href = `project-detail.html?id=${nextProject.id}`;
         document.getElementById('next-title').textContent = nextProject.title;
+    }
+
+    // 7. QUICK PREVIEW MODAL (VIDEO / FOTO LANGSUNG)
+    const previewModal = document.getElementById('preview-modal');
+    const modalMediaArea = document.getElementById('modal-media-area');
+    const modalTitleText = document.getElementById('modal-title-text');
+    const modalMetaText = document.getElementById('modal-meta-text');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+
+    if (previewModal && modalMediaArea) {
+        document.querySelectorAll('.btn-quick-view').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const type = btn.getAttribute('data-type');
+                const src = btn.getAttribute('data-src');
+                const title = btn.getAttribute('data-title');
+                const meta = btn.getAttribute('data-meta');
+
+                if (type === 'video') {
+                    modalMediaArea.innerHTML = `<video controls autoplay playsinline><source src="${src}" type="video/mp4"></video>`;
+                } else {
+                    modalMediaArea.innerHTML = `<img src="${src}" alt="${title}">`;
+                }
+                if (modalTitleText) modalTitleText.textContent = title;
+                if (modalMetaText) modalMetaText.textContent = meta;
+                previewModal.classList.add('open');
+            });
+        });
+
+        function closePreviewModal() {
+            previewModal.classList.remove('open');
+            modalMediaArea.innerHTML = '';
+        }
+
+        if (modalCloseBtn) modalCloseBtn.addEventListener('click', closePreviewModal);
+        previewModal.addEventListener('click', (e) => {
+            if (e.target === previewModal) closePreviewModal();
+        });
+    }
+
+    // 8. AVAILABILITY BADGE (OPEN FOR PKL / INTERNSHIP & FREELANCE)
+    const heroBadge = document.querySelector('.hero-badge');
+    if (heroBadge) {
+        heroBadge.innerHTML = `● OPEN FOR PKL / INTERNSHIP & FREELANCE — GREAVEN K.P.`;
     }
 });
