@@ -45,7 +45,7 @@
     <!-- NAVBAR -->
     <header class="navbar">
         <div class="nav-container">
-            <a href="#home" data-page="home" class="logo">Greaven K.P.<span>.</span></a>
+            <a href="#home" data-page="home" class="logo">Greaven K.P<span>.</span></a>
             <nav class="nav-links" aria-label="Navigasi Utama">
                 <a href="#home" data-page="home" class="active">Home</a>
                 <a href="#about" data-page="about">About</a>
@@ -95,8 +95,8 @@
                         </div>
                     </div>
 
-                    <a href="#showreel-sec" class="hero-showreel-card tilt-card">
-                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80" alt="Showreel Preview">
+                    <a href="#showreel-sec" id="hero-showreel-link" class="hero-showreel-card tilt-card">
+                        <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=900&q=80" alt="Showreel Preview">
                         <div class="play-overlay">
                             <div class="play-circle">
                                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
@@ -192,7 +192,7 @@
                 <div class="featured-list">
                     <div class="featured-item reveal">
                         <div class="featured-img">
-                            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80" alt="3D Character Body Mechanics" loading="lazy" decoding="async">
+                            <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80" alt="3D Character Body Mechanics" loading="lazy" decoding="async">
                         </div>
                         <div class="featured-content">
                             <span class="featured-meta">3D Animation • Kelas 11</span>
@@ -307,73 +307,77 @@
             <section class="about-section">
                 <div class="about-top-grid">
                     <div class="hanging-stage reveal">
-                        <svg class="lanyard-svg" viewBox="0 0 320 260" aria-hidden="true">
+                        <svg class="lanyard-svg" viewBox="0 0 320 120" aria-hidden="true">
                             <defs>
-                                <path id="lanyard-dynamic-line" d="M 160 -20 Q 160 35 160 88" />
+                                <path id="lanyard-dynamic-line" d="M 160 -15 Q 160 45 160 102" />
                             </defs>
-                            <use href="#lanyard-dynamic-line" stroke="rgba(0, 0, 0, 0.45)" stroke-width="32" fill="none" stroke-linecap="butt" transform="translate(3, 3)" />
-                            <use href="#lanyard-dynamic-line" stroke="#0F172A" stroke-width="28" fill="none" stroke-linecap="butt" />
-                            <use href="#lanyard-dynamic-line" stroke="rgba(56, 189, 248, 0.25)" stroke-width="22" stroke-dasharray="3 3" fill="none" />
-                            <use href="#lanyard-dynamic-line" stroke="#0F172A" stroke-width="19" fill="none" />
-                            <text fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" letter-spacing="3.5" dy="3.5">
-                                <textPath href="#lanyard-dynamic-line" startOffset="52%" text-anchor="middle">
-                                    JOPRASS •
+                            <use href="#lanyard-dynamic-line" stroke="rgba(0, 0, 0, 0.5)" stroke-width="32" fill="none" stroke-linecap="round" transform="translate(3, 3)" />
+                            <use href="#lanyard-dynamic-line" stroke="#0F172A" stroke-width="28" fill="none" stroke-linecap="round" />
+                            <use href="#lanyard-dynamic-line" stroke="rgba(56, 189, 248, 0.3)" stroke-width="22" stroke-dasharray="3 3" fill="none" />
+                            <use href="#lanyard-dynamic-line" stroke="#0B1324" stroke-width="18" fill="none" />
+                            <text fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="700" letter-spacing="3" dy="3.5">
+                                <textPath href="#lanyard-dynamic-line" startOffset="48%" text-anchor="middle">
+                                    JOPRASS
                                 </textPath>
                             </text>
-                            <g id="lanyard-clasp" transform="translate(160, 88)">
-                                <rect x="-15" y="-12" width="30" height="10" rx="3" fill="#1E293B" />
-                                <circle cx="0" cy="-2" r="5" fill="none" stroke="#38BDF8" stroke-width="2.5" />
-                                <rect x="-5" y="1" width="10" height="13" rx="3" fill="#94A3B8" />
+                            <g id="lanyard-clasp" transform="translate(160, 102)">
+                                <rect x="-15" y="-12" width="30" height="10" rx="3" fill="#1E293B" stroke="#334155" stroke-width="1" />
+                                <circle cx="0" cy="-1" r="5.5" fill="none" stroke="#38BDF8" stroke-width="2.5" />
+                                <rect x="-4.5" y="2" width="9" height="14" rx="3" fill="#CBD5E1" />
                             </g>
                         </svg>
 
                         <!-- WRAPPER KARTU + EFEK ANGIN DI SISI UJUNG -->
                         <div class="card-wind-wrapper" id="card-wind-wrapper">
                             <svg class="wind-gust-svg" viewBox="0 0 360 440" fill="none" aria-hidden="true">
-                                <path class="wind-streak" d="M 22 95 Q -12 155 18 225" />
-                                <path class="wind-streak streak-2" d="M 10 145 Q -22 215 14 295" />
-                                <path class="wind-streak" d="M 338 110 Q 372 175 342 245" />
-                                <path class="wind-streak streak-4" d="M 350 165 Q 382 235 346 310" />
-                                <path class="wind-arc" d="M 48 24 Q 180 -12 312 24" />
-                                <path class="wind-arc" d="M 54 416 Q 180 448 306 416" />
+                                <path class="wind-streak" d="M 24 85 Q -16 155 20 235" />
+                                <path class="wind-streak streak-2" d="M 8 140 Q -28 220 14 305" />
+                                <path class="wind-streak" d="M 336 95 Q 376 170 340 250" />
+                                <path class="wind-streak streak-4" d="M 352 155 Q 388 235 346 315" />
+                                <path class="wind-arc" d="M 42 26 Q 180 -14 318 26" />
+                                <path class="wind-arc" d="M 48 414 Q 180 450 312 414" />
                             </svg>
 
                             <div class="id-card-3d" id="physics-id-card">
                                 <div class="card-face card-front">
-                                    <div class="card-gloss-sheen"></div>
-                                    <div>
-                                        <div class="card-clip-hole"></div>
-                                        <div class="id-photo">
-                                            <img src="1.jpeg" alt="Greaven Keiyoshi Prasojo" loading="lazy" decoding="async">
+                                    <div class="card-face-inner">
+                                        <div class="card-gloss-sheen"></div>
+                                        <div>
+                                            <div class="card-clip-hole"></div>
+                                            <div class="id-photo">
+                                                <img src="1.jpeg" alt="Greaven Keiyoshi Prasojo" loading="lazy" decoding="async">
+                                            </div>
+                                            <div class="id-details">
+                                                <h3>GREAVEN K.P.</h3>
+                                                <span class="id-role">3D ANIMATOR &amp; MULTIMEDIA</span>
+                                            </div>
                                         </div>
-                                        <div class="id-details">
-                                            <h3>GREAVEN K.P.</h3>
-                                            <span class="id-role">3D ANIMATOR &amp; MULTIMEDIA</span>
+                                        <div class="id-footer">
+                                            <span>SMKN 4 MADIUN</span>
+                                            <span>ID-2026</span>
                                         </div>
-                                    </div>
-                                    <div class="id-footer">
-                                        <span>SMKN 4 MADIUN</span>
-                                        <span>ID-2026</span>
                                     </div>
                                 </div>
 
                                 <div class="card-face card-back">
-                                    <div class="card-gloss-sheen"></div>
-                                    <div class="card-clip-hole"></div>
-                                    <span class="back-jp-tag">グレイヴン • CREATIVE PASS</span>
-                                    <div class="qr-box">
-                                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://instagram.com/joprass_" alt="QR Code Instagram Greaven" loading="lazy" decoding="async">
-                                    </div>
-                                    <div class="back-cta-text">
-                                        <h4>CONNECT OUR JOURNEY</h4>
-                                        <p>Scan QR untuk terhubung ke Instagram @joprass_</p>
+                                    <div class="card-face-inner back-inner">
+                                        <div class="card-gloss-sheen"></div>
+                                        <div class="card-clip-hole"></div>
+                                        <span class="back-jp-tag">グレイヴン • CREATIVE PASS</span>
+                                        <div class="qr-box">
+                                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://instagram.com/joprass_" alt="QR Code Instagram Greaven" loading="lazy" decoding="async">
+                                        </div>
+                                        <div class="back-cta-text">
+                                            <h4>CONNECT OUR JOURNEY</h4>
+                                            <p>Scan QR untuk terhubung ke Instagram @joprass_</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="card-controls-hint">
-                            <span>Tarik kartu untuk ayunkan</span>
+                            <span>Tarik kartu untuk ayunkan &bull; Klik untuk balik</span>
                             <button type="button" class="btn-flip magnetic-btn" id="flip-card-btn">Putar Kartu &orarr;</button>
                         </div>
                     </div>
@@ -582,7 +586,7 @@
                         <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="11" data-div="animation" data-glow="#38BDF8">
                             <div class="card-thumb">
                                 <span class="core-badge">#01 • CORE FOCUS</span>
-                                <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80" alt="3D Character Body Mechanics" loading="lazy" decoding="async">
+                                <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80" alt="3D Character Body Mechanics" loading="lazy" decoding="async">
                                 <div class="card-overlay-actions">
                                     <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" data-title="3D Character Body Mechanics" data-meta="3D • Kelas 11 • Divisi Animation (Blender)">&#9654; Quick Preview</button>
                                     <a href="#project-detail?id=anim-01" data-project-id="anim-01" class="btn-detail-link">Studi Kasus &rarr;</a>
@@ -756,9 +760,9 @@
                         <!-- #10 -->
                         <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="10" data-div="modeling" data-glow="#38BDF8">
                             <div class="card-thumb">
-                                <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80" alt="3D Stylized Weapon & Asset" loading="lazy" decoding="async">
+                                <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=800&q=80" alt="3D Stylized Weapon & Asset" loading="lazy" decoding="async">
                                 <div class="card-overlay-actions">
-                                    <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1200&q=80" data-title="3D Stylized Game Asset Modeling" data-meta="3D • Kelas 10 • Divisi Modeling (Maya)">&#128065; Perbesar Karya</button>
+                                    <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=1200&q=80" data-title="3D Stylized Game Asset Modeling" data-meta="3D • Kelas 10 • Divisi Modeling (Maya)">&#128065; Perbesar Karya</button>
                                     <a href="#project-detail?id=mod-10-3" data-project-id="mod-10-3" class="btn-detail-link">Studi Kasus &rarr;</a>
                                 </div>
                             </div>
