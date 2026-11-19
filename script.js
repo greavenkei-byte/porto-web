@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const audio = getContext();
             if (!audio) return;
             const now = audio.currentTime;
-            const duration = 0.28;
+            const duration = 0.26;
             const bufferSize = Math.floor(audio.sampleRate * duration);
             const buffer = audio.createBuffer(1, bufferSize, audio.sampleRate);
             const data = buffer.getChannelData(0);
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const filter = audio.createBiquadFilter();
             filter.type = 'bandpass';
             filter.frequency.setValueAtTime(260, now);
-            filter.frequency.exponentialRampToValueAtTime(920, now + 0.14);
+            filter.frequency.exponentialRampToValueAtTime(920, now + 0.13);
             filter.frequency.exponentialRampToValueAtTime(300, now + duration);
             filter.Q.value = 1.6;
             const gain = audio.createGain();
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================================================
-    // 1. CURSOR SPOTLIGHT, MAGNETIC PULL & 3D TILT CARDS
+    // 1. CURSOR SPOTLIGHT / SHADOW, MAGNETIC PULL & 3D TILT CARDS
     // =========================================================================
     const spotlight = document.getElementById('cursor-spotlight');
     if (spotlight && window.matchMedia('(pointer: fine)').matches) {
@@ -436,21 +436,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. DATA 15 KARYA & DYNAMIC PROJECT DETAIL LOADER
     // =========================================================================
     const projectsData = [
-        { id: 'anim-01', title: '3D Character Body Mechanics', category: '3D • Divisi Animation (Kelas 11)', year: '2026', role: '3D Animator', tools: 'Blender', client: 'Core Focus — Kelas 11', videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4)', posterUrl: '[https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80)', desc: 'Eksplorasi mekanika gerak karakter (walk cycle dan body mechanics) menggunakan Blender untuk melatih pemahaman terhadap prinsip animasi.', challenge: 'Menjaga konsistensi timing, spacing, dan perpindahan pusat gravitasi agar gerakan karakter terasa memiliki bobot dan natural.', steps: ['01 Referensi', '02 Blocking', '03 Spline', '04 Render'], result: 'Menghasilkan siklus gerakan karakter yang halus dengan kurva Graph Editor yang bersih.' },
-        { id: 'anim-02', title: '3D Logo Bumper — Forum BKK Jatim', category: '3D • Divisi Animation (Kelas 11)', year: '2026', role: '3D Animator & Motion Designer', tools: 'Blender, After Effects', client: 'Forum BKK Jawa Timur', videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4)', posterUrl: '[https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80)', desc: 'Produksi video bumper pembuka 3D resmi dan aset visual promosi untuk acara regional Forum Bursa Kerja Khusus (BKK) Jawa Timur.', challenge: 'Menyelaraskan pergerakan kamera 3D dengan aksen suara dalam durasi singkat agar terlihat megah dan profesional.', steps: ['01 Konsep', '02 Camera Anim', '03 Lighting', '04 Compositing'], result: 'Bumper 3D beresolusi tinggi yang digunakan sebagai pembuka resmi rangkaian acara.' },
-        { id: 'anim-03', title: '3D Character Acting & Expression', category: '3D • Divisi Animation (Kelas 11)', year: '2026', role: '3D Character Animator', tools: 'Autodesk Maya, Blender', client: 'Core Focus — Kelas 11', videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4)', posterUrl: '[https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=1200&q=80)', desc: 'Latihan akting karakter, gestur tangan, dan ekspresi wajah menggunakan rig karakter anime/stylized.', challenge: 'Menyampaikan emosi karakter hanya melalui siluet pose tubuh dan pergerakan mata sebelum dialog masuk.', steps: ['01 Video Ref', '02 Key Poses', '03 Facial Pass', '04 Polish'], result: 'Klip akting karakter ekspresif dengan pose yang terbaca jelas.' },
-        { id: 'anim-04', title: '3D Dynamic Action & Camera Cut', category: '3D • Divisi Animation (Kelas 11)', year: '2026', role: '3D Animator', tools: 'Blender', client: 'Core Focus — Kelas 11', videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4)', posterUrl: '[https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80)', desc: 'Koreografi gerak cepat dengan pergantian sudut kamera sinematik dan efek aksentuasi gerak.', challenge: 'Menjaga orientasi penonton saat kamera berpindah sudut dalam tempo cepat.', steps: ['01 Storyboard', '02 Camera Block', '03 Action Timing', '04 Render'], result: 'Sekuens aksi 3D yang enerjik dengan ritme kamera dinamis.' },
-        { id: 'anim-10-1', title: '3D Walk Cycle & Physics Timing', category: '3D • Divisi Animation (Kelas 10)', year: '2025', role: '3D Animator', tools: 'Blender', client: 'Fondasi Jurusan Animasi Kelas 10', videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4)', posterUrl: '[https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=1200&q=80)', desc: 'Fondasi animasi 3D kelas 10: siklus langkah kaki dan simulasi berat benda (pendulum & ball).', challenge: 'Memahami kurva F-Curve dan menjaga kontak kaki tetap menempel kuat pada lantai.', steps: ['01 Contact Pose', '02 Passing Pose', '03 In-Between', '04 Loop'], result: 'Animasi dasar yang menjadi fondasi lompatan skill di kelas 11.' },
-        { id: '2d-10-1', title: '2D 12 Principles of Animation', category: '2D • Divisi Animation (Kelas 10)', year: '2025', role: '2D Animator', tools: 'Adobe After Effects', client: 'Tugas Animasi Kelas 10', videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4)', posterUrl: '[https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80)', desc: 'Penerapan squash & stretch, anticipation, dan follow-through pada animasi 2D dasar.', challenge: 'Mengatur kurva kecepatan (easy ease) agar gerak terasa elastis dan tidak kaku.', steps: ['01 Sketch', '02 Keyframe', '03 Speed Graph', '04 Export'], result: 'Klip studi prinsip dasar animasi 2D.' },
-        { id: '2d-10-2', title: '2D Motion Graphics & Typography', category: '2D • Divisi Animation (Kelas 10)', year: '2025', role: 'Motion Designer', tools: 'Adobe After Effects', client: 'Tugas Animasi Kelas 10', videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4)', posterUrl: '[https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80)', desc: 'Eksplorasi transisi bentuk geometris dan tipografi dinamis sinkron dengan ketukan musik.', challenge: 'Menjaga keterbacaan teks di tengah transisi bentuk yang cepat.', steps: ['01 Layout', '02 Masking', '03 Audio Sync', '04 Render'], result: 'Video motion graphics pembuka bergaya modern.' },
-        { id: 'mod-10-1', title: '3D Hard Surface & Prop Modeling', category: '3D • Divisi Modeling (Kelas 10)', year: '2025', role: '3D Modeler (Arsip Kls 10)', tools: 'Blender', client: 'Arsip Modeling Kelas 10', videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4)', posterUrl: '[https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=1200&q=80)', desc: 'Arsip kelas 10: pembentukan objek mekanik, pengaturan bevel, dan topologi quad bersih.', challenge: 'Menghindari pinching pada permukaan lengkung dengan mengatur edge loop yang rapi.', steps: ['01 Blockout', '02 Edge Loop', '03 Shading', '04 Turntable'], result: 'Aset 3D prop bersih sebagai bagian dari pembelajaran dasar di kelas 10.' },
-        { id: 'mod-10-2', title: '3D Isometric Room Environment', category: '3D • Divisi Modeling (Kelas 10)', year: '2025', role: '3D Modeler (Arsip Kls 10)', tools: 'Blender, Autodesk Maya', client: 'Arsip Modeling Kelas 10', videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4)', posterUrl: '[https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80)', desc: 'Arsip kelas 10: pemodelan interior ruangan miniatur lengkap dengan pencahayaan studio hangat.', challenge: 'Menata komposisi puluhan objek kecil agar terlihat harmonis dalam satu bingkai isometrik.', steps: ['01 Room Shell', '02 Furniture', '03 Warm Light', '04 Cycles Render'], result: 'Render lingkungan ruangan 3D isometrik.' },
-        { id: 'mod-10-3', title: '3D Stylized Asset & UV Mapping', category: '3D • Divisi Modeling (Kelas 10)', year: '2025', role: '3D Modeler (Arsip Kls 10)', tools: 'Autodesk Maya', client: 'Arsip Modeling Kelas 10', videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4)', posterUrl: '[https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=1200&q=80)', desc: 'Arsip kelas 10: latihan modeling aset bergaya stylized dan pemetaan UV dasar di Maya.', challenge: 'Memotong UV seam secara rapi agar tekstur tidak tertarik.', steps: ['01 Base Mesh', '02 Sculpt/Detail', '03 UV Unwrap', '04 Render'], result: 'Aset 3D siap pakai sebelum fokus penuh beralih ke divisi animasi di kelas 11.' },
-        { id: 'mulmed-01', title: 'After Movie & Event Recap OSIS', category: 'Multimedia • Editing & Videografi', year: '2026', role: 'Ketua Sekbid 9 & Video Editor', tools: 'CapCut, Adobe After Effects', client: 'OSIS SMKN 4 Madiun', videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4)', posterUrl: '[https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80)', desc: 'Penyuntingan video dokumentasi acara besar sekolah dan koordinasi tim liputan OSIS.', challenge: 'Menggabungkan berbagai rekaman kamera siswa menjadi alur cerita yang energik dalam waktu singkat.', steps: ['01 Liputan', '02 Seleksi Klip', '03 Beat Sync', '04 Color Grade'], result: 'Video rekap resmi yang dipublikasikan di kanal media sosial sekolah.' },
-        { id: 'mulmed-02', title: 'Bertugas Liputan & Publikasi OSIS', category: 'Multimedia • Dokumentasi Lapangan', year: '2026', role: 'Ketua Sekbid 9 (Media & TIK)', tools: 'Kamera DSLR/Mirrorless, CapCut', client: 'OSIS SMKN 4 Madiun', videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4)', posterUrl: '[https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=80)', desc: 'Momen bertugas di lapangan mengabadikan kegiatan siswa dan mengelola konten media sosial resmi.', challenge: 'Menangkap momen krusial panggung secara spontan dalam kondisi pencahayaan berubah-ubah.', steps: ['01 Briefing Tim', '02 Fotografi Event', '03 Kurasi Foto', '04 Publikasi'], result: 'Arsip dokumentasi visual rapi untuk seluruh program kerja OSIS.' },
-        { id: 'mulmed-03', title: 'Tim Mulmed & Visual Switcher', category: 'Multimedia • Live Streaming', year: '2025 - 2026', role: 'Visual Switcher Operator', tools: 'Video Switcher, OBS Studio', client: 'Tim Multimedia Gereja', videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4)', posterUrl: '[https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80)', desc: 'Bertugas mengoperasikan visual switcher dan pengaturan transisi siaran langsung multi-kamera.', challenge: 'Menjaga kelancaran perpindahan kamera secara real-time tanpa jeda selama siaran langsung.', steps: ['01 Cek Sinyal', '02 Koordinasi Cam', '03 Live Switching', '04 Monitoring'], result: 'Tayangan siaran langsung yang stabil dan enak ditonton.' },
-        { id: 'mulmed-04', title: 'Cameraman Utama Tim Multimedia', category: 'Multimedia • Videografi', year: '2025 - 2026', role: 'Cameraman / Videografer', tools: 'Kamera Broadcast & Tripod Fluid Head', client: 'Tim Multimedia Gereja', videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4)', posterUrl: '[https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80)', desc: 'Pengambilan sudut gambar dinamis dan menjaga komposisi visual selama acara berlangsung.', challenge: 'Menjaga pergerakan panning dan zooming tetap halus sepanjang durasi acara.', steps: ['01 Setup Rig', '02 Framing', '03 Live Shoot', '04 Wrap'], result: 'Rekaman kamera jernih dan stabil untuk siaran langsung maupun arsip.' },
-        { id: 'mulmed-05', title: 'Freelance Camera & Video Editing', category: 'Multimedia • Freelance Project', year: '2025 - 2026', role: 'Freelance Videographer & Editor', tools: 'CapCut, KineMaster, After Effects', client: 'Klien Independen', videoUrl: '[https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4](https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4)', posterUrl: '[https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80)', desc: 'Mengerjakan perekaman lapangan, operator rekaman, hingga editing video promosi untuk klien.', challenge: 'Menyesuaikan gaya penyuntingan dengan kebutuhan spesifik masing-masing klien secara tepat waktu.', steps: ['01 Brief Klien', '02 Shooting', '03 Editing & Revisi', '04 Delivery'], result: 'Hasil video komersial dan dokumentasi yang memuaskan klien.' }
+        { id: 'anim-01', title: '3D Character Body Mechanics', category: '3D • Divisi Animation (Kelas 11)', year: '2026', role: '3D Animator', tools: 'Blender', client: 'Core Focus — Kelas 11', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80', desc: 'Eksplorasi mekanika gerak karakter (walk cycle dan body mechanics) menggunakan Blender untuk melatih pemahaman terhadap prinsip animasi.', challenge: 'Menjaga konsistensi timing, spacing, dan perpindahan pusat gravitasi agar gerakan karakter terasa memiliki bobot dan natural.', steps: ['01 Referensi', '02 Blocking', '03 Spline', '04 Render'], result: 'Menghasilkan siklus gerakan karakter yang halus dengan kurva Graph Editor yang bersih.' },
+        { id: 'anim-02', title: '3D Logo Bumper — Forum BKK Jatim', category: '3D • Divisi Animation (Kelas 11)', year: '2026', role: '3D Animator & Motion Designer', tools: 'Blender, After Effects', client: 'Forum BKK Jawa Timur', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80', desc: 'Produksi video bumper pembuka 3D resmi dan aset visual promosi untuk acara regional Forum Bursa Kerja Khusus (BKK) Jawa Timur.', challenge: 'Menyelaraskan pergerakan kamera 3D dengan aksen suara dalam durasi singkat agar terlihat megah dan profesional.', steps: ['01 Konsep', '02 Camera Anim', '03 Lighting', '04 Compositing'], result: 'Bumper 3D beresolusi tinggi yang digunakan sebagai pembuka resmi rangkaian acara.' },
+        { id: 'anim-03', title: '3D Character Acting & Expression', category: '3D • Divisi Animation (Kelas 11)', year: '2026', role: '3D Character Animator', tools: 'Autodesk Maya, Blender', client: 'Core Focus — Kelas 11', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=1200&q=80', desc: 'Latihan akting karakter, gestur tangan, dan ekspresi wajah menggunakan rig karakter anime/stylized.', challenge: 'Menyampaikan emosi karakter hanya melalui siluet pose tubuh dan pergerakan mata sebelum dialog masuk.', steps: ['01 Video Ref', '02 Key Poses', '03 Facial Pass', '04 Polish'], result: 'Klip akting karakter ekspresif dengan pose yang terbaca jelas.' },
+        { id: 'anim-04', title: '3D Dynamic Action & Camera Cut', category: '3D • Divisi Animation (Kelas 11)', year: '2026', role: '3D Animator', tools: 'Blender', client: 'Core Focus — Kelas 11', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80', desc: 'Koreografi gerak cepat dengan pergantian sudut kamera sinematik dan efek aksentuasi gerak.', challenge: 'Menjaga orientasi penonton saat kamera berpindah sudut dalam tempo cepat.', steps: ['01 Storyboard', '02 Camera Block', '03 Action Timing', '04 Render'], result: 'Sekuens aksi 3D yang enerjik dengan ritme kamera dinamis.' },
+        { id: 'anim-10-1', title: '3D Walk Cycle & Physics Timing', category: '3D • Divisi Animation (Kelas 10)', year: '2025', role: '3D Animator', tools: 'Blender', client: 'Fondasi Jurusan Animasi Kelas 10', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=1200&q=80', desc: 'Fondasi animasi 3D kelas 10: siklus langkah kaki dan simulasi berat benda (pendulum & ball).', challenge: 'Memahami kurva F-Curve dan menjaga kontak kaki tetap menempel kuat pada lantai.', steps: ['01 Contact Pose', '02 Passing Pose', '03 In-Between', '04 Loop'], result: 'Animasi dasar yang menjadi fondasi lompatan skill di kelas 11.' },
+        { id: '2d-10-1', title: '2D 12 Principles of Animation', category: '2D • Divisi Animation (Kelas 10)', year: '2025', role: '2D Animator', tools: 'Adobe After Effects', client: 'Tugas Animasi Kelas 10', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80', desc: 'Penerapan squash & stretch, anticipation, dan follow-through pada animasi 2D dasar.', challenge: 'Mengatur kurva kecepatan (easy ease) agar gerak terasa elastis dan tidak kaku.', steps: ['01 Sketch', '02 Keyframe', '03 Speed Graph', '04 Export'], result: 'Klip studi prinsip dasar animasi 2D.' },
+        { id: '2d-10-2', title: '2D Motion Graphics & Typography', category: '2D • Divisi Animation (Kelas 10)', year: '2025', role: 'Motion Designer', tools: 'Adobe After Effects', client: 'Tugas Animasi Kelas 10', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80', desc: 'Eksplorasi transisi bentuk geometris dan tipografi dinamis sinkron dengan ketukan musik.', challenge: 'Menjaga keterbacaan teks di tengah transisi bentuk yang cepat.', steps: ['01 Layout', '02 Masking', '03 Audio Sync', '04 Render'], result: 'Video motion graphics pembuka bergaya modern.' },
+        { id: 'mod-10-1', title: '3D Hard Surface & Prop Modeling', category: '3D • Divisi Modeling (Kelas 10)', year: '2025', role: '3D Modeler (Arsip Kls 10)', tools: 'Blender', client: 'Arsip Modeling Kelas 10', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=1200&q=80', desc: 'Arsip kelas 10: pembentukan objek mekanik, pengaturan bevel, dan topologi quad bersih.', challenge: 'Menghindari pinching pada permukaan lengkung dengan mengatur edge loop yang rapi.', steps: ['01 Blockout', '02 Edge Loop', '03 Shading', '04 Turntable'], result: 'Aset 3D prop bersih sebagai bagian dari pembelajaran dasar di kelas 10.' },
+        { id: 'mod-10-2', title: '3D Isometric Room Environment', category: '3D • Divisi Modeling (Kelas 10)', year: '2025', role: '3D Modeler (Arsip Kls 10)', tools: 'Blender, Autodesk Maya', client: 'Arsip Modeling Kelas 10', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80', desc: 'Arsip kelas 10: pemodelan interior ruangan miniatur lengkap dengan pencahayaan studio hangat.', challenge: 'Menata komposisi puluhan objek kecil agar terlihat harmonis dalam satu bingkai isometrik.', steps: ['01 Room Shell', '02 Furniture', '03 Warm Light', '04 Cycles Render'], result: 'Render lingkungan ruangan 3D isometrik.' },
+        { id: 'mod-10-3', title: '3D Stylized Asset & UV Mapping', category: '3D • Divisi Modeling (Kelas 10)', year: '2025', role: '3D Modeler (Arsip Kls 10)', tools: 'Autodesk Maya', client: 'Arsip Modeling Kelas 10', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=1200&q=80', desc: 'Arsip kelas 10: latihan modeling aset bergaya stylized dan pemetaan UV dasar di Maya.', challenge: 'Memotong UV seam secara rapi agar tekstur tidak tertarik.', steps: ['01 Base Mesh', '02 Sculpt/Detail', '03 UV Unwrap', '04 Render'], result: 'Aset 3D siap pakai sebelum fokus penuh beralih ke divisi animasi di kelas 11.' },
+        { id: 'mulmed-01', title: 'After Movie & Event Recap OSIS', category: 'Multimedia • Editing & Videografi', year: '2026', role: 'Ketua Sekbid 9 & Video Editor', tools: 'CapCut, Adobe After Effects', client: 'OSIS SMKN 4 Madiun', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80', desc: 'Penyuntingan video dokumentasi acara besar sekolah dan koordinasi tim liputan OSIS.', challenge: 'Menggabungkan berbagai rekaman kamera siswa menjadi alur cerita yang energik dalam waktu singkat.', steps: ['01 Liputan', '02 Seleksi Klip', '03 Beat Sync', '04 Color Grade'], result: 'Video rekap resmi yang dipublikasikan di kanal media sosial sekolah.' },
+        { id: 'mulmed-02', title: 'Bertugas Liputan & Publikasi OSIS', category: 'Multimedia • Dokumentasi Lapangan', year: '2026', role: 'Ketua Sekbid 9 (Media & TIK)', tools: 'Kamera DSLR/Mirrorless, CapCut', client: 'OSIS SMKN 4 Madiun', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=80', desc: 'Momen bertugas di lapangan mengabadikan kegiatan siswa dan mengelola konten media sosial resmi.', challenge: 'Menangkap momen krusial panggung secara spontan dalam kondisi pencahayaan berubah-ubah.', steps: ['01 Briefing Tim', '02 Fotografi Event', '03 Kurasi Foto', '04 Publikasi'], result: 'Arsip dokumentasi visual rapi untuk seluruh program kerja OSIS.' },
+        { id: 'mulmed-03', title: 'Tim Mulmed & Visual Switcher', category: 'Multimedia • Live Streaming', year: '2025 - 2026', role: 'Visual Switcher Operator', tools: 'Video Switcher, OBS Studio', client: 'Tim Multimedia Gereja', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80', desc: 'Bertugas mengoperasikan visual switcher dan pengaturan transisi siaran langsung multi-kamera.', challenge: 'Menjaga kelancaran perpindahan kamera secara real-time tanpa jeda selama siaran langsung.', steps: ['01 Cek Sinyal', '02 Koordinasi Cam', '03 Live Switching', '04 Monitoring'], result: 'Tayangan siaran langsung yang stabil dan enak ditonton.' },
+        { id: 'mulmed-04', title: 'Cameraman Utama Tim Multimedia', category: 'Multimedia • Videografi', year: '2025 - 2026', role: 'Cameraman / Videografer', tools: 'Kamera Broadcast & Tripod Fluid Head', client: 'Tim Multimedia Gereja', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80', desc: 'Pengambilan sudut gambar dinamis dan menjaga komposisi visual selama acara berlangsung.', challenge: 'Menjaga pergerakan panning dan zooming tetap halus sepanjang durasi acara.', steps: ['01 Setup Rig', '02 Framing', '03 Live Shoot', '04 Wrap'], result: 'Rekaman kamera jernih dan stabil untuk siaran langsung maupun arsip.' },
+        { id: 'mulmed-05', title: 'Freelance Camera & Video Editing', category: 'Multimedia • Freelance Project', year: '2025 - 2026', role: 'Freelance Videographer & Editor', tools: 'CapCut, KineMaster, After Effects', client: 'Klien Independen', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80', desc: 'Mengerjakan perekaman lapangan, operator rekaman, hingga editing video promosi untuk klien.', challenge: 'Menyesuaikan gaya penyuntingan dengan kebutuhan spesifik masing-masing klien secara tepat waktu.', steps: ['01 Brief Klien', '02 Shooting', '03 Editing & Revisi', '04 Delivery'], result: 'Hasil video komersial dan dokumentasi yang memuaskan klien.' }
     ];
 
     function loadProjectDetail(projectId) {
@@ -491,7 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================================================
-    // 6. SINGLE-PAGE VIEW ROUTER & SMOOTH SHOWREEL SCROLL
+    // 6. SINGLE-PAGE VIEW ROUTER
     // =========================================================================
     const views = {
         home: document.getElementById('view-home'),
@@ -535,7 +535,7 @@ document.addEventListener('DOMContentLoaded', () => {
         refreshReveals();
 
         if (pageName === 'about') checkProficiencyVisible();
-        if (pageName === 'projects' && typeof window.update3DCarousel === 'function') window.update3DCarousel();
+        if (pageName === 'projects' && typeof window.update3DCarousel === 'function') window.update3DCarousel(true);
     }
 
     function transitionToPage(pageName, projectId = null) {
@@ -551,31 +551,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     pageTransition.classList.remove('is-leaving');
                     pageTransition.classList.add('is-loaded');
                 });
-            }, 440);
+            }, 380);
         } else {
             activateView(pageName, projectId, true, false);
         }
-    }
-
-    function scrollToShowreel() {
-        const showreelSec = document.getElementById('showreel-sec');
-        if (!showreelSec) return;
-        if (currentActivePage !== 'home') {
-            activateView('home', null, false, true);
-        }
-        history.replaceState(null, '', '#showreel-sec');
-        SoundFX.click();
-        requestAnimationFrame(() => {
-            showreelSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-    }
-
-    const heroShowreelLink = document.getElementById('hero-showreel-link');
-    if (heroShowreelLink) {
-        heroShowreelLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            scrollToShowreel();
-        });
     }
 
     document.addEventListener('click', (e) => {
@@ -742,7 +721,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================================================
-    // 8. 3D PERSPECTIVE TILTED CAROUSEL + HIERARCHICAL FILTER (15 WORKS)
+    // 8. 3D CAROUSEL (FIXED CLICK TARGETING, NO FLY-AROUND & FADE TRANSITION)
     // =========================================================================
     const branchBtns = document.querySelectorAll('.branch-btn');
     const panel2d3d = document.getElementById('panel-2d3d');
@@ -762,6 +741,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let state = { branch: '2d3d', dim: 'all', grade: 'all', div: 'all', mulmed: 'all' };
         let activeCards = [];
         let activeIndex = 0;
+        let suppressClickUntil = 0;
 
         function renderCarouselDots() {
             if (!carouselDots) return;
@@ -770,14 +750,17 @@ document.addEventListener('DOMContentLoaded', () => {
             ).join('');
             carouselDots.querySelectorAll('.carousel-dot').forEach(dot => {
                 dot.addEventListener('click', () => {
-                    activeIndex = parseInt(dot.getAttribute('data-idx'), 10);
-                    SoundFX.click();
-                    update3DCarousel();
+                    const targetIdx = parseInt(dot.getAttribute('data-idx'), 10);
+                    if (targetIdx !== activeIndex) {
+                        activeIndex = targetIdx;
+                        SoundFX.click();
+                        update3DCarousel();
+                    }
                 });
             });
         }
 
-        function update3DCarousel() {
+        function update3DCarousel(instant = false) {
             const total = activeCards.length;
             if (total === 0) {
                 if (carouselWrapper) carouselWrapper.style.display = 'none';
@@ -792,7 +775,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (activeIndex >= total) activeIndex = 0;
             if (activeIndex < 0) activeIndex = total - 1;
 
-            const spacingX = window.innerWidth < 768 ? 220 : 330;
+            const spacingX = window.innerWidth < 768 ? 225 : 335;
 
             activeCards.forEach((card, idx) => {
                 let offset = idx - activeIndex;
@@ -801,27 +784,57 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (offset < -Math.floor(total / 2)) offset += total;
                 }
 
+                const prevOffset = card.dataset.offset !== undefined ? parseInt(card.dataset.offset, 10) : offset;
+                card.dataset.offset = String(offset);
+
+                const isWrapJump = !instant && Math.abs(offset - prevOffset) > 2;
                 const absOffset = Math.abs(offset);
                 card.classList.toggle('is-center', offset === 0);
 
+                let targetTransform = '';
+                let targetOpacity = '0';
+                let targetPointer = 'none';
+                let targetFilter = 'brightness(0.5)';
+                let targetZ = '1';
+
                 if (absOffset > 2) {
-                    card.style.opacity = '0';
-                    card.style.pointerEvents = 'none';
-                    card.style.transform = `translate3d(${offset * spacingX}px, 24px, -420px) rotateY(${offset > 0 ? -36 : 36}deg) scale(0.68)`;
-                    card.style.zIndex = '1';
+                    targetTransform = `translate3d(${offset * spacingX}px, 22px, -320px) rotateY(${offset > 0 ? -32 : 32}deg) scale(0.7)`;
+                    targetOpacity = '0';
+                    targetPointer = 'none';
+                    targetZ = '1';
                 } else {
                     const translateX = offset * spacingX;
-                    const translateZ = offset === 0 ? 0 : -absOffset * 150;
-                    const translateY = absOffset * 14;
-                    const rotateY = offset === 0 ? 0 : (offset > 0 ? -24 : 24);
-                    const rotateZ = offset === 0 ? 0 : (offset > 0 ? 2.5 : -2.5);
-                    const scale = offset === 0 ? 1 : Math.max(0.76, 1 - absOffset * 0.13);
+                    const translateZ = offset === 0 ? 40 : -absOffset * 110;
+                    const translateY = absOffset * 12;
+                    const rotateY = offset === 0 ? 0 : (offset > 0 ? -22 : 22);
+                    const rotateZ = offset === 0 ? 0 : (offset > 0 ? 2 : -2);
+                    const scale = offset === 0 ? 1 : Math.max(0.78, 1 - absOffset * 0.12);
 
-                    card.style.opacity = offset === 0 ? '1' : (absOffset === 1 ? '0.78' : '0.42');
-                    card.style.pointerEvents = 'auto';
-                    card.style.filter = offset === 0 ? 'brightness(1)' : `brightness(${absOffset === 1 ? 0.72 : 0.5})`;
-                    card.style.zIndex = String(20 - absOffset);
-                    card.style.transform = `translate3d(${translateX}px, ${translateY}px, ${translateZ}px) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) scale(${scale})`;
+                    targetTransform = `translate3d(${translateX}px, ${translateY}px, ${translateZ}px) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) scale(${scale})`;
+                    targetOpacity = offset === 0 ? '1' : (absOffset === 1 ? '0.82' : '0.45');
+                    targetPointer = 'auto';
+                    targetFilter = offset === 0 ? 'brightness(1)' : `brightness(${absOffset === 1 ? 0.76 : 0.54})`;
+                    targetZ = String(30 - absOffset * 10);
+                }
+
+                if (instant || isWrapJump) {
+                    card.style.transition = 'none';
+                    card.style.opacity = '0';
+                    card.style.transform = targetTransform;
+                    card.style.zIndex = targetZ;
+                    card.style.filter = targetFilter;
+                    card.style.pointerEvents = targetPointer;
+                    void card.offsetWidth;
+                    card.style.transition = '';
+                    requestAnimationFrame(() => {
+                        card.style.opacity = targetOpacity;
+                    });
+                } else {
+                    card.style.opacity = targetOpacity;
+                    card.style.pointerEvents = targetPointer;
+                    card.style.filter = targetFilter;
+                    card.style.zIndex = targetZ;
+                    card.style.transform = targetTransform;
                 }
             });
 
@@ -842,11 +855,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.update3DCarousel = update3DCarousel;
 
+        // KLIK KARTU SAMPING -> LANGSUNG PINDAH KE KARTU TERSEBUT (BUKAN KARTU LAIN)
         allProjectCards.forEach(card => {
             card.addEventListener('click', (e) => {
-                if (e.target.closest('button, a')) return;
+                if (Date.now() < suppressClickUntil) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return;
+                }
                 const idx = activeCards.indexOf(card);
-                if (idx !== -1 && idx !== activeIndex) {
+                if (idx === -1) return;
+
+                if (idx !== activeIndex) {
+                    e.preventDefault();
+                    e.stopPropagation();
                     activeIndex = idx;
                     SoundFX.click();
                     update3DCarousel();
@@ -885,64 +907,93 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // DRAG / SWIPE DENGAN PENCEGAH DOUBLE-CLICK
         if (carouselStage) {
             let dragStartX = 0, isStageDragging = false;
+
             carouselStage.addEventListener('mousedown', (e) => {
-                if (e.target.closest('button, a')) return;
+                if (e.button !== 0 || e.target.closest('.project-card.is-center button, .project-card.is-center a')) return;
                 isStageDragging = true;
                 dragStartX = e.clientX;
             });
+
             window.addEventListener('mouseup', (e) => {
                 if (!isStageDragging) return;
                 isStageDragging = false;
                 const diff = e.clientX - dragStartX;
-                if (Math.abs(diff) > 45 && activeCards.length > 1) {
+                if (Math.abs(diff) > 35 && activeCards.length > 1) {
+                    suppressClickUntil = Date.now() + 120;
                     SoundFX.click();
-                    activeIndex = diff < 0 ? (activeIndex + 1) % activeCards.length : (activeIndex - 1 + activeCards.length) % activeCards.length;
+                    activeIndex = diff < 0
+                        ? (activeIndex + 1) % activeCards.length
+                        : (activeIndex - 1 + activeCards.length) % activeCards.length;
                     update3DCarousel();
                 }
             });
-            carouselStage.addEventListener('touchstart', (e) => { dragStartX = e.touches[0].clientX; }, { passive: true });
+
+            carouselStage.addEventListener('touchstart', (e) => {
+                dragStartX = e.touches[0].clientX;
+            }, { passive: true });
+
             carouselStage.addEventListener('touchend', (e) => {
                 const diff = e.changedTouches[0].clientX - dragStartX;
-                if (Math.abs(diff) > 40 && activeCards.length > 1) {
+                if (Math.abs(diff) > 35 && activeCards.length > 1) {
+                    suppressClickUntil = Date.now() + 120;
                     SoundFX.click();
-                    activeIndex = diff < 0 ? (activeIndex + 1) % activeCards.length : (activeIndex - 1 + activeCards.length) % activeCards.length;
+                    activeIndex = diff < 0
+                        ? (activeIndex + 1) % activeCards.length
+                        : (activeIndex - 1 + activeCards.length) % activeCards.length;
                     update3DCarousel();
                 }
             });
         }
 
-        window.addEventListener('resize', () => { if (currentActivePage === 'projects') update3DCarousel(); });
+        window.addEventListener('resize', () => { if (currentActivePage === 'projects') update3DCarousel(true); });
 
-        function applyProjectFilters() {
-            activeCards = [];
-            allProjectCards.forEach(card => {
-                const cBranch = card.getAttribute('data-branch');
-                let match = false;
-                if (state.branch === '2d3d' && cBranch === '2d3d') {
-                    match = (state.dim === 'all' || card.getAttribute('data-dim') === state.dim) &&
-                            (state.grade === 'all' || card.getAttribute('data-grade') === state.grade) &&
-                            (state.div === 'all' || card.getAttribute('data-div') === state.div);
-                } else if (state.branch === 'mulmed' && cBranch === 'mulmed') {
-                    match = state.mulmed === 'all' || card.getAttribute('data-mulmed') === state.mulmed;
-                }
-                card.classList.toggle('hidden-card', !match);
-                if (match) activeCards.push(card);
-            });
-            activeIndex = 0;
-            renderCarouselDots();
-            update3DCarousel();
+        function applyProjectFilters(withFade = true) {
+            const runFilterUpdate = () => {
+                activeCards = [];
+                allProjectCards.forEach(card => {
+                    delete card.dataset.offset;
+                    const cBranch = card.getAttribute('data-branch');
+                    let match = false;
+                    if (state.branch === '2d3d' && cBranch === '2d3d') {
+                        match = (state.dim === 'all' || card.getAttribute('data-dim') === state.dim) &&
+                                (state.grade === 'all' || card.getAttribute('data-grade') === state.grade) &&
+                                (state.div === 'all' || card.getAttribute('data-div') === state.div);
+                    } else if (state.branch === 'mulmed' && cBranch === 'mulmed') {
+                        match = state.mulmed === 'all' || card.getAttribute('data-mulmed') === state.mulmed;
+                    }
+                    card.classList.toggle('hidden-card', !match);
+                    if (match) activeCards.push(card);
+                });
+                activeIndex = 0;
+                renderCarouselDots();
+                update3DCarousel(true);
+            };
+
+            if (withFade && carouselStage) {
+                carouselStage.classList.add('is-switching');
+                setTimeout(() => {
+                    runFilterUpdate();
+                    requestAnimationFrame(() => {
+                        carouselStage.classList.remove('is-switching');
+                    });
+                }, 180);
+            } else {
+                runFilterUpdate();
+            }
         }
 
         branchBtns.forEach(btn => {
             btn.addEventListener('click', () => {
+                if (btn.classList.contains('active')) return;
                 branchBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 state.branch = btn.getAttribute('data-branch');
                 if (panel2d3d) panel2d3d.classList.toggle('hidden', state.branch !== '2d3d');
                 if (panelMulmed) panelMulmed.classList.toggle('hidden', state.branch !== 'mulmed');
-                applyProjectFilters();
+                applyProjectFilters(true);
             });
         });
 
@@ -952,10 +1003,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const pills = container.querySelectorAll('.filter-btn');
             pills.forEach(pill => {
                 pill.addEventListener('click', () => {
+                    if (pill.classList.contains('active')) return;
                     pills.forEach(p => p.classList.remove('active'));
                     pill.classList.add('active');
                     state[stateKey] = pill.getAttribute('data-val');
-                    applyProjectFilters();
+                    applyProjectFilters(true);
                 });
             });
         }
@@ -964,7 +1016,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bindPillGroup('filter-grade', 'grade');
         bindPillGroup('filter-div', 'div');
         bindPillGroup('filter-mulmed', 'mulmed');
-        applyProjectFilters();
+        applyProjectFilters(false);
     }
 
     // =========================================================================
