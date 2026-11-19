@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- CURSOR SPOTLIGHT -->
+    <!-- CURSOR SPOTLIGHT / SHADOW -->
     <div class="cursor-spotlight" id="cursor-spotlight" aria-hidden="true"></div>
 
     <!-- PAGE TRANSITION CURTAIN -->
@@ -101,13 +101,71 @@
                         </div>
                     </div>
 
-                    <a href="#showreel-sec" id="hero-showreel-link" class="hero-showreel-card tilt-card reveal reveal-delay-1">
-                        <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=900&q=80" alt="Featured Showreel 2026" loading="eager">
-                        <div class="play-overlay">
-                            <div class="play-circle" aria-hidden="true">&#9654;</div>
+                    <!-- LOGO JP DI TENGAH + IKON APLIKASI MENGORBIT PELAN -->
+                    <div class="hero-orbit-showcase reveal reveal-delay-1" aria-label="Logo JP dan Software Utama">
+                        <div class="orbit-ambient-glow"></div>
+                        <div class="orbit-ring orbit-ring-outer"></div>
+                        <div class="orbit-ring orbit-ring-inner"></div>
+
+                        <!-- CINCIN ROTASI IKON APLIKASI -->
+                        <div class="orbit-spinner">
+                            <!-- 1. CAPCUT (ATAS) -->
+                            <div class="orbit-node node-top" title="CapCut">
+                                <div class="orbit-icon-badge badge-capcut">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M4 7l16 10M20 7L4 17"/>
+                                        <path d="M4 7v3M20 7v3M4 14v3M20 14v3"/>
+                                    </svg>
+                                    <span>CapCut</span>
+                                </div>
+                            </div>
+
+                            <!-- 2. ADOBE AFTER EFFECTS (KANAN) -->
+                            <div class="orbit-node node-right" title="Adobe After Effects">
+                                <div class="orbit-icon-badge badge-ae">
+                                    <strong>Ae</strong>
+                                    <span>After Effects</span>
+                                </div>
+                            </div>
+
+                            <!-- 3. BLENDER (BAWAH) -->
+                            <div class="orbit-node node-bottom" title="Blender 3D">
+                                <div class="orbit-icon-badge badge-blender">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
+                                        <circle cx="13.5" cy="13.5" r="5.5" stroke="#EA7600" stroke-width="2.4"/>
+                                        <circle cx="13.5" cy="13.5" r="2.2" fill="#265787"/>
+                                        <path d="M13.5 8H6.5M10 10.5L4.5 15.5M11.5 5.5L16.5 9" stroke="#EA7600" stroke-width="2.3" stroke-linecap="round"/>
+                                    </svg>
+                                    <span>Blender</span>
+                                </div>
+                            </div>
+
+                            <!-- 4. AUTODESK MAYA (KIRI) -->
+                            <div class="orbit-node node-left" title="Autodesk Maya">
+                                <div class="orbit-icon-badge badge-maya">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
+                                        <path d="M3 19L6.5 5L12 14.5L17.5 5L21 19H17.2L15.6 11.8L12 18L8.4 11.8L6.8 19H3Z" fill="#06B6D4"/>
+                                    </svg>
+                                    <span>Maya</span>
+                                </div>
+                            </div>
                         </div>
-                        <span class="showreel-tag">FEATURED SHOWREEL • 2026</span>
-                    </a>
+
+                        <!-- LOGO JP DI TENGAH -->
+                        <div class="orbit-center-logo">
+                            <img src="ChatGPT Image 17 Jun 2026, 19.48.42-Photoroom.png" alt="Logo JP Greaven" class="jp-logo-img" draggable="false" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <svg class="jp-logo-fallback" viewBox="0 0 220 200" fill="none" aria-hidden="true">
+                                <!-- Huruf J Merah -->
+                                <path d="M68 38H146L134 54H96L74 114L104 92L74 162H36L16 132L32 114L44 134H60L84 54H54L68 38Z" fill="#EF232A"/>
+                                <!-- Huruf P Putih -->
+                                <path d="M114 76H184L168 118H116L122 102H154L160 88H126L86 164H72L114 76Z" fill="#F8FAFC"/>
+                                <!-- Aksen Speed Streaks Kanan Atas -->
+                                <polygon points="154,38 170,38 162,50 146,50" fill="#EF232A"/>
+                                <polygon points="178,38 190,38 184,47 172,47" fill="#F8FAFC"/>
+                                <polygon points="198,38 206,38 202,44 194,44" fill="#CBD5E1"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -308,12 +366,11 @@
         </div>
 
         <!-- =====================================================================
-             VIEW 2: ABOUT (ID CARD FISIKA & LANYARD PRESISI)
+             VIEW 2: ABOUT
              ===================================================================== -->
         <div class="page-view" id="view-about">
             <section class="about-section">
                 <div class="about-top-grid">
-                    <!-- ID CARD GANTUNG + LANYARD -->
                     <div class="hanging-stage reveal">
                         <svg class="lanyard-svg" viewBox="0 0 320 145" aria-hidden="true">
                             <defs>
@@ -389,7 +446,6 @@
                         </div>
                     </div>
 
-                    <!-- BIO -->
                     <div class="about-bio reveal reveal-delay-1">
                         <span class="section-label">01 —— ABOUT ME</span>
                         <h1>Menghidupkan karakter &amp; <span class="gradient-text">momen visual.</span></h1>
@@ -405,7 +461,6 @@
                     </div>
                 </div>
 
-                <!-- PROFICIENCY BARS -->
                 <div class="skills-heading reveal">
                     <span class="section-label">02 —— TOOLS &amp; PROFICIENCY</span>
                     <h2>Perangkat lunak &amp; <span class="gradient-text">keahlian.</span></h2>
@@ -468,7 +523,6 @@
                     </div>
                 </div>
 
-                <!-- 03 — BIDANG KEAHLIAN, AI & PENDIDIKAN -->
                 <div class="skills-4-grid">
                     <div class="skill-box reveal">
                         <h3>Keahlian Utama (Core Skills)</h3>
@@ -514,7 +568,7 @@
         </div>
 
         <!-- =====================================================================
-             VIEW 3: PROJECTS (3D PERSPECTIVE TILTED CAROUSEL — 15 WORKS)
+             VIEW 3: PROJECTS (3D CAROUSEL — FIXED CLICK/SWIPE & SMOOTH FADE)
              ===================================================================== -->
         <div class="page-view" id="view-projects">
             <section class="projects-section">
@@ -524,7 +578,6 @@
                     <p>Kelas 10 berfokus pada <strong>Modeling &amp; Animasi</strong>, sedangkan di Kelas 11 berfokus penuh pada <strong>3D Animation &amp; Multimedia (Editing &amp; Videografi)</strong>.</p>
                 </div>
 
-                <!-- LEVEL 0: CABANG UTAMA -->
                 <div class="branch-switcher reveal reveal-delay-1">
                     <button type="button" class="branch-btn active" data-branch="2d3d">
                         <span class="branch-num">01</span>
@@ -542,7 +595,6 @@
                     </button>
                 </div>
 
-                <!-- PANEL FILTER UNTUK CABANG 2D & 3D -->
                 <div class="sub-filter-panel reveal reveal-delay-2" id="panel-2d3d">
                     <div class="filter-row">
                         <span class="filter-step-label">1. Tipe Karya:</span>
@@ -572,7 +624,6 @@
                     </div>
                 </div>
 
-                <!-- PANEL FILTER UNTUK CABANG MULTIMEDIA -->
                 <div class="sub-filter-panel hidden" id="panel-mulmed">
                     <div class="filter-row">
                         <span class="filter-step-label">Kategori Tugas:</span>
@@ -585,7 +636,6 @@
                     </div>
                 </div>
 
-                <!-- 3D PERSPECTIVE TILTED CAROUSEL STAGE -->
                 <div class="carousel-3d-wrapper reveal" id="carousel-3d-wrapper">
                     <div class="carousel-ambient-glow" id="carousel-ambient-glow"></div>
 
@@ -594,7 +644,7 @@
                         <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="11" data-div="animation" data-glow="#38BDF8">
                             <div class="card-thumb">
                                 <span class="core-badge">#01 • CORE FOCUS</span>
-                                <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80" alt="3D Character Body Mechanics" loading="lazy" decoding="async">
+                                <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80" alt="3D Character Body Mechanics" draggable="false" loading="lazy" decoding="async">
                                 <div class="card-overlay-actions">
                                     <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" data-title="3D Character Body Mechanics" data-meta="3D • Kelas 11 • Divisi Animation (Blender)">&#9654; Quick Preview</button>
                                     <a href="#project-detail?id=anim-01" data-project-id="anim-01" class="btn-detail-link">Studi Kasus &rarr;</a>
@@ -614,7 +664,7 @@
                         <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="11" data-div="animation" data-glow="#818CF8">
                             <div class="card-thumb">
                                 <span class="core-badge">#02 • CORE FOCUS</span>
-                                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="3D Bumper Forum BKK Jatim" loading="lazy" decoding="async">
+                                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="3D Bumper Forum BKK Jatim" draggable="false" loading="lazy" decoding="async">
                                 <div class="card-overlay-actions">
                                     <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4" data-title="3D Logo Bumper — Forum BKK Jatim" data-meta="3D • Kelas 11 • Divisi Animation (Blender &amp; AE)">&#9654; Quick Preview</button>
                                     <a href="#project-detail?id=anim-02" data-project-id="anim-02" class="btn-detail-link">Studi Kasus &rarr;</a>
@@ -634,7 +684,7 @@
                         <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="11" data-div="animation" data-glow="#C084FC">
                             <div class="card-thumb">
                                 <span class="core-badge">#03 • CORE FOCUS</span>
-                                <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=800&q=80" alt="3D Character Acting & Lip Sync" loading="lazy" decoding="async">
+                                <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=800&q=80" alt="3D Character Acting & Lip Sync" draggable="false" loading="lazy" decoding="async">
                                 <div class="card-overlay-actions">
                                     <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" data-title="3D Character Acting &amp; Facial Expression" data-meta="3D • Kelas 11 • Divisi Animation (Maya &amp; Blender)">&#9654; Quick Preview</button>
                                     <a href="#project-detail?id=anim-03" data-project-id="anim-03" class="btn-detail-link">Studi Kasus &rarr;</a>
@@ -654,7 +704,7 @@
                         <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="11" data-div="animation" data-glow="#22D3EE">
                             <div class="card-thumb">
                                 <span class="core-badge">#04 • CORE FOCUS</span>
-                                <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80" alt="3D Dynamic Action & Camera Cut" loading="lazy" decoding="async">
+                                <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80" alt="3D Dynamic Action & Camera Cut" draggable="false" loading="lazy" decoding="async">
                                 <div class="card-overlay-actions">
                                     <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4" data-title="3D Dynamic Action &amp; Camera Sequencing" data-meta="3D • Kelas 11 • Divisi Animation (Blender)">&#9654; Quick Preview</button>
                                     <a href="#project-detail?id=anim-04" data-project-id="anim-04" class="btn-detail-link">Studi Kasus &rarr;</a>
@@ -673,7 +723,7 @@
                         <!-- #05 -->
                         <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="10" data-div="animation" data-glow="#38BDF8">
                             <div class="card-thumb">
-                                <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=800&q=80" alt="3D Basic Walk Cycle & Bouncing Ball" loading="lazy" decoding="async">
+                                <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=800&q=80" alt="3D Basic Walk Cycle & Bouncing Ball" draggable="false" loading="lazy" decoding="async">
                                 <div class="card-overlay-actions">
                                     <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" data-title="3D Walk Cycle &amp; Physics Timing" data-meta="3D • Kelas 10 • Divisi Animation (Blender)">&#9654; Quick Preview</button>
                                     <a href="#project-detail?id=anim-10-1" data-project-id="anim-10-1" class="btn-detail-link">Studi Kasus &rarr;</a>
@@ -692,7 +742,7 @@
                         <!-- #06 -->
                         <div class="project-card" data-branch="2d3d" data-dim="2d" data-grade="10" data-div="animation" data-glow="#6366F1">
                             <div class="card-thumb">
-                                <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="2D 12 Principles of Animation" loading="lazy" decoding="async">
+                                <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="2D 12 Principles of Animation" draggable="false" loading="lazy" decoding="async">
                                 <div class="card-overlay-actions">
                                     <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4" data-title="2D 12 Principles of Animation Study" data-meta="2D • Kelas 10 • Divisi Animation (After Effects)">&#9654; Quick Preview</button>
                                     <a href="#project-detail?id=2d-10-1" data-project-id="2d-10-1" class="btn-detail-link">Studi Kasus &rarr;</a>
@@ -711,7 +761,7 @@
                         <!-- #07 -->
                         <div class="project-card" data-branch="2d3d" data-dim="2d" data-grade="10" data-div="animation" data-glow="#A855F7">
                             <div class="card-thumb">
-                                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80" alt="2D Kinetic Typography & Bumper" loading="lazy" decoding="async">
+                                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80" alt="2D Kinetic Typography & Bumper" draggable="false" loading="lazy" decoding="async">
                                 <div class="card-overlay-actions">
                                     <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" data-title="2D Kinetic Typography &amp; Motion Bumper" data-meta="2D • Kelas 10 • Divisi Animation (After Effects)">&#9654; Quick Preview</button>
                                     <a href="#project-detail?id=2d-10-2" data-project-id="2d-10-2" class="btn-detail-link">Studi Kasus &rarr;</a>
@@ -730,7 +780,7 @@
                         <!-- #08 -->
                         <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="10" data-div="modeling" data-glow="#0EA5E9">
                             <div class="card-thumb">
-                                <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=800&q=80" alt="3D Hard Surface Prop Modeling" loading="lazy" decoding="async">
+                                <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=800&q=80" alt="3D Hard Surface Prop Modeling" draggable="false" loading="lazy" decoding="async">
                                 <div class="card-overlay-actions">
                                     <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=1200&q=80" data-title="3D Hard Surface &amp; Prop Modeling" data-meta="3D • Kelas 10 • Divisi Modeling (Blender)">&#128065; Perbesar Karya</button>
                                     <a href="#project-detail?id=mod-10-1" data-project-id="mod-10-1" class="btn-detail-link">Studi Kasus &rarr;</a>
@@ -749,7 +799,7 @@
                         <!-- #09 -->
                         <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="10" data-div="modeling" data-glow="#818CF8">
                             <div class="card-thumb">
-                                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="3D Isometric Room Diorama" loading="lazy" decoding="async">
+                                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="3D Isometric Room Diorama" draggable="false" loading="lazy" decoding="async">
                                 <div class="card-overlay-actions">
                                     <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" data-title="3D Isometric Room Environment Study" data-meta="3D • Kelas 10 • Divisi Modeling (Blender &amp; Maya)">&#128065; Perbesar Karya</button>
                                     <a href="#project-detail?id=mod-10-2" data-project-id="mod-10-2" class="btn-detail-link">Studi Kasus &rarr;</a>
@@ -768,7 +818,7 @@
                         <!-- #10 -->
                         <div class="project-card" data-branch="2d3d" data-dim="3d" data-grade="10" data-div="modeling" data-glow="#38BDF8">
                             <div class="card-thumb">
-                                <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=800&q=80" alt="3D Stylized Weapon & Asset" loading="lazy" decoding="async">
+                                <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=800&q=80" alt="3D Stylized Weapon & Asset" draggable="false" loading="lazy" decoding="async">
                                 <div class="card-overlay-actions">
                                     <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=1200&q=80" data-title="3D Stylized Game Asset Modeling" data-meta="3D • Kelas 10 • Divisi Modeling (Maya)">&#128065; Perbesar Karya</button>
                                     <a href="#project-detail?id=mod-10-3" data-project-id="mod-10-3" class="btn-detail-link">Studi Kasus &rarr;</a>
@@ -787,7 +837,7 @@
                         <!-- #11 -->
                         <div class="project-card hidden-card" data-branch="mulmed" data-mulmed="osis" data-glow="#38BDF8">
                             <div class="card-thumb">
-                                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="After Movie & Dokumentasi OSIS" loading="lazy" decoding="async">
+                                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="After Movie & Dokumentasi OSIS" draggable="false" loading="lazy" decoding="async">
                                 <div class="card-overlay-actions">
                                     <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" data-title="After Movie &amp; Event Recap OSIS SMKN 4 Madiun" data-meta="Multimedia • Ketua Sekbid 9 OSIS (CapCut &amp; AE)">&#9654; Quick Preview</button>
                                     <a href="#project-detail?id=mulmed-01" data-project-id="mulmed-01" class="btn-detail-link">Studi Kasus &rarr;</a>
@@ -806,7 +856,7 @@
                         <!-- #12 -->
                         <div class="project-card hidden-card" data-branch="mulmed" data-mulmed="osis" data-glow="#818CF8">
                             <div class="card-thumb">
-                                <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=800&q=80" alt="Foto Bertugas Liputan Panggung OSIS" loading="lazy" decoding="async">
+                                <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=800&q=80" alt="Foto Bertugas Liputan Panggung OSIS" draggable="false" loading="lazy" decoding="async">
                                 <div class="card-overlay-actions">
                                     <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=80" data-title="Dokumentasi Bertugas Publikasi &amp; Fotografi OSIS" data-meta="Multimedia • Ketua Sekbid 9 SMKN 4 Madiun">&#128065; Lihat Foto</button>
                                     <a href="#project-detail?id=mulmed-02" data-project-id="mulmed-02" class="btn-detail-link">Studi Kasus &rarr;</a>
@@ -825,7 +875,7 @@
                         <!-- #13 -->
                         <div class="project-card hidden-card" data-branch="mulmed" data-mulmed="tim-mulmed" data-glow="#22D3EE">
                             <div class="card-thumb">
-                                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80" alt="Tim Multimedia & Visual Switcher" loading="lazy" decoding="async">
+                                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80" alt="Tim Multimedia & Visual Switcher" draggable="false" loading="lazy" decoding="async">
                                 <div class="card-overlay-actions">
                                     <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80" data-title="Tim Multimedia &amp; Visual Switcher Live Streaming" data-meta="Multimedia • Broadcast &amp; Multi-Cam">&#128065; Lihat Foto</button>
                                     <a href="#project-detail?id=mulmed-03" data-project-id="mulmed-03" class="btn-detail-link">Studi Kasus &rarr;</a>
@@ -844,7 +894,7 @@
                         <!-- #14 -->
                         <div class="project-card hidden-card" data-branch="mulmed" data-mulmed="tim-mulmed" data-glow="#C084FC">
                             <div class="card-thumb">
-                                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="Cameraman Utama Ibadah & Perayaan" loading="lazy" decoding="async">
+                                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="Cameraman Utama Ibadah & Perayaan" draggable="false" loading="lazy" decoding="async">
                                 <div class="card-overlay-actions">
                                     <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80" data-title="Operator Kamera Utama — Tim Multimedia Gereja" data-meta="Multimedia • Videografi &amp; Framing">&#128065; Lihat Foto</button>
                                     <a href="#project-detail?id=mulmed-04" data-project-id="mulmed-04" class="btn-detail-link">Studi Kasus &rarr;</a>
@@ -863,7 +913,7 @@
                         <!-- #15 -->
                         <div class="project-card hidden-card" data-branch="mulmed" data-mulmed="freelance" data-glow="#38BDF8">
                             <div class="card-thumb">
-                                <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80" alt="Freelance Videographer & Video Editor" loading="lazy" decoding="async">
+                                <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80" alt="Freelance Videographer & Video Editor" draggable="false" loading="lazy" decoding="async">
                                 <div class="card-overlay-actions">
                                     <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4" data-title="Freelance Videography, Recording &amp; Editing" data-meta="Multimedia • Proyek Klien Independen (CapCut &amp; KineMaster)">&#9654; Quick Preview</button>
                                     <a href="#project-detail?id=mulmed-05" data-project-id="mulmed-05" class="btn-detail-link">Studi Kasus &rarr;</a>
@@ -880,7 +930,6 @@
                         </div>
                     </div>
 
-                    <!-- CAROUSEL 3D NAVIGATION CONTROLS -->
                     <div class="carousel-3d-controls" id="carousel-3d-controls">
                         <button type="button" class="carousel-nav-btn magnetic-btn" id="carousel-prev-btn" aria-label="Karya Sebelumnya">&larr;</button>
                         <div class="carousel-indicator-wrap">
@@ -898,7 +947,7 @@
         </div>
 
         <!-- =====================================================================
-             VIEW 4: PROJECT DETAIL (DINAMIS UNTUK 15 KARYA)
+             VIEW 4: PROJECT DETAIL
              ===================================================================== -->
         <div class="page-view" id="view-project-detail">
             <section class="projects-section" id="project-detail-root">
