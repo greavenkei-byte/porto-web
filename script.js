@@ -12,23 +12,23 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             let progress = 0;
             const interval = setInterval(() => {
-                progress += Math.floor(Math.random() * 14) + 8;
+                progress += Math.floor(Math.random() * 14) + 9;
                 if (progress >= 100) {
                     progress = 100;
                     clearInterval(interval);
                     setTimeout(() => {
                         preloader.classList.add('hidden');
                         sessionStorage.setItem('greaven_preloader_shown', 'true');
-                    }, 260);
+                    }, 250);
                 }
                 if (loaderBar) loaderBar.style.width = `${progress}%`;
                 if (loaderPercent) loaderPercent.textContent = String(progress).padStart(3, '0') + '%';
-            }, 55);
+            }, 50);
         }
     }
 
     // =========================================================================
-    // 2. DATA 15 PROJECT STUDIES (FOR DYNAMIC PROJECT DETAIL VIEW)
+    // 2. DATA 15 STUDI KASUS PROYEK
     // =========================================================================
     const projectsData = {
         'anim-01': {
@@ -37,39 +37,39 @@ document.addEventListener('DOMContentLoaded', () => {
             video: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
             poster: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1200&q=80',
             desc: 'Eksplorasi mekanika gerak tubuh karakter 3D (walk cycle, perpindahan pusat gravitasi, dan overlap) menggunakan Blender sebagai spesialisasi utama di Kelas 11.',
-            challenge: 'Menjaga keseimbangan bobot pinggul (COG) dan keluwesan lengkungan tulang belakang agar gerakan karakter tidak terlihat kaku seperti robot.',
+            challenge: 'Menjaga keseimbangan bobot pinggul (COG) dan keluwesan lengkungan tulang belakang agar gerakan karakter tidak terlihat kaku.',
             steps: ['Video Reference', 'Key Poses Blocking', 'Breakdown Poses', 'Spline & Graph Editor', 'Studio Lighting Render'],
-            result: 'Menghasilkan animasi siklus gerak karakter 3D yang halus dengan ritme langkah alami dan kurva animasi yang bersih.',
+            result: 'Menghasilkan animasi siklus gerak karakter 3D yang halus dengan ritme langkah alami dan kurva animasi bersih.',
             year: '2026 (Kelas 11)',
             category: '3D Character Animation',
             role: '3D Animator',
-            tools: 'Blender 3D',
+            tools: 'Blender',
             client: 'Spesialisasi Animasi — SMKN 4 Madiun'
         },
         'anim-02': {
-            title: '3D Logo Bumper — Forum BKK Jatim',
+            title: '3D Visual Opening Sequence',
             catYear: '3D Animation & Motion • Kelas 11 (2026)',
             video: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
             poster: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
-            desc: 'Produksi video bumper 3D resmi untuk pembukaan acara Forum Bursa Kerja Khusus (BKK) Provinsi Jawa Timur.',
-            challenge: 'Menerjemahkan identitas resmi acara menjadi animasi logo 3D berdurasi singkat yang megah, bersih, dan siap ditayangkan di layar panggung utama.',
-            steps: ['Concept & Storyboard', '3D Logo Extrusion & Shading', 'Camera Path Animation', 'After Effects Compositing', 'Final Master Render'],
-            result: 'Bumper pembuka beresolusi Full HD dengan pergerakan kamera sinematik, kilau material metalik, dan sinkronisasi efek suara.',
+            desc: 'Produksi sequence pembuka 3D dengan pergerakan kamera sinematik, pencahayaan kontras, dan compositing.',
+            challenge: 'Menyelaraskan pergerakan kamera 3D dengan ritme transisi visual agar terasa megah dan bersih.',
+            steps: ['Concept & Storyboard', '3D Scene & Shading', 'Camera Path Animation', 'After Effects Compositing', 'Final Master Render'],
+            result: 'Video opening beresolusi Full HD dengan kilau material metalik dan sinkronisasi efek suara.',
             year: '2026 (Kelas 11)',
-            category: '3D Logo Bumper',
+            category: '3D Motion & Opening',
             role: '3D Animator & Motion Designer',
             tools: 'Blender, Adobe After Effects',
-            client: 'Forum BKK Jawa Timur'
+            client: 'Proyek Kreatif Kelas 11'
         },
         'anim-03': {
             title: '3D Character Acting & Expression',
             catYear: '3D Animation • Kelas 11 (2026)',
             video: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
             poster: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=1200&q=80',
-            desc: 'Studi akting karakter 3D bergaya stylized/anime yang menitikberatkan pada gestur tangan, antisipasi gerakan, dan perubahan ekspresi wajah.',
-            challenge: 'Menyelaraskan timing kedipan mata, pergerakan alis, dan pose tubuh agar emosi karakter terbaca jelas oleh penonton.',
+            desc: 'Studi akting karakter 3D bergaya stylized yang menitikberatkan pada gestur tangan, antisipasi gerakan, dan perubahan ekspresi wajah.',
+            challenge: 'Menyelaraskan timing kedipan mata, pergerakan alis, dan pose tubuh agar emosi karakter terbaca jelas.',
             steps: ['Acting Reference Recording', 'Thumbnail Poses', 'Stepped Blocking', 'Facial Rig Polish', 'Final Render'],
-            result: 'Klip akting karakter berdurasi 10 detik dengan ekspresi komunikatif dan garis siluet yang kuat.',
+            result: 'Klip akting karakter dengan ekspresi komunikatif dan garis siluet yang kuat.',
             year: '2026 (Kelas 11)',
             category: '3D Character Acting',
             role: '3D Animator',
@@ -81,14 +81,14 @@ document.addEventListener('DOMContentLoaded', () => {
             catYear: '3D Animation • Kelas 11 (2026)',
             video: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
             poster: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80',
-            desc: 'Koreografi aksi dinamis 3D yang menggabungkan pose ekstrem, pergantian sudut kamera cepat, dan aksen visual motion blur.',
+            desc: 'Koreografi aksi dinamis 3D yang menggabungkan pose ekstrem, pergantian sudut kamera cepat, dan aksen motion blur.',
             challenge: 'Mempertahankan arah baca aksi (line of action) saat kamera berpindah sudut secara cepat.',
             steps: ['Animatic & Camera Timing', 'Extreme Action Poses', 'Impact Frames & Timing', 'Lighting & Motion Blur', 'Final Output'],
-            result: 'Sequence aksi 3D bertempo cepat dengan dampak visual yang bertenaga.',
+            result: 'Sequence aksi 3D bertempo cepat dengan dampak visual bertenaga.',
             year: '2026 (Kelas 11)',
             category: '3D Action Animation',
             role: '3D Animator',
-            tools: 'Blender 3D',
+            tools: 'Blender',
             client: 'Eksplorasi Mandiri Kelas 11'
         },
         'anim-10-1': {
@@ -96,14 +96,14 @@ document.addEventListener('DOMContentLoaded', () => {
             catYear: '3D Animation • Kelas 10 (2025)',
             video: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
             poster: 'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=1200&q=80',
-            desc: 'Latihan fondasi animasi 3D saat Kelas 10 meliputi prinsip fisika benda jatuh (bouncing ball), ayunan pendulum, dan siklus langkah dasar.',
+            desc: 'Latihan fondasi animasi 3D saat Kelas 10 meliputi prinsip fisika benda jatuh, ayunan pendulum, dan siklus langkah dasar.',
             challenge: 'Memahami pembacaan kurva F-Curve (ease-in & ease-out) untuk pertama kalinya di ruang kerja 3D.',
             steps: ['Physics Timing Chart', 'Keyframes Setup', 'F-Curve Tangent Adjustment', 'Playblast Review'],
             result: 'Fondasi kuat dalam mengatur bobot dan percepatan objek di dalam Blender.',
             year: '2025 (Kelas 10)',
             category: '3D Foundation Animation',
             role: '3D Animator',
-            tools: 'Blender 3D',
+            tools: 'Blender',
             client: 'Tugas Jurusan Animasi — SMKN 4 Madiun'
         },
         '2d-10-1': {
@@ -123,41 +123,41 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         '2d-10-2': {
             title: '2D Motion Graphics & Typography',
-            catYear: '2D Animation • Kelas 10 (2025)',
+            catYear: '2D Animation • Kelas 11 (2026)',
             video: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
             poster: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80',
             desc: 'Eksplorasi tipografi kinetik dan transisi bentuk geometris yang disinkronkan dengan ketukan musik.',
             challenge: 'Mengatur keyframe velocity agar setiap transisi teks terasa responsif dan modern.',
             steps: ['Audio Beat Mapping', 'Layout & Typography', 'Shape Layer Animation', 'Final Render'],
             result: 'Video motion graphic berdurasi 15 detik dengan ritme visual presisi.',
-            year: '2025 (Kelas 10)',
+            year: '2026 (Kelas 11)',
             category: '2D Motion Graphics',
             role: 'Motion Designer',
             tools: 'Adobe After Effects',
-            client: 'Tugas Jurusan Animasi — SMKN 4 Madiun'
+            client: 'Eksplorasi 2D Kelas 11'
         },
         'mod-10-1': {
             title: '3D Hard Surface & Prop Modeling',
-            catYear: '3D Modeling • Arsip Kelas 10 (2025)',
+            catYear: '3D Modeling • Kelas 10 (2025)',
             video: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
             poster: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=1200&q=80',
-            desc: 'Arsip karya divisi 3D Modeling saat Kelas 10: pemodelan objek mekanik dengan pengaturan bevel dan topologi quad bersih.',
+            desc: 'Karya divisi 3D Modeling saat Kelas 10: pemodelan objek mekanik dengan pengaturan bevel dan topologi quad bersih.',
             challenge: 'Menghindari shading artifact pada permukaan melengkung saat menggunakan subdivision surface.',
             steps: ['Blueprint Reference', 'Blockout Mesh', 'Support Loops & Bevel', 'Clay & Wireframe Render'],
             result: 'Model prop 3D siap pakai dengan struktur topologi yang rapi.',
             year: '2025 (Kelas 10)',
-            category: '3D Modeling (Arsip Kls 10)',
+            category: '3D Modeling',
             role: '3D Modeler',
-            tools: 'Blender 3D',
+            tools: 'Blender',
             client: 'Tugas Jurusan Animasi — SMKN 4 Madiun'
         },
         'mod-10-2': {
             title: '3D Isometric Room Environment',
-            catYear: '3D Modeling • Arsip Kelas 10 (2025)',
+            catYear: '3D Modeling • Kelas 10 (2025)',
             video: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
             poster: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
-            desc: 'Arsip karya Kelas 10 berupa diorama ruangan isometrik miniatur lengkap dengan furnitur dan pencahayaan studio.',
-            challenge: 'Menata komposisi puluhan objek kecil agar tetap nyaman dipandang dalam satu sudut kamera ortografis.',
+            desc: 'Diorama ruangan isometrik miniatur lengkap dengan furnitur dan pencahayaan studio.',
+            challenge: 'Menata komposisi puluhan objek kecil agar tetap nyaman dipandang dalam satu sudut kamera.',
             steps: ['Room Layout', 'Furniture Modeling', 'Material & Color Palette', 'Cycles Studio Lighting'],
             result: 'Render diorama isometrik dengan suasana pencahayaan hangat.',
             year: '2025 (Kelas 10)',
@@ -168,25 +168,25 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'mod-10-3': {
             title: '3D Stylized Asset & UV Mapping',
-            catYear: '3D Modeling • Arsip Kelas 10 (2025)',
+            catYear: '3D Modeling • Kelas 11 (2026)',
             video: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
             poster: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1200&q=80',
-            desc: 'Arsip latihan Kelas 10 dalam membentuk aset bergaya stylized serta proses pembukaan UV (UV Unwrapping).',
+            desc: 'Pembentukan aset bergaya stylized serta proses pembukaan UV (UV Unwrapping) untuk kebutuhan animasi.',
             challenge: 'Meminimalkan distorsi tekstur pada bagian sudut objek stylized.',
             steps: ['Silhouette Modeling', 'UV Seam & Unwrap', 'Base Material Shading', 'Turntable Render'],
             result: 'Aset 3D stylized dengan UV layout efisien.',
-            year: '2025 (Kelas 10)',
+            year: '2026 (Kelas 11)',
             category: '3D Asset Modeling',
             role: '3D Modeler',
-            tools: 'Autodesk Maya',
-            client: 'Tugas Jurusan Animasi — SMKN 4 Madiun'
+            tools: 'Autodesk Maya, Blender',
+            client: 'SMKN 4 Madiun'
         },
         'mulmed-01': {
             title: 'After Movie & Event Recap OSIS',
-            catYear: 'Multimedia • OSIS Sekbid 9 (2025–2026)',
+            catYear: 'Multimedia • Ketua Sekbid 9 OSIS (2025–2026)',
             video: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
             poster: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80',
-            desc: 'Produksi video rekapitulasi dan after-movie kegiatan besar sekolah oleh tim Sekbid 9 (Media Sosial & TIK) OSIS SMKN 4 Madiun.',
+            desc: 'Produksi video rekapitulasi dan after-movie kegiatan besar sekolah oleh tim Sekbid 9 OSIS SMKN 4 Madiun.',
             challenge: 'Menggabungkan ratusan klip dari beberapa juru kamera lapangan menjadi alur cerita berdurasi 1–2 menit yang energik.',
             steps: ['Shot List & Liputan', 'Footage Culling', 'Beat-Sync Editing', 'Color Grading & Sound Design'],
             result: 'Video publikasi resmi di akun Instagram & TikTok OSIS SMKN 4 Madiun.',
@@ -198,17 +198,17 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'mulmed-02': {
             title: 'Bertugas Liputan & Publikasi OSIS',
-            catYear: 'Multimedia • OSIS Sekbid 9 (2025–2026)',
+            catYear: 'Multimedia • Ketua Sekbid 9 OSIS (2025–2026)',
             video: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
             poster: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=80',
-            desc: 'Dokumentasi lapangan dan pengelolaan konten visual untuk berbagai agenda sekolah mulai dari HUT sekolah hingga promosi jurusan.',
+            desc: 'Dokumentasi lapangan dan pengelolaan konten visual untuk berbagai agenda sekolah.',
             challenge: 'Berkoordinasi cepat dengan tim fotografer dan admin media sosial agar publikasi tayang tepat waktu.',
-            steps: ['Pembagian Tim Liputan', 'Dokumentasi Foto & Video', 'Kurasi Visual', 'Publikasi Media Sosial'],
+            steps: ['Team Coordination', 'Dokumentasi Foto & Video', 'Kurasi Visual', 'Publikasi Media Sosial'],
             result: 'Arsip dokumentasi visual terstruktur selama satu periode kepengurusan.',
             year: '2025–2026',
             category: 'Event Documentation',
             role: 'Ketua Sekbid 9 OSIS',
-            tools: 'DSLR/Mirrorless Camera, CapCut',
+            tools: 'Camera, CapCut',
             client: 'OSIS SMKN 4 Madiun'
         },
         'mulmed-03': {
@@ -222,9 +222,9 @@ document.addEventListener('DOMContentLoaded', () => {
             result: 'Tayangan siaran langsung stabil dengan pergantian sudut pandang yang dinamis.',
             year: '2023–Sekarang',
             category: 'Live Production & Broadcast',
-            role: 'Visual Switcher Operator',
-            tools: 'Video Switcher, OBS / Broadcast System',
-            client: 'Tim Multimedia Gereja'
+            role: 'Live Streaming Switcher',
+            tools: 'Video Switcher, Broadcast System',
+            client: 'Tim Multimedia'
         },
         'mulmed-04': {
             title: 'Cameraman Utama Tim Multimedia',
@@ -239,12 +239,12 @@ document.addEventListener('DOMContentLoaded', () => {
             category: 'Videography & Framing',
             role: 'Main Cameraman',
             tools: 'Production Video Camera & Tripod',
-            client: 'Tim Multimedia Gereja'
+            client: 'Tim Multimedia'
         },
         'mulmed-05': {
             title: 'Freelance Camera & Video Editing',
             catYear: 'Multimedia • Freelance (2024–Sekarang)',
-            video: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4',
+            video: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4',
             poster: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80',
             desc: 'Layanan jasa perekaman video lapangan, operator rekaman, dan penyuntingan video promosi untuk kebutuhan klien independen.',
             challenge: 'Menerjemahkan kebutuhan setiap klien menjadi hasil video yang rapi dengan tenggat waktu cepat.',
@@ -356,6 +356,9 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 triggerRevealObserver();
                 animateProficiencyBars();
+                if (pageName === 'projects') {
+                    renderShowcaseSlider();
+                }
             }, 60);
         };
 
@@ -371,6 +374,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.addEventListener('click', (e) => {
+        // Jangan trigger navigasi saat klik kartu samping di slider (biar kartu samping geser ke tengah dulu)
+        const showcaseCard = e.target.closest('.showcase-card');
+        if (showcaseCard && !showcaseCard.classList.contains('is-active')) {
+            return;
+        }
+
         const detailTrigger = e.target.closest('[data-project-id]');
         if (detailTrigger) {
             e.preventDefault();
@@ -463,210 +472,385 @@ document.addEventListener('DOMContentLoaded', () => {
     triggerRevealObserver();
 
     // =========================================================================
-    // 5. INTERACTIVE LANYARD & FLIP ID CARD (ABOUT PAGE)
+    // 5. WEB AUDIO API "WHOOSH" SOUND SYNTHESIZER
+    // =========================================================================
+    let audioCtx = null;
+    function playWhooshSound() {
+        try {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (!AudioContextClass) return;
+            if (!audioCtx) audioCtx = new AudioContextClass();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+
+            const duration = 0.38;
+            const bufferSize = Math.floor(audioCtx.sampleRate * duration);
+            const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+            const data = buffer.getChannelData(0);
+
+            for (let i = 0; i < bufferSize; i++) {
+                data[i] = Math.random() * 2 - 1;
+            }
+
+            const noise = audioCtx.createBufferSource();
+            noise.buffer = buffer;
+
+            const filter = audioCtx.createBiquadFilter();
+            filter.type = 'bandpass';
+            filter.Q.value = 1.8;
+            const now = audioCtx.currentTime;
+            filter.frequency.setValueAtTime(220, now);
+            filter.frequency.exponentialRampToValueAtTime(1150, now + 0.16);
+            filter.frequency.exponentialRampToValueAtTime(320, now + duration);
+
+            const gain = audioCtx.createGain();
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.linearRampToValueAtTime(0.22, now + 0.12);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+            noise.connect(filter);
+            filter.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            noise.start(now);
+            noise.stop(now + duration);
+        } catch (err) {
+            // Abaikan jika browser memblokir audio sebelum interaksi
+        }
+    }
+
+    // =========================================================================
+    // 6. INTERACTIVE LANYARD ID CARD (TALI TERIKAT KUAT + BATAS TARIK + FLIP)
     // =========================================================================
     const idCard = document.getElementById('physics-id-card');
     const flipCardBtn = document.getElementById('flip-card-btn');
+    const flipVisualRing = document.getElementById('flip-visual-ring');
     const lanyardLine = document.getElementById('lanyard-dynamic-line');
+    const lanyardStrapBack = document.getElementById('lanyard-strap-back');
     const lanyardClasp = document.getElementById('lanyard-clasp');
 
-    if (flipCardBtn && idCard) {
-        flipCardBtn.addEventListener('click', () => {
-            idCard.classList.toggle('flipped');
-        });
+    let isFlipped = false;
+    let flipAngle = 0;
+    let targetFlipAngle = 0;
+
+    function triggerFlipCard() {
+        isFlipped = !isFlipped;
+        targetFlipAngle = isFlipped ? 180 : 0;
+        playWhooshSound();
+
+        if (idCard) {
+            idCard.classList.remove('gloss-sweep');
+            void idCard.offsetWidth;
+            idCard.classList.add('gloss-sweep');
+        }
+        if (flipVisualRing) {
+            flipVisualRing.classList.remove('burst');
+            void flipVisualRing.offsetWidth;
+            flipVisualRing.classList.add('burst');
+        }
+    }
+
+    if (flipCardBtn) {
+        flipCardBtn.addEventListener('click', triggerFlipCard);
     }
 
     if (idCard) {
+        idCard.addEventListener('dblclick', triggerFlipCard);
+
         let isDragging = false;
         let startX = 0;
-        let currentAngle = 0;
-        let velocity = 0;
+        let startY = 0;
+        let pullX = 0;
+        let pullY = 0;
+        let velX = 0;
+        let velY = 0;
 
-        const updateCardSwing = () => {
+        const updatePhysicsLoop = () => {
             if (!isDragging) {
-                const springForce = -0.08 * currentAngle;
-                velocity = (velocity + springForce) * 0.88;
-                currentAngle += velocity;
+                const springK = 0.085;
+                const damping = 0.84;
+                velX = (velX + -springK * pullX) * damping;
+                velY = (velY + -springK * pullY) * damping;
+                pullX += velX;
+                pullY += velY;
             }
-            const flippedDeg = idCard.classList.contains('flipped') ? 180 : 0;
-            idCard.style.transform = `rotate(${currentAngle.toFixed(2)}deg) rotateY(${flippedDeg}deg)`;
 
-            const offsetX = currentAngle * 1.4;
+            // Smooth flip interpolation
+            flipAngle += (targetFlipAngle - flipAngle) * 0.14;
+
+            // Rotasi ayunan alami mengikuti tarikan horizontal
+            const swingDeg = Math.max(-22, Math.min(22, -pullX * 0.28));
+            const scaleBoost = isDragging ? 1.03 : 1;
+
+            idCard.style.transform = `translate3d(${pullX.toFixed(2)}px, ${pullY.toFixed(2)}px, 0) rotate(${swingDeg.toFixed(2)}deg) rotateY(${flipAngle.toFixed(2)}deg) scale(${scaleBoost})`;
+
+            // Titik pengait atas kartu bergerak persis mengikuti pullX dan pullY
+            const clipX = 160 + pullX;
+            const clipY = 95 + pullY;
+
             if (lanyardLine) {
-                lanyardLine.setAttribute('d', `M 160 -20 Q ${160 + offsetX * 0.5} 35 ${160 + offsetX} 88`);
+                const ctrlX = 166 + pullX * 0.45;
+                const ctrlY = 40 + pullY * 0.55;
+                lanyardLine.setAttribute('d', `M 172 -15 Q ${ctrlX.toFixed(1)} ${ctrlY.toFixed(1)} ${clipX.toFixed(1)} ${clipY.toFixed(1)}`);
+            }
+            if (lanyardStrapBack) {
+                lanyardStrapBack.setAttribute('d', `M 148 -15 L ${clipX.toFixed(1)} ${clipY.toFixed(1)}`);
             }
             if (lanyardClasp) {
-                lanyardClasp.setAttribute('transform', `translate(${160 + offsetX}, 88) rotate(${-currentAngle * 0.5})`);
+                lanyardClasp.setAttribute('transform', `translate(${clipX.toFixed(1)}, ${clipY.toFixed(1)}) rotate(${(swingDeg * 0.6).toFixed(1)})`);
             }
-            requestAnimationFrame(updateCardSwing);
+
+            requestAnimationFrame(updatePhysicsLoop);
         };
-        requestAnimationFrame(updateCardSwing);
+        requestAnimationFrame(updatePhysicsLoop);
 
         idCard.addEventListener('pointerdown', (e) => {
             isDragging = true;
-            startX = e.clientX;
+            startX = e.clientX - pullX;
+            startY = e.clientY - pullY;
             idCard.setPointerCapture(e.pointerId);
         });
 
         idCard.addEventListener('pointermove', (e) => {
             if (!isDragging) return;
-            const deltaX = e.clientX - startX;
-            currentAngle = Math.max(-28, Math.min(28, -deltaX * 0.18));
-            velocity = 0;
+            const rawX = e.clientX - startX;
+            const rawY = e.clientY - startY;
+
+            // Batas tarikan aman agar kartu TIDAK pernah menabrak teks "About Me"
+            pullX = Math.max(-68, Math.min(68, rawX));
+            pullY = Math.max(-18, Math.min(82, rawY));
+            velX = 0;
+            velY = 0;
         });
 
-        idCard.addEventListener('pointerup', () => {
+        const releaseCard = () => {
             isDragging = false;
-        });
+        };
+
+        idCard.addEventListener('pointerup', releaseCard);
+        idCard.addEventListener('pointercancel', releaseCard);
     }
 
     // =========================================================================
-    // 6. PROJECTS MULTI-FILTERING SYSTEM (15 WORKS)
+    // 7. PROJECTS 3D CURVED SPOTLIGHT SLIDER & MULTI-FILTER (OPTION C)
     // =========================================================================
-    const branchBtns = document.querySelectorAll('.branch-btn');
-    const panel2d3d = document.getElementById('panel-2d3d');
-    const panelMulmed = document.getElementById('panel-mulmed');
-    const projectCards = document.querySelectorAll('.project-card');
-    const emptyFilterMsg = document.getElementById('empty-filter-msg');
+    const primaryTabs = document.querySelectorAll('.primary-tab');
+    const subFilterPanel = document.getElementById('sub-filter-panel');
+    const filterGradeRow = document.getElementById('filter-grade-row');
+    const filterDivRow = document.getElementById('filter-div-row');
+    const allShowcaseCards = Array.from(document.querySelectorAll('.showcase-card'));
+    const showcaseTrack = document.getElementById('showcase-track');
+    const sliderPrevBtn = document.getElementById('slider-prev-btn');
+    const sliderNextBtn = document.getElementById('slider-next-btn');
+    const sliderCounter = document.getElementById('slider-counter');
+    const sliderDotsContainer = document.getElementById('slider-dots');
 
-    let currentBranch = '2d3d';
-    let filterDim = 'all';
-    let filterGrade = 'all';
-    let filterDiv = 'all';
-    let filterMulmed = 'all';
+    let activeCategory = 'all'; // 'all' | '3d' | '2d' | 'multimedia'
+    let activeGrade = 'all';    // 'all' | '10' | '11'
+    let activeDiv = 'all';      // 'all' | 'modeling' | 'animasi'
+    let currentSlideIdx = 0;
+    let visibleCards = [...allShowcaseCards];
 
-    function applyProjectFilters() {
-        let visibleCount = 0;
-        projectCards.forEach(card => {
-            const branch = card.getAttribute('data-branch');
-            let show = false;
+    function renderShowcaseSlider() {
+        const total = visibleCards.length;
+        if (total === 0) return;
 
-            if (branch === currentBranch) {
-                if (currentBranch === '2d3d') {
-                    const dim = card.getAttribute('data-dim');
-                    const grade = card.getAttribute('data-grade');
-                    const div = card.getAttribute('data-div');
-                    const matchDim = filterDim === 'all' || dim === filterDim;
-                    const matchGrade = filterGrade === 'all' || grade === filterGrade;
-                    const matchDiv = filterDiv === 'all' || div === filterDiv;
-                    show = matchDim && matchGrade && matchDiv;
-                } else {
-                    const mCat = card.getAttribute('data-mulmed');
-                    show = filterMulmed === 'all' || mCat === filterMulmed;
-                }
-            }
+        if (currentSlideIdx >= total) currentSlideIdx = 0;
+        if (currentSlideIdx < 0) currentSlideIdx = total - 1;
 
-            card.classList.toggle('hidden-card', !show);
-            if (show) {
-                visibleCount++;
-                card.classList.add('visible');
+        visibleCards.forEach((card, idx) => {
+            const offset = idx - currentSlideIdx;
+            const absOffset = Math.abs(offset);
+
+            card.classList.toggle('is-active', offset === 0);
+
+            if (offset === 0) {
+                card.style.transform = 'translate3d(0px, -6px, 90px) rotateY(0deg) rotateZ(0deg) scale(1)';
+                card.style.opacity = '1';
+                card.style.zIndex = '25';
+                card.style.pointerEvents = 'auto';
+            } else {
+                const spreadX = window.innerWidth < 640 ? 235 : 320;
+                const x = offset * spreadX;
+                const curveY = absOffset * 28; // Lengkungan kipas ala video detik ke-5
+                const z = -absOffset * 125;
+                const rotY = Math.max(-36, Math.min(36, -offset * 18));
+                const rotZ = Math.max(-8, Math.min(8, offset * 3.5));
+                const scale = Math.max(0.66, 1 - absOffset * 0.14);
+
+                card.style.transform = `translate3d(${x}px, ${curveY}px, ${z}px) rotateY(${rotY}deg) rotateZ(${rotZ}deg) scale(${scale})`;
+                card.style.opacity = absOffset > 2 ? '0' : String(Math.max(0.45, 1 - absOffset * 0.24));
+                card.style.zIndex = String(20 - absOffset);
+                card.style.pointerEvents = absOffset <= 2 ? 'auto' : 'none';
             }
         });
 
-        if (emptyFilterMsg) {
-            emptyFilterMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+        if (sliderCounter) {
+            sliderCounter.textContent = `${String(currentSlideIdx + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+        }
+
+        if (sliderDotsContainer) {
+            sliderDotsContainer.innerHTML = visibleCards
+                .map((_, i) => `<button type="button" class="slider-dot ${i === currentSlideIdx ? 'active' : ''}" data-slide-to="${i}" aria-label="Slide ${i + 1}"></button>`)
+                .join('');
         }
     }
 
-    branchBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            branchBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentBranch = btn.getAttribute('data-branch');
+    function applyProjectFilters() {
+        visibleCards = [];
+        allShowcaseCards.forEach(card => {
+            const cat = card.getAttribute('data-cat');
+            const grade = card.getAttribute('data-grade');
+            const div = card.getAttribute('data-div');
 
-            if (currentBranch === '2d3d') {
-                if (panel2d3d) panel2d3d.classList.remove('hidden');
-                if (panelMulmed) panelMulmed.classList.add('hidden');
-            } else {
-                if (panel2d3d) panel2d3d.classList.add('hidden');
-                if (panelMulmed) panelMulmed.classList.remove('hidden');
+            let match = false;
+            if (activeCategory === 'all') {
+                match = true;
+            } else if (activeCategory === '3d') {
+                const matchGrade = activeGrade === 'all' || grade === activeGrade;
+                const matchDiv = activeDiv === 'all' || div === activeDiv;
+                match = (cat === '3d') && matchGrade && matchDiv;
+            } else if (activeCategory === '2d') {
+                const matchGrade = activeGrade === 'all' || grade === activeGrade;
+                match = (cat === '2d') && matchGrade;
+            } else if (activeCategory === 'multimedia') {
+                match = (cat === 'multimedia');
             }
+
+            card.classList.toggle('filtered-out', !match);
+            if (match) {
+                visibleCards.push(card);
+            }
+        });
+
+        currentSlideIdx = 0;
+        renderShowcaseSlider();
+    }
+
+    primaryTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            primaryTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            activeCategory = tab.getAttribute('data-cat');
+
+            // Reset sub-filter pills ke 'all' setiap ganti kategori utama
+            activeGrade = 'all';
+            activeDiv = 'all';
+            document.querySelectorAll('#filter-grade .filter-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
+            document.querySelectorAll('#filter-div .filter-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
+
+            if (activeCategory === '3d') {
+                if (subFilterPanel) subFilterPanel.classList.remove('hidden');
+                if (filterGradeRow) filterGradeRow.classList.remove('hidden');
+                if (filterDivRow) filterDivRow.classList.remove('hidden');
+            } else if (activeCategory === '2d') {
+                if (subFilterPanel) subFilterPanel.classList.remove('hidden');
+                if (filterGradeRow) filterGradeRow.classList.remove('hidden');
+                if (filterDivRow) filterDivRow.classList.add('hidden');
+            } else {
+                if (subFilterPanel) subFilterPanel.classList.add('hidden');
+            }
+
             applyProjectFilters();
         });
     });
 
-    function bindFilterGroup(containerId, setter) {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-        container.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                setter(btn.getAttribute('data-val'));
-                applyProjectFilters();
-            });
-        });
-    }
-
-    bindFilterGroup('filter-dim', val => { filterDim = val; });
-    bindFilterGroup('filter-grade', val => { filterGrade = val; });
-    bindFilterGroup('filter-div', val => { filterDiv = val; });
-    bindFilterGroup('filter-mulmed', val => { filterMulmed = val; });
-
-    // =========================================================================
-    // 7. QUICK PREVIEW MODAL
-    // =========================================================================
-    const previewModal = document.getElementById('preview-modal');
-    const modalMediaArea = document.getElementById('modal-media-area');
-    const modalTitleText = document.getElementById('modal-title-text');
-    const modalMetaText = document.getElementById('modal-meta-text');
-    const modalCloseBtn = document.getElementById('modal-close-btn');
-    const modalPrevBtn = document.getElementById('modal-prev-btn');
-    const modalNextBtn = document.getElementById('modal-next-btn');
-
-    let visibleQuickBtns = [];
-    let currentModalIdx = 0;
-
-    function openQuickModal(idx) {
-        if (!visibleQuickBtns.length || !previewModal) return;
-        currentModalIdx = (idx + visibleQuickBtns.length) % visibleQuickBtns.length;
-        const btn = visibleQuickBtns[currentModalIdx];
-        const type = btn.getAttribute('data-type');
-        const src = btn.getAttribute('data-src');
-        const title = btn.getAttribute('data-title');
-        const meta = btn.getAttribute('data-meta');
-
-        if (modalTitleText) modalTitleText.textContent = title;
-        if (modalMetaText) modalMetaText.textContent = meta;
-
-        if (modalMediaArea) {
-            if (type === 'video') {
-                modalMediaArea.innerHTML = `<video controls autoplay playsinline><source src="${src}" type="video/mp4"></video>`;
-            } else {
-                modalMediaArea.innerHTML = `<img src="${src}" alt="${title}">`;
-            }
-        }
-        previewModal.classList.add('open');
-    }
-
-    function closeQuickModal() {
-        if (!previewModal) return;
-        previewModal.classList.remove('open');
-        if (modalMediaArea) modalMediaArea.innerHTML = '';
-    }
-
-    document.querySelectorAll('.btn-quick-view').forEach(btn => {
+    document.querySelectorAll('#filter-grade .filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-            visibleQuickBtns = Array.from(document.querySelectorAll('.project-card:not(.hidden-card) .btn-quick-view'));
-            const idx = visibleQuickBtns.indexOf(btn);
-            openQuickModal(idx >= 0 ? idx : 0);
+            document.querySelectorAll('#filter-grade .filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeGrade = btn.getAttribute('data-val');
+            applyProjectFilters();
         });
     });
 
-    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeQuickModal);
-    if (previewModal) {
-        previewModal.addEventListener('click', (e) => {
-            if (e.target === previewModal) closeQuickModal();
+    document.querySelectorAll('#filter-div .filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('#filter-div .filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeDiv = btn.getAttribute('data-val');
+            applyProjectFilters();
+        });
+    });
+
+    // Klik kartu samping -> geser kartu tersebut ke tengah
+    allShowcaseCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const visibleIdx = visibleCards.indexOf(card);
+            if (visibleIdx !== -1 && visibleIdx !== currentSlideIdx) {
+                currentSlideIdx = visibleIdx;
+                renderShowcaseSlider();
+            }
+        });
+    });
+
+    if (sliderPrevBtn) {
+        sliderPrevBtn.addEventListener('click', () => {
+            currentSlideIdx = (currentSlideIdx - 1 + visibleCards.length) % visibleCards.length;
+            renderShowcaseSlider();
         });
     }
-    if (modalPrevBtn) modalPrevBtn.addEventListener('click', () => openQuickModal(currentModalIdx - 1));
-    if (modalNextBtn) modalNextBtn.addEventListener('click', () => openQuickModal(currentModalIdx + 1));
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && previewModal && previewModal.classList.contains('open')) {
-            closeQuickModal();
-        }
-    });
+    if (sliderNextBtn) {
+        sliderNextBtn.addEventListener('click', () => {
+            currentSlideIdx = (currentSlideIdx + 1) % visibleCards.length;
+            renderShowcaseSlider();
+        });
+    }
+
+    if (sliderDotsContainer) {
+        sliderDotsContainer.addEventListener('click', (e) => {
+            const dot = e.target.closest('[data-slide-to]');
+            if (dot) {
+                currentSlideIdx = parseInt(dot.getAttribute('data-slide-to'), 10);
+                renderShowcaseSlider();
+            }
+        });
+    }
+
+    // Drag / Swipe & Horizontal Wheel pada 3D Slider
+    if (showcaseTrack) {
+        let dragStartX = 0;
+        let isTrackDragging = false;
+
+        showcaseTrack.addEventListener('pointerdown', (e) => {
+            isTrackDragging = true;
+            dragStartX = e.clientX;
+        });
+
+        showcaseTrack.addEventListener('pointerup', (e) => {
+            if (!isTrackDragging) return;
+            isTrackDragging = false;
+            const diffX = e.clientX - dragStartX;
+            if (Math.abs(diffX) > 45) {
+                if (diffX < 0) {
+                    currentSlideIdx = (currentSlideIdx + 1) % visibleCards.length;
+                } else {
+                    currentSlideIdx = (currentSlideIdx - 1 + visibleCards.length) % visibleCards.length;
+                }
+                renderShowcaseSlider();
+            }
+        });
+
+        let wheelLock = false;
+        showcaseTrack.addEventListener('wheel', (e) => {
+            if (Math.abs(e.deltaX) > 15 || e.shiftKey) {
+                e.preventDefault();
+                if (wheelLock) return;
+                wheelLock = true;
+                const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+                if (delta > 0) {
+                    currentSlideIdx = (currentSlideIdx + 1) % visibleCards.length;
+                } else {
+                    currentSlideIdx = (currentSlideIdx - 1 + visibleCards.length) % visibleCards.length;
+                }
+                renderShowcaseSlider();
+                setTimeout(() => { wheelLock = false; }, 320);
+            }
+        }, { passive: false });
+    }
+
+    window.addEventListener('resize', renderShowcaseSlider);
+    renderShowcaseSlider();
 
     // =========================================================================
     // 8. COPY EMAIL BUTTON (CONTACT PAGE)
@@ -676,61 +860,12 @@ document.addEventListener('DOMContentLoaded', () => {
         copyEmailBtn.addEventListener('click', () => {
             const email = copyEmailBtn.getAttribute('data-email');
             navigator.clipboard.writeText(email).then(() => {
-                const originalHTML = copyEmailBtn.innerHTML;
+                const originalText = copyEmailBtn.textContent;
                 copyEmailBtn.textContent = '✓ Email Tersalin!';
                 setTimeout(() => {
-                    copyEmailBtn.innerHTML = originalHTML;
+                    copyEmailBtn.textContent = originalText;
                 }, 2000);
             });
-        });
-    }
-
-    // =========================================================================
-    // 9. INTERACTIVE ORBITAL LOGO SHOWCASE (HOME HERO)
-    // =========================================================================
-    const orbitToolsInfo = {
-        blender: {
-            cat: '3D ANIMATION ENGINE',
-            name: 'Blender 3D',
-            desc: '3D Character Animation, Graph Editor & visual bumper.'
-        },
-        maya: {
-            cat: 'CHARACTER RIG & ANIMATE',
-            name: 'Autodesk Maya',
-            desc: 'Blocking pose-to-pose, facial acting & body mechanics.'
-        },
-        ae: {
-            cat: 'MOTION & COMPOSITING',
-            name: 'Adobe After Effects',
-            desc: 'Motion graphics bumper, compositing & visual effects.'
-        },
-        capcut: {
-            cat: 'VIDEO EDITING PIPELINE',
-            name: 'CapCut',
-            desc: 'Fast-paced event recap, color grading & beat sync.'
-        }
-    };
-
-    const orbitNodes = document.querySelectorAll('.orbit-node');
-    const orbitCatEl = document.getElementById('orbit-tool-cat');
-    const orbitNameEl = document.getElementById('orbit-tool-name');
-    const orbitDescEl = document.getElementById('orbit-tool-desc');
-
-    if (orbitNodes.length > 0 && orbitNameEl) {
-        orbitNodes.forEach(node => {
-            const updateOrbitCard = () => {
-                orbitNodes.forEach(n => n.classList.remove('active'));
-                node.classList.add('active');
-                const key = node.getAttribute('data-tool');
-                const info = orbitToolsInfo[key];
-                if (info) {
-                    if (orbitCatEl) orbitCatEl.textContent = info.cat;
-                    orbitNameEl.textContent = info.name;
-                    if (orbitDescEl) orbitDescEl.textContent = info.desc;
-                }
-            };
-            node.addEventListener('mouseenter', updateOrbitCard);
-            node.addEventListener('click', updateOrbitCard);
         });
     }
 });
