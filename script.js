@@ -662,6 +662,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modalPrevBtn) modalPrevBtn.addEventListener('click', () => openQuickModal(currentModalIdx - 1));
     if (modalNextBtn) modalNextBtn.addEventListener('click', () => openQuickModal(currentModalIdx + 1));
 
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && previewModal && previewModal.classList.contains('open')) {
+            closeQuickModal();
+        }
+    });
+
     // =========================================================================
     // 8. COPY EMAIL BUTTON (CONTACT PAGE)
     // =========================================================================
