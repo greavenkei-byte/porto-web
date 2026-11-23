@@ -31,11 +31,11 @@
         </div>
     </div>
 
-    <!-- NAVBAR (Logo JP dari folder assets/) -->
+    <!-- NAVBAR -->
     <header class="navbar">
         <div class="nav-container">
             <a href="#home" data-page="home" class="logo" aria-label="Joprass Home">
-                <img src="assets/logo-jp.png" alt="Joprass Logo" class="nav-jp-logo">
+                <img src="assets/logo-jp.png" alt="JP" class="nav-jp-logo">
             </a>
             <nav class="nav-links">
                 <a href="#home" data-page="home" class="active">Home</a>
@@ -85,29 +85,30 @@
                     </div>
                 </div>
 
-                <!-- ORBITAL LOGO SHOWCASE (Sesuai Video Referensi) -->
-                <div class="hero-orbit-stage">
+                <!-- ORBITAL LOGO SHOWCASE -->
+                <div class="hero-orbit-stage" id="hero-orbit-stage">
+                    <div class="orbit-ambient-glow"></div>
                     <div class="orbit-ring-outer"></div>
                     <div class="orbit-ring-inner"></div>
 
                     <!-- Center JP Emblem -->
                     <div class="orbit-center-disc">
-                        <img src="assets/logo-jp.png" alt="Joprass Emblem" class="orbit-center-logo">
+                        <img src="assets/logo-jp.png" alt="Logo JP" class="orbit-center-logo">
                     </div>
 
                     <!-- Rotating Track untuk 4 Software Icons -->
                     <div class="orbit-rotator">
                         <!-- 1. Blender -->
-                        <button type="button" class="orbit-node node-1 active" data-tool="blender" aria-label="Blender">
+                        <button type="button" class="orbit-node node-1" data-tool="blender" aria-label="Blender">
                             <span class="orbit-node-counter">
                                 <img src="assets/logo-blender.jpg" alt="Blender">
                             </span>
                         </button>
 
-                        <!-- 2. Autodesk Maya (SVG) -->
+                        <!-- 2. Autodesk Maya (SVG Full Fill) -->
                         <button type="button" class="orbit-node node-2" data-tool="maya" aria-label="Autodesk Maya">
                             <span class="orbit-node-counter maya-node">
-                                <svg viewBox="0 0 64 64" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg viewBox="0 0 64 64" width="38" height="38" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M10 50L22 14H31L22 50H10Z" fill="#22A699"/>
                                     <path d="M54 50L42 14H33L42 50H54Z" fill="#187E74"/>
                                     <path d="M22 14L32 36L42 14H34L32 21L30 14H22Z" fill="#38D3C3"/>
@@ -131,9 +132,12 @@
                         </button>
                     </div>
 
-                    <!-- Floating Info Card (Seperti di Detik 00:51 Video) -->
-                    <div class="orbit-tool-card" id="orbit-tool-card">
-                        <span class="orbit-tool-cat" id="orbit-tool-cat">3D ANIMATION ENGINE</span>
+                    <!-- Floating Info Card (Hanya Muncul Saat Ikon Diklik) -->
+                    <div class="orbit-tool-card" id="orbit-tool-card" aria-hidden="true">
+                        <div class="orbit-card-top">
+                            <span class="orbit-tool-cat" id="orbit-tool-cat">3D ANIMATION ENGINE</span>
+                            <button type="button" class="orbit-card-close" id="orbit-card-close" aria-label="Tutup">&times;</button>
+                        </div>
                         <strong id="orbit-tool-name">Blender 3D</strong>
                         <p id="orbit-tool-desc">3D Character Animation, Graph Editor &amp; visual bumper.</p>
                     </div>
