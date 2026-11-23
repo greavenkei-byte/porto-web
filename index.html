@@ -3,313 +3,322 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joprass — Greaven Keiyoshi Prasojo | 3D Animator & Multimedia</title>
+  <title>Joprass — Greaven Keiyoshi Prasojo | 3D Animator</title>
   <link rel="icon" type="image/png" href="assets/logo-jp.png" />
-  <!-- Google Fonts: Syne (Display), Plus Jakarta Sans (Body), Space Mono (Tech/JP) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Ambient Background Glow -->
-  <div class="ambient-glow glow-1"></div>
-  <div class="ambient-glow glow-2"></div>
+  <!-- Custom Cursor Glow -->
+  <div id="cursor-glow" class="cursor-glow"></div>
 
-  <!-- Japanese Loading Screen -->
+  <!-- Japanese Cinematic Loading Screen -->
   <div id="loader" class="loader">
-    <div class="loader-inner">
-      <div class="loader-jp">ジョプラス // PORTAL</div>
-      <img src="assets/logo-jp.png" alt="JP Logo" class="loader-logo" onerror="this.style.display='none'" />
-      <div class="loader-bar-wrap">
-        <div id="loader-bar" class="loader-bar"></div>
+    <div class="loader-box">
+      <span class="loader-jp">ジョプラス // CREATIVE ARCHIVE</span>
+      <img src="assets/logo-jp.png" alt="Joprass Logo" class="loader-logo" />
+      <div class="loader-track">
+        <div id="loader-fill" class="loader-fill"></div>
       </div>
-      <div class="loader-meta">
-        <span>LOADING ASSETS</span>
+      <div class="loader-status">
+        <span>INITIALIZING PORTFOLIO</span>
         <span id="loader-percent">0%</span>
       </div>
     </div>
   </div>
 
-  <!-- Navbar -->
+  <!-- Top Navigation -->
   <header class="navbar">
-    <a href="#hero" class="nav-brand sfx-hover">
-      <img src="assets/logo-jp.png" alt="Joprass Logo" class="brand-logo" />
-      <span class="brand-text">JOPRASS</span>
+    <a href="#home" class="brand sfx-hover">
+      <img src="assets/logo-jp.png" alt="JP" class="brand-img" />
+      <span class="brand-name">JOPRASS</span>
     </a>
 
-    <nav class="nav-links">
-      <a href="#about" class="sfx-hover">About</a>
-      <a href="#skills" class="sfx-hover">Skills</a>
-      <a href="#works" class="sfx-hover">Works</a>
-      <a href="#experience" class="sfx-hover">Journey</a>
-      <a href="#contact" class="sfx-hover">Contact</a>
+    <nav class="nav-menu">
+      <a href="#home" class="nav-link active sfx-click">Home</a>
+      <a href="#about" class="nav-link sfx-click">About</a>
+      <a href="#works" class="nav-link sfx-click">Works</a>
+      <a href="#contact" class="nav-link sfx-click">Contact</a>
     </nav>
 
-    <div class="nav-actions">
-      <button id="sound-toggle" class="icon-btn sfx-click" aria-label="Toggle Sound" title="Suara Efek UI">
-        <span id="sound-icon">🔊</span>
-      </button>
-      <button id="theme-toggle" class="icon-btn sfx-click" aria-label="Toggle Theme" title="Ganti Tema">
-        <span id="theme-icon">☀️</span>
-      </button>
-      <a href="assets/cv-greaven.pdf" download class="btn-outline-sm sfx-click">CV ↓</a>
+    <div class="nav-controls">
+      <button id="sound-btn" class="ctrl-btn sfx-click" title="Toggle Sound">🔊</button>
+      <button id="theme-btn" class="ctrl-btn sfx-click" title="Toggle Theme">☀️</button>
+      <a href="assets/cv-greaven.pdf" download class="cv-btn sfx-click">CV ↓</a>
     </div>
   </header>
 
   <main>
-    <!-- HERO SECTION -->
-    <section id="hero" class="hero">
-      <div class="watermark-text" aria-hidden="true">ANIMATOR</div>
+    <!-- =====================================================
+         HOME SECTION (Kiri: Teks Putih-Gradasi | Kanan: Orbit Logo JP + 4 Software)
+         ===================================================== -->
+    <section id="home" class="hero-section">
+      <div class="hero-watermark" aria-hidden="true">JOPRASS</div>
 
-      <div class="hero-grid">
-        <div class="hero-content reveal">
-          <div class="eyebrow-tag">
-            <span class="dot"></span> 3D ANIMATION DIVISION • MADIUN, ID
+      <div class="container hero-container">
+        <!-- Left Content -->
+        <div class="hero-left reveal">
+          <div class="status-pill">
+            <span class="pulse-dot"></span>
+            <span>3D ANIMATOR • ANIMATION DIVISION</span>
           </div>
-          <h1 class="hero-title gradient-text">
-            BRINGING<br />CHARACTERS<br />TO LIFE.
+
+          <h1 class="hero-title gradient-white">
+            GREAVEN<br />KEIYOSHI<br />PRASOJO.
           </h1>
-          <p class="hero-desc">
-            Saya <strong>Greaven Keiyoshi Prasojo</strong> (<strong>Joprass</strong>) — 3D Animator yang berfokus pada pergerakan karakter, ekspresi, serta produksi multimedia &amp; sinematografi digital.
+
+          <p class="hero-subtitle">
+            Dikenal sebagai <strong>Joprass</strong> — berfokus pada <strong>3D Character Animation</strong>, body mechanics, motion graphics, dan produksi multimedia kreatif.
           </p>
-          <div class="hero-cta">
-            <a href="#works" class="btn-primary sfx-click">Explore Works</a>
-            <a href="assets/cv-greaven.pdf" target="_blank" class="btn-secondary sfx-click">Download CV</a>
+
+          <div class="hero-buttons">
+            <a href="#works" class="btn-solid sfx-click">Lihat Karya (15)</a>
+            <a href="#about" class="btn-glass sfx-click">Tentang Saya</a>
           </div>
         </div>
 
-        <!-- Interactive Lanyard ID Card -->
-        <div class="lanyard-wrapper reveal">
-          <div class="lanyard-strap"></div>
-          <div class="lanyard-clip"></div>
-          <div id="id-card" class="id-card sfx-hover">
-            <div class="id-card-header">
-              <img src="assets/logo-jp.png" alt="JP" class="id-mini-logo" />
-              <span class="id-badge">CREATOR PASS</span>
-            </div>
-            <div class="id-photo-frame">
-              <img src="assets/1.jpeg" alt="Greaven Keiyoshi Prasojo" class="id-photo" />
-            </div>
-            <div class="id-info">
-              <span class="id-handle">@JOPRASS</span>
-              <h2 class="id-name">Greaven Keiyoshi P.</h2>
-              <p class="id-role">3D Animator &amp; Multimedia</p>
-            </div>
-            <div class="id-footer">
-              <span>SMKN 4 MADIUN</span>
-              <span>ID // 2026</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <!-- Right Content: Orbital Logo Concept (Seperti Video Referensi) -->
+        <div class="hero-right reveal">
+          <div class="orbit-stage">
+            <!-- Outer & Inner Rings -->
+            <div class="orbit-ring ring-outer"></div>
+            <div class="orbit-ring ring-inner"></div>
 
-    <!-- ABOUT & STATS -->
-    <section id="about" class="section about-section">
-      <div class="container reveal">
-        <div class="section-label">01 // PROFILE OVERVIEW</div>
-        <div class="about-grid">
-          <h2 class="section-heading gradient-text">
-            Fokus pada detail gerak, timing, dan visual storytelling.
-          </h2>
-          <div class="about-text-wrap">
-            <p>
-              Sebagai siswa jurusan Animasi di <strong>SMKN 4 Madiun</strong>, saya mendalami divisi <strong>3D Animation</strong> (body mechanics, acting, &amp; lip-sync) sekaligus aktif mengerjakan proyek freelance videografi, motion graphics, dan live production.
-            </p>
-            <div class="stats-row">
-              <div class="stat-item">
-                <span class="stat-num gradient-text">15+</span>
-                <span class="stat-label">Karya &amp; Proyek</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-num gradient-text">4</span>
-                <span class="stat-label">Core Software</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-num gradient-text">FLS2N</span>
-                <span class="stat-label">&amp; Festival Film</span>
-              </div>
+            <!-- Center Personal JP Emblem -->
+            <div class="center-emblem">
+              <img src="assets/logo-jp.png" alt="Joprass Emblem" class="emblem-jp" />
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- SKILLS & SOFTWARE (Inspired by Video Reference) -->
-    <section id="skills" class="section skills-section">
-      <div class="watermark-text watermark-center" aria-hidden="true">TOOLSET</div>
-
-      <div class="container reveal">
-        <div class="section-label center">02 // SKILLS &amp; SOFTWARE</div>
-
-        <div class="skills-showcase">
-          <!-- Floating Software Icons -->
-          <div class="floating-icons">
-            <!-- Blender -->
-            <button class="app-icon-card tilt-left active sfx-click" data-skill="0" title="Blender">
+            <!-- 4 Orbiting Software Icons -->
+            <div class="orbit-item pos-1" title="Blender">
               <img src="assets/logo-blender.jpg" alt="Blender" />
-            </button>
-
-            <!-- Autodesk Maya (Clean Vector SVG) -->
-            <button class="app-icon-card tilt-right sfx-click" data-skill="1" title="Autodesk Maya">
-              <div class="maya-svg-box">
-                <svg viewBox="0 0 64 64" width="38" height="38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10 50L22 14H31L22 50H10Z" fill="#22A699"/>
-                  <path d="M54 50L42 14H33L42 50H54Z" fill="#187E74"/>
-                  <path d="M22 14L32 36L42 14H34L32 21L30 14H22Z" fill="#38D3C3"/>
-                  <path d="M26 36L32 48L38 36H26Z" fill="#125E56"/>
-                </svg>
-              </div>
-            </button>
-
-            <!-- After Effects -->
-            <button class="app-icon-card tilt-left sfx-click" data-skill="2" title="Adobe After Effects">
-              <img src="assets/logo-ae.jpg" alt="After Effects" />
-            </button>
-
-            <!-- CapCut -->
-            <button class="app-icon-card tilt-right sfx-click" data-skill="3" title="CapCut">
-              <img src="assets/logo-capcut.jpg" alt="CapCut" />
-            </button>
-          </div>
-
-          <!-- Center Stacked Outline / Solid Typography -->
-          <div class="skill-titles-stack">
-            <button class="skill-big-title active sfx-hover" data-skill="0">3D ANIMATION</button>
-            <button class="skill-big-title sfx-hover" data-skill="1">CHARACTER RIG &amp; ACTING</button>
-            <button class="skill-big-title sfx-hover" data-skill="2">MOTION GRAPHICS</button>
-            <button class="skill-big-title sfx-hover" data-skill="3">VIDEO EDITING</button>
-          </div>
-
-          <!-- Active Skill Detail Box -->
-          <div id="skill-detail-panel" class="skill-detail-panel">
-            <div class="skill-detail-header">
-              <span id="skill-tool-name" class="skill-tool-badge">BLENDER &amp; AUTODESK MAYA</span>
-              <span id="skill-percent-text" class="skill-percent">92%</span>
             </div>
-            <p id="skill-desc-text">
-              Keyframing, graph editor polishing, body mechanics, walk/run cycle, hingga ekspresi wajah karakter 3D menggunakan Blender dan Autodesk Maya.
+
+            <div class="orbit-item pos-2" title="Autodesk Maya">
+              <svg viewBox="0 0 64 64" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 50L22 14H31L22 50H10Z" fill="#22A699"/>
+                <path d="M54 50L42 14H33L42 50H54Z" fill="#187E74"/>
+                <path d="M22 14L32 36L42 14H34L32 21L30 14H22Z" fill="#38D3C3"/>
+                <path d="M26 36L32 48L38 36H26Z" fill="#125E56"/>
+              </svg>
+            </div>
+
+            <div class="orbit-item pos-3" title="Adobe After Effects">
+              <img src="assets/logo-ae.jpg" alt="After Effects" />
+            </div>
+
+            <div class="orbit-item pos-4" title="CapCut">
+              <img src="assets/logo-capcut.jpg" alt="CapCut" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Running Marquee -->
+      <div class="marquee-wrap">
+        <div class="marquee-track">
+          <span>3D CHARACTER ANIMATION</span><span>✦</span>
+          <span>BODY MECHANICS</span><span>✦</span>
+          <span>MOTION GRAPHICS</span><span>✦</span>
+          <span>MULTIMEDIA PRODUCTION</span><span>✦</span>
+          <span>BLENDER &amp; MAYA</span><span>✦</span>
+          <span>3D CHARACTER ANIMATION</span><span>✦</span>
+          <span>BODY MECHANICS</span><span>✦</span>
+          <span>MOTION GRAPHICS</span><span>✦</span>
+          <span>MULTIMEDIA PRODUCTION</span><span>✦</span>
+          <span>BLENDER &amp; MAYA</span><span>✦</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         ABOUT SECTION (Interactive Flip Lanyard ID Card + Proficiency Bars)
+         ===================================================== -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="section-tag">01 // PROFILE &amp; ID CARD</div>
+        <h2 class="section-title gradient-white">Tentang &amp; Keahlian</h2>
+
+        <div class="about-layout">
+          <!-- Left: Interactive Flip Lanyard ID Card -->
+          <div class="lanyard-area reveal">
+            <div class="strap-line"></div>
+            <div class="strap-hook"></div>
+
+            <div id="lanyard-card" class="lanyard-flip-container sfx-click" title="Klik untuk membalik kartu ID">
+              <div class="lanyard-flip-inner">
+                <!-- Front of ID Card -->
+                <div class="id-face id-front">
+                  <div class="id-top">
+                    <img src="assets/logo-jp.png" alt="JP" class="id-logo" />
+                    <span class="id-tag">ANIMATOR PASS</span>
+                  </div>
+                  <div class="id-avatar">
+                    <img src="assets/1.jpeg" alt="Greaven Keiyoshi Prasojo" />
+                  </div>
+                  <div class="id-details">
+                    <span class="id-alias">@JOPRASS</span>
+                    <h3>Greaven Keiyoshi P.</h3>
+                    <p>3D Animator (Animation Division)</p>
+                  </div>
+                  <div class="id-bottom">
+                    <span>SMKN 4 MADIUN</span>
+                    <span>TAP TO FLIP ↻</span>
+                  </div>
+                </div>
+
+                <!-- Back of ID Card -->
+                <div class="id-face id-back">
+                  <div class="id-top">
+                    <span class="id-tag">CREDENTIALS</span>
+                    <img src="assets/logo-jp.png" alt="JP" class="id-logo" />
+                  </div>
+                  <div class="id-back-body">
+                    <p><strong>Divisi:</strong> 3D Animation &amp; Multimedia</p>
+                    <p><strong>Kompetisi:</strong> FLS2N &amp; Klungkung Film Festival</p>
+                    <p><strong>Organisasi:</strong> Ketua Sekbid 9 OSIS SMKN 4 Madiun (2025/2026)</p>
+                    <p><strong>Karya Resmi:</strong> 3D Logo Bumper Forum BKK Jawa Timur</p>
+                  </div>
+                  <div class="id-bottom">
+                    <span>MADIUN, ID</span>
+                    <span>TAP TO FLIP ↺</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Bio & Animated Software Proficiency Bars -->
+          <div class="about-info reveal">
+            <p class="about-bio">
+              Halo! Saya <strong>Greaven Keiyoshi Prasojo</strong>, siswa jurusan Animasi di <strong>SMKN 4 Madiun</strong> yang berfokus di divisi <strong>3D Animate</strong>. Saya mengerjakan pergerakan karakter 3D (<em>body mechanics, acting, &amp; lip-sync</em>), motion graphics, serta editing video untuk kompetisi film dan proyek freelance.
             </p>
-            <div class="proficiency-track">
-              <div id="skill-bar-fill" class="proficiency-fill" style="width: 92%;"></div>
+
+            <!-- Software Proficiency Bars -->
+            <div class="skills-bars-box">
+              <h3 class="box-subtitle">Software Proficiency</h3>
+
+              <div class="skill-row">
+                <div class="skill-meta">
+                  <span class="skill-name">
+                    <img src="assets/logo-blender.jpg" alt="Blender" /> Blender (3D Animation)
+                  </span>
+                  <span class="skill-val">92%</span>
+                </div>
+                <div class="bar-bg"><div class="bar-progress" data-width="92%"></div></div>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-meta">
+                  <span class="skill-name">
+                    <span class="maya-mini">M</span> Autodesk Maya (Character Rig &amp; Animate)
+                  </span>
+                  <span class="skill-val">88%</span>
+                </div>
+                <div class="bar-bg"><div class="bar-progress" data-width="88%"></div></div>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-meta">
+                  <span class="skill-name">
+                    <img src="assets/logo-ae.jpg" alt="AE" /> Adobe After Effects (Motion &amp; VFX)
+                  </span>
+                  <span class="skill-val">86%</span>
+                </div>
+                <div class="bar-bg"><div class="bar-progress" data-width="86%"></div></div>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-meta">
+                  <span class="skill-name">
+                    <img src="assets/logo-capcut.jpg" alt="CapCut" /> CapCut (Video Editing)
+                  </span>
+                  <span class="skill-val">90%</span>
+                </div>
+                <div class="bar-bg"><div class="bar-progress" data-width="90%"></div></div>
+              </div>
+            </div>
+
+            <!-- Highlights -->
+            <div class="mini-milestones">
+              <div class="milestone-chip">🏆 FLS2N &amp; Klungkung Film Festival</div>
+              <div class="milestone-chip">🎬 3D Bumper Forum BKK Jawa Timur</div>
+              <div class="milestone-chip">📸 Ketua Sekbid 9 OSIS SMKN 4 Madiun</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PORTFOLIO WORKS (15 Projects) -->
+    <!-- =====================================================
+         WORKS SECTION (15 Projects with Interactive Flip-Cards)
+         ===================================================== -->
     <section id="works" class="section works-section">
       <div class="container">
-        <div class="works-header reveal">
+        <div class="works-top reveal">
           <div>
-            <div class="section-label">03 // SELECTED ARCHIVE (15 PROJECTS)</div>
-            <h2 class="section-heading gradient-text">Featured Works</h2>
+            <div class="section-tag">02 // PORTFOLIO GALLERY</div>
+            <h2 class="section-title gradient-white">15 Selected Projects</h2>
           </div>
 
-          <!-- Category Filter -->
-          <div class="filter-bar">
-            <button class="filter-btn active sfx-click" data-filter="all">All (15)</button>
-            <button class="filter-btn sfx-click" data-filter="3d">3D Animation</button>
-            <button class="filter-btn sfx-click" data-filter="2d">2D Animation</button>
-            <button class="filter-btn sfx-click" data-filter="multimedia">Multimedia</button>
+          <div class="filter-tabs">
+            <button class="tab-btn active sfx-click" data-filter="all">All (15)</button>
+            <button class="tab-btn sfx-click" data-filter="3d">3D Animation (6)</button>
+            <button class="tab-btn sfx-click" data-filter="2d">2D Animation (4)</button>
+            <button class="tab-btn sfx-click" data-filter="multimedia">Multimedia (5)</button>
           </div>
         </div>
 
-        <!-- Projects Grid (Populated via script.js) -->
-        <div id="projects-grid" class="projects-grid"></div>
+        <!-- 15 Flip Cards Grid -->
+        <div id="works-grid" class="works-grid"></div>
       </div>
     </section>
 
-    <!-- EXPERIENCE & MILESTONES -->
-    <section id="experience" class="section exp-section">
-      <div class="container reveal">
-        <div class="section-label">04 // EXPERIENCE &amp; MILESTONES</div>
-        <h2 class="section-heading gradient-text">Rekam Jejak &amp; Kompetisi</h2>
-
-        <div class="timeline-list">
-          <div class="timeline-item sfx-hover">
-            <span class="timeline-year">2026</span>
-            <div class="timeline-body">
-              <h3>3D Logo Bumper — Forum BKK Jawa Timur</h3>
-              <p>Memproduksi video bumper logo 3D resmi bernuansa emerald, putih, dan emas untuk acara tingkat provinsi Forum Bursa Kerja Khusus Jawa Timur.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item sfx-hover">
-            <span class="timeline-year">2025 – 2026</span>
-            <div class="timeline-body">
-              <h3>Ketua Sekbid 9 (Media Sosial &amp; TIK / Humas) — OSIS SMKN 4 Madiun</h3>
-              <p>Memimpin tim dokumentasi acara sekolah, desain publikasi visual, videografi, serta pengelolaan akun Instagram dan TikTok resmi OSIS.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item sfx-hover">
-            <span class="timeline-year">2026</span>
-            <div class="timeline-body">
-              <h3>Peserta FLS2N &amp; Klungkung Film Festival</h3>
-              <p>Terlibat aktif dalam produksi film pendek dan karya kompetisi tingkat pelajar untuk ajang FLS2N serta Klungkung Film Festival.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item sfx-hover">
-            <span class="timeline-year">ONGOING</span>
-            <div class="timeline-body">
-              <h3>Freelance 3D Animator &amp; Multimedia Creator</h3>
-              <p>Mengerjakan berbagai komisi video editing, bumper animasi, dokumentasi event, dan produksi konten visual.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
+    <!-- =====================================================
+         CONTACT SECTION
+         ===================================================== -->
     <section id="contact" class="section contact-section">
       <div class="container reveal">
-        <div class="contact-card">
-          <div class="section-label">05 // LET'S COLLABORATE</div>
-          <h2 class="contact-title gradient-text">Punya proyek animasi atau video?</h2>
-          <p class="contact-sub">
-            Terbuka untuk kolaborasi 3D Animation, Motion Graphics, maupun Video Editing.
+        <div class="contact-panel">
+          <div class="section-tag">03 // GET IN TOUCH</div>
+          <h2 class="section-title gradient-white">Mari Berkolaborasi</h2>
+          <p class="contact-text">
+            Tertarik bekerja sama untuk proyek 3D Animation, Motion Graphics, atau Video Editing? Hubungi saya atau unduh CV lengkap di bawah ini.
           </p>
-          <div class="contact-actions">
-            <a href="mailto:greaven.joprass@example.com" class="btn-primary sfx-click">Kirim Email</a>
-            <a href="assets/cv-greaven.pdf" download class="btn-secondary sfx-click">Unduh CV (PDF)</a>
+          <div class="contact-btns">
+            <a href="mailto:greaven.joprass@example.com" class="btn-solid sfx-click">Kirim Email</a>
+            <a href="assets/cv-greaven.pdf" download class="btn-glass sfx-click">Download CV (PDF)</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-left">
-        <img src="assets/logo-jp.png" alt="JP" class="footer-logo" />
-        <span>© 2026 Greaven Keiyoshi Prasojo (Joprass). All rights reserved.</span>
+    <div class="container footer-row">
+      <div class="footer-brand">
+        <img src="assets/logo-jp.png" alt="JP" />
+        <span>© 2026 Greaven Keiyoshi Prasojo (Joprass).</span>
       </div>
-      <div class="footer-right">
-        <span>MADIUN, INDONESIA</span>
-      </div>
+      <span class="footer-loc">MADIUN • EAST JAVA</span>
     </div>
   </footer>
 
-  <!-- Project Preview Modal -->
-  <div id="project-modal" class="modal" aria-hidden="true">
-    <div class="modal-backdrop" id="modal-close-bg"></div>
-    <div class="modal-box">
-      <button id="modal-close" class="modal-close sfx-click" aria-label="Tutup">✕</button>
-      <div class="modal-media">
-        <img id="modal-img" src="" alt="Preview Karya" />
-      </div>
-      <div class="modal-info">
-        <span id="modal-cat" class="modal-tag">3D ANIMATION</span>
-        <h3 id="modal-title" class="gradient-text">Judul Karya</h3>
-        <p id="modal-desc">Deskripsi detail karya akan tampil di sini.</p>
-        <div class="modal-meta">
-          <span><strong>Software:</strong> <span id="modal-tools">Blender</span></span>
-          <span><strong>Status:</strong> <span id="modal-status">Preview Placeholder</span></span>
+  <!-- Project Detail Modal -->
+  <div id="modal" class="modal">
+    <div id="modal-overlay" class="modal-overlay"></div>
+    <div class="modal-card">
+      <button id="modal-close" class="modal-close sfx-click">✕</button>
+      <img id="modal-thumb" src="" alt="Project Preview" class="modal-thumb" />
+      <div class="modal-content">
+        <span id="modal-badge" class="modal-badge">3D ANIMATION</span>
+        <h3 id="modal-title" class="gradient-white">Judul Proyek</h3>
+        <p id="modal-desc">Deskripsi proyek.</p>
+        <div class="modal-footer">
+          <span><strong>Tools:</strong> <span id="modal-tools">Blender</span></span>
+          <span><strong>Status:</strong> <span id="modal-status">Ready</span></span>
         </div>
       </div>
     </div>
