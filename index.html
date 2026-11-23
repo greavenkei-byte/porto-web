@@ -1,329 +1,1250 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="dark">
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joprass — Greaven Keiyoshi Prasojo | 3D Animator</title>
-  <link rel="icon" type="image/png" href="assets/logo-jp.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greaven K.P. | 3D Animator & Multimedia Creator</title>
+    <link rel="icon" type="image/png" href="assets/logo-jp.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Custom Cursor Glow -->
-  <div id="cursor-glow" class="cursor-glow"></div>
 
-  <!-- Japanese Cinematic Loading Screen -->
-  <div id="loader" class="loader">
-    <div class="loader-box">
-      <span class="loader-jp">ジョプラス // CREATIVE ARCHIVE</span>
-      <img src="assets/logo-jp.png" alt="Joprass Logo" class="loader-logo" />
-      <div class="loader-track">
-        <div id="loader-fill" class="loader-fill"></div>
-      </div>
-      <div class="loader-status">
-        <span>INITIALIZING PORTFOLIO</span>
-        <span id="loader-percent">0%</span>
-      </div>
+    <!-- PAGE TRANSITION CURTAIN -->
+    <div class="page-transition" id="page-transition">
+        <span class="page-transition-label">GREAVEN K.P.</span>
+        <div class="page-transition-line"></div>
     </div>
-  </div>
 
-  <!-- Top Navigation -->
-  <header class="navbar">
-    <a href="#home" class="brand sfx-hover">
-      <img src="assets/logo-jp.png" alt="JP" class="brand-img" />
-      <span class="brand-name">JOPRASS</span>
-    </a>
-
-    <nav class="nav-menu">
-      <a href="#home" class="nav-link active sfx-click">Home</a>
-      <a href="#about" class="nav-link sfx-click">About</a>
-      <a href="#works" class="nav-link sfx-click">Works</a>
-      <a href="#contact" class="nav-link sfx-click">Contact</a>
-    </nav>
-
-    <div class="nav-controls">
-      <button id="sound-btn" class="ctrl-btn sfx-click" title="Toggle Sound">🔊</button>
-      <button id="theme-btn" class="ctrl-btn sfx-click" title="Toggle Theme">☀️</button>
-      <a href="assets/cv-greaven.pdf" download class="cv-btn sfx-click">CV ↓</a>
+    <!-- OPENING / LOADING SCREEN (1X PER SESI) -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-jp jp-display">グレイヴン</div>
+        <div class="preloader-sub">GREAVEN KEIYOSHI PRASOJO — PORTFOLIO</div>
+        <div class="loader-track-wrap">
+            <div class="loader-bar-bg">
+                <div class="loader-bar-fill" id="loader-bar"></div>
+            </div>
+            <div class="loader-meta">
+                <span>LOADING EXPERIENCE</span>
+                <span id="loader-percent">000%</span>
+            </div>
+        </div>
     </div>
-  </header>
 
-  <main>
-    <!-- =====================================================
-         HOME SECTION (Kiri: Teks Putih-Gradasi | Kanan: Orbit Logo JP + 4 Software)
-         ===================================================== -->
-    <section id="home" class="hero-section">
-      <div class="hero-watermark" aria-hidden="true">JOPRASS</div>
-
-      <div class="container hero-container">
-        <!-- Left Content -->
-        <div class="hero-left reveal">
-          <div class="status-pill">
-            <span class="pulse-dot"></span>
-            <span>3D ANIMATOR • ANIMATION DIVISION</span>
-          </div>
-
-          <h1 class="hero-title gradient-white">
-            GREAVEN<br />KEIYOSHI<br />PRASOJO.
-          </h1>
-
-          <p class="hero-subtitle">
-            Dikenal sebagai <strong>Joprass</strong> — berfokus pada <strong>3D Character Animation</strong>, body mechanics, motion graphics, dan produksi multimedia kreatif.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="#works" class="btn-solid sfx-click">Lihat Karya (15)</a>
-            <a href="#about" class="btn-glass sfx-click">Tentang Saya</a>
-          </div>
+    <!-- NAVBAR (Logo JP dari folder assets/) -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#home" data-page="home" class="logo" aria-label="Joprass Home">
+                <img src="assets/logo-jp.png" alt="Joprass Logo" class="nav-jp-logo">
+            </a>
+            <nav class="nav-links">
+                <a href="#home" data-page="home" class="active">Home</a>
+                <a href="#about" data-page="about">About</a>
+                <a href="#projects" data-page="projects">Projects</a>
+                <a href="#experience" data-page="experience">Experience</a>
+                <a href="#contact" data-page="contact">Contact</a>
+            </nav>
+            <a href="assets/cv-greaven.pdf" target="_blank" class="btn-cv">Download CV</a>
+            <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
+    </header>
 
-        <!-- Right Content: Orbital Logo Concept (Seperti Video Referensi) -->
-        <div class="hero-right reveal">
-          <div class="orbit-stage">
-            <!-- Outer & Inner Rings -->
-            <div class="orbit-ring ring-outer"></div>
-            <div class="orbit-ring ring-inner"></div>
-
-            <!-- Center Personal JP Emblem -->
-            <div class="center-emblem">
-              <img src="assets/logo-jp.png" alt="Joprass Emblem" class="emblem-jp" />
-            </div>
-
-            <!-- 4 Orbiting Software Icons -->
-            <div class="orbit-item pos-1" title="Blender">
-              <img src="assets/logo-blender.jpg" alt="Blender" />
-            </div>
-
-            <div class="orbit-item pos-2" title="Autodesk Maya">
-              <svg viewBox="0 0 64 64" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 50L22 14H31L22 50H10Z" fill="#22A699"/>
-                <path d="M54 50L42 14H33L42 50H54Z" fill="#187E74"/>
-                <path d="M22 14L32 36L42 14H34L32 21L30 14H22Z" fill="#38D3C3"/>
-                <path d="M26 36L32 48L38 36H26Z" fill="#125E56"/>
-              </svg>
-            </div>
-
-            <div class="orbit-item pos-3" title="Adobe After Effects">
-              <img src="assets/logo-ae.jpg" alt="After Effects" />
-            </div>
-
-            <div class="orbit-item pos-4" title="CapCut">
-              <img src="assets/logo-capcut.jpg" alt="CapCut" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Running Marquee -->
-      <div class="marquee-wrap">
-        <div class="marquee-track">
-          <span>3D CHARACTER ANIMATION</span><span>✦</span>
-          <span>BODY MECHANICS</span><span>✦</span>
-          <span>MOTION GRAPHICS</span><span>✦</span>
-          <span>MULTIMEDIA PRODUCTION</span><span>✦</span>
-          <span>BLENDER &amp; MAYA</span><span>✦</span>
-          <span>3D CHARACTER ANIMATION</span><span>✦</span>
-          <span>BODY MECHANICS</span><span>✦</span>
-          <span>MOTION GRAPHICS</span><span>✦</span>
-          <span>MULTIMEDIA PRODUCTION</span><span>✦</span>
-          <span>BLENDER &amp; MAYA</span><span>✦</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================
-         ABOUT SECTION (Interactive Flip Lanyard ID Card + Proficiency Bars)
-         ===================================================== -->
-    <section id="about" class="section about-section">
-      <div class="container">
-        <div class="section-tag">01 // PROFILE &amp; ID CARD</div>
-        <h2 class="section-title gradient-white">Tentang &amp; Keahlian</h2>
-
-        <div class="about-layout">
-          <!-- Left: Interactive Flip Lanyard ID Card -->
-          <div class="lanyard-area reveal">
-            <div class="strap-line"></div>
-            <div class="strap-hook"></div>
-
-            <div id="lanyard-card" class="lanyard-flip-container sfx-click" title="Klik untuk membalik kartu ID">
-              <div class="lanyard-flip-inner">
-                <!-- Front of ID Card -->
-                <div class="id-face id-front">
-                  <div class="id-top">
-                    <img src="assets/logo-jp.png" alt="JP" class="id-logo" />
-                    <span class="id-tag">ANIMATOR PASS</span>
-                  </div>
-                  <div class="id-avatar">
-                    <img src="assets/1.jpeg" alt="Greaven Keiyoshi Prasojo" />
-                  </div>
-                  <div class="id-details">
-                    <span class="id-alias">@JOPRASS</span>
-                    <h3>Greaven Keiyoshi P.</h3>
-                    <p>3D Animator (Animation Division)</p>
-                  </div>
-                  <div class="id-bottom">
-                    <span>SMKN 4 MADIUN</span>
-                    <span>TAP TO FLIP ↻</span>
-                  </div>
-                </div>
-
-                <!-- Back of ID Card -->
-                <div class="id-face id-back">
-                  <div class="id-top">
-                    <span class="id-tag">CREDENTIALS</span>
-                    <img src="assets/logo-jp.png" alt="JP" class="id-logo" />
-                  </div>
-                  <div class="id-back-body">
-                    <p><strong>Divisi:</strong> 3D Animation &amp; Multimedia</p>
-                    <p><strong>Kompetisi:</strong> FLS2N &amp; Klungkung Film Festival</p>
-                    <p><strong>Organisasi:</strong> Ketua Sekbid 9 OSIS SMKN 4 Madiun (2025/2026)</p>
-                    <p><strong>Karya Resmi:</strong> 3D Logo Bumper Forum BKK Jawa Timur</p>
-                  </div>
-                  <div class="id-bottom">
-                    <span>MADIUN, ID</span>
-                    <span>TAP TO FLIP ↺</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right: Bio & Animated Software Proficiency Bars -->
-          <div class="about-info reveal">
-            <p class="about-bio">
-              Halo! Saya <strong>Greaven Keiyoshi Prasojo</strong>, siswa jurusan Animasi di <strong>SMKN 4 Madiun</strong> yang berfokus di divisi <strong>3D Animate</strong>. Saya mengerjakan pergerakan karakter 3D (<em>body mechanics, acting, &amp; lip-sync</em>), motion graphics, serta editing video untuk kompetisi film dan proyek freelance.
-            </p>
-
-            <!-- Software Proficiency Bars -->
-            <div class="skills-bars-box">
-              <h3 class="box-subtitle">Software Proficiency</h3>
-
-              <div class="skill-row">
-                <div class="skill-meta">
-                  <span class="skill-name">
-                    <img src="assets/logo-blender.jpg" alt="Blender" /> Blender (3D Animation)
-                  </span>
-                  <span class="skill-val">92%</span>
-                </div>
-                <div class="bar-bg"><div class="bar-progress" data-width="92%"></div></div>
-              </div>
-
-              <div class="skill-row">
-                <div class="skill-meta">
-                  <span class="skill-name">
-                    <span class="maya-mini">M</span> Autodesk Maya (Character Rig &amp; Animate)
-                  </span>
-                  <span class="skill-val">88%</span>
-                </div>
-                <div class="bar-bg"><div class="bar-progress" data-width="88%"></div></div>
-              </div>
-
-              <div class="skill-row">
-                <div class="skill-meta">
-                  <span class="skill-name">
-                    <img src="assets/logo-ae.jpg" alt="AE" /> Adobe After Effects (Motion &amp; VFX)
-                  </span>
-                  <span class="skill-val">86%</span>
-                </div>
-                <div class="bar-bg"><div class="bar-progress" data-width="86%"></div></div>
-              </div>
-
-              <div class="skill-row">
-                <div class="skill-meta">
-                  <span class="skill-name">
-                    <img src="assets/logo-capcut.jpg" alt="CapCut" /> CapCut (Video Editing)
-                  </span>
-                  <span class="skill-val">90%</span>
-                </div>
-                <div class="bar-bg"><div class="bar-progress" data-width="90%"></div></div>
-              </div>
-            </div>
-
-            <!-- Highlights -->
-            <div class="mini-milestones">
-              <div class="milestone-chip">🏆 FLS2N &amp; Klungkung Film Festival</div>
-              <div class="milestone-chip">🎬 3D Bumper Forum BKK Jawa Timur</div>
-              <div class="milestone-chip">📸 Ketua Sekbid 9 OSIS SMKN 4 Madiun</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================
-         WORKS SECTION (15 Projects with Interactive Flip-Cards)
-         ===================================================== -->
-    <section id="works" class="section works-section">
-      <div class="container">
-        <div class="works-top reveal">
-          <div>
-            <div class="section-tag">02 // PORTFOLIO GALLERY</div>
-            <h2 class="section-title gradient-white">15 Selected Projects</h2>
-          </div>
-
-          <div class="filter-tabs">
-            <button class="tab-btn active sfx-click" data-filter="all">All (15)</button>
-            <button class="tab-btn sfx-click" data-filter="3d">3D Animation (6)</button>
-            <button class="tab-btn sfx-click" data-filter="2d">2D Animation (4)</button>
-            <button class="tab-btn sfx-click" data-filter="multimedia">Multimedia (5)</button>
-          </div>
-        </div>
-
-        <!-- 15 Flip Cards Grid -->
-        <div id="works-grid" class="works-grid"></div>
-      </div>
-    </section>
-
-    <!-- =====================================================
-         CONTACT SECTION
-         ===================================================== -->
-    <section id="contact" class="section contact-section">
-      <div class="container reveal">
-        <div class="contact-panel">
-          <div class="section-tag">03 // GET IN TOUCH</div>
-          <h2 class="section-title gradient-white">Mari Berkolaborasi</h2>
-          <p class="contact-text">
-            Tertarik bekerja sama untuk proyek 3D Animation, Motion Graphics, atau Video Editing? Hubungi saya atau unduh CV lengkap di bawah ini.
-          </p>
-          <div class="contact-btns">
-            <a href="mailto:greaven.joprass@example.com" class="btn-solid sfx-click">Kirim Email</a>
-            <a href="assets/cv-greaven.pdf" download class="btn-glass sfx-click">Download CV (PDF)</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-row">
-      <div class="footer-brand">
-        <img src="assets/logo-jp.png" alt="JP" />
-        <span>© 2026 Greaven Keiyoshi Prasojo (Joprass).</span>
-      </div>
-      <span class="footer-loc">MADIUN • EAST JAVA</span>
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#home" data-page="home">Home</a>
+        <a href="#about" data-page="about">About</a>
+        <a href="#projects" data-page="projects">Projects</a>
+        <a href="#experience" data-page="experience">Experience</a>
+        <a href="#contact" data-page="contact">Contact</a>
+        <a href="assets/cv-greaven.pdf" target="_blank">Download CV</a>
     </div>
-  </footer>
 
-  <!-- Project Detail Modal -->
-  <div id="modal" class="modal">
-    <div id="modal-overlay" class="modal-overlay"></div>
-    <div class="modal-card">
-      <button id="modal-close" class="modal-close sfx-click">✕</button>
-      <img id="modal-thumb" src="" alt="Project Preview" class="modal-thumb" />
-      <div class="modal-content">
-        <span id="modal-badge" class="modal-badge">3D ANIMATION</span>
-        <h3 id="modal-title" class="gradient-white">Judul Proyek</h3>
-        <p id="modal-desc">Deskripsi proyek.</p>
-        <div class="modal-footer">
-          <span><strong>Tools:</strong> <span id="modal-tools">Blender</span></span>
-          <span><strong>Status:</strong> <span id="modal-status">Ready</span></span>
+    <!-- =====================================================================
+         VIEW 1: HOME
+         ===================================================================== -->
+    <div class="page-view active" id="view-home">
+        <!-- HERO SECTION -->
+        <section class="hero-wrapper">
+            <video class="hero-bg-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1400&q=80">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+
+            <div class="hero-container">
+                <div class="hero-content">
+                    <span class="hero-badge">● OPEN FOR PKL / INTERNSHIP & FREELANCE — GREAVEN K.P.</span>
+                    <h1>Mengubah Ide Menjadi <span class="gradient-text">Cerita</span> Visual.</h1>
+                    <p class="hero-desc">
+                        3D Animator, Video Editor, dan Videografer dari SMKN 4 Madiun. Berfokus pada pergerakan karakter 3D, visual bumper, produksi multimedia, serta eksplorasi alur kerja AI kreatif.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" data-page="projects" class="btn-primary">Lihat 15 Karya &rarr;</a>
+                        <a href="assets/cv-greaven.pdf" target="_blank" class="btn-secondary">Download CV</a>
+                    </div>
+                </div>
+
+                <!-- ORBITAL LOGO SHOWCASE (Sesuai Video Referensi) -->
+                <div class="hero-orbit-stage">
+                    <div class="orbit-ring-outer"></div>
+                    <div class="orbit-ring-inner"></div>
+
+                    <!-- Center JP Emblem -->
+                    <div class="orbit-center-disc">
+                        <img src="assets/logo-jp.png" alt="Joprass Emblem" class="orbit-center-logo">
+                    </div>
+
+                    <!-- Rotating Track untuk 4 Software Icons -->
+                    <div class="orbit-rotator">
+                        <!-- 1. Blender -->
+                        <button type="button" class="orbit-node node-1 active" data-tool="blender" aria-label="Blender">
+                            <span class="orbit-node-counter">
+                                <img src="assets/logo-blender.jpg" alt="Blender">
+                            </span>
+                        </button>
+
+                        <!-- 2. Autodesk Maya (SVG) -->
+                        <button type="button" class="orbit-node node-2" data-tool="maya" aria-label="Autodesk Maya">
+                            <span class="orbit-node-counter maya-node">
+                                <svg viewBox="0 0 64 64" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 50L22 14H31L22 50H10Z" fill="#22A699"/>
+                                    <path d="M54 50L42 14H33L42 50H54Z" fill="#187E74"/>
+                                    <path d="M22 14L32 36L42 14H34L32 21L30 14H22Z" fill="#38D3C3"/>
+                                    <path d="M26 36L32 48L38 36H26Z" fill="#125E56"/>
+                                </svg>
+                            </span>
+                        </button>
+
+                        <!-- 3. Adobe After Effects -->
+                        <button type="button" class="orbit-node node-3" data-tool="ae" aria-label="After Effects">
+                            <span class="orbit-node-counter">
+                                <img src="assets/logo-ae.jpg" alt="After Effects">
+                            </span>
+                        </button>
+
+                        <!-- 4. CapCut -->
+                        <button type="button" class="orbit-node node-4" data-tool="capcut" aria-label="CapCut">
+                            <span class="orbit-node-counter">
+                                <img src="assets/logo-capcut.jpg" alt="CapCut">
+                            </span>
+                        </button>
+                    </div>
+
+                    <!-- Floating Info Card (Seperti di Detik 00:51 Video) -->
+                    <div class="orbit-tool-card" id="orbit-tool-card">
+                        <span class="orbit-tool-cat" id="orbit-tool-cat">3D ANIMATION ENGINE</span>
+                        <strong id="orbit-tool-name">Blender 3D</strong>
+                        <p id="orbit-tool-desc">3D Character Animation, Graph Editor &amp; visual bumper.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEAMLESS INFINITE MARQUEE -->
+        <div class="marquee-section">
+            <div class="marquee-track">
+                <div class="marquee-group">
+                    <span>3D Character Animation</span><span class="dot">•</span>
+                    <span>Video Editing</span><span class="dot">•</span>
+                    <span>Videography</span><span class="dot">•</span>
+                    <span>AI Creative Workflow</span><span class="dot">•</span>
+                    <span>3D Character Animation</span><span class="dot">•</span>
+                    <span>Video Editing</span><span class="dot">•</span>
+                    <span>Videography</span><span class="dot">•</span>
+                    <span>AI Creative Workflow</span><span class="dot">•</span>
+                </div>
+                <div class="marquee-group" aria-hidden="true">
+                    <span>3D Character Animation</span><span class="dot">•</span>
+                    <span>Video Editing</span><span class="dot">•</span>
+                    <span>Videography</span><span class="dot">•</span>
+                    <span>AI Creative Workflow</span><span class="dot">•</span>
+                    <span>3D Character Animation</span><span class="dot">•</span>
+                    <span>Video Editing</span><span class="dot">•</span>
+                    <span>Videography</span><span class="dot">•</span>
+                    <span>AI Creative Workflow</span><span class="dot">•</span>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <script src="script.js"></script>
+        <!-- 00 — SHOWREEL -->
+        <section class="home-section" id="showreel-sec">
+            <span class="section-label reveal">00 —— SHOWREEL</span>
+            <div class="showreel-box reveal reveal-delay-1">
+                <div class="showreel-text">
+                    <h3>Kumpulan momen visual dalam satu reel.</h3>
+                    <p>Cuplikan eksplorasi animasi 3D, pergerakan kamera, motion graphic bumper, dan dokumentasi video yang telah saya kerjakan dari Kelas 10 hingga Kelas 11.</p>
+                    <a href="#projects" data-page="projects" class="link-arrow">Eksplorasi Semua 15 Karya &rarr;</a>
+                </div>
+                <div class="showreel-video-wrapper">
+                    <video controls poster="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=80">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- 01 — WHAT I DO -->
+        <section class="home-section">
+            <div class="section-heading reveal">
+                <span class="section-label">01 —— CORE FOCUS</span>
+                <h2>Fokus & keahlian utama.</h2>
+            </div>
+            <div class="what-grid">
+                <div class="what-card reveal reveal-delay-1">
+                    <div>
+                        <h3>3D Animation & Foundations</h3>
+                        <p>Fokus utama pada mekanika gerak karakter 3D, pengaturan kurva Graph Editor, serta pembuatan 3D logo bumper (ditopang fondasi 3D modeling di kelas 10).</p>
+                    </div>
+                    <div class="tools-badges">
+                        <span>Blender</span>
+                        <span>Autodesk Maya</span>
+                        <span>Character Animation</span>
+                        <span>3D Modeling (Kls 10)</span>
+                    </div>
+                </div>
+                <div class="what-card reveal reveal-delay-2">
+                    <div>
+                        <h3>Multimedia (Editing & Videografi)</h3>
+                        <p>Fokus aktif di kelas 11 dalam pengambilan gambar lapangan (videografi), produksi live streaming multi-kamera, dan penyuntingan video sinematik.</p>
+                    </div>
+                    <div class="tools-badges">
+                        <span>After Effects</span>
+                        <span>CapCut</span>
+                        <span>KineMaster</span>
+                        <span>Videography</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02 — FEATURED WORKS -->
+        <section class="home-section">
+            <div class="section-heading reveal">
+                <span class="section-label">02 —— FEATURED WORKS</span>
+                <h2>Karya pilihan.</h2>
+            </div>
+
+            <div class="featured-list">
+                <div class="featured-item reveal">
+                    <div class="featured-img">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80" alt="3D Character Body Mechanics">
+                    </div>
+                    <div class="featured-content">
+                        <span class="featured-meta">3D Animation • Kelas 11</span>
+                        <h3>3D Character Body Mechanics</h3>
+                        <p>Eksplorasi mekanika gerak karakter (walk cycle & body mechanics) menggunakan Blender untuk melatih keluwesan dan bobot gerakan.</p>
+                        <a href="#project-detail?id=anim-01" data-project-id="anim-01" class="link-arrow">Lihat Studi Kasus &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="featured-item reverse reveal">
+                    <div class="featured-img">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="3D Bumper Forum BKK">
+                    </div>
+                    <div class="featured-content">
+                        <span class="featured-meta">3D Animation • Kelas 11</span>
+                        <h3>3D Logo Bumper — Forum BKK Jatim</h3>
+                        <p>Produksi bumper video 3D resmi dan aset visual promosi acara regional dengan pencahayaan studio dan transisi kamera dinamis.</p>
+                        <a href="#project-detail?id=anim-02" data-project-id="anim-02" class="link-arrow">Lihat Studi Kasus &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="featured-item reveal">
+                    <div class="featured-img">
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="After Movie OSIS">
+                    </div>
+                    <div class="featured-content">
+                        <span class="featured-meta">Multimedia • Editing & Videografi</span>
+                        <h3>After Movie & Event Recap OSIS</h3>
+                        <p>Penyuntingan video dokumentasi kegiatan sekolah dengan ritme cepat, sound design, dan color grading sinematik.</p>
+                        <a href="#project-detail?id=mulmed-01" data-project-id="mulmed-01" class="link-arrow">Lihat Studi Kasus &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center-btn-wrap reveal">
+                <a href="#projects" data-page="projects" class="btn-secondary">Lihat Semua 15 Projects &rarr;</a>
+            </div>
+        </section>
+
+        <!-- 03 — CREATIVE PROCESS -->
+        <section class="home-section">
+            <div class="section-heading reveal">
+                <span class="section-label">03 —— CREATIVE PROCESS</span>
+                <h2>Setiap karya adalah proses.</h2>
+            </div>
+
+            <div class="timeline-wrapper" id="process-timeline">
+                <div class="timeline-line-bg"></div>
+                <div class="timeline-line-progress" id="timeline-progress"></div>
+
+                <div class="timeline-step reveal">
+                    <span class="timeline-dot"></span>
+                    <span class="keyframe-label">01 — KEYFRAME</span>
+                    <h3>IDE & AI BRAINSTORMING</h3>
+                    <p>Merumuskan konsep cerita, struktur visual, dan riset referensi yang dipercepat dengan bantuan AI modern.</p>
+                </div>
+
+                <div class="timeline-step reveal">
+                    <span class="timeline-dot"></span>
+                    <span class="keyframe-label">02 — KEYFRAME</span>
+                    <h3>REFERENCE</h3>
+                    <p>Mengumpulkan referensi gerak karakter, sudut kamera, pencahayaan, serta menyusun moodboard.</p>
+                </div>
+
+                <div class="timeline-step reveal">
+                    <span class="timeline-dot"></span>
+                    <span class="keyframe-label">03 — KEYFRAME</span>
+                    <h3>BLOCKING & EXPLORATION</h3>
+                    <p>Menentukan pose kunci (key poses), komposisi kamera, dan ritme awal di Blender atau Maya.</p>
+                </div>
+
+                <div class="timeline-step reveal">
+                    <span class="timeline-dot"></span>
+                    <span class="keyframe-label">04 — KEYFRAME</span>
+                    <h3>CREATION</h3>
+                    <p>Eksekusi utama animasi 3D, pengambilan footage lapangan, atau penyuntingan video secara menyeluruh.</p>
+                </div>
+
+                <div class="timeline-step reveal">
+                    <span class="timeline-dot"></span>
+                    <span class="keyframe-label">05 — KEYFRAME</span>
+                    <h3>REFINEMENT</h3>
+                    <p>Penyempurnaan grafik kurva (spline), detail pencahayaan, color grading, serta sinkronisasi audio.</p>
+                </div>
+
+                <div class="timeline-step reveal">
+                    <span class="timeline-dot"></span>
+                    <span class="keyframe-label">06 — KEYFRAME</span>
+                    <h3>FINAL OUTPUT</h3>
+                    <p>Rendering resolusi tinggi dengan kualitas terbaik dan siap dipublikasikan.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA BANNER -->
+        <section class="home-section reveal">
+            <div class="cta-banner">
+                <h2>Mari wujudkan cerita visual berikutnya.</h2>
+                <p>Terbuka untuk peluang PKL/Magang studio animasi, kolaborasi 3D, dokumentasi video, maupun editing.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" data-page="contact" class="btn-cta-light">Hubungi Saya</a>
+                    <a href="mailto:greaven.kei@gmail.com" class="btn-cta-outline">Kirim Email</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- =====================================================================
+         VIEW 2: ABOUT
+         ===================================================================== -->
+    <div class="page-view" id="view-about">
+        <main class="about-section">
+            <div class="about-top-grid">
+                <div class="hanging-stage reveal">
+                    <svg class="lanyard-svg" viewBox="0 0 320 260">
+                        <defs>
+                            <path id="lanyard-dynamic-line" d="M 160 -20 Q 160 35 160 88" />
+                        </defs>
+                        <use href="#lanyard-dynamic-line" stroke="rgba(20, 20, 20, 0.18)" stroke-width="32" fill="none" stroke-linecap="butt" transform="translate(3, 3)" />
+                        <use href="#lanyard-dynamic-line" stroke="#141414" stroke-width="28" fill="none" stroke-linecap="butt" />
+                        <use href="#lanyard-dynamic-line" stroke="rgba(255, 255, 255, 0.15)" stroke-width="22" stroke-dasharray="3 3" fill="none" />
+                        <use href="#lanyard-dynamic-line" stroke="#141414" stroke-width="19" fill="none" />
+                        <text fill="#F4F3EF" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" letter-spacing="3.5" dy="3.5">
+                            <textPath href="#lanyard-dynamic-line" startOffset="52%" text-anchor="middle">
+                                JOPRASS •
+                            </textPath>
+                        </text>
+                        <g id="lanyard-clasp" transform="translate(160, 88)">
+                            <rect x="-15" y="-12" width="30" height="10" rx="3" fill="#27272A" />
+                            <circle cx="0" cy="-2" r="5" fill="none" stroke="#71717A" stroke-width="2.5" />
+                            <rect x="-5" y="1" width="10" height="13" rx="3" fill="#A1A1AA" />
+                        </g>
+                    </svg>
+
+                    <div class="id-card-3d" id="physics-id-card">
+                        <div class="card-face card-front">
+                            <div>
+                                <div class="card-clip-hole"></div>
+                                <div class="id-photo">
+                                    <img src="assets/1.jpeg" alt="Greaven Keiyoshi Prasojo">
+                                </div>
+                                <div class="id-details">
+                                    <h3>GREAVEN K.P.</h3>
+                                    <span class="id-role">3D ANIMATOR & MULTIMEDIA</span>
+                                </div>
+                            </div>
+                            <div class="id-footer">
+                                <span>SMKN 4 MADIUN</span>
+                                <span>ID-2026</span>
+                            </div>
+                        </div>
+
+                        <div class="card-face card-back">
+                            <div class="card-clip-hole" style="background:#2A2A2E; border-color:#3F3F46;"></div>
+                            <span class="back-jp-tag">グレイヴン • CREATIVE PASS</span>
+                            <div class="qr-box">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://instagram.com/joprass_" alt="QR Code Instagram Greaven">
+                            </div>
+                            <div class="back-cta-text">
+                                <h4>CONNECT OUR JOURNEY</h4>
+                                <p>Scan QR untuk terhubung ke Instagram @joprass_</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-controls-hint">
+                        <span>Tarik kartu untuk ayunkan</span>
+                        <button type="button" class="btn-flip" id="flip-card-btn">Putar Kartu &orarr;</button>
+                    </div>
+                </div>
+
+                <div class="about-bio reveal reveal-delay-1">
+                    <span class="section-label">01 —— ABOUT ME</span>
+                    <h1>Pelajar Animasi yang memfokuskan <span class="gradient-text">gerak & visual.</span></h1>
+                    <p>
+                        Saya Greaven Keiyoshi Prasojo, siswa jurusan Animasi di SMKN 4 Madiun. Perjalanan kreatif saya terbentuk secara terarah: pada <strong>Kelas 10</strong>, saya mendalami fondasi <strong>3D Modeling dan Animasi</strong>; kemudian di <strong>Kelas 11</strong>, saya memfokuskan keahlian sepenuhnya pada <strong>3D Animation dan Multimedia (Video Editing & Videografi)</strong> sementara divisi modeling saya tinggalkan agar lebih tajam di spesialisasi utama.
+                    </p>
+                    <p>
+                        Dalam produksi sehari-hari, saya mengandalkan <strong>Blender, Autodesk Maya, Adobe After Effects, CapCut, dan KineMaster</strong>. Saya juga telah dipercaya memproduksi bumper video 3D resmi untuk acara regional seperti Forum BKK Jawa Timur serta memimpin divisi media sebagai Ketua Sekbid 9 OSIS SMKN 4 Madiun.
+                    </p>
+                    <p>
+                        Selain produksi visual, saya adalah seorang pelajar yang aktif mempelajari dan memanfaatkan teknologi <strong>Artificial Intelligence (AI)</strong>—seperti <strong>Gemini, Claude, Qwen AI, dan DeepSeek</strong>—untuk riset konsep, pengembangan ide cerita, hingga efisiensi alur kerja digital.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 02 — SOFTWARE PROFICIENCY -->
+            <div class="skills-heading reveal">
+                <span class="section-label">02 —— SOFTWARE & PROFICIENCY</span>
+                <h2>Tingkat penguasaan perangkat lunak.</h2>
+            </div>
+
+            <div class="proficiency-panel reveal reveal-delay-1" id="proficiency-panel">
+                <div class="prof-item" data-target="88">
+                    <div class="prof-meta">
+                        <div>
+                            <strong>Blender</strong>
+                            <span class="prof-sub">3D Character Animation, Graph Editor & Rendering (Core Focus)</span>
+                        </div>
+                        <span class="prof-pct">0%</span>
+                    </div>
+                    <div class="prof-track"><div class="prof-fill"></div></div>
+                </div>
+
+                <div class="prof-item" data-target="78">
+                    <div class="prof-meta">
+                        <div>
+                            <strong>Autodesk Maya</strong>
+                            <span class="prof-sub">3D Animation Workflow, Blocking & Keyframe Mechanics</span>
+                        </div>
+                        <span class="prof-pct">0%</span>
+                    </div>
+                    <div class="prof-track"><div class="prof-fill"></div></div>
+                </div>
+
+                <div class="prof-item" data-target="82">
+                    <div class="prof-meta">
+                        <div>
+                            <strong>Adobe After Effects</strong>
+                            <span class="prof-sub">2D Motion Graphics, 3D Bumper Compositing & Visual Effects</span>
+                        </div>
+                        <span class="prof-pct">0%</span>
+                    </div>
+                    <div class="prof-track"><div class="prof-fill"></div></div>
+                </div>
+
+                <div class="prof-item" data-target="90">
+                    <div class="prof-meta">
+                        <div>
+                            <strong>CapCut</strong>
+                            <span class="prof-sub">Fast-Paced Event Recap, Color Grading & Social Media Content</span>
+                        </div>
+                        <span class="prof-pct">0%</span>
+                    </div>
+                    <div class="prof-track"><div class="prof-fill"></div></div>
+                </div>
+
+                <div class="prof-item" data-target="85">
+                    <div class="prof-meta">
+                        <div>
+                            <strong>KineMaster</strong>
+                            <span class="prof-sub">Mobile Multi-Layer Video Editing & Quick Production</span>
+                        </div>
+                        <span class="prof-pct">0%</span>
+                    </div>
+                    <div class="prof-track"><div class="prof-fill"></div></div>
+                </div>
+            </div>
+
+            <!-- 03 — BIDANG KEAHLIAN, AI & PENDIDIKAN -->
+            <div class="skills-4-grid">
+                <div class="skill-box reveal">
+                    <h3>Keahlian Utama (Core Skills)</h3>
+                    <div class="skill-tags">
+                        <span>3D Animation (Core)</span>
+                        <span>3D Modeling (Fondasi Kls 10)</span>
+                        <span>Video Editing</span>
+                        <span>Videography</span>
+                        <span>3D Logo Bumper</span>
+                    </div>
+                </div>
+
+                <div class="skill-box reveal reveal-delay-1">
+                    <h3>Eksplorasi AI (Pelajar AI)</h3>
+                    <div class="skill-tags">
+                        <span>Google Gemini</span>
+                        <span>Claude AI</span>
+                        <span>Qwen AI</span>
+                        <span>DeepSeek</span>
+                        <span>AI Creative Research</span>
+                    </div>
+                </div>
+
+                <div class="skill-box reveal reveal-delay-2">
+                    <h3>Organisasi & Lapangan</h3>
+                    <div class="skill-tags">
+                        <span>Ketua Sekbid 9 OSIS</span>
+                        <span>Live Streaming Switcher</span>
+                        <span>Event Documentation</span>
+                        <span>Team Coordination</span>
+                    </div>
+                </div>
+
+                <div class="skill-box reveal reveal-delay-3">
+                    <h3>Pendidikan</h3>
+                    <div class="edu-info">
+                        <h4>SMKN 4 Madiun</h4>
+                        <p>Jurusan Animasi — Kelas 10 (Modeling & Animasi) & Kelas 11 (Animasi & Multimedia)</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- =====================================================================
+         VIEW 3: PROJECTS (15 WORKS)
+         ===================================================================== -->
+    <div class="page-view" id="view-projects">
+        <main class="projects-section">
+            <div class="projects-header reveal">
+                <span class="section-label">02 —— PORTFOLIO ARCHIVE (15 WORKS)</span>
+                <h1>Perjalanan <span class="gradient-text">15 karya & dokumentasi.</span></h1>
+                <p>Kelas 10 berfokus pada <strong>Modeling & Animasi</strong>, sedangkan di Kelas 11 berfokus penuh pada <strong>3D Animation & Multimedia (Editing & Videografi)</strong>.</p>
+            </div>
+
+            <!-- LEVEL 0: CABANG UTAMA -->
+            <div class="branch-switcher reveal reveal-delay-1">
+                <button type="button" class="branch-btn active" data-branch="2d3d">
+                    <span class="branch-num">01</span>
+                    <div>
+                        <strong>Karya 2D & 3D (10 Karya)</strong>
+                        <small>Kelas 10 (Modeling & Animasi) &bull; Kelas 11 (Fokus Animasi)</small>
+                    </div>
+                </button>
+                <button type="button" class="branch-btn" data-branch="mulmed">
+                    <span class="branch-num">02</span>
+                    <div>
+                        <strong>Multimedia & Dokumentasi (5 Karya)</strong>
+                        <small>Editing, Videografi & Foto Bertugas (OSIS, Tim Mulmed, Freelance)</small>
+                    </div>
+                </button>
+            </div>
+
+            <!-- PANEL FILTER UNTUK CABANG 2D & 3D -->
+            <div class="sub-filter-panel reveal reveal-delay-2" id="panel-2d3d">
+                <div class="filter-row">
+                    <span class="filter-step-label">1. Tipe Karya:</span>
+                    <div class="filter-pills" id="filter-dim">
+                        <button class="filter-btn active" data-val="all">Semua (2D & 3D)</button>
+                        <button class="filter-btn" data-val="3d">3D Works</button>
+                        <button class="filter-btn" data-val="2d">2D Works</button>
+                    </div>
+                </div>
+
+                <div class="filter-row">
+                    <span class="filter-step-label">2. Tingkat Kelas:</span>
+                    <div class="filter-pills" id="filter-grade">
+                        <button class="filter-btn active" data-val="all">Semua Kelas</button>
+                        <button class="filter-btn" data-val="10">Kelas 10 (Modeling & Anim)</button>
+                        <button class="filter-btn" data-val="11">Kelas 11 (Fokus Animasi)</button>
+                    </div>
+                </div>
+
+                <div class="filter-row">
+                    <span class="filter-step-label">3. Divisi:</span>
+                    <div class="filter-pills" id="filter-div">
+                        <button class="filter-btn active" data-val="all">Semua Divisi</button>
+                        <button class="filter-btn" data-val="animation">Animation (Core Focus)</button>
+                        <button class="filter-btn" data-val="modeling">Modeling (Khusus Kls 10)</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL FILTER UNTUK CABANG MULTIMEDIA -->
+            <div class="sub-filter-panel hidden" id="panel-mulmed">
+                <div class="filter-row">
+                    <span class="filter-step-label">Kategori Tugas:</span>
+                    <div class="filter-pills" id="filter-mulmed">
+                        <button class="filter-btn active" data-val="all">Semua Multimedia (5)</button>
+                        <button class="filter-btn" data-val="osis">OSIS (Sekbid 9)</button>
+                        <button class="filter-btn" data-val="tim-mulmed">Tim Mulmed & Gereja</button>
+                        <button class="filter-btn" data-val="freelance">Kerja Freelance</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRID 15 KARTU KARYA -->
+            <div class="projects-grid" id="projects-grid">
+                <!-- #01 -->
+                <div class="project-card reveal" data-branch="2d3d" data-dim="3d" data-grade="11" data-div="animation">
+                    <div class="card-thumb">
+                        <span class="core-badge">#01 • CORE FOCUS</span>
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80" alt="3D Character Body Mechanics">
+                        <div class="card-overlay-actions">
+                            <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" data-title="3D Character Body Mechanics" data-meta="3D • Kelas 11 • Divisi Animation (Blender)">&#9654; Quick Preview</button>
+                            <a href="#project-detail?id=anim-01" data-project-id="anim-01" class="btn-detail-link">Studi Kasus &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-top-row">
+                            <h3>3D Character Body Mechanics</h3>
+                            <span class="card-year">KLS 11</span>
+                        </div>
+                        <span class="card-cat">3D • Divisi Animation • Blender</span>
+                        <p>Eksplorasi kurva Graph Editor, perpindahan bobot tubuh, dan timing karakter 3D.</p>
+                    </div>
+                </div>
+
+                <!-- #02 -->
+                <div class="project-card reveal reveal-delay-1" data-branch="2d3d" data-dim="3d" data-grade="11" data-div="animation">
+                    <div class="card-thumb">
+                        <span class="core-badge">#02 • CORE FOCUS</span>
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="3D Bumper Forum BKK Jatim">
+                        <div class="card-overlay-actions">
+                            <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4" data-title="3D Logo Bumper — Forum BKK Jatim" data-meta="3D • Kelas 11 • Divisi Animation (Blender & AE)">&#9654; Quick Preview</button>
+                            <a href="#project-detail?id=anim-02" data-project-id="anim-02" class="btn-detail-link">Studi Kasus &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-top-row">
+                            <h3>3D Bumper — Forum BKK Jatim</h3>
+                            <span class="card-year">KLS 11</span>
+                        </div>
+                        <span class="card-cat">3D • Divisi Animation • Blender & AE</span>
+                        <p>Animasi kamera 3D dan motion bumper resmi pembukaan acara regional Forum BKK Jatim.</p>
+                    </div>
+                </div>
+
+                <!-- #03 -->
+                <div class="project-card reveal" data-branch="2d3d" data-dim="3d" data-grade="11" data-div="animation">
+                    <div class="card-thumb">
+                        <span class="core-badge">#03 • CORE FOCUS</span>
+                        <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=800&q=80" alt="3D Character Acting & Lip Sync">
+                        <div class="card-overlay-actions">
+                            <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" data-title="3D Character Acting & Facial Expression" data-meta="3D • Kelas 11 • Divisi Animation (Maya & Blender)">&#9654; Quick Preview</button>
+                            <a href="#project-detail?id=anim-03" data-project-id="anim-03" class="btn-detail-link">Studi Kasus &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-top-row">
+                            <h3>3D Character Acting & Expression</h3>
+                            <span class="card-year">KLS 11</span>
+                        </div>
+                        <span class="card-cat">3D • Divisi Animation • Maya & Blender</span>
+                        <p>Latihan akting karakter, gestur tangan, dan ekspresi wajah menggunakan rig karakter anime/stylized.</p>
+                    </div>
+                </div>
+
+                <!-- #04 -->
+                <div class="project-card reveal reveal-delay-1" data-branch="2d3d" data-dim="3d" data-grade="11" data-div="animation">
+                    <div class="card-thumb">
+                        <span class="core-badge">#04 • CORE FOCUS</span>
+                        <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80" alt="3D Dynamic Action & Camera Cut">
+                        <div class="card-overlay-actions">
+                            <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4" data-title="3D Dynamic Action & Camera Sequencing" data-meta="3D • Kelas 11 • Divisi Animation (Blender)">&#9654; Quick Preview</button>
+                            <a href="#project-detail?id=anim-04" data-project-id="anim-04" class="btn-detail-link">Studi Kasus &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-top-row">
+                            <h3>3D Dynamic Action & Camera Cut</h3>
+                            <span class="card-year">KLS 11</span>
+                        </div>
+                        <span class="card-cat">3D • Divisi Animation • Blender</span>
+                        <p>Koreografi gerak cepat dengan pergantian sudut kamera sinematik dan efek smear/motion blur.</p>
+                    </div>
+                </div>
+
+                <!-- #05 -->
+                <div class="project-card reveal" data-branch="2d3d" data-dim="3d" data-grade="10" data-div="animation">
+                    <div class="card-thumb">
+                        <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=800&q=80" alt="3D Basic Walk Cycle & Bouncing Ball">
+                        <div class="card-overlay-actions">
+                            <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" data-title="3D Walk Cycle & Physics Timing" data-meta="3D • Kelas 10 • Divisi Animation (Blender)">&#9654; Quick Preview</button>
+                            <a href="#project-detail?id=anim-10-1" data-project-id="anim-10-1" class="btn-detail-link">Studi Kasus &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-top-row">
+                            <h3>3D Walk Cycle & Physics Timing</h3>
+                            <span class="card-year">KLS 10</span>
+                        </div>
+                        <span class="card-cat">3D • Divisi Animation • Blender</span>
+                        <p>Fondasi animasi 3D kelas 10: siklus langkah kaki dan simulasi berat benda (pendulum & ball).</p>
+                    </div>
+                </div>
+
+                <!-- #06 -->
+                <div class="project-card reveal reveal-delay-1" data-branch="2d3d" data-dim="2d" data-grade="10" data-div="animation">
+                    <div class="card-thumb">
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="2D 12 Principles of Animation">
+                        <div class="card-overlay-actions">
+                            <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4" data-title="2D 12 Principles of Animation Study" data-meta="2D • Kelas 10 • Divisi Animation (After Effects)">&#9654; Quick Preview</button>
+                            <a href="#project-detail?id=2d-10-1" data-project-id="2d-10-1" class="btn-detail-link">Studi Kasus &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-top-row">
+                            <h3>2D 12 Principles of Animation</h3>
+                            <span class="card-year">KLS 10</span>
+                        </div>
+                        <span class="card-cat">2D • Divisi Animation • After Effects</span>
+                        <p>Penerapan squash & stretch, anticipation, dan follow-through pada animasi 2D dasar.</p>
+                    </div>
+                </div>
+
+                <!-- #07 -->
+                <div class="project-card reveal" data-branch="2d3d" data-dim="2d" data-grade="10" data-div="animation">
+                    <div class="card-thumb">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80" alt="2D Kinetic Typography & Bumper">
+                        <div class="card-overlay-actions">
+                            <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" data-title="2D Kinetic Typography & Motion Bumper" data-meta="2D • Kelas 10 • Divisi Animation (After Effects)">&#9654; Quick Preview</button>
+                            <a href="#project-detail?id=2d-10-2" data-project-id="2d-10-2" class="btn-detail-link">Studi Kasus &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-top-row">
+                            <h3>2D Motion Graphics & Typography</h3>
+                            <span class="card-year">KLS 10</span>
+                        </div>
+                        <span class="card-cat">2D • Divisi Animation • After Effects</span>
+                        <p>Eksplorasi transisi bentuk geometris dan tipografi dinamis sinkron dengan ketukan musik.</p>
+                    </div>
+                </div>
+
+                <!-- #08 -->
+                <div class="project-card reveal reveal-delay-1" data-branch="2d3d" data-dim="3d" data-grade="10" data-div="modeling">
+                    <div class="card-thumb">
+                        <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=800&q=80" alt="3D Hard Surface Prop Modeling">
+                        <div class="card-overlay-actions">
+                            <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=1200&q=80" data-title="3D Hard Surface & Prop Modeling" data-meta="3D • Kelas 10 • Divisi Modeling (Blender)">&#128065; Perbesar Karya</button>
+                            <a href="#project-detail?id=mod-10-1" data-project-id="mod-10-1" class="btn-detail-link">Studi Kasus &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-top-row">
+                            <h3>3D Hard Surface & Prop Modeling</h3>
+                            <span class="card-year">KLS 10</span>
+                        </div>
+                        <span class="card-cat">3D • Divisi Modeling • Blender</span>
+                        <p>Arsip kelas 10: pembentukan objek mekanik, pengaturan bevel, dan topologi quad bersih.</p>
+                    </div>
+                </div>
+
+                <!-- #09 -->
+                <div class="project-card reveal" data-branch="2d3d" data-dim="3d" data-grade="10" data-div="modeling">
+                    <div class="card-thumb">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="3D Isometric Room Diorama">
+                        <div class="card-overlay-actions">
+                            <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" data-title="3D Isometric Room Environment Study" data-meta="3D • Kelas 10 • Divisi Modeling (Blender & Maya)">&#128065; Perbesar Karya</button>
+                            <a href="#project-detail?id=mod-10-2" data-project-id="mod-10-2" class="btn-detail-link">Studi Kasus &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-top-row">
+                            <h3>3D Isometric Room Environment</h3>
+                            <span class="card-year">KLS 10</span>
+                        </div>
+                        <span class="card-cat">3D • Divisi Modeling • Blender & Maya</span>
+                        <p>Arsip kelas 10: pemodelan interior ruangan miniatur lengkap dengan pencahayaan studio hangat.</p>
+                    </div>
+                </div>
+
+                <!-- #10 -->
+                <div class="project-card reveal reveal-delay-1" data-branch="2d3d" data-dim="3d" data-grade="10" data-div="modeling">
+                    <div class="card-thumb">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80" alt="3D Stylized Weapon & Asset">
+                        <div class="card-overlay-actions">
+                            <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1200&q=80" data-title="3D Stylized Game Asset Modeling" data-meta="3D • Kelas 10 • Divisi Modeling (Maya)">&#128065; Perbesar Karya</button>
+                            <a href="#project-detail?id=mod-10-3" data-project-id="mod-10-3" class="btn-detail-link">Studi Kasus &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-top-row">
+                            <h3>3D Stylized Asset & UV Mapping</h3>
+                            <span class="card-year">KLS 10</span>
+                        </div>
+                        <span class="card-cat">3D • Divisi Modeling • Autodesk Maya</span>
+                        <p>Arsip kelas 10: latihan modeling aset bergaya stylized dan pewarnaan material dasar.</p>
+                    </div>
+                </div>
+
+                <!-- #11 -->
+                <div class="project-card hidden-card reveal" data-branch="mulmed" data-mulmed="osis">
+                    <div class="card-thumb">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="After Movie & Dokumentasi OSIS">
+                        <div class="card-overlay-actions">
+                            <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4" data-title="After Movie & Event Recap OSIS SMKN 4 Madiun" data-meta="Multimedia • Ketua Sekbid 9 OSIS (CapCut & AE)">&#9654; Quick Preview</button>
+                            <a href="#project-detail?id=mulmed-01" data-project-id="mulmed-01" class="btn-detail-link">Studi Kasus &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-top-row">
+                            <h3>After Movie & Event Recap OSIS</h3>
+                            <span class="card-year">OSIS</span>
+                        </div>
+                        <span class="card-cat">Editing & Videografi • Sekbid 9</span>
+                        <p>Penyuntingan video dokumentasi acara besar sekolah dan koordinasi tim liputan OSIS.</p>
+                    </div>
+                </div>
+
+                <!-- #12 -->
+                <div class="project-card hidden-card reveal reveal-delay-1" data-branch="mulmed" data-mulmed="osis">
+                    <div class="card-thumb">
+                        <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=800&q=80" alt="Foto Bertugas Liputan Panggung OSIS">
+                        <div class="card-overlay-actions">
+                            <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=80" data-title="Dokumentasi Bertugas Publikasi & Fotografi OSIS" data-meta="Multimedia • Ketua Sekbid 9 SMKN 4 Madiun">&#128065; Lihat Foto</button>
+                            <a href="#project-detail?id=mulmed-02" data-project-id="mulmed-02" class="btn-detail-link">Studi Kasus &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-top-row">
+                            <h3>Bertugas Liputan & Publikasi OSIS</h3>
+                            <span class="card-year">OSIS</span>
+                        </div>
+                        <span class="card-cat">Dokumentasi Lapangan • Sekbid 9</span>
+                        <p>Momen bertugas di lapangan mengabadikan kegiatan siswa dan mengelola konten media sosial resmi.</p>
+                    </div>
+                </div>
+
+                <!-- #13 -->
+                <div class="project-card hidden-card reveal" data-branch="mulmed" data-mulmed="tim-mulmed">
+                    <div class="card-thumb">
+                        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80" alt="Tim Multimedia & Visual Switcher">
+                        <div class="card-overlay-actions">
+                            <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80" data-title="Tim Multimedia & Visual Switcher Live Streaming" data-meta="Multimedia • Broadcast & Multi-Cam">&#128065; Lihat Foto</button>
+                            <a href="#project-detail?id=mulmed-03" data-project-id="mulmed-03" class="btn-detail-link">Studi Kasus &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-top-row">
+                            <h3>Tim Mulmed & Visual Switcher</h3>
+                            <span class="card-year">TIM MULMED</span>
+                        </div>
+                        <span class="card-cat">Live Streaming & Broadcast</span>
+                        <p>Bertugas mengoperasikan visual switcher dan pengaturan transisi siaran langsung multi-kamera.</p>
+                    </div>
+                </div>
+
+                <!-- #14 -->
+                <div class="project-card hidden-card reveal reveal-delay-1" data-branch="mulmed" data-mulmed="tim-mulmed">
+                    <div class="card-thumb">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="Cameraman Utama Ibadah & Perayaan">
+                        <div class="card-overlay-actions">
+                            <button type="button" class="btn-quick-view" data-type="image" data-src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80" data-title="Operator Kamera Utama — Tim Multimedia Gereja" data-meta="Multimedia • Videografi & Framing">&#128065; Lihat Foto</button>
+                            <a href="#project-detail?id=mulmed-04" data-project-id="mulmed-04" class="btn-detail-link">Studi Kasus &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-top-row">
+                            <h3>Cameraman Utama Tim Multimedia</h3>
+                            <span class="card-year">TIM MULMED</span>
+                        </div>
+                        <span class="card-cat">Videography & Live Framing</span>
+                        <p>Pengambilan sudut gambar dinamis dan menjaga komposisi visual selama acara berlangsung.</p>
+                    </div>
+                </div>
+
+                <!-- #15 -->
+                <div class="project-card hidden-card reveal" data-branch="mulmed" data-mulmed="freelance">
+                    <div class="card-thumb">
+                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80" alt="Freelance Videographer & Video Editor">
+                        <div class="card-overlay-actions">
+                            <button type="button" class="btn-quick-view" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4" data-title="Freelance Videography, Recording & Editing" data-meta="Multimedia • Proyek Klien Independen (CapCut & KineMaster)">&#9654; Quick Preview</button>
+                            <a href="#project-detail?id=mulmed-05" data-project-id="mulmed-05" class="btn-detail-link">Studi Kasus &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-top-row">
+                            <h3>Freelance Camera & Video Editing</h3>
+                            <span class="card-year">FREELANCE</span>
+                        </div>
+                        <span class="card-cat">Videography & Editing • Proyek Klien</span>
+                        <p>Mengerjakan perekaman lapangan, operator rekaman, hingga editing video promosi untuk klien.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="empty-filter-msg" id="empty-filter-msg" style="display:none;">
+                Tidak ada karya pada kombinasi ini (ingat: di Kelas 11 divisi Modeling sudah ditinggalkan untuk fokus ke Animasi & Multimedia).
+            </div>
+        </main>
+    </div>
+
+    <!-- =====================================================================
+         VIEW 4: PROJECT DETAIL (DINAMIS UNTUK 15 KARYA)
+         ===================================================================== -->
+    <div class="page-view" id="view-project-detail">
+        <main class="projects-section" id="project-detail-root">
+            <a href="#projects" data-page="projects" class="back-link reveal">&larr; Semua Projects</a>
+
+            <div class="detail-header reveal">
+                <span class="detail-badge" id="dt-cat-year">3D Animation • 2026</span>
+                <h1 id="dt-title">Loading Project...</h1>
+            </div>
+
+            <div class="detail-media reveal reveal-delay-1">
+                <video id="dt-video" controls poster="">
+                    <source id="dt-video-src" src="" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="detail-content-grid">
+                <div>
+                    <div class="detail-block reveal">
+                        <h3>Deskripsi</h3>
+                        <p id="dt-desc">-</p>
+                    </div>
+
+                    <div class="detail-block reveal">
+                        <h3>Tantangan</h3>
+                        <p id="dt-challenge">-</p>
+                    </div>
+
+                    <div class="detail-block reveal">
+                        <h3>Proses Pengerjaan</h3>
+                        <div class="steps-row" id="dt-steps"></div>
+                    </div>
+
+                    <div class="detail-block reveal">
+                        <h3>Final Result</h3>
+                        <p id="dt-result">-</p>
+                    </div>
+                </div>
+
+                <aside class="info-sidebar reveal reveal-delay-1">
+                    <h3>PROJECT INFO</h3>
+                    <div class="info-row">
+                        <span>Tahun</span>
+                        <strong id="info-year">2026</strong>
+                    </div>
+                    <div class="info-row">
+                        <span>Kategori</span>
+                        <strong id="info-cat">-</strong>
+                    </div>
+                    <div class="info-row">
+                        <span>Role</span>
+                        <strong id="info-role">-</strong>
+                    </div>
+                    <div class="info-row">
+                        <span>Tools</span>
+                        <strong id="info-tools">-</strong>
+                    </div>
+                    <div class="info-row">
+                        <span>Client / Context</span>
+                        <strong id="info-client">-</strong>
+                    </div>
+                </aside>
+            </div>
+
+            <div class="prev-next-grid reveal">
+                <a href="#project-detail?id=anim-01" class="nav-project-card" id="nav-prev">
+                    <span class="nav-dir">&larr; PREV</span>
+                    <h4 id="prev-title">-</h4>
+                </a>
+                <a href="#project-detail?id=anim-02" class="nav-project-card next" id="nav-next">
+                    <span class="nav-dir">NEXT &rarr;</span>
+                    <h4 id="next-title">-</h4>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- =====================================================================
+         VIEW 5: EXPERIENCE
+         ===================================================================== -->
+    <div class="page-view" id="view-experience">
+        <main class="exp-section">
+            <div class="exp-header reveal">
+                <span class="section-label">03 —— EXPERIENCE</span>
+                <h1>Pengalaman & <span class="gradient-text">perjalanan.</span></h1>
+            </div>
+
+            <div class="exp-cards-list">
+                <div class="exp-card reveal">
+                    <span class="exp-watermark">01</span>
+                    <span class="exp-tag">EXPERIENCE 01</span>
+                    <div class="exp-title-row">
+                        <h2>OSIS / Sekbid 9 — SMKN 4 Madiun</h2>
+                        <span class="year-pill">2025 – Sekarang</span>
+                    </div>
+                    <span class="exp-role">Ketua Sekbid 9 (Media Sosial & TIK) / Tim Multimedia</span>
+                    <p class="exp-desc">
+                        Memimpin divisi media sosial, dokumentasi visual, dan hubungan masyarakat sekolah. Bertanggung jawab atas perencanaan konten publikasi, perekaman acara besar sekolah, serta penyuntingan video after-movie.
+                    </p>
+                    <span class="fokus-label">Fokus</span>
+                    <div class="fokus-tags">
+                        <span>Editing</span>
+                        <span>Videography</span>
+                        <span>Documentation</span>
+                        <span>Visual Content Production</span>
+                        <span>Social Media Management</span>
+                    </div>
+                </div>
+
+                <div class="exp-card reveal">
+                    <span class="exp-watermark">02</span>
+                    <span class="exp-tag">EXPERIENCE 02</span>
+                    <div class="exp-title-row">
+                        <h2>Live Streaming — Gereja</h2>
+                        <span class="year-pill">2023 – Sekarang</span>
+                    </div>
+                    <span class="exp-role">Cameraman / Videografer / Visual Switcher</span>
+                    <p class="exp-desc">
+                        Bertugas dalam tim produksi multimedia ibadah mingguan maupun acara perayaan khusus. Mengoperasikan kamera utama dan perangkat visual switcher untuk menjaga kualitas siaran langsung tetap stabil dan komunikatif.
+                    </p>
+                    <span class="fokus-label">Fokus</span>
+                    <div class="fokus-tags">
+                        <span>Live Production</span>
+                        <span>Multi-Cam Operation</span>
+                        <span>Visual Switching</span>
+                        <span>Broadcast Framing</span>
+                    </div>
+                </div>
+
+                <div class="exp-card reveal">
+                    <span class="exp-watermark">03</span>
+                    <span class="exp-tag">EXPERIENCE 03</span>
+                    <div class="exp-title-row">
+                        <h2>Freelance Videographer, Video Editor & 3D Animator</h2>
+                        <span class="year-pill">2024 – Sekarang</span>
+                    </div>
+                    <span class="exp-role">Freelance Multimedia Creator</span>
+                    <p class="exp-desc">
+                        Mengerjakan berbagai proyek kreatif secara independen mulai dari perekaman acara, operator rekaman, penyuntingan video promosi, hingga pembuatan 3D video bumper untuk acara regional.
+                    </p>
+                    <span class="fokus-label">Fokus</span>
+                    <div class="fokus-tags">
+                        <span>3D Bumper</span>
+                        <span>Video Editing</span>
+                        <span>Videography</span>
+                        <span>Recording Operator</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-grid-2">
+                <div class="reveal">
+                    <span class="sub-col-title">Lomba Film Pendek</span>
+                    <div class="sub-stack">
+                        <div class="mini-card">
+                            <div class="mini-top">
+                                <h3>Lomba Film Pendek FLS2N</h3>
+                                <span class="mini-badge">PESERTA • TIM KREATIF</span>
+                            </div>
+                            <p>Berpartisipasi dalam ajang Festival dan Lomba Seni Siswa Nasional (FLS2N) bidang film pendek tingkat pelajar.</p>
+                        </div>
+
+                        <div class="mini-card">
+                            <div class="mini-top">
+                                <h3>Lomba Film Pendek Klungkung</h3>
+                                <span class="mini-badge">PESERTA • TIM KREATIF</span>
+                            </div>
+                            <p>Mengirimkan karya film pendek dalam ajang kompetisi Klungkung Film Festival untuk mengasah penceritaan sinematik.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal reveal-delay-1">
+                    <span class="sub-col-title">Pelatihan</span>
+                    <div class="sub-stack">
+                        <div class="mini-card">
+                            <div class="mini-top">
+                                <h3>Pelatihan TIK Bagi Murid SMA/SMK (Gelombang 4)</h3>
+                                <span class="mini-badge">NOV 2026</span>
+                            </div>
+                            <p>Diselenggarakan oleh UPT TIK Dinas Pendidikan Provinsi Jawa Timur (Cabdin Wil. Madiun) di SMAN 3 Taruna Angkasa Jawa Timur, Kota Madiun.</p>
+                        </div>
+
+                        <div class="mini-card">
+                            <div class="mini-top">
+                                <h3>Pelatihan IT & Animasi Digital</h3>
+                                <span class="mini-badge">APR 2026</span>
+                            </div>
+                            <p>Program pelatihan intensif bidang teknologi informasi dan animasi digital oleh UPT PTKK Dinas Pendidikan Provinsi Jawa Timur di Surabaya.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <span class="sub-col-title reveal">Pendidikan</span>
+            <div class="edu-banner reveal reveal-delay-1">
+                <div>
+                    <h3>SMKN 4 Madiun</h3>
+                    <p>Kompetensi Keahlian Animasi</p>
+                </div>
+                <span class="year-pill">2025 – Sekarang</span>
+            </div>
+        </main>
+    </div>
+
+    <!-- =====================================================================
+         VIEW 6: CONTACT
+         ===================================================================== -->
+    <div class="page-view" id="view-contact">
+        <main class="contact-section">
+            <div class="contact-header reveal">
+                <span class="section-label">04 —— CONTACT</span>
+                <h1>Terima kasih telah <span class="gradient-text">berkunjung.</span></h1>
+                <p>
+                    Apabila Anda tertarik untuk berdiskusi mengenai proyek, kolaborasi, atau ingin mengetahui lebih lanjut mengenai karya saya, saya dengan senang hati dapat dihubungi melalui email maupun media sosial.
+                </p>
+            </div>
+
+            <div class="email-hero-card reveal reveal-delay-1">
+                <div>
+                    <span class="email-label">EMAIL</span>
+                    <span class="email-address">greaven.kei@gmail.com</span>
+                    <span class="email-loc">MADIUN, JAWA TIMUR</span>
+                </div>
+                <div class="email-actions-group">
+                    <button type="button" class="btn-copy-email" id="copy-email-btn" data-email="greaven.kei@gmail.com">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        Salin Email
+                    </button>
+                    <a href="mailto:greaven.kei@gmail.com" class="btn-send-email">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        Kirim Email
+                    </a>
+                </div>
+            </div>
+
+            <span class="social-title reveal">Social Media</span>
+            <div class="social-grid-2x2">
+                <a href="https://instagram.com/joprass_" target="_blank" rel="noopener noreferrer" class="social-box reveal">
+                    <div class="social-left">
+                        <div class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </div>
+                        <div class="social-info">
+                            <span>Instagram</span>
+                            <strong>@joprass_</strong>
+                        </div>
+                    </div>
+                    <span class="arrow-diag">&#8599;</span>
+                </a>
+
+                <a href="https://tiktok.com/@keiyoshi.16" target="_blank" rel="noopener noreferrer" class="social-box reveal reveal-delay-1">
+                    <div class="social-left">
+                        <div class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                        </div>
+                        <div class="social-info">
+                            <span>TikTok</span>
+                            <strong>@keiyoshi.16</strong>
+                        </div>
+                    </div>
+                    <span class="arrow-diag">&#8599;</span>
+                </a>
+
+                <a href="https://youtube.com/@Joprass16" target="_blank" rel="noopener noreferrer" class="social-box reveal reveal-delay-2">
+                    <div class="social-left">
+                        <div class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                        <div class="social-info">
+                            <span>YouTube</span>
+                            <strong>@Joprass16</strong>
+                        </div>
+                    </div>
+                    <span class="arrow-diag">&#8599;</span>
+                </a>
+
+                <a href="https://wa.me/62895622607368" target="_blank" rel="noopener noreferrer" class="social-box reveal reveal-delay-3">
+                    <div class="social-left">
+                        <div class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <div class="social-info">
+                            <span>WhatsApp</span>
+                            <strong>+62 895-6226-07368</strong>
+                        </div>
+                    </div>
+                    <span class="arrow-diag">&#8599;</span>
+                </a>
+            </div>
+
+            <div class="collab-banner reveal">
+                <h4>OPEN FOR COLLABORATION</h4>
+                <p>Terbuka untuk kolaborasi proyek kreatif dan pengalaman baru di bidang 3D, animasi, video, dan multimedia.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- POP-UP QUICK PREVIEW MODAL -->
+    <div class="preview-modal" id="preview-modal">
+        <div class="preview-modal-box">
+            <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Tutup">&times;</button>
+            <div class="modal-media-area" id="modal-media-area"></div>
+            <div class="modal-caption">
+                <div>
+                    <span id="modal-meta-text">-</span>
+                    <h3 id="modal-title-text">-</h3>
+                </div>
+                <div class="modal-nav-controls">
+                    <button type="button" id="modal-prev-btn">&larr; Prev</button>
+                    <button type="button" id="modal-next-btn">Next &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer reveal">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Greaven K.P.</h3>
+                <p>3D Animator & Multimedia Creator. Siswa Jurusan Animasi SMKN 4 Madiun.</p>
+                <a href="mailto:greaven.kei@gmail.com" class="footer-email">greaven.kei@gmail.com</a>
+            </div>
+            <div class="footer-col">
+                <h4>Navigasi</h4>
+                <div class="footer-links">
+                    <a href="#home" data-page="home">Home</a>
+                    <a href="#about" data-page="about">About</a>
+                    <a href="#projects" data-page="projects">Projects</a>
+                    <a href="#experience" data-page="experience">Experience</a>
+                    <a href="#contact" data-page="contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Social Media</h4>
+                <div class="footer-links">
+                    <a href="https://instagram.com/joprass_" target="_blank" rel="noopener noreferrer">Instagram (@joprass_)</a>
+                    <a href="https://tiktok.com/@keiyoshi.16" target="_blank" rel="noopener noreferrer">TikTok (@keiyoshi.16)</a>
+                    <a href="https://youtube.com/@Joprass16" target="_blank" rel="noopener noreferrer">YouTube (@Joprass16)</a>
+                    <a href="https://wa.me/62895622607368" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Greaven Keiyoshi Prasojo. All Rights Reserved.</span>
+            <span>Madiun, Jawa Timur</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
