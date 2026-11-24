@@ -3,57 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Greaven Keiyoshi (Joprass) — 3D Animator &amp; Multimedia Creator</title>
-  <meta
-    name="description"
-    content="Portofolio resmi Greaven Keiyoshi Prasojo (Joprass) — 3D Animator, 2D Animator, Videographer, dan Video Editor asal Madiun."
-  />
+  <title>Joprass — Greaven Keiyoshi Prasojo | 3D Animator & Multimedia</title>
+  <meta name="description" content="Portofolio resmi Greaven Keiyoshi Prasojo (Joprass) — 3D Animator & Multimedia Creative di Madiun, Indonesia." />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
 
-  <!-- Stylesheet Versi 6 -->
-  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- Cursor Ambient Glow -->
-  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
   <!-- Page Transition Curtain -->
   <div class="page-transition" id="pageTransition" aria-hidden="true">
     <div class="transition-inner">
       <span class="transition-brand">JOPRASS</span>
-      <div class="transition-line"></div>
+      <span class="transition-line"></span>
     </div>
   </div>
 
   <!-- ======================================================================
-       NAVBAR (DENGAN LOGO JP DI SAMPING TULISAN JOPRASS)
+       NAVBAR
        ====================================================================== -->
   <header class="navbar">
     <div class="container nav-container">
-      <a href="#home" class="nav-brand" data-nav="home">
-        <span class="brand-logo-badge" aria-hidden="true">
-          <img class="user-logo-img" alt="Logo Joprass" style="display:none;" />
-          <svg class="brand-logo-svg user-logo-fallback" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="navEmblemGrad" x1="16" y1="16" x2="104" y2="104" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#FFFFFF" />
-                <stop offset="55%" stop-color="#CBD5E1" />
-                <stop offset="100%" stop-color="#64748B" />
-              </linearGradient>
-            </defs>
-            <polygon points="60,8 106,34 106,86 60,112 14,86 14,34" stroke="url(#navEmblemGrad)" stroke-width="6" fill="none" />
-            <path d="M52 32H62V72C62 82.5 53.5 91 43 91C36.5 91 31 87.8 28 83L35.5 76.5C37.2 79.2 39.8 81 43 81C48.2 81 52 77 52 72V32Z" fill="url(#navEmblemGrad)" />
-            <path d="M66 32H83C91.5 32 97.5 38 97.5 46C97.5 54 91.5 60 83 60H75V89H66V32ZM75 40.5V51.5H82.5C86.2 51.5 88.5 49.2 88.5 46C88.5 42.8 86.2 40.5 82.5 40.5H75Z" fill="url(#navEmblemGrad)" />
+      <a href="#home" class="nav-brand" data-nav="home" aria-label="Joprass Home">
+        <span class="brand-logo-badge">
+          <img src="assets/logo-jp.png" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <svg class="brand-logo-svg" viewBox="0 0 64 64" fill="none" style="display:none;" aria-hidden="true">
+            <polygon points="32,4 56,18 56,46 32,60 8,46 8,18" stroke="#ffffff" stroke-width="4" fill="none" />
+            <text x="32" y="40" text-anchor="middle" fill="#ffffff" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="23" letter-spacing="-1">JP</text>
           </svg>
         </span>
-        <span>JOPRASS</span>
+        <span>Joprass</span>
       </a>
 
       <nav class="nav-links" aria-label="Navigasi Utama">
@@ -65,21 +50,21 @@
       </nav>
 
       <div class="nav-actions">
-        <button type="button" class="icon-btn" id="soundToggle" aria-label="Suara Interaksi" title="Suara Efek">
-          <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <button type="button" class="icon-btn" id="soundToggle" aria-label="Toggle Efek Suara" title="Efek Suara">
+          <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
             <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
           </svg>
-          <svg class="icon-sound-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+          <svg class="icon-sound-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
             <line x1="23" y1="9" x2="17" y2="15"></line>
             <line x1="17" y1="9" x2="23" y2="15"></line>
           </svg>
         </button>
 
-        <button type="button" class="icon-btn" id="themeToggle" aria-label="Ganti Tema" title="Dark / Light Mode">
-          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <button type="button" class="icon-btn" id="themeToggle" aria-label="Ganti Tema" title="Ganti Tema Gelap / Terang">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -90,24 +75,23 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
-          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
 
-        <button type="button" class="btn btn-primary btn-sm" data-nav="contact">Hire / Collab</button>
+        <button type="button" class="btn btn-primary btn-sm" data-nav="contact">Hubungi Saya</button>
 
-        <button type="button" class="icon-btn mobile-only" id="mobileMenuBtn" aria-label="Buka Menu">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="6" x2="21" y2="6"></line>
+        <button type="button" class="icon-btn mobile-only" id="mobileMenuBtn" aria-label="Menu Mobile">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="7" x2="21" y2="7"></line>
             <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
+            <line x1="3" y1="17" x2="21" y2="17"></line>
           </svg>
         </button>
       </div>
     </div>
 
-    <!-- Mobile Navigation Dropdown -->
     <div class="mobile-menu" id="mobileMenu">
       <button type="button" class="mobile-nav-link active" data-nav="home">Home</button>
       <button type="button" class="mobile-nav-link" data-nav="about">About</button>
@@ -117,253 +101,210 @@
     </div>
   </header>
 
-  <!-- ======================================================================
-       MAIN CONTENT (MULTI-PAGE SPA SECTIONS)
-       ====================================================================== -->
   <main>
     <!-- ====================================================================
          PAGE 1: HOME
          ==================================================================== -->
-    <section class="page-section active" id="page-home">
-      <!-- Hero Section -->
+    <section id="page-home" class="page-section active">
       <div class="hero-wrapper">
         <div class="container hero-grid">
-          <div class="hero-content">
+          <div class="hero-content reveal">
             <div class="status-pill">
               <span class="status-dot"></span>
-              <span class="mono-label">AVAILABLE FOR 3D ANIMATION &amp; VIDEO PROJECTS</span>
+              <span class="mono-label">TERBUKA UNTUK KOLABORASI &amp; MAGANG</span>
             </div>
 
             <h1 class="hero-title">
-              Bringing Characters <br />
-              <span class="text-gradient-white">&amp; Visual Stories</span> <br />
-              to Life.
+              Menghidupkan Karakter &amp; <span class="text-gradient-white">Visual Sinematik.</span>
             </h1>
 
             <p class="hero-desc">
-              Halo, saya <strong>Greaven Keiyoshi Prasojo</strong> (<strong>Joprass</strong>) —
-              <strong>3D Animator</strong> &amp; <strong>Multimedia Creator</strong> dari SMKN 4 Madiun.
-              Berfokus pada animasi karakter 3D yang ekspresif, sinematografi lapangan, serta penyuntingan video berirama presisi.
+              Halo, saya <strong>Greaven Keiyoshi Prasojo</strong> (<strong>Joprass</strong>) — seorang <strong>3D Animator</strong> &amp; <strong>Multimedia Creative</strong> asal Madiun yang berfokus pada dinamika gerak karakter 3D, produksi liputan acara, serta penyuntingan video berirama presisi.
             </p>
 
             <div class="hero-cta-group">
-              <button type="button" class="btn btn-primary" data-nav="projects">
-                Explore Projects
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </button>
-              <button type="button" class="btn btn-secondary" data-nav="about">
-                Tentang Saya &amp; ID Card
-              </button>
+              <button type="button" class="btn btn-primary" data-nav="projects">Jelajahi Karya →</button>
+              <button type="button" class="btn btn-secondary" data-nav="about">Tentang Saya</button>
             </div>
           </div>
         </div>
 
-        <!-- Right-Edge Offset Orbit Stage -->
+        <!-- Orbit Visual Stage with Inline SVG Icons (Anti-Broken Image) -->
         <div class="hero-orbit-stage" aria-hidden="true">
           <div class="orbit-ambient-glow"></div>
           <div class="orbit-ring orbit-ring-outer"></div>
           <div class="orbit-ring orbit-ring-mid"></div>
           <div class="orbit-ring orbit-ring-inner"></div>
 
-          <!-- Center Brand Logo Hub -->
           <div class="orbit-hub">
             <div class="orbit-hub-inner">
-              <img class="user-logo-img hub-user-logo" alt="Logo Joprass" style="display:none;" />
-              <svg class="jp-logo-svg user-logo-fallback" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <img src="assets/logo-jp.png" alt="" class="jp-logo-svg" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+              <svg class="jp-logo-svg" viewBox="0 0 120 120" fill="none" style="display:none;">
+                <polygon points="60,8 106,34 106,86 60,112 14,86 14,34" stroke="url(#jpGrad)" stroke-width="5" fill="rgba(255,255,255,0.03)" />
+                <polygon points="60,17 98,39 98,81 60,103 22,81 22,39" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" fill="none" />
+                <text x="60" y="73" text-anchor="middle" fill="#ffffff" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="42" letter-spacing="-2">JP</text>
                 <defs>
-                  <linearGradient id="hubEmblemGrad" x1="14" y1="14" x2="106" y2="106" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#FFFFFF" />
-                    <stop offset="50%" stop-color="#E2E8F0" />
-                    <stop offset="100%" stop-color="#64748B" />
+                  <linearGradient id="jpGrad" x1="14" y1="8" x2="106" y2="112" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#ffffff" />
+                    <stop offset="100%" stop-color="#94a3b8" />
                   </linearGradient>
                 </defs>
-                <polygon points="60,6 108,33 108,87 60,114 12,87 12,33" stroke="url(#hubEmblemGrad)" stroke-width="4.5" fill="none" />
-                <polygon points="60,14 100,37 100,83 60,106 20,83 20,37" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" fill="none" />
-                <path d="M52 32H62V72C62 82.5 53.5 91 43 91C36.5 91 31 87.8 28 83L35.5 76.5C37.2 79.2 39.8 81 43 81C48.2 81 52 77 52 72V32Z" fill="url(#hubEmblemGrad)" />
-                <path d="M66 32H83C91.5 32 97.5 38 97.5 46C97.5 54 91.5 60 83 60H75V89H66V32ZM75 40.5V51.5H82.5C86.2 51.5 88.5 49.2 88.5 46C88.5 42.8 86.2 40.5 82.5 40.5H75Z" fill="url(#hubEmblemGrad)" />
               </svg>
             </div>
           </div>
 
-          <!-- Orbiting Official Creative Software Logos -->
           <div class="orbit-track">
-            <!-- Node 1: Blender Official Logo -->
-            <div class="orbit-node node-1">
+            <!-- Node 1: Blender -->
+            <div class="orbit-node node-1" title="Blender 3D">
               <div class="orbit-icon-card">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg"
-                  alt="Blender"
-                />
+                <svg viewBox="0 0 64 64" fill="none">
+                  <rect width="64" height="64" rx="14" fill="#18181f" />
+                  <circle cx="35" cy="35" r="14" stroke="#f97316" stroke-width="5.5" />
+                  <circle cx="35" cy="35" r="5" fill="#38bdf8" />
+                  <path d="M14 27L30 22M18 42L24 37M28 15L38 22" stroke="#f97316" stroke-width="5.5" stroke-linecap="round" />
+                </svg>
               </div>
             </div>
 
-            <!-- Node 2: CapCut Official Logo -->
-            <div class="orbit-node node-2">
+            <!-- Node 2: CapCut -->
+            <div class="orbit-node node-2" title="CapCut">
               <div class="orbit-icon-card">
-                <img
-                  src="https://api.iconify.design/simple-icons:capcut.svg?color=%23ffffff"
-                  alt="CapCut"
-                />
+                <svg viewBox="0 0 64 64" fill="none">
+                  <rect width="64" height="64" rx="14" fill="#121217" />
+                  <path d="M17 21L47 43M47 21L17 43" stroke="#ffffff" stroke-width="5" stroke-linecap="round" />
+                  <path d="M17 21V28M17 43V36M47 21V28M47 43V36" stroke="#ffffff" stroke-width="5" stroke-linecap="round" />
+                </svg>
               </div>
             </div>
 
-            <!-- Node 3: Adobe After Effects Official Logo -->
-            <div class="orbit-node node-3">
+            <!-- Node 3: Autodesk Maya -->
+            <div class="orbit-node node-3" title="Autodesk Maya">
               <div class="orbit-icon-card">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg"
-                  alt="Adobe After Effects"
-                />
+                <svg viewBox="0 0 64 64" fill="none">
+                  <rect width="64" height="64" rx="14" fill="#131c21" />
+                  <path d="M15 47V18L32 37L49 18V47" stroke="#14b8a6" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M15 18L32 45L49 18" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
+                </svg>
               </div>
             </div>
 
-            <!-- Node 4: Autodesk Maya Official Logo -->
-            <div class="orbit-node node-4">
+            <!-- Node 4: Adobe After Effects -->
+            <div class="orbit-node node-4" title="Adobe After Effects">
               <div class="orbit-icon-card">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/fr/9/90/Autodesk_Maya.svg"
-                  alt="Autodesk Maya"
-                />
+                <svg viewBox="0 0 64 64" fill="none">
+                  <rect width="64" height="64" rx="14" fill="#161229" />
+                  <rect x="6" y="6" width="52" height="52" rx="10" stroke="#a78bfa" stroke-width="2.5" />
+                  <text x="32" y="40" text-anchor="middle" fill="#c4b5fd" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="24">Ae</text>
+                </svg>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Infinite Marquee Strip -->
+      <!-- Running Marquee -->
       <div class="marquee-section" aria-hidden="true">
         <div class="marquee-track">
           <div class="marquee-content">
-            <span>3D CHARACTER ANIMATION</span>
-            <span class="marquee-sep">✦</span>
-            <span>BODY MECHANICS &amp; ACTING</span>
-            <span class="marquee-sep">✦</span>
-            <span>2D FRAME-BY-FRAME</span>
-            <span class="marquee-sep">✦</span>
-            <span>VIDEO EDITING &amp; BEAT SYNC</span>
-            <span class="marquee-sep">✦</span>
-            <span>LIVE STREAMING SWITCHER</span>
-            <span class="marquee-sep">✦</span>
-            <span>MULTI-CAMERA PRODUCTION</span>
-            <span class="marquee-sep">✦</span>
+            <span>3D CHARACTER ANIMATION</span><span class="marquee-sep">•</span>
+            <span>BLENDER &amp; MAYA</span><span class="marquee-sep">•</span>
+            <span>MULTIMEDIA PRODUCTION</span><span class="marquee-sep">•</span>
+            <span>LIVE VISUAL SWITCHER</span><span class="marquee-sep">•</span>
+            <span>CINEMATIC VIDEO EDITING</span><span class="marquee-sep">•</span>
+            <span>OSIS SEKBID 9</span><span class="marquee-sep">•</span>
           </div>
           <div class="marquee-content">
-            <span>3D CHARACTER ANIMATION</span>
-            <span class="marquee-sep">✦</span>
-            <span>BODY MECHANICS &amp; ACTING</span>
-            <span class="marquee-sep">✦</span>
-            <span>2D FRAME-BY-FRAME</span>
-            <span class="marquee-sep">✦</span>
-            <span>VIDEO EDITING &amp; BEAT SYNC</span>
-            <span class="marquee-sep">✦</span>
-            <span>LIVE STREAMING SWITCHER</span>
-            <span class="marquee-sep">✦</span>
-            <span>MULTI-CAMERA PRODUCTION</span>
-            <span class="marquee-sep">✦</span>
+            <span>3D CHARACTER ANIMATION</span><span class="marquee-sep">•</span>
+            <span>BLENDER &amp; MAYA</span><span class="marquee-sep">•</span>
+            <span>MULTIMEDIA PRODUCTION</span><span class="marquee-sep">•</span>
+            <span>LIVE VISUAL SWITCHER</span><span class="marquee-sep">•</span>
+            <span>CINEMATIC VIDEO EDITING</span><span class="marquee-sep">•</span>
+            <span>OSIS SEKBID 9</span><span class="marquee-sep">•</span>
           </div>
         </div>
       </div>
 
       <!-- Showreel Section -->
-      <div class="container section-block">
-        <div class="section-header reveal">
-          <span class="mono-label section-eyebrow">FEATURED REEL // 2025 – 2026</span>
-          <h2 class="section-title">Animation &amp; Production Showreel</h2>
-          <p class="section-subtitle">
-            Kompilasi latihan mekanika gerak karakter 3D, animasi 2D, serta dokumentasi produksi multimedia lapangan.
-          </p>
+      <div class="container section-block reveal">
+        <div class="section-header">
+          <span class="mono-label section-eyebrow">01 / SHOWREEL</span>
+          <h2 class="section-title">Cuplikan Karya Pilihan</h2>
+          <p class="section-subtitle">Kompilasi eksplorasi gerak karakter 3D, studi akting, dan dokumentasi visual multimedia.</p>
         </div>
 
-        <div class="showreel-card interactive-surface reveal">
+        <div class="showreel-card interactive-surface">
           <div class="showreel-media">
             <img
+              src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1400&q=85"
+              alt="Preview Showreel Joprass"
               class="showreel-poster-img"
-              src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1280&q=80"
-              alt="Preview Showreel 3D Animation & Multimedia"
             />
-            <video class="showreel-video" src="assets/showreel.mp4" playsinline></video>
+            <video class="showreel-video" preload="metadata" playsinline>
+              <source src="assets/showreel.mp4" type="video/mp4" />
+            </video>
             <div class="showreel-fallback-overlay" id="showreelFallback">
-              <div class="showreel-play-ring">
+              <div class="showreel-play-ring" aria-label="Putar Showreel">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
                   <polygon points="6 4 20 12 6 20 6 4"></polygon>
                 </svg>
               </div>
-              <span class="mono-label" style="color:#fff;">PUTAR SHOWREEL (2026)</span>
+              <span class="mono-label" style="color:#ffffff;">PUTAR SHOWREEL (2025 – 2026)</span>
             </div>
           </div>
 
           <div class="showreel-info">
             <div class="showreel-meta">
-              <span class="tag-pill">BLENDER 3D</span>
-              <span class="tag-pill">CHARACTER ACTING</span>
-              <span class="tag-pill">CAPCUT &amp; AFTER EFFECTS</span>
-              <span class="tag-pill">LIVE PRODUCTION</span>
+              <span class="tag-pill">3D ANIMATION</span>
+              <span class="tag-pill">BODY MECHANICS</span>
+              <span class="tag-pill">VIDEO EDITING</span>
             </div>
-            <h3 class="card-title">Joprass Creative Reel — Animation &amp; Visual Storytelling</h3>
+            <h3 class="card-title">Joprass Animation &amp; Multimedia Reel</h3>
             <p class="card-desc">
-              Menampilkan progres studi animasi karakter dari dasar 12 prinsip gerak hingga body mechanics, lip sync, serta hasil penyuntingan video dokumentasi acara.
+              Menampilkan perkembangan pengerjaan animasi karakter 3D berbasis kurva Graph Editor di Blender, pengenalan pipeline Autodesk Maya, serta produksi video dokumenter dan after-movie acara.
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Core Capabilities Section -->
-      <div class="container section-block">
-        <div class="section-header reveal">
-          <span class="mono-label section-eyebrow">DISCIPLINES // DUAL FOCUS</span>
-          <h2 class="section-title">Core Capabilities</h2>
-          <p class="section-subtitle">
-            Dua jalur keahlian utama yang saling melengkapi: penghidupan gerak karakter dan produksi visual multimedia.
-          </p>
+      <!-- Core Capabilities -->
+      <div class="container section-block reveal">
+        <div class="section-header">
+          <span class="mono-label section-eyebrow">02 / KEAHLIAN UTAMA</span>
+          <h2 class="section-title">Dua Pilar Kreatif</h2>
+          <p class="section-subtitle">Fokus utama dalam berkarya yang menggabungkan seni menghidupkan karakter dengan produksi visual lapangan.</p>
         </div>
 
         <div class="capabilities-grid">
-          <article class="capability-card interactive-surface reveal">
+          <article class="capability-card interactive-surface" data-nav="projects">
             <div class="cap-card-shine"></div>
             <div class="cap-top">
               <div class="cap-icon-box">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                  <path d="M2 17l10 5 10-5"></path>
+                  <path d="M2 12l10 5 10-5"></path>
                 </svg>
               </div>
-              <span class="mono-label">DIVISION 01</span>
+              <span class="mono-label">DIVISI ANIMATE</span>
             </div>
-
-            <h3 class="cap-title">3D &amp; 2D Character Animation</h3>
+            <h3 class="cap-title">3D &amp; 2D Animation</h3>
             <p class="cap-desc">
-              Fokus pada divisi animasi karakter: mulai dari blocking pose utama, pengaturan kurva Graph Editor, weight shift, lip sync, hingga prinsip squash &amp; stretch pada animasi 2D.
+              Berfokus pada divisi animasi karakter—mulai dari blocking keypose, timing &amp; spacing, body mechanics, hingga akting karakter agar setiap gerakan terasa hidup dan bermakna.
             </p>
-
             <div class="cap-specs">
               <div>
-                <span class="mono-label spec-label">CORE SKILLS</span>
+                <span class="mono-label spec-label">FOKUS UTAMA</span>
                 <div class="skill-pill-row">
-                  <span class="skill-pill">3D Animation</span>
                   <span class="skill-pill">Body Mechanics</span>
                   <span class="skill-pill">Character Acting</span>
-                  <span class="skill-pill">2D Animation</span>
-                  <span class="skill-pill">3D Modeling (Dasar)</span>
-                </div>
-              </div>
-              <div>
-                <span class="mono-label spec-label">AI WORKFLOW SUPPORT</span>
-                <div class="skill-pill-row">
-                  <span class="skill-pill">Gemini</span>
-                  <span class="skill-pill">Claude</span>
-                  <span class="skill-pill">ChatGPT</span>
-                  <span class="skill-pill">Qwen AI</span>
-                  <span class="skill-pill">DeepSeek</span>
+                  <span class="skill-pill">Graph Editor</span>
+                  <span class="skill-pill">2D Frame-by-Frame</span>
                 </div>
               </div>
             </div>
           </article>
 
-          <article class="capability-card interactive-surface reveal">
+          <article class="capability-card interactive-surface" data-nav="projects">
             <div class="cap-card-shine"></div>
             <div class="cap-top">
               <div class="cap-icon-box">
@@ -372,33 +313,20 @@
                   <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
                 </svg>
               </div>
-              <span class="mono-label">DIVISION 02</span>
+              <span class="mono-label">PRODUKSI &amp; POST</span>
             </div>
-
-            <h3 class="cap-title">Multimedia &amp; Live Production</h3>
+            <h3 class="cap-title">Multimedia &amp; Video Editing</h3>
             <p class="cap-desc">
-              Pengalaman lapangan dalam pengambilan gambar menggunakan kamera DSLR, mirrorless, hingga broadcast camera, pengoperasian switcher live streaming, serta editing video berirama.
+              Berpengalaman sebagai Ketua Sekbid 9 OSIS, tim live streaming switcher, kameramen utama, hingga video editor lepas untuk kebutuhan dokumentasi dan konten media sosial.
             </p>
-
             <div class="cap-specs">
               <div>
-                <span class="mono-label spec-label">PRODUCTION ROLES</span>
+                <span class="mono-label spec-label">SPESIALISASI</span>
                 <div class="skill-pill-row">
-                  <span class="skill-pill">Video Editing</span>
-                  <span class="skill-pill">Videography</span>
-                  <span class="skill-pill">Live Switcher</span>
-                  <span class="skill-pill">Multi-Cam Operator</span>
                   <span class="skill-pill">After Movie</span>
-                </div>
-              </div>
-              <div>
-                <span class="mono-label spec-label">SOFTWARE TOOLCHAIN</span>
-                <div class="skill-pill-row">
-                  <span class="skill-pill">CapCut</span>
-                  <span class="skill-pill">KineMaster</span>
-                  <span class="skill-pill">Blender</span>
-                  <span class="skill-pill">After Effects</span>
-                  <span class="skill-pill">OBS Studio</span>
+                  <span class="skill-pill">Live Switcher</span>
+                  <span class="skill-pill">Broadcast Camera</span>
+                  <span class="skill-pill">Beat-Sync Reels</span>
                 </div>
               </div>
             </div>
@@ -406,412 +334,339 @@
         </div>
       </div>
 
-      <!-- Selected Works Preview (Home) -->
-      <div class="container section-block">
-        <div class="section-header-row reveal">
+      <!-- Selected Works -->
+      <div class="container section-block reveal">
+        <div class="section-header-row">
           <div>
-            <span class="mono-label section-eyebrow">SELECTED WORKS // HIGHLIGHTS</span>
-            <h2 class="section-title">Karya Pilihan</h2>
+            <span class="mono-label section-eyebrow">03 / KARYA TERPILIH</span>
+            <h2 class="section-title">Sorotan Proyek</h2>
           </div>
-          <button type="button" class="btn btn-secondary" data-nav="projects">
-            Lihat Semua 18 Karya →
-          </button>
+          <button type="button" class="btn btn-secondary" data-nav="projects">Lihat Semua 18 Karya →</button>
         </div>
 
         <div class="selected-works-grid">
-          <article class="work-preview-card interactive-surface reveal" data-open-project="0">
+          <article class="work-preview-card interactive-surface" data-open-project="0">
             <div class="work-thumb">
-              <img
-                src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=80"
-                alt="3D Character Body Mechanics"
-              />
-              <span class="work-badge mono-label">3D ANIMATION • KLS 11</span>
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="3D Character Body Mechanics" loading="lazy" />
+              <span class="mono-label work-badge">3D ANIMATION</span>
             </div>
             <div class="work-body">
               <h3 class="work-title">3D Character Body Mechanics</h3>
-              <p class="work-desc">
-                Eksplorasi lompatan, pendaratan, dan perpindahan pusat gravitasi karakter 3D dengan kontrol Graph Editor.
-              </p>
+              <p class="work-desc">Eksplorasi lompatan, pendaratan, dan perpindahan berat karakter di Blender.</p>
             </div>
           </article>
 
-          <article class="work-preview-card interactive-surface reveal" data-open-project="1">
+          <article class="work-preview-card interactive-surface" data-open-project="10">
             <div class="work-thumb">
-              <img
-                src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=900&q=80"
-                alt="3D Character Acting & Expression"
-              />
-              <span class="work-badge mono-label">3D ANIMATION • KLS 11</span>
-            </div>
-            <div class="work-body">
-              <h3 class="work-title">3D Character Acting &amp; Expression</h3>
-              <p class="work-desc">
-                Latihan akting karakter dengan penekanan ekspresi wajah, antisipasi gestur, serta ritme jeda yang natural.
-              </p>
-            </div>
-          </article>
-
-          <article class="work-preview-card interactive-surface reveal" data-open-project="10">
-            <div class="work-thumb">
-              <img
-                src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=900&q=80"
-                alt="After Movie & Event Recap OSIS"
-              />
-              <span class="work-badge mono-label">OSIS SEKBID 9 • EDITING</span>
+              <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="After Movie OSIS" loading="lazy" />
+              <span class="mono-label work-badge">MULTIMEDIA</span>
             </div>
             <div class="work-body">
               <h3 class="work-title">After Movie &amp; Event Recap OSIS</h3>
-              <p class="work-desc">
-                Penyuntingan video rekap kegiatan sekolah dengan transisi dinamis yang menyatu dengan ketukan audio.
-              </p>
+              <p class="work-desc">Dokumentasi lapangan dan editing ritmis kegiatan besar SMKN 4 Madiun.</p>
+            </div>
+          </article>
+
+          <article class="work-preview-card interactive-surface" data-open-project="12">
+            <div class="work-thumb">
+              <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80" alt="Live Streaming Switcher" loading="lazy" />
+              <span class="mono-label work-badge">LIVE PRODUCTION</span>
+            </div>
+            <div class="work-body">
+              <h3 class="work-title">Live Streaming &amp; Visual Switcher</h3>
+              <p class="work-desc">Pengoperasian multi-camera switcher secara langsung pada siaran acara.</p>
             </div>
           </article>
         </div>
       </div>
 
-      <!-- Creative Workflow Section -->
-      <div class="container section-block">
-        <div class="section-header reveal">
-          <span class="mono-label section-eyebrow">PIPELINE // STEP BY STEP</span>
-          <h2 class="section-title">Creative Workflow</h2>
-          <p class="section-subtitle">
-            Klik setiap tahap keyframe untuk menyoroti alur kerja produksi animasi maupun video.
-          </p>
+      <!-- Workflow & CTA -->
+      <div class="container section-block reveal">
+        <div class="section-header">
+          <span class="mono-label section-eyebrow">04 / ALUR KERJA</span>
+          <h2 class="section-title">Proses Produksi</h2>
         </div>
 
         <div class="workflow-grid">
-          <div class="workflow-step interactive-surface reveal">
-            <span class="step-num mono-label">KEYFRAME 01</span>
-            <h3 class="step-title">Reference &amp; Concept</h3>
-            <p class="step-desc">
-              Merekam video referensi gerak sendiri, menyusun storyboard singkat, dan menentukan mood visual.
-            </p>
+          <div class="workflow-step interactive-surface">
+            <span class="mono-label step-num">STEP 01</span>
+            <h3 class="step-title">Konsep &amp; Referensi</h3>
+            <p class="step-desc">Menyusun referensi gerak, breakdown storyboard, atau rencana pengambilan gambar.</p>
           </div>
-
-          <div class="workflow-step interactive-surface reveal">
-            <span class="step-num mono-label">KEYFRAME 02</span>
-            <h3 class="step-title">Blocking &amp; Timing</h3>
-            <p class="step-desc">
-              Menetapkan keypose utama dalam mode stepped untuk mengunci siluet, bobot tubuh, dan ritme aksi.
-            </p>
+          <div class="workflow-step interactive-surface">
+            <span class="mono-label step-num">STEP 02</span>
+            <h3 class="step-title">Blocking &amp; Capture</h3>
+            <p class="step-desc">Menentukan keypose utama animasi atau merekam footage langsung di lokasi acara.</p>
           </div>
-
-          <div class="workflow-step interactive-surface reveal">
-            <span class="step-num mono-label">KEYFRAME 03</span>
-            <h3 class="step-title">Splining &amp; Capture</h3>
-            <p class="step-desc">
-              Menghaluskan kurva animasi di Graph Editor atau mengeksekusi pengambilan gambar multi-kamera di lapangan.
-            </p>
+          <div class="workflow-step interactive-surface">
+            <span class="mono-label step-num">STEP 03</span>
+            <h3 class="step-title">Spline &amp; Assembly</h3>
+            <p class="step-desc">Menghaluskan kurva gerakan di Graph Editor atau menyusun timeline editing video.</p>
           </div>
-
-          <div class="workflow-step interactive-surface reveal">
-            <span class="step-num mono-label">KEYFRAME 04</span>
-            <h3 class="step-title">Lighting &amp; Editing</h3>
-            <p class="step-desc">
-              Penyempurnaan pencahayaan, color grading, sound design, dan beat-sync editing hingga siap tayang.
-            </p>
+          <div class="workflow-step interactive-surface">
+            <span class="mono-label step-num">STEP 04</span>
+            <h3 class="step-title">Polish &amp; Render</h3>
+            <p class="step-desc">Penyempurnaan detail akhir, pencahayaan, color grading, dan ekspor siap tayang.</p>
           </div>
         </div>
 
-        <!-- CTA Banner -->
-        <div class="cta-banner interactive-surface reveal">
+        <div class="cta-banner interactive-surface">
           <div>
-            <span class="mono-label">OPEN FOR INTERNSHIP &amp; FREELANCE</span>
-            <h3 class="cta-title">Siap Berkolaborasi dalam Proyek Animasi &amp; Video?</h3>
-            <p class="cta-desc">
-              Terbuka untuk kesempatan magang studio animasi, kolaborasi kreatif, maupun jasa editing dan liputan acara.
-            </p>
+            <span class="mono-label">MARI BERKOLABORASI</span>
+            <h3 class="cta-title">Siap berdiskusi untuk proyek animasi atau liputan?</h3>
+            <p class="cta-desc">Terbuka untuk kesempatan magang studio 3D maupun proyek multimedia lepas.</p>
           </div>
-          <button type="button" class="btn btn-primary" data-nav="contact">
-            Hubungi Sekarang →
-          </button>
+          <button type="button" class="btn btn-primary" data-nav="contact">Hubungi Sekarang →</button>
         </div>
       </div>
     </section>
 
     <!-- ====================================================================
-         PAGE 2: ABOUT (ID CARD DENGAN FOTO assets/1.jpeg & FISIKA BANDUL HALUS)
+         PAGE 2: ABOUT
          ==================================================================== -->
-    <section class="page-section" id="page-about">
+    <section id="page-about" class="page-section">
       <div class="container page-top-pad">
-        <div class="about-hero-grid">
-          <!-- Interactive 3D Hanging ID Card -->
-          <div class="idcard-column reveal">
+        <div class="about-hero-grid reveal">
+          <!-- 3D Hanging ID Card -->
+          <div class="idcard-column">
             <div class="idcard-scene" id="idCardScene">
               <canvas id="lanyardCanvas" width="340" height="170"></canvas>
-
-              <!-- Outer Pendulum Wrapper (handles position + Z-swing locked to ring) -->
-              <div class="idcard-pendulum" id="idCardPendulum">
-                <!-- Inner 3D Card Wrapper (handles 180° flip + subtle cursor tilt) -->
-                <div class="idcard-3d" id="idCard3d">
-                  <!-- Front Face -->
-                  <div class="idcard-face idcard-front">
-                    <div class="idcard-gloss"></div>
-                    <div>
-                      <div class="idcard-clip"></div>
-                      <div class="idcard-header">
-                        <span class="mono-label">CREATOR PASS // 2026</span>
-                        <span class="idcard-dot"></span>
-                      </div>
-                    </div>
-
-                    <div class="idcard-photo-frame">
-                      <img
-                        src="assets/1.jpeg"
-                        alt="Foto Greaven Keiyoshi"
-                        onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=500&q=80';"
-                      />
-                    </div>
-
-                    <div class="idcard-identity">
-                      <h2 class="idcard-name">GREAVEN KEIYOSHI</h2>
-                      <p class="idcard-role mono-label">3D ANIMATOR • MULTIMEDIA</p>
-                    </div>
-
-                    <div class="idcard-footer mono-label">
-                      <span>SMKN 4 MADIUN</span>
-                      <span>ID #JP-010</span>
+              <div class="idcard-3d" id="idCard3d">
+                <!-- Front -->
+                <div class="idcard-face idcard-front">
+                  <div class="idcard-gloss"></div>
+                  <div>
+                    <div class="idcard-clip"></div>
+                    <div class="idcard-header">
+                      <span class="mono-label">CREATIVE PASS • 2026</span>
+                      <span class="idcard-dot"></span>
                     </div>
                   </div>
 
-                  <!-- Back Face -->
-                  <div class="idcard-face idcard-back">
-                    <div class="idcard-gloss"></div>
-                    <span class="mono-label" style="color:#94a3b8;">PORTFOLIO VERIFICATION</span>
+                  <div class="idcard-photo-frame">
+                    <img
+                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80"
+                      alt="Foto Profil Greaven Keiyoshi Prasojo"
+                    />
+                  </div>
 
-                    <div class="qr-box">
-                      <svg width="112" height="112" viewBox="0 0 100 100" fill="currentColor">
-                        <rect x="8" y="8" width="26" height="26" rx="3" fill="none" stroke="currentColor" stroke-width="6" />
-                        <rect x="15" y="15" width="12" height="12" />
-                        <rect x="66" y="8" width="26" height="26" rx="3" fill="none" stroke="currentColor" stroke-width="6" />
-                        <rect x="73" y="15" width="12" height="12" />
-                        <rect x="8" y="66" width="26" height="26" rx="3" fill="none" stroke="currentColor" stroke-width="6" />
-                        <rect x="15" y="73" width="12" height="12" />
-                        <rect x="44" y="12" width="10" height="10" />
-                        <rect x="44" y="32" width="12" height="12" />
-                        <rect x="14" y="44" width="14" height="10" />
-                        <rect x="42" y="54" width="16" height="16" />
-                        <rect x="68" y="46" width="12" height="12" />
-                        <rect x="66" y="70" width="24" height="10" />
-                        <rect x="46" y="78" width="12" height="14" />
-                      </svg>
-                    </div>
+                  <div class="idcard-identity">
+                    <div class="idcard-name">GREAVEN K. P.</div>
+                    <div class="mono-label idcard-role">3D ANIMATOR &amp; MULTIMEDIA</div>
+                  </div>
 
-                    <div>
-                      <div class="idcard-back-handle">@joprass</div>
-                      <p class="idcard-back-sub mono-label">MADIUN • EAST JAVA, ID</p>
-                    </div>
+                  <div class="idcard-footer mono-label">
+                    <span>SMKN 4 MADIUN</span>
+                    <span>ID: JOPRASS-11</span>
+                  </div>
+                </div>
+
+                <!-- Back -->
+                <div class="idcard-face idcard-back">
+                  <div class="idcard-gloss"></div>
+                  <div class="idcard-header" style="width:100%;">
+                    <span class="mono-label">VERIFIED PORTFOLIO</span>
+                    <span class="idcard-dot"></span>
+                  </div>
+
+                  <div class="qr-box">
+                    <svg width="110" height="110" viewBox="0 0 100 100" fill="currentColor">
+                      <rect x="10" y="10" width="25" height="25" fill="none" stroke="currentColor" stroke-width="6" />
+                      <rect x="18" y="18" width="9" height="9" />
+                      <rect x="65" y="10" width="25" height="25" fill="none" stroke="currentColor" stroke-width="6" />
+                      <rect x="73" y="18" width="9" height="9" />
+                      <rect x="10" y="65" width="25" height="25" fill="none" stroke="currentColor" stroke-width="6" />
+                      <rect x="18" y="73" width="9" height="9" />
+                      <rect x="44" y="12" width="8" height="8" />
+                      <rect x="44" y="28" width="8" height="16" />
+                      <rect x="12" y="44" width="16" height="8" />
+                      <rect x="36" y="48" width="12" height="12" />
+                      <rect x="56" y="44" width="16" height="8" />
+                      <rect x="78" y="48" width="10" height="14" />
+                      <rect x="46" y="68" width="12" height="12" />
+                      <rect x="66" y="66" width="10" height="22" />
+                      <rect x="80" y="74" width="10" height="14" />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <div class="idcard-back-handle">@joprass</div>
+                    <div class="mono-label idcard-back-sub">MADIUN, JAWA TIMUR • INDONESIA</div>
+                  </div>
+
+                  <div class="idcard-footer mono-label" style="width:100%;">
+                    <span>KLS 11 ANIMASI</span>
+                    <span>2026</span>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="idcard-controls">
-              <button type="button" class="btn btn-secondary btn-sm" id="flipCardBtn">
-                Putar Kartu (Flip)
-              </button>
-              <span class="hint-text mono-label">TARIK ATAU KLIK KARTU UNTUK INTERAKSI</span>
+              <button type="button" class="btn btn-secondary btn-sm" id="flipCardBtn">Balik Kartu ID ↻</button>
+              <span class="mono-label hint-text">TARIK KARTU UNTUK MENGAYUNKAN LANYARD</span>
             </div>
           </div>
 
-          <!-- Bio Story -->
-          <div class="reveal">
-            <span class="mono-label section-eyebrow">ABOUT ME // PROFILE</span>
-            <h1 class="section-title">Menghidupkan Gerak Karakter &amp; Visual Sinematik.</h1>
+          <!-- Bio Text -->
+          <div>
+            <span class="mono-label section-eyebrow">TENTANG SAYA</span>
+            <h1 class="section-title">Greaven Keiyoshi Prasojo</h1>
+            <p class="mono-label" style="margin-top:-4px; margin-bottom:16px;">3D ANIMATOR • MULTIMEDIA CREATIVE • MADIUN</p>
 
             <div class="bio-paragraphs">
               <p>
-                Saya <strong>Greaven Keiyoshi Prasojo</strong> (akrab dipanggil <strong>Griven</strong> / <strong>Joprass</strong>), siswa kelas 11 jurusan <strong>Animasi di SMKN 4 Madiun</strong>. Ketertarikan saya berfokus pada bagaimana sebuah karakter 3D maupun 2D mampu menyampaikan emosi dan bobot gerakan yang terasa nyata.
+                Saya adalah siswa kelas 11 jurusan <strong>Animasi</strong> di <strong>SMKN 4 Madiun</strong> yang memiliki ketertarikan mendalam pada divisi <strong>3D Animation</strong>—menghidupkan karakter melalui prinsip gerak, ritme waktu (timing), dan ekspresi yang komunikatif.
               </p>
               <p>
-                Jika di kelas 10 saya mempelajari fondasi 3D modeling dan prinsip dasar animasi, di kelas 11 saya memfokuskan langkah pada <strong>divisi 3D Animation</strong> (body mechanics, acting, dan timing) sekaligus mendalami <strong>produksi multimedia</strong>.
-              </p>
-              <p>
-                Di luar jam sekolah, saya aktif memimpin publikasi digital sebagai Ketua Sekbid 9 OSIS, bertugas sebagai operator switcher dan kameramen utama tim multimedia, serta menerima proyek freelance video editing dan dokumentasi acara.
+                Selain mendalami animasi 3D dan 2D, saya aktif di bidang <strong>Multimedia</strong> sebagai Ketua Sekbid 9 (Media Sosial &amp; TIK) OSIS SMKN 4 Madiun masa bakti 2025/2026, anggota tim live streaming switcher &amp; kamera, serta menerima proyek lepas videografi dan video editing.
               </p>
             </div>
           </div>
         </div>
 
-        <!-- Software Proficiency Bars -->
-        <div class="section-block">
-          <div class="section-header reveal">
-            <span class="mono-label section-eyebrow">TECHNICAL STACK // SELF-ASSESSED</span>
-            <h2 class="section-title">Penguasaan Perangkat Lunak</h2>
+        <!-- Software Proficiency -->
+        <div class="section-block reveal">
+          <div class="section-header">
+            <span class="mono-label section-eyebrow">PENGUASAAN PERANGKAT LUNAK</span>
+            <h2 class="section-title">Creative Toolchain</h2>
           </div>
 
           <div class="proficiency-list" id="skillsBars">
-            <div class="prof-item interactive-surface reveal">
+            <div class="prof-item interactive-surface">
               <div class="prof-header">
                 <div>
                   <h3 class="prof-name">CapCut</h3>
-                  <p class="prof-sub">Fast-paced editing, beat-sync reels, color adjustment, &amp; social media content</p>
+                  <p class="prof-sub">Video Editing, Beat-Sync Reels &amp; After Movie</p>
                 </div>
-                <span class="prof-percent mono-label">60%</span>
+                <span class="mono-label prof-percent">60%</span>
               </div>
-              <div class="prof-track">
-                <div class="prof-fill" style="width: 60%;"></div>
-              </div>
+              <div class="prof-track"><div class="prof-fill" style="width:60%;"></div></div>
             </div>
 
-            <div class="prof-item interactive-surface reveal">
+            <div class="prof-item interactive-surface">
               <div class="prof-header">
                 <div>
                   <h3 class="prof-name">KineMaster</h3>
-                  <p class="prof-sub">Mobile multi-layer video editing, audio mixing, &amp; quick event recap</p>
+                  <p class="prof-sub">Mobile Video Assembly &amp; Quick Cut</p>
                 </div>
-                <span class="prof-percent mono-label">40%</span>
+                <span class="mono-label prof-percent">40%</span>
               </div>
-              <div class="prof-track">
-                <div class="prof-fill" style="width: 40%;"></div>
-              </div>
+              <div class="prof-track"><div class="prof-fill" style="width:40%;"></div></div>
             </div>
 
-            <div class="prof-item interactive-surface reveal">
+            <div class="prof-item interactive-surface">
               <div class="prof-header">
                 <div>
                   <h3 class="prof-name">Blender</h3>
-                  <p class="prof-sub">3D character animation, Graph Editor curves, keyframing, &amp; dasar 3D modeling</p>
+                  <p class="prof-sub">3D Character Animation, Body Mechanics &amp; Graph Editor</p>
                 </div>
-                <span class="prof-percent mono-label">30%</span>
+                <span class="mono-label prof-percent">30%</span>
               </div>
-              <div class="prof-track">
-                <div class="prof-fill" style="width: 30%;"></div>
-              </div>
+              <div class="prof-track"><div class="prof-fill" style="width:30%;"></div></div>
             </div>
 
-            <div class="prof-item interactive-surface reveal">
+            <div class="prof-item interactive-surface">
               <div class="prof-header">
                 <div>
                   <h3 class="prof-name">Autodesk Maya</h3>
-                  <p class="prof-sub">Industry-standard character rigging workflow &amp; 3D animation staging</p>
+                  <p class="prof-sub">3D Animation Pipeline &amp; Camera Staging</p>
                 </div>
-                <span class="prof-percent mono-label">10%</span>
+                <span class="mono-label prof-percent">10%</span>
               </div>
-              <div class="prof-track">
-                <div class="prof-fill" style="width: 10%;"></div>
-              </div>
+              <div class="prof-track"><div class="prof-fill" style="width:10%;"></div></div>
             </div>
 
-            <div class="prof-item interactive-surface reveal">
+            <div class="prof-item interactive-surface">
               <div class="prof-header">
                 <div>
                   <h3 class="prof-name">Adobe After Effects</h3>
-                  <p class="prof-sub">Motion graphics dasar, compositing visual, &amp; keyframe transition</p>
+                  <p class="prof-sub">Motion Graphics &amp; Compositing Dasar</p>
                 </div>
-                <span class="prof-percent mono-label">10%</span>
+                <span class="mono-label prof-percent">10%</span>
               </div>
-              <div class="prof-track">
-                <div class="prof-fill" style="width: 10%;"></div>
-              </div>
+              <div class="prof-track"><div class="prof-fill" style="width:10%;"></div></div>
             </div>
           </div>
         </div>
 
-        <!-- 4 Info Boxes -->
-        <div class="about-quad-grid">
-          <div class="info-box interactive-surface reveal">
-            <span class="mono-label info-box-label">01 // EDUCATION</span>
-            <h3 class="info-box-title">Riwayat Pendidikan</h3>
-            <ul class="edu-list">
-              <li>
-                <strong>SMKN 4 Madiun</strong>
-                <span>Jurusan Animasi • Kelas 11 (2025 – Sekarang)</span>
-              </li>
-              <li>
-                <strong>SMP Santo Yusuf Madiun</strong>
-                <span>Pendidikan Menengah Pertama (2022 – 2025)</span>
-              </li>
-              <li>
-                <strong>SD STK Santo Bavo Madiun</strong>
-                <span>Pendidikan Dasar (Lulus 2022)</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="info-box interactive-surface reveal">
-            <span class="mono-label info-box-label">02 // SPECIALIZATION</span>
-            <h3 class="info-box-title">Keahlian Utama</h3>
-            <div class="pill-wrap">
-              <span class="skill-pill">3D Animation (Animate Division)</span>
-              <span class="skill-pill">3D Modeling (Dasar)</span>
-              <span class="skill-pill">2D Animation</span>
-              <span class="skill-pill">Video Editing</span>
-              <span class="skill-pill">Videography</span>
-              <span class="skill-pill">Live Streaming Switcher</span>
-              <span class="skill-pill">Broadcast &amp; DSLR Camera</span>
+        <!-- Education & AI Exploration -->
+        <div class="section-block reveal">
+          <div class="about-quad-grid">
+            <div class="info-box interactive-surface">
+              <span class="mono-label info-box-label">PENDIDIKAN</span>
+              <h3 class="info-box-title">Riwayat Sekolah</h3>
+              <ul class="edu-list">
+                <li>
+                  <strong>SMKN 4 Madiun</strong>
+                  <span>Jurusan Animasi • Kelas 11 (2025 – Sekarang)</span>
+                </li>
+                <li>
+                  <strong>SMP Santo Yusuf Madiun</strong>
+                  <span>Pendidikan Menengah Pertama (2022 – 2025)</span>
+                </li>
+                <li>
+                  <strong>SD STK Santo Bavo Madiun</strong>
+                  <span>Pendidikan Dasar (Lulus 2022)</span>
+                </li>
+              </ul>
             </div>
-          </div>
 
-          <div class="info-box interactive-surface reveal">
-            <span class="mono-label info-box-label">03 // AI EXPLORATION</span>
-            <h3 class="info-box-title">Eksplorasi Workflow AI</h3>
-            <p class="card-desc" style="margin-bottom:14px;">
-              Memanfaatkan kecerdasan buatan untuk riset referensi gerak, brainstorming skrip, dan pengembangan web portofolio:
-            </p>
-            <div class="pill-wrap">
-              <span class="skill-pill">Gemini</span>
-              <span class="skill-pill">Claude</span>
-              <span class="skill-pill">ChatGPT</span>
-              <span class="skill-pill">Qwen AI</span>
-              <span class="skill-pill">DeepSeek</span>
+            <div class="info-box interactive-surface">
+              <span class="mono-label info-box-label">EKSPLORASI TEKNOLOGI</span>
+              <h3 class="info-box-title">AI Workflow &amp; Minat</h3>
+              <p class="card-desc" style="margin-bottom:16px;">
+                Memanfaatkan kecerdasan buatan sebagai asisten riset referensi animasi, penyusunan naskah kreatif, serta pengembangan proyek web interaktif:
+              </p>
+              <div class="pill-wrap">
+                <span class="skill-pill">Gemini</span>
+                <span class="skill-pill">Claude</span>
+                <span class="skill-pill">ChatGPT</span>
+                <span class="skill-pill">Qwen AI</span>
+                <span class="skill-pill">DeepSeek</span>
+                <span class="skill-pill">Bulutangkis</span>
+                <span class="skill-pill">Catur</span>
+              </div>
             </div>
-          </div>
-
-          <div class="info-box interactive-surface reveal">
-            <span class="mono-label info-box-label">04 // INTERESTS &amp; GEAR</span>
-            <h3 class="info-box-title">Hobi &amp; Perangkat</h3>
-            <ul class="edu-list">
-              <li>
-                <strong>ASUS TUF Gaming A16 (FA607NUG)</strong>
-                <span>Workstation utama untuk rendering 3D &amp; editing video</span>
-              </li>
-              <li>
-                <strong>Badminton &amp; Catur</strong>
-                <span>Menjaga fokus strategi dan ketahanan fisik di luar layar</span>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ====================================================================
-         PAGE 3: PROJECTS (INTERACTIVE 3D DRAG-AND-GLIDE SHOWCASE)
+         PAGE 3: PROJECTS (18 WORKS IN 3D CAROUSEL)
          ==================================================================== -->
-    <section class="page-section" id="page-projects">
-      <div class="container page-top-pad" style="padding-bottom: 12px;">
+    <section id="page-projects" class="page-section">
+      <div class="container page-top-pad" style="padding-bottom:16px;">
         <div class="section-header reveal">
-          <span class="mono-label section-eyebrow">ARCHIVE // 18 CURATED WORKS</span>
-          <h1 class="section-title">Selected &amp; Archive Projects</h1>
-          <p class="section-subtitle">
-            Tarik (drag) ke kiri/kanan, gunakan scroll wheel, atau klik kartu untuk menelusuri 18 karya animasi 2D/3D dan produksi multimedia.
-          </p>
+          <span class="mono-label section-eyebrow">ARSIP KARYA (18 PROYEK)</span>
+          <h1 class="section-title">Eksplorasi Animasi &amp; Multimedia</h1>
+          <p class="section-subtitle">Geser kartu ke kiri atau kanan untuk menelusuri proyek 2D/3D Animation maupun produksi Multimedia.</p>
         </div>
 
-        <!-- Branch Switcher Tabs -->
-        <div class="branch-tabs" role="tablist">
-          <button type="button" class="branch-tab active" data-branch="2d3d" role="tab" aria-selected="true">
-            <span class="branch-num mono-label">01</span>
+        <!-- Main Branch Switcher -->
+        <div class="branch-tabs reveal" role="tablist">
+          <button type="button" class="branch-tab active" data-branch="2d3d" aria-selected="true">
+            <span class="mono-label branch-num">01</span>
             <div class="branch-text">
-              <strong>Karya 2D &amp; 3D</strong>
-              <span>Animasi Karakter, Body Mechanics, &amp; Modeling (10 Karya)</span>
+              <strong>2D &amp; 3D Animation</strong>
+              <span>10 Karya • Kelas 10 &amp; 11</span>
             </div>
           </button>
 
-          <button type="button" class="branch-tab" data-branch="mulmed" role="tab" aria-selected="false">
-            <span class="branch-num mono-label">02</span>
+          <button type="button" class="branch-tab" data-branch="mulmed" aria-selected="false">
+            <span class="mono-label branch-num">02</span>
             <div class="branch-text">
-              <strong>Multimedia &amp; Dokumentasi</strong>
-              <span>OSIS Sekbid 9, Tim Mulmed Switcher, &amp; Freelance (8 Karya)</span>
+              <strong>Multimedia &amp; Produksi</strong>
+              <span>8 Karya • OSIS, Tim Mulmed &amp; Freelance</span>
             </div>
           </button>
         </div>
 
-        <!-- Filter Panel Branch 1: 2D & 3D -->
+        <!-- Filters for 2D/3D -->
         <div class="filter-panel" id="filters-2d3d">
           <div class="filter-row">
-            <span class="filter-label mono-label">DIMENSI KARYA</span>
+            <span class="mono-label filter-label">DIMENSI KARYA</span>
             <div class="filter-pills" data-filter-group="type">
               <button type="button" class="filter-pill active" data-value="all">Semua</button>
               <button type="button" class="filter-pill" data-value="3d">3D</button>
@@ -820,7 +675,7 @@
           </div>
 
           <div class="filter-row">
-            <span class="filter-label mono-label">TINGKAT KELAS</span>
+            <span class="mono-label filter-label">TINGKAT KELAS</span>
             <div class="filter-pills" data-filter-group="grade">
               <button type="button" class="filter-pill active" data-value="all">Semua Kelas</button>
               <button type="button" class="filter-pill" data-value="11">Kelas 11</button>
@@ -829,7 +684,7 @@
           </div>
 
           <div class="filter-row">
-            <span class="filter-label mono-label">DIVISI FOKUS</span>
+            <span class="mono-label filter-label">DIVISI</span>
             <div class="filter-pills" data-filter-group="division">
               <button type="button" class="filter-pill active" data-value="all">Semua Divisi</button>
               <button type="button" class="filter-pill" data-value="animation">Animation</button>
@@ -838,23 +693,23 @@
           </div>
         </div>
 
-        <!-- Filter Panel Branch 2: Multimedia -->
-        <div class="filter-panel" id="filters-mulmed" style="display: none;">
+        <!-- Filters for Multimedia -->
+        <div class="filter-panel" id="filters-mulmed" style="display:none;">
           <div class="filter-row">
-            <span class="filter-label mono-label">KATEGORI PRODUKSI</span>
+            <span class="mono-label filter-label">KATEGORI PRODUKSI</span>
             <div class="filter-pills" data-filter-group="mulmedCat">
               <button type="button" class="filter-pill active" data-value="all">Semua</button>
               <button type="button" class="filter-pill" data-value="osis">OSIS Sekbid 9</button>
-              <button type="button" class="filter-pill" data-value="gereja">Tim Mulmed</button>
-              <button type="button" class="filter-pill" data-value="freelance">Freelance</button>
+              <button type="button" class="filter-pill" data-value="gereja">Tim Mulmed &amp; Live</button>
+              <button type="button" class="filter-pill" data-value="freelance">Freelance Klien</button>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Full-Bleed Edge-to-Edge Interactive 3D Carousel -->
+      <!-- Full-bleed 3D Carousel -->
       <div class="carousel-fullbleed">
-        <div class="carousel-ambient-backdrop" id="carouselBackdrop"></div>
+        <div class="carousel-ambient-backdrop"></div>
         <div class="carousel-stage" id="carouselStage"></div>
 
         <div class="carousel-controls">
@@ -864,7 +719,7 @@
         </div>
 
         <div class="carousel-counter-wrap">
-          <span class="mono-label" id="carouselCounter">01 / 10 • DRAG ATAU KLIK KARTU</span>
+          <span class="mono-label" id="carouselCounter">01 / 10</span>
         </div>
       </div>
     </section>
@@ -872,95 +727,84 @@
     <!-- ====================================================================
          PAGE 4: EXPERIENCE
          ==================================================================== -->
-    <section class="page-section" id="page-experience">
+    <section id="page-experience" class="page-section">
       <div class="container page-top-pad">
         <div class="section-header reveal">
-          <span class="mono-label section-eyebrow">TRACK RECORD // LEADERSHIP &amp; FIELD WORK</span>
-          <h1 class="section-title">Experience &amp; Training</h1>
-          <p class="section-subtitle">
-            Pengalaman kepemimpinan media sekolah, operasional produksi siaran langsung, freelance editing, dan pelatihan kompetensi industri.
-          </p>
+          <span class="mono-label section-eyebrow">PERJALANAN &amp; ORGANISASI</span>
+          <h1 class="section-title">Pengalaman Kreatif</h1>
+          <p class="section-subtitle">Rekam jejak kepemimpinan media sekolah, pelatihan kejuruan, produksi siaran langsung, serta proyek freelance.</p>
         </div>
 
-        <div class="timeline-list">
-          <article class="timeline-card interactive-surface reveal">
+        <div class="timeline-list reveal">
+          <article class="timeline-card interactive-surface">
             <div class="timeline-meta">
               <span class="tag-pill">2025 – 2026</span>
-              <span class="mono-label">OSIS SMKN 4 MADIUN</span>
+              <span class="mono-label">ORGANISASI SEKOLAH</span>
             </div>
-            <h3 class="timeline-title">Ketua Sekbid 9 (Media Sosial, TIK &amp; Humas)</h3>
+            <h3 class="timeline-title">Ketua Sekbid 9 (Media Sosial &amp; TIK / Humas) — OSIS SMKN 4 Madiun</h3>
             <p class="timeline-desc">
-              Memimpin tim publikasi dan dokumentasi sekolah, mengoordinasikan liputan upacara serta acara besar sekolah, memproduksi video after-movie, video profil jurusan, serta mengelola konten Instagram dan TikTok resmi sekolah.
+              Memimpin divisi publikasi dan dokumentasi digital OSIS. Mengoordinasikan liputan upacara, hari besar nasional, HUT sekolah, video profil jurusan kuliner, hingga pengelolaan konten resmi Instagram &amp; TikTok sekolah.
             </p>
           </article>
 
-          <article class="timeline-card interactive-surface reveal">
+          <article class="timeline-card interactive-surface">
+            <div class="timeline-meta">
+              <span class="tag-pill">APRIL 2026</span>
+              <span class="mono-label">PELATIHAN KEJURUAN</span>
+            </div>
+            <h3 class="timeline-title">Diklat Kompetensi Animasi Digital — UPT PTKK Dinas Pendidikan Prov. Jawa Timur</h3>
+            <p class="timeline-desc">
+              Mengikuti pelatihan intensif penguatan kompetensi IT dan animasi digital di Surabaya guna memperdalam standar alur produksi industri animasi.
+            </p>
+          </article>
+
+          <article class="timeline-card interactive-surface">
             <div class="timeline-meta">
               <span class="tag-pill">AKTIF</span>
-              <span class="mono-label">LIVE BROADCAST PRODUCTION</span>
+              <span class="mono-label">LIVE BROADCAST &amp; MULTIMEDIA</span>
             </div>
-            <h3 class="timeline-title">Operator Switcher &amp; Cameraman Utama — Tim Multimedia</h3>
+            <h3 class="timeline-title">Operator Switcher Live Streaming &amp; Kameramen Utama</h3>
             <p class="timeline-desc">
-              Bertugas mengendalikan perpindahan multi-kamera secara langsung melalui switcher dan OBS Studio, serta mengoperasikan broadcast camera dan camcorder untuk menjaga kestabilan visual siaran.
+              Bertugas mengoperasikan perangkat video switcher multi-kamera serta kamera broadcast/camcorder dalam mendukung kelancaran siaran langsung dan dokumentasi acara.
             </p>
           </article>
 
-          <article class="timeline-card interactive-surface reveal">
+          <article class="timeline-card interactive-surface">
             <div class="timeline-meta">
               <span class="tag-pill">FREELANCE</span>
-              <span class="mono-label">CLIENT COMMISSIONS</span>
+              <span class="mono-label">JASA KREATIF</span>
             </div>
             <h3 class="timeline-title">Freelance Video Editor &amp; Videographer</h3>
             <p class="timeline-desc">
-              Menerima pesanan jasa perekaman video kegiatan dan penyuntingan konten kreatif (highlight acara, video promosi, hingga konten vertikal Reels/TikTok) sesuai kebutuhan klien.
-            </p>
-          </article>
-
-          <article class="timeline-card interactive-surface reveal">
-            <div class="timeline-meta">
-              <span class="tag-pill">APRIL 2026</span>
-              <span class="mono-label">SURABAYA • JAWA TIMUR</span>
-            </div>
-            <h3 class="timeline-title">Pelatihan Kompetensi Animasi Digital &amp; IT — UPT PTKK Jatim</h3>
-            <p class="timeline-desc">
-              Mengikuti pelatihan intensif peningkatan kompetensi teknis animasi digital dan teknologi informasi yang diselenggarakan oleh UPT Pengembangan Teknis dan Keterampilan Kejuruan Dinas Pendidikan Provinsi Jawa Timur.
+              Menerima pesanan perekaman acara dan penyuntingan video dokumentasi, highlight kegiatan, serta konten vertikal berirama dinamis untuk klien.
             </p>
           </article>
         </div>
 
-        <div class="exp-subgrid">
-          <div class="info-box interactive-surface reveal">
-            <span class="mono-label info-box-label">COMPETITION EXPERIENCE</span>
-            <h3 class="info-box-title">Partisipasi Lomba &amp; Karya</h3>
+        <div class="exp-subgrid reveal">
+          <div class="info-box interactive-surface">
+            <span class="mono-label info-box-label">KOMPETISI &amp; PARTISIPASI</span>
+            <h3 class="info-box-title">Pengalaman Lomba</h3>
             <ul class="edu-list">
               <li>
-                <strong>FLS3N Bidang Film</strong>
-                <span>Berpartisipasi dalam produksi film pendek pelajar sebagai pengalaman kolaborasi sinematografi</span>
-              </li>
-              <li>
-                <strong>Lomba Film Klungkung</strong>
-                <span>Pengalaman produksi cerita visual dan penyuntingan naratif</span>
+                <strong>FLS3N &amp; Lomba Film Klungkung</strong>
+                <span>Partisipasi produksi film pendek sebagai pengalaman lapangan</span>
               </li>
               <li>
                 <strong>Potret Hebat Kawan SMK — Direktorat SMK</strong>
-                <span>Kontribusi fotografi dokumenter kegiatan belajar siswa SMK</span>
+                <span>Peserta kompetisi fotografi dokumenter aktivitas belajar</span>
               </li>
             </ul>
           </div>
 
-          <div class="info-box interactive-surface reveal">
-            <span class="mono-label info-box-label">HARDWARE HANDLING</span>
-            <h3 class="info-box-title">Pengoperasian Peralatan Lapangan</h3>
-            <p class="card-desc" style="margin-bottom:14px;">
-              Terbiasa menangani setup dan operasional perangkat produksi audio-visual secara mandiri maupun dalam tim:
-            </p>
+          <div class="info-box interactive-surface">
+            <span class="mono-label info-box-label">PERANGKAT KERJA</span>
+            <h3 class="info-box-title">Peralatan Produksi</h3>
             <div class="pill-wrap">
-              <span class="skill-pill">Broadcast Camera</span>
-              <span class="skill-pill">Camcorder</span>
-              <span class="skill-pill">DSLR &amp; Mirrorless</span>
-              <span class="skill-pill">Video Switcher</span>
-              <span class="skill-pill">Fluid Head Tripod</span>
-              <span class="skill-pill">OBS Live Setup</span>
+              <span class="skill-pill">ASUS TUF Gaming A16 (Ryzen 7)</span>
+              <span class="skill-pill">DSLR / Mirrorless</span>
+              <span class="skill-pill">Broadcast Camcorder</span>
+              <span class="skill-pill">OBS / Video Switcher</span>
             </div>
           </div>
         </div>
@@ -968,132 +812,96 @@
     </section>
 
     <!-- ====================================================================
-         PAGE 5: CONTACT (EDITORIAL LAYOUT SESUAI FOTO 1)
+         PAGE 5: CONTACT (EDITORIAL LAYOUT)
          ==================================================================== -->
-    <section class="page-section" id="page-contact">
+    <section id="page-contact" class="page-section">
       <div class="container page-top-pad">
-        <div class="contact-editorial-wrap">
-          <div class="contact-eyebrow-row reveal">
-            <span class="contact-eyebrow-num mono-label">01</span>
+        <div class="contact-editorial-wrap reveal">
+          <div class="contact-eyebrow-row">
+            <span class="mono-label contact-eyebrow-num">04</span>
             <span class="contact-eyebrow-line"></span>
-            <span class="mono-label">CONTACT</span>
+            <span class="mono-label">KONTAK &amp; KOLABORASI</span>
           </div>
 
-          <h1 class="contact-hero-title reveal">
-            Terima kasih telah <br />
-            berkunjung.
-          </h1>
-
-          <p class="contact-hero-desc reveal">
-            Apabila Anda tertarik untuk berdiskusi mengenai proyek, kolaborasi, atau ingin mengetahui lebih lanjut mengenai karya saya, saya dengan senang hati dapat dihubungi melalui email maupun media sosial.
+          <h1 class="contact-hero-title">Mari wujudkan karya bersama.</h1>
+          <p class="contact-hero-desc">
+            Terbuka untuk kesempatan magang studio animasi, kolaborasi proyek 3D Animation, maupun jasa videografi dan video editing di Madiun dan sekitarnya.
           </p>
 
-          <!-- Full-width Email Card -->
-          <div class="contact-email-banner interactive-surface reveal">
+          <div class="contact-email-banner interactive-surface">
             <div class="contact-email-info">
-              <span class="mono-label contact-mini-label">EMAIL</span>
-              <a href="mailto:greaven.kei@gmail.com" class="contact-email-address">
-                greaven.kei@gmail.com
-              </a>
-              <span class="mono-label contact-location-label">MADIUN, JAWA TIMUR</span>
+              <span class="mono-label contact-mini-label">EMAIL UTAMA</span>
+              <a href="mailto:greaven.kei@gmail.com" class="contact-email-address">greaven.kei@gmail.com</a>
+              <span class="mono-label contact-location-label">MADIUN, JAWA TIMUR • +62 895-6226-07368</span>
             </div>
 
-            <a href="mailto:greaven.kei@gmail.com" class="contact-email-btn">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="4" width="20" height="16" rx="3"></rect>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
+            <a href="mailto:greaven.kei@gmail.com?subject=Kolaborasi%20Proyek%20-%20Joprass" class="contact-email-btn">
               <span>Kirim Email</span>
+              <span>↗</span>
             </a>
           </div>
 
-          <!-- Social Media 2x2 Grid -->
-          <div class="contact-social-section reveal">
-            <span class="mono-label contact-social-heading">SOCIAL MEDIA</span>
+          <div class="contact-social-section">
+            <span class="mono-label contact-social-heading">TEMUKAN SAYA DI PLATFORM LAIN</span>
 
             <div class="contact-social-grid">
-              <!-- Instagram -->
-              <a
-                href="https://instagram.com/joprass_"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link-card interactive-surface"
-              >
+              <a href="https://wa.me/62895622607368" target="_blank" rel="noopener noreferrer" class="social-link-card interactive-surface">
                 <div class="social-card-left">
                   <div class="social-icon-wrap">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-                      <rect x="2" y="2" width="20" height="20" rx="5"></rect>
-                      <circle cx="12" cy="12" r="4"></circle>
-                      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
-                    </svg>
-                  </div>
-                  <div class="social-card-text">
-                    <strong>Instagram</strong>
-                    <span class="mono-label">@joprass_</span>
-                  </div>
-                </div>
-                <span class="social-arrow">↗</span>
-              </a>
-
-              <!-- TikTok -->
-              <a
-                href="https://tiktok.com/@keiyoshi.16"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link-card interactive-surface"
-              >
-                <div class="social-card-left">
-                  <div class="social-icon-wrap">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-                      <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
-                    </svg>
-                  </div>
-                  <div class="social-card-text">
-                    <strong>TikTok</strong>
-                    <span class="mono-label">@keiyoshi.16</span>
-                  </div>
-                </div>
-                <span class="social-arrow">↗</span>
-              </a>
-
-              <!-- YouTube -->
-              <a
-                href="https://youtube.com/@Joprass16"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link-card interactive-surface"
-              >
-                <div class="social-card-left">
-                  <div class="social-icon-wrap">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-                      <rect x="2" y="5" width="20" height="14" rx="4"></rect>
-                      <polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"></polygon>
-                    </svg>
-                  </div>
-                  <div class="social-card-text">
-                    <strong>YouTube</strong>
-                    <span class="mono-label">@Joprass16</span>
-                  </div>
-                </div>
-                <span class="social-arrow">↗</span>
-              </a>
-
-              <!-- WhatsApp -->
-              <a
-                href="https://wa.me/62895622607368"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link-card interactive-surface"
-              >
-                <div class="social-card-left">
-                  <div class="social-icon-wrap">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                     </svg>
                   </div>
                   <div class="social-card-text">
                     <strong>WhatsApp</strong>
                     <span class="mono-label">+62 895-6226-07368</span>
+                  </div>
+                </div>
+                <span class="social-arrow">↗</span>
+              </a>
+
+              <a href="https://github.com/greavenkei-byte" target="_blank" rel="noopener noreferrer" class="social-link-card interactive-surface">
+                <div class="social-card-left">
+                  <div class="social-icon-wrap">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                  </div>
+                  <div class="social-card-text">
+                    <strong>GitHub</strong>
+                    <span class="mono-label">@greavenkei-byte</span>
+                  </div>
+                </div>
+                <span class="social-arrow">↗</span>
+              </a>
+
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link-card interactive-surface">
+                <div class="social-card-left">
+                  <div class="social-icon-wrap">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                  </div>
+                  <div class="social-card-text">
+                    <strong>Instagram</strong>
+                    <span class="mono-label">@joprass</span>
+                  </div>
+                </div>
+                <span class="social-arrow">↗</span>
+              </a>
+
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link-card interactive-surface">
+                <div class="social-card-left">
+                  <div class="social-icon-wrap">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                  </div>
+                  <div class="social-card-text">
+                    <strong>YouTube / Showreel</strong>
+                    <span class="mono-label">Joprass Animation</span>
                   </div>
                 </div>
                 <span class="social-arrow">↗</span>
@@ -1105,28 +913,24 @@
     </section>
   </main>
 
-  <!-- ======================================================================
-       PROJECT QUICK PREVIEW MODAL
-       ====================================================================== -->
+  <!-- Project Detail Modal -->
   <div class="modal-backdrop" id="projectModal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button type="button" class="modal-close" id="modalClose" aria-label="Tutup Preview">✕</button>
+    <div class="modal-card">
+      <button type="button" class="modal-close" id="modalClose" aria-label="Tutup Detail">✕</button>
       <div class="modal-media" id="modalMedia"></div>
       <div class="modal-body">
         <div class="modal-badges" id="modalBadges"></div>
-        <h3 class="modal-title" id="modalTitle">Judul Karya</h3>
-        <p class="modal-desc" id="modalDesc">Deskripsi karya.</p>
+        <h3 class="modal-title" id="modalTitle"></h3>
+        <p class="modal-desc" id="modalDesc"></p>
         <div class="pill-wrap" id="modalTools"></div>
       </div>
     </div>
   </div>
 
-  <!-- ======================================================================
-       FOOTER
-       ====================================================================== -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <span class="mono-label">© 2026 GREAVEN KEIYOSHI PRASOJO (JOPRASS)</span>
+      <span class="mono-label">© 2026 JOPRASS — GREAVEN KEIYOSHI PRASOJO</span>
       <div class="footer-links mono-label">
         <button type="button" data-nav="home">HOME</button>
         <button type="button" data-nav="about">ABOUT</button>
@@ -1137,7 +941,6 @@
     </div>
   </footer>
 
-  <!-- Script Versi 6 -->
-  <script src="script.js?v=6"></script>
+  <script src="script.js"></script>
 </body>
 </html>
