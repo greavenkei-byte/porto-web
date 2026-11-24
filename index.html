@@ -17,8 +17,8 @@
     rel="stylesheet"
   />
 
-  <!-- Stylesheet Versi 5 -->
-  <link rel="stylesheet" href="style.css?v=5" />
+  <!-- Stylesheet Versi 6 -->
+  <link rel="stylesheet" href="style.css?v=6" />
 </head>
 <body>
   <!-- Cursor Ambient Glow -->
@@ -39,27 +39,18 @@
     <div class="container nav-container">
       <a href="#home" class="nav-brand" data-nav="home">
         <span class="brand-logo-badge" aria-hidden="true">
-          <img
-            src="assets/logo-jp.png"
-            alt="Logo JP"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-          />
-          <svg class="brand-logo-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <img class="user-logo-img" alt="Logo Joprass" style="display:none;" />
+          <svg class="brand-logo-svg user-logo-fallback" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="navJpSilver" x1="15" y1="15" x2="105" y2="105" gradientUnits="userSpaceOnUse">
+              <linearGradient id="navEmblemGrad" x1="16" y1="16" x2="104" y2="104" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stop-color="#FFFFFF" />
                 <stop offset="55%" stop-color="#CBD5E1" />
                 <stop offset="100%" stop-color="#64748B" />
               </linearGradient>
             </defs>
-            <path
-              d="M46 22H59V75C59 90.464 46.464 103 31 103C22 103 15 98.5 12 92L22 83.5C24 87.2 27 90 31 90C39.5 90 46 83.5 46 75V22Z"
-              fill="url(#navJpSilver)"
-            />
-            <path
-              d="M66 22H91C103.7 22 113 31 113 43.5C113 56 103.7 65 91 65H79V101H66V22ZM79 33.5V53.5H90C96.5 53.5 100.5 49.5 100.5 43.5C100.5 37.5 96.5 33.5 90 33.5H79Z"
-              fill="url(#navJpSilver)"
-            />
+            <polygon points="60,8 106,34 106,86 60,112 14,86 14,34" stroke="url(#navEmblemGrad)" stroke-width="6" fill="none" />
+            <path d="M52 32H62V72C62 82.5 53.5 91 43 91C36.5 91 31 87.8 28 83L35.5 76.5C37.2 79.2 39.8 81 43 81C48.2 81 52 77 52 72V32Z" fill="url(#navEmblemGrad)" />
+            <path d="M66 32H83C91.5 32 97.5 38 97.5 46C97.5 54 91.5 60 83 60H75V89H66V32ZM75 40.5V51.5H82.5C86.2 51.5 88.5 49.2 88.5 46C88.5 42.8 86.2 40.5 82.5 40.5H75Z" fill="url(#navEmblemGrad)" />
           </svg>
         </span>
         <span>JOPRASS</span>
@@ -177,69 +168,65 @@
           <div class="orbit-ring orbit-ring-mid"></div>
           <div class="orbit-ring orbit-ring-inner"></div>
 
-          <!-- Center JP Monogram Hub -->
+          <!-- Center Brand Logo Hub -->
           <div class="orbit-hub">
             <div class="orbit-hub-inner">
-              <svg class="jp-logo-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <img class="user-logo-img hub-user-logo" alt="Logo Joprass" style="display:none;" />
+              <svg class="jp-logo-svg user-logo-fallback" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                  <linearGradient id="jpSilver" x1="15" y1="15" x2="105" y2="105" gradientUnits="userSpaceOnUse">
+                  <linearGradient id="hubEmblemGrad" x1="14" y1="14" x2="106" y2="106" gradientUnits="userSpaceOnUse">
                     <stop offset="0%" stop-color="#FFFFFF" />
-                    <stop offset="55%" stop-color="#CBD5E1" />
+                    <stop offset="50%" stop-color="#E2E8F0" />
                     <stop offset="100%" stop-color="#64748B" />
                   </linearGradient>
                 </defs>
-                <path
-                  d="M46 24H58V74C58 88.3594 46.3594 100 32 100C23.5 100 17 96 14 90L23 82C25 85.5 28 88 32 88C40 88 46 82 46 74V24Z"
-                  fill="url(#jpSilver)"
-                />
-                <path
-                  d="M66 24H90C102.15 24 111 32.5 111 44.5C111 56.5 102.15 65 90 65H78V98H66V24ZM78 35V54H89C95.2 54 99 50.2 99 44.5C99 38.8 95.2 35 89 35H78Z"
-                  fill="url(#jpSilver)"
-                />
+                <polygon points="60,6 108,33 108,87 60,114 12,87 12,33" stroke="url(#hubEmblemGrad)" stroke-width="4.5" fill="none" />
+                <polygon points="60,14 100,37 100,83 60,106 20,83 20,37" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" fill="none" />
+                <path d="M52 32H62V72C62 82.5 53.5 91 43 91C36.5 91 31 87.8 28 83L35.5 76.5C37.2 79.2 39.8 81 43 81C48.2 81 52 77 52 72V32Z" fill="url(#hubEmblemGrad)" />
+                <path d="M66 32H83C91.5 32 97.5 38 97.5 46C97.5 54 91.5 60 83 60H75V89H66V32ZM75 40.5V51.5H82.5C86.2 51.5 88.5 49.2 88.5 46C88.5 42.8 86.2 40.5 82.5 40.5H75Z" fill="url(#hubEmblemGrad)" />
               </svg>
             </div>
           </div>
 
-          <!-- Orbiting Creative Software Badges -->
+          <!-- Orbiting Official Creative Software Logos -->
           <div class="orbit-track">
+            <!-- Node 1: Blender Official Logo -->
             <div class="orbit-node node-1">
               <div class="orbit-icon-card">
-                <svg viewBox="0 0 64 64" fill="none">
-                  <rect width="64" height="64" rx="14" fill="#18181F" />
-                  <circle cx="35" cy="35" r="13" stroke="#F97316" stroke-width="5" />
-                  <circle cx="35" cy="35" r="4.5" fill="#38BDF8" />
-                  <path d="M16 33L27 25M20 43L27 37M26 21L39 23" stroke="#F97316" stroke-width="4.5" stroke-linecap="round" />
-                </svg>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg"
+                  alt="Blender"
+                />
               </div>
             </div>
 
+            <!-- Node 2: CapCut Official Logo -->
             <div class="orbit-node node-2">
               <div class="orbit-icon-card">
-                <svg viewBox="0 0 64 64" fill="none">
-                  <rect width="64" height="64" rx="14" fill="#18181F" />
-                  <path d="M18 22L46 42M46 22L18 42" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
-                  <path d="M18 22H27M18 42H27M37 22H46M37 42H46" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
-                </svg>
+                <img
+                  src="https://api.iconify.design/simple-icons:capcut.svg?color=%23ffffff"
+                  alt="CapCut"
+                />
               </div>
             </div>
 
+            <!-- Node 3: Adobe After Effects Official Logo -->
             <div class="orbit-node node-3">
               <div class="orbit-icon-card">
-                <svg viewBox="0 0 64 64" fill="none">
-                  <rect width="64" height="64" rx="14" fill="#171530" />
-                  <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" fill="#A5B4FC" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="24">
-                    Ae
-                  </text>
-                </svg>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg"
+                  alt="Adobe After Effects"
+                />
               </div>
             </div>
 
+            <!-- Node 4: Autodesk Maya Official Logo -->
             <div class="orbit-node node-4">
               <div class="orbit-icon-card">
-                <svg viewBox="0 0 64 64" fill="none">
-                  <rect width="64" height="64" rx="14" fill="#122429" />
-                  <path d="M16 46L22 18L32 36L42 18L48 46" stroke="#2DD4BF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/fr/9/90/Autodesk_Maya.svg"
+                  alt="Autodesk Maya"
+                />
               </div>
             </div>
           </div>
@@ -543,7 +530,7 @@
     </section>
 
     <!-- ====================================================================
-         PAGE 2: ABOUT
+         PAGE 2: ABOUT (ID CARD DENGAN FOTO assets/1.jpeg & FISIKA BANDUL HALUS)
          ==================================================================== -->
     <section class="page-section" id="page-about">
       <div class="container page-top-pad">
@@ -553,62 +540,67 @@
             <div class="idcard-scene" id="idCardScene">
               <canvas id="lanyardCanvas" width="340" height="170"></canvas>
 
-              <div class="idcard-3d" id="idCard3d">
-                <!-- Front Face -->
-                <div class="idcard-face idcard-front">
-                  <div class="idcard-gloss"></div>
-                  <div>
-                    <div class="idcard-clip"></div>
-                    <div class="idcard-header">
-                      <span class="mono-label">CREATOR PASS // 2026</span>
-                      <span class="idcard-dot"></span>
+              <!-- Outer Pendulum Wrapper (handles position + Z-swing locked to ring) -->
+              <div class="idcard-pendulum" id="idCardPendulum">
+                <!-- Inner 3D Card Wrapper (handles 180° flip + subtle cursor tilt) -->
+                <div class="idcard-3d" id="idCard3d">
+                  <!-- Front Face -->
+                  <div class="idcard-face idcard-front">
+                    <div class="idcard-gloss"></div>
+                    <div>
+                      <div class="idcard-clip"></div>
+                      <div class="idcard-header">
+                        <span class="mono-label">CREATOR PASS // 2026</span>
+                        <span class="idcard-dot"></span>
+                      </div>
+                    </div>
+
+                    <div class="idcard-photo-frame">
+                      <img
+                        src="assets/1.jpeg"
+                        alt="Foto Greaven Keiyoshi"
+                        onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=500&q=80';"
+                      />
+                    </div>
+
+                    <div class="idcard-identity">
+                      <h2 class="idcard-name">GREAVEN KEIYOSHI</h2>
+                      <p class="idcard-role mono-label">3D ANIMATOR • MULTIMEDIA</p>
+                    </div>
+
+                    <div class="idcard-footer mono-label">
+                      <span>SMKN 4 MADIUN</span>
+                      <span>ID #JP-010</span>
                     </div>
                   </div>
 
-                  <div class="idcard-photo-frame">
-                    <img
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=500&q=80"
-                      alt="Foto Greaven Keiyoshi"
-                    />
-                  </div>
+                  <!-- Back Face -->
+                  <div class="idcard-face idcard-back">
+                    <div class="idcard-gloss"></div>
+                    <span class="mono-label" style="color:#94a3b8;">PORTFOLIO VERIFICATION</span>
 
-                  <div class="idcard-identity">
-                    <h2 class="idcard-name">GREAVEN KEIYOSHI</h2>
-                    <p class="idcard-role mono-label">3D ANIMATOR • MULTIMEDIA</p>
-                  </div>
+                    <div class="qr-box">
+                      <svg width="112" height="112" viewBox="0 0 100 100" fill="currentColor">
+                        <rect x="8" y="8" width="26" height="26" rx="3" fill="none" stroke="currentColor" stroke-width="6" />
+                        <rect x="15" y="15" width="12" height="12" />
+                        <rect x="66" y="8" width="26" height="26" rx="3" fill="none" stroke="currentColor" stroke-width="6" />
+                        <rect x="73" y="15" width="12" height="12" />
+                        <rect x="8" y="66" width="26" height="26" rx="3" fill="none" stroke="currentColor" stroke-width="6" />
+                        <rect x="15" y="73" width="12" height="12" />
+                        <rect x="44" y="12" width="10" height="10" />
+                        <rect x="44" y="32" width="12" height="12" />
+                        <rect x="14" y="44" width="14" height="10" />
+                        <rect x="42" y="54" width="16" height="16" />
+                        <rect x="68" y="46" width="12" height="12" />
+                        <rect x="66" y="70" width="24" height="10" />
+                        <rect x="46" y="78" width="12" height="14" />
+                      </svg>
+                    </div>
 
-                  <div class="idcard-footer mono-label">
-                    <span>SMKN 4 MADIUN</span>
-                    <span>ID #JP-010</span>
-                  </div>
-                </div>
-
-                <!-- Back Face -->
-                <div class="idcard-face idcard-back">
-                  <div class="idcard-gloss"></div>
-                  <span class="mono-label" style="color:#94a3b8;">PORTFOLIO VERIFICATION</span>
-
-                  <div class="qr-box">
-                    <svg width="112" height="112" viewBox="0 0 100 100" fill="currentColor">
-                      <rect x="8" y="8" width="26" height="26" rx="3" fill="none" stroke="currentColor" stroke-width="6" />
-                      <rect x="15" y="15" width="12" height="12" />
-                      <rect x="66" y="8" width="26" height="26" rx="3" fill="none" stroke="currentColor" stroke-width="6" />
-                      <rect x="73" y="15" width="12" height="12" />
-                      <rect x="8" y="66" width="26" height="26" rx="3" fill="none" stroke="currentColor" stroke-width="6" />
-                      <rect x="15" y="73" width="12" height="12" />
-                      <rect x="44" y="12" width="10" height="10" />
-                      <rect x="44" y="32" width="12" height="12" />
-                      <rect x="14" y="44" width="14" height="10" />
-                      <rect x="42" y="54" width="16" height="16" />
-                      <rect x="68" y="46" width="12" height="12" />
-                      <rect x="66" y="70" width="24" height="10" />
-                      <rect x="46" y="78" width="12" height="14" />
-                    </svg>
-                  </div>
-
-                  <div>
-                    <div class="idcard-back-handle">@joprass</div>
-                    <p class="idcard-back-sub mono-label">MADIUN • EAST JAVA, ID</p>
+                    <div>
+                      <div class="idcard-back-handle">@joprass</div>
+                      <p class="idcard-back-sub mono-label">MADIUN • EAST JAVA, ID</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -976,7 +968,7 @@
     </section>
 
     <!-- ====================================================================
-         PAGE 5: CONTACT (SESUAI SUSUNAN FOTO 1)
+         PAGE 5: CONTACT (EDITORIAL LAYOUT SESUAI FOTO 1)
          ==================================================================== -->
     <section class="page-section" id="page-contact">
       <div class="container page-top-pad">
@@ -1145,7 +1137,7 @@
     </div>
   </footer>
 
-  <!-- Script Versi 5 -->
-  <script src="script.js?v=5"></script>
+  <!-- Script Versi 6 -->
+  <script src="script.js?v=6"></script>
 </body>
 </html>
