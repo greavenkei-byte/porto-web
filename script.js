@@ -257,6 +257,8 @@ const state = {
 };
 
 let audioCtx = null;
+let refreshRevealsFn = null;
+let animateProficiencyFn = null;
 
 function ensureAudioContext() {
   if (!audioCtx) {
@@ -327,6 +329,9 @@ function playWhooshSound() {
    ========================================================================== */
 function bootPortfolioApp() {
   [
+    initInteractiveClickEffects,
+    initScrollReveal,
+    initProficiencyBars,
     initCursorFollower,
     initThemeAndSound,
     initNavigation,
@@ -348,6 +353,160 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', bootPortfolioApp);
 } else {
   bootPortfolioApp();
+}
+
+/* ==========================================================================
+   1. UNIVERSAL CLICK RIPPLE & INTERACTIVE WORKFLOW STEPS
+   ========================================================================== */
+function initInteractiveClickEffects() {
+  const interactiveSelector = [
+    '.btn',
+    '.icon-btn',
+    '.nav-link',
+    '.mobile-nav-link',
+    '.branch-tab',
+    '.filter-pill',
+    '.workflow-step',
+    '.capability-card',
+    '.work-preview-card',
+    '.timeline-card',
+    '.info-box',
+    '.contact-item',
+    '.skill-pill',
+    '.prof-item',
+    '.carousel-nav-btn',
+    '.carousel-dot',
+    '.showreel-fallback-overlay'
+  ].join(', ');
+
+  document.addEventListener('pointerdown', (e) => {
+    const target = e.target.closest(interactiveSelector);
+    if (!target) return;
+
+    playClickSound();
+
+    // Ensure positioning for ripple
+    const computedPos = window.getComputedStyle(target).position;
+    if (computedPos === 'static') {
+      target.classList.add('has-ripple');
+    } else {
+      target.style.overflow = 'hidden';
+    }
+
+    const rect = target.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const ripple = document.createElement('span');
+    ripple.className = 'click-ripple';
+    ripple.style.width = `${size}px`;
+    ripple.style.height = `${size}px`;
+    ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+    ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+
+    target.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 620);
+
+    // Tactile spring animation
+    target.classList.remove('is-clicked');
+    void target.offsetWidth;
+    target.classList.add('is-clicked');
+    setTimeout(() => target.classList.remove('is-clicked'), 380);
+  });
+
+  // Make Workflow Steps (KEYFRAME 01 - 04) selectable on click
+  const workflowSteps = document.querySelectorAll('.workflow-step');
+  workflowSteps.forEach((step) => {
+    step.addEventListener('click', () => {
+      const wasSelected = step.classList.contains('is-selected');
+      workflowSteps.forEach((s) => s.classList.remove('is-selected'));
+      if (!wasSelected) {
+        step.classList.add('is-selected');
+      }
+    });
+  });
+}
+
+/* ==========================================================================
+   2. SAFE SCROLL & PAGE ENTRANCE REVEAL
+   ========================================================================== */
+function initScrollReveal() {
+  document.body.classList.add('anim-ready');
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    },
+    { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
+  );
+
+  reveals.forEach((el) => observer.observe(el));
+
+  refreshRevealsFn = () => {
+    const activePage = document.querySelector('.page-section.active');
+    if (!activePage) return;
+    activePage.querySelectorAll('.reveal').forEach((el, idx) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 60) {
+        setTimeout(() => el.classList.add('is-visible'), idx * 75);
+      } else {
+        el.classList.remove('is-visible');
+        observer.observe(el);
+      }
+    });
+  };
+
+  refreshRevealsFn();
+}
+
+/* ==========================================================================
+   3. ANIMATED SOFTWARE PROFICIENCY BARS (ABOUT PAGE)
+   ========================================================================== */
+function initProficiencyBars() {
+  const fills = document.querySelectorAll('#skillsBars .prof-fill');
+  if (!fills.length) return;
+
+  fills.forEach((fill) => {
+    const target = fill.style.width || '0%';
+    fill.setAttribute('data-target-width', target);
+    fill.style.width = '0%';
+  });
+
+  animateProficiencyFn = (resetFirst = false) => {
+    if (resetFirst) {
+      fills.forEach((f) => {
+        f.style.transition = 'none';
+        f.style.width = '0%';
+      });
+      void document.body.offsetWidth;
+    }
+
+    fills.forEach((fill, idx) => {
+      const target = fill.getAttribute('data-target-width') || '0%';
+      fill.style.transition = 'width 1s cubic-bezier(0.22, 1, 0.36, 1)';
+      setTimeout(() => {
+        fill.style.width = target;
+      }, 120 + idx * 110);
+    });
+  };
+
+  const skillsSection = document.getElementById('skillsBars');
+  if (skillsSection) {
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateProficiencyFn(false);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    obs.observe(skillsSection);
+  }
 }
 
 /* ==========================================================================
@@ -399,7 +558,6 @@ function initThemeAndSound() {
   }
 
   themeToggle?.addEventListener('click', () => {
-    playClickSound();
     const next = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     applyTheme(next);
   });
@@ -425,7 +583,6 @@ function initNavigation() {
   const mobileMenu = document.getElementById('mobileMenu');
 
   mobileMenuBtn?.addEventListener('click', () => {
-    playClickSound();
     mobileMenu?.classList.toggle('open');
   });
 
@@ -444,7 +601,6 @@ function initNavigation() {
       const id = Number(card.getAttribute('data-open-project'));
       const project = PROJECTS_DATA.find((p) => p.id === id);
       if (project) {
-        playClickSound();
         openProjectModal(project);
       }
     });
@@ -477,7 +633,15 @@ function navigateToPage(pageName) {
     window.scrollTo({ top: 0, behavior: 'instant' });
 
     if (pageName === 'projects') {
-      renderCarousel();
+      renderCarousel(true);
+    }
+
+    if (pageName === 'about' && animateProficiencyFn) {
+      animateProficiencyFn(true);
+    }
+
+    if (refreshRevealsFn) {
+      refreshRevealsFn();
     }
 
     setTimeout(() => {
@@ -499,11 +663,19 @@ function initShowreel() {
   });
 
   overlay.addEventListener('click', () => {
-    playClickSound();
-    overlay.classList.add('hidden');
-    video.play().catch(() => {
-      overlay.classList.remove('hidden');
-    });
+    video.play()
+      .then(() => {
+        overlay.classList.add('hidden');
+      })
+      .catch(() => {
+        let msg = overlay.querySelector('.showreel-status-msg');
+        if (!msg) {
+          msg = document.createElement('span');
+          msg.className = 'showreel-status-msg';
+          msg.textContent = 'File video showreel siap diputar setelah assets/showreel.mp4 diunggah';
+          overlay.appendChild(msg);
+        }
+      });
   });
 }
 
@@ -702,7 +874,7 @@ function initProjectsCarousel() {
       const branch = tab.getAttribute('data-branch');
       if (!branch || branch === state.branch) return;
 
-      playClickSound();
+      playWhooshSound();
       state.branch = branch;
       state.carouselIndex = 0;
 
@@ -719,7 +891,7 @@ function initProjectsCarousel() {
         filterPanels.mulmed.style.display = branch === 'mulmed' ? 'flex' : 'none';
       }
 
-      renderCarousel();
+      renderCarousel(true);
     });
   });
 
@@ -727,7 +899,6 @@ function initProjectsCarousel() {
     const groupName = group.getAttribute('data-filter-group');
     group.querySelectorAll('.filter-pill').forEach((pill) => {
       pill.addEventListener('click', () => {
-        playClickSound();
         group.querySelectorAll('.filter-pill').forEach((p) => p.classList.remove('active'));
         pill.classList.add('active');
 
@@ -735,7 +906,7 @@ function initProjectsCarousel() {
           state.filters[groupName] = pill.getAttribute('data-value') || 'all';
         }
         state.carouselIndex = 0;
-        renderCarousel();
+        renderCarousel(true);
       });
     });
   });
@@ -768,22 +939,27 @@ function initProjectsCarousel() {
     }
   }, { passive: true });
 
-  renderCarousel();
+  renderCarousel(false);
 }
 
 function stepCarousel(delta) {
   const items = getFilteredProjects();
   if (!items.length) return;
-  playClickSound();
   state.carouselIndex = (state.carouselIndex + delta + items.length) % items.length;
-  renderCarousel();
+  renderCarousel(false);
 }
 
-function renderCarousel() {
+function renderCarousel(animateStage = false) {
   const stage = document.getElementById('carouselStage');
   const dotsWrap = document.getElementById('carouselDots');
   const counterEl = document.getElementById('carouselCounter');
   if (!stage || !dotsWrap || !counterEl) return;
+
+  if (animateStage) {
+    stage.classList.remove('is-filtering');
+    void stage.offsetWidth;
+    stage.classList.add('is-filtering');
+  }
 
   const items = getFilteredProjects();
   stage.innerHTML = '';
@@ -856,12 +1032,10 @@ function renderCarousel() {
 
     card.addEventListener('click', () => {
       if (isCenter) {
-        playClickSound();
         openProjectModal(item);
       } else {
-        playClickSound();
         state.carouselIndex = idx;
-        renderCarousel();
+        renderCarousel(false);
       }
     });
 
@@ -872,9 +1046,8 @@ function renderCarousel() {
     dot.className = `carousel-dot${isCenter ? ' active' : ''}`;
     dot.setAttribute('aria-label', `Pilih karya ${idx + 1}`);
     dot.addEventListener('click', () => {
-      playClickSound();
       state.carouselIndex = idx;
-      renderCarousel();
+      renderCarousel(false);
     });
     dotsWrap.appendChild(dot);
   });
@@ -885,12 +1058,12 @@ function renderCarousel() {
 
 window.addEventListener('resize', () => {
   if (state.currentPage === 'projects') {
-    renderCarousel();
+    renderCarousel(false);
   }
 }, { passive: true });
 
 /* ==========================================================================
-   PROJECT QUICK PREVIEW MODAL
+   PROJECT QUICK PREVIEW MODAL (WITH SMOOTH SCALE & FADE)
    ========================================================================== */
 function initModal() {
   const modal = document.getElementById('projectModal');
@@ -918,6 +1091,8 @@ function openProjectModal(project) {
 
   if (!modal || !media || !badges || !title || !desc || !tools) return;
 
+  playWhooshSound();
+
   media.innerHTML = project.video
     ? `<video src="${project.video}" poster="${project.image}" controls autoplay playsinline></video>`
     : `<img src="${project.image}" alt="${project.title}" onerror="this.parentElement.style.display='none'" />`;
@@ -939,7 +1114,11 @@ function closeProjectModal() {
   playClickSound();
   modal.classList.remove('open');
   modal.setAttribute('aria-hidden', 'true');
-  if (media) media.innerHTML = '';
+  setTimeout(() => {
+    if (!modal.classList.contains('open') && media) {
+      media.innerHTML = '';
+    }
+  }, 340);
 }
 
 /* ==========================================================================
