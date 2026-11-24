@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Greaven Keiyoshi Prasojo — 3D Animator & Multimedia Creator</title>
+  <title>Greaven Keiyoshi Prasojo — 3D Animator &amp; Multimedia Creator</title>
   <meta name="description" content="Portofolio resmi Greaven Keiyoshi Prasojo (Joprass) — Siswa Jurusan Animasi SMKN 4 Madiun, 3D Character Animator, Videographer, dan Video Editor." />
   <link rel="icon" type="image/png" href="assets/logo-jp.png" />
 
-  <!-- Google Fonts: Space Grotesk (Judul Tegas), Plus Jakarta Sans (Teks Penerang), JetBrains Mono (Metadata) -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css" />
+  <!-- CSS Terpisah (dengan cache-buster ?v=3) -->
+  <link rel="stylesheet" href="style.css?v=3" />
 </head>
 <body>
   <!-- Subtle Cursor Shadow / Ambient Follower -->
@@ -105,7 +106,6 @@
          PAGE 1: HOME
     ========================================================== -->
     <section id="page-home" class="page-section active" aria-label="Home">
-      <!-- Hero Section -->
       <div class="hero-wrapper">
         <div class="container hero-grid">
           <div class="hero-content reveal">
@@ -134,14 +134,13 @@
           </div>
         </div>
 
-        <!-- Large Right-Edge Offset Orbit Stage (1/3 clipped at right viewport edge) -->
+        <!-- Large Right-Edge Offset Orbit Stage -->
         <div class="hero-orbit-stage" aria-hidden="true">
           <div class="orbit-ambient-glow"></div>
           <div class="orbit-ring orbit-ring-outer"></div>
           <div class="orbit-ring orbit-ring-mid"></div>
           <div class="orbit-ring orbit-ring-inner"></div>
 
-          <!-- Center JP Logo Hub (Properly padded so logo never overflows circle) -->
           <div class="orbit-hub">
             <div class="orbit-hub-inner">
               <img
@@ -150,23 +149,18 @@
                 class="jp-logo-img"
                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
               />
-              <!-- Precision Fallback SVG matching JP Monogram -->
               <svg class="jp-logo-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none;">
-                <!-- Slash Accent Top Right -->
                 <path d="M88 20L98 14L82 42L72 48L88 20Z" fill="#E11D48" />
-                <!-- Letter J (Red) -->
                 <path d="M54 28H68V74C68 89.5 57.5 98 42.5 98C31.5 98 23.5 92.5 20 83.5L32.5 77.5C34.5 82.5 38 85 42.5 85C49.5 85 54 80.5 54 72.5V28Z" fill="#E11D48" />
-                <!-- Letter P (White) -->
                 <path d="M58 42H83C96.5 42 105 50 105 62C105 74 96.5 82 83 82H72V96H58V42ZM72 54V70H81.5C87.5 70 91 66.8 91 62C91 57.2 87.5 54 81.5 54H72Z" fill="#FFFFFF" />
               </svg>
             </div>
           </div>
 
-          <!-- Rotating Track with 4 App Icons matching Reference Images -->
           <div class="orbit-track">
-            <!-- 1. CapCut (Top / 0 deg) -->
+            <!-- 1. CapCut -->
             <div class="orbit-node node-1" title="CapCut">
-              <div class="orbit-icon-card icon-capcut">
+              <div class="orbit-icon-card">
                 <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="64" height="64" rx="15" fill="#FFFFFF" />
                   <path d="M16 21.5L48 39.5V45L16 27V21.5Z" fill="#09090B" />
@@ -177,9 +171,9 @@
               </div>
             </div>
 
-            <!-- 2. Adobe After Effects (Right / 90 deg) -->
+            <!-- 2. Adobe After Effects -->
             <div class="orbit-node node-2" title="Adobe After Effects">
-              <div class="orbit-icon-card icon-ae">
+              <div class="orbit-icon-card">
                 <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="64" height="64" rx="15" fill="#00005B" />
                   <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="#9999FF" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="27" letter-spacing="-1">Ae</text>
@@ -187,35 +181,27 @@
               </div>
             </div>
 
-            <!-- 3. Blender (Bottom / 180 deg) -->
+            <!-- 3. Blender -->
             <div class="orbit-node node-3" title="Blender 3D">
-              <div class="orbit-icon-card icon-blender">
+              <div class="orbit-icon-card">
                 <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="64" height="64" rx="15" fill="#18181B" />
-                  <!-- Orange Arms & Ring -->
                   <path d="M35.5 16.5L25.5 24.2H15.5C13.8 24.2 12.5 25.5 12.5 27.2C12.5 28.9 13.8 30.2 15.5 30.2H22.2L13.2 37.2C11.9 38.2 11.7 40.1 12.7 41.4C13.7 42.7 15.6 42.9 16.9 41.9L24.5 36C24.2 37.2 24 38.5 24 39.8C24 47.4 30.2 53.5 37.8 53.5C45.4 53.5 51.5 47.4 51.5 39.8C51.5 35.1 49.1 30.9 45.5 28.4L39.2 17.5C38.3 16.1 36.7 15.6 35.5 16.5Z" fill="#EA7600" />
-                  <!-- White Inner Circle -->
                   <circle cx="37.8" cy="39.8" r="8.2" fill="#FFFFFF" />
-                  <!-- Blue Core -->
                   <circle cx="37.8" cy="39.8" r="4.8" fill="#265787" />
                 </svg>
               </div>
             </div>
 
-            <!-- 4. Autodesk Maya (Left / 270 deg) -->
+            <!-- 4. Autodesk Maya -->
             <div class="orbit-node node-4" title="Autodesk Maya">
-              <div class="orbit-icon-card icon-maya">
+              <div class="orbit-icon-card">
                 <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="64" height="64" rx="15" fill="#18181B" />
-                  <!-- Back Darker Teal Base -->
                   <path d="M21 19H49V51H21V19Z" fill="#28586B" />
-                  <!-- Left Cyan Bevel -->
                   <path d="M15 16L21 12V43L15 47V16Z" fill="#6CC4E0" />
-                  <!-- Main Front Cyan Block -->
                   <path d="M21 12H45C46.7 12 48 13.3 48 15V40H21V12Z" fill="#37A5CC" />
-                  <!-- Letter M -->
                   <path d="M26.5 33V19H30.5L34.5 26.8L38.5 19H42.5V33H39V24.2L35.3 31.2H33.7L30 24.2V33H26.5Z" fill="#FFFFFF" />
-                  <!-- Text AYA -->
                   <text x="35.5" y="48.5" text-anchor="middle" fill="#FFFFFF" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="8.5" letter-spacing="1.2">AYA</text>
                 </svg>
               </div>
@@ -316,7 +302,6 @@
         </div>
 
         <div class="capabilities-grid">
-          <!-- Capability Card 1 -->
           <article class="capability-card interactive-surface">
             <div class="cap-card-shine"></div>
             <div class="cap-top">
@@ -346,7 +331,6 @@
             </div>
           </article>
 
-          <!-- Capability Card 2 -->
           <article class="capability-card interactive-surface">
             <div class="cap-card-shine"></div>
             <div class="cap-top">
@@ -489,13 +473,11 @@
     <section id="page-about" class="page-section" aria-label="About">
       <div class="container page-top-pad">
         <div class="about-hero-grid">
-          <!-- Left: Interactive 3D Hanging ID Card -->
           <div class="idcard-column reveal">
             <div class="idcard-scene" id="idCardScene">
               <canvas id="lanyardCanvas" width="340" height="170" aria-hidden="true"></canvas>
 
               <div class="idcard-3d" id="idCard3d">
-                <!-- Front Face -->
                 <div class="idcard-face idcard-front">
                   <div class="idcard-gloss"></div>
                   <div class="idcard-clip"></div>
@@ -527,14 +509,12 @@
                   </div>
                 </div>
 
-                <!-- Back Face -->
                 <div class="idcard-face idcard-back">
                   <div class="idcard-gloss"></div>
                   <div class="idcard-clip"></div>
                   <span class="mono-label">SCAN TO CONNECT</span>
 
                   <div class="qr-box">
-                    <!-- Clean Vector QR Graphic for @joprass_ -->
                     <svg viewBox="0 0 100 100" width="130" height="130" fill="currentColor" aria-label="QR Code Instagram @joprass_">
                       <rect x="8" y="8" width="26" height="26" rx="3" fill="none" stroke="currentColor" stroke-width="5"/>
                       <rect x="15" y="15" width="12" height="12"/>
@@ -565,7 +545,6 @@
             </div>
           </div>
 
-          <!-- Right: Bio & Journey -->
           <div class="about-bio-column reveal">
             <span class="mono-label section-eyebrow">01 —— ABOUT ME</span>
             <h2 class="section-title">
@@ -586,7 +565,6 @@
           </div>
         </div>
 
-        <!-- Section 02: Tools & Proficiency -->
         <div class="section-block reveal">
           <div class="section-header">
             <span class="mono-label section-eyebrow">02 —— TOOLS &amp; PROFICIENCY</span>
@@ -605,7 +583,7 @@
                 <span class="mono-label prof-percent">40%</span>
               </div>
               <div class="prof-track">
-                <div class="prof-fill" data-width="40%" style="width: 40%;"></div>
+                <div class="prof-fill" style="width: 40%;"></div>
               </div>
             </div>
 
@@ -618,7 +596,7 @@
                 <span class="mono-label prof-percent">10%</span>
               </div>
               <div class="prof-track">
-                <div class="prof-fill" data-width="10%" style="width: 10%;"></div>
+                <div class="prof-fill" style="width: 10%;"></div>
               </div>
             </div>
 
@@ -631,7 +609,7 @@
                 <span class="mono-label prof-percent">10%</span>
               </div>
               <div class="prof-track">
-                <div class="prof-fill" data-width="10%" style="width: 10%;"></div>
+                <div class="prof-fill" style="width: 10%;"></div>
               </div>
             </div>
 
@@ -644,7 +622,7 @@
                 <span class="mono-label prof-percent">70%</span>
               </div>
               <div class="prof-track">
-                <div class="prof-fill" data-width="70%" style="width: 70%;"></div>
+                <div class="prof-fill" style="width: 70%;"></div>
               </div>
             </div>
 
@@ -657,13 +635,12 @@
                 <span class="mono-label prof-percent">50%</span>
               </div>
               <div class="prof-track">
-                <div class="prof-fill" data-width="50%" style="width: 50%;"></div>
+                <div class="prof-fill" style="width: 50%;"></div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Section 03: Skills, AI Exploration, Organization & Education -->
         <div class="section-block reveal">
           <div class="section-header">
             <span class="mono-label section-eyebrow">03 —— ECOSYSTEM &amp; BACKGROUND</span>
@@ -673,7 +650,6 @@
           </div>
 
           <div class="about-quad-grid">
-            <!-- Core Skills (Without 3D Logo Bumper) -->
             <div class="info-box interactive-surface">
               <span class="mono-label info-box-label">KEAHLIAN UTAMA</span>
               <h3 class="info-box-title">Core Skills</h3>
@@ -687,7 +663,6 @@
               </div>
             </div>
 
-            <!-- AI Exploration (Added ChatGPT, Grok, Meta AI) -->
             <div class="info-box interactive-surface">
               <span class="mono-label info-box-label">EKSPLORASI AI</span>
               <h3 class="info-box-title">AI Creative Workflow</h3>
@@ -702,7 +677,6 @@
               </div>
             </div>
 
-            <!-- Organization & Field -->
             <div class="info-box interactive-surface">
               <span class="mono-label info-box-label">ORGANISASI &amp; LAPANGAN</span>
               <h3 class="info-box-title">Peran &amp; Tanggung Jawab</h3>
@@ -714,7 +688,6 @@
               </div>
             </div>
 
-            <!-- Education (Added SMPK Santo Yusuf & SDK Santo Bavo) -->
             <div class="info-box interactive-surface">
               <span class="mono-label info-box-label">RIWAYAT PENDIDIKAN</span>
               <h3 class="info-box-title">Pendidikan</h3>
@@ -753,7 +726,6 @@
           </p>
         </div>
 
-        <!-- 2 Main Branch Tabs -->
         <div class="branch-tabs reveal" role="tablist">
           <button type="button" class="branch-tab active" data-branch="2d3d" role="tab" aria-selected="true">
             <span class="branch-num mono-label">01</span>
@@ -772,7 +744,6 @@
           </button>
         </div>
 
-        <!-- Filter Panel: Branch 01 (2D & 3D) -->
         <div id="filters-2d3d" class="filter-panel reveal">
           <div class="filter-row">
             <span class="mono-label filter-label">1. Tipe Karya:</span>
@@ -802,7 +773,6 @@
           </div>
         </div>
 
-        <!-- Filter Panel: Branch 02 (Multimedia - 8 Panels) -->
         <div id="filters-mulmed" class="filter-panel reveal" style="display:none;">
           <div class="filter-row">
             <span class="mono-label filter-label">Kategori Tugas:</span>
@@ -816,7 +786,6 @@
         </div>
       </div>
 
-      <!-- Full-Width Edge-to-Edge Carousel Stage (Spans 100vw left-to-right with periodic glossy sweep on active center panel) -->
       <div class="carousel-fullbleed reveal">
         <div class="carousel-stage" id="carouselStage" aria-live="polite"></div>
 
@@ -843,7 +812,6 @@
           </h2>
         </div>
 
-        <!-- Main Experience Timeline -->
         <div class="timeline-list reveal">
           <article class="timeline-card interactive-surface">
             <div class="timeline-meta">
@@ -879,7 +847,6 @@
           </article>
         </div>
 
-        <!-- Competitions, Training & Education Grid -->
         <div class="exp-subgrid reveal">
           <div class="info-box interactive-surface">
             <span class="mono-label info-box-label">KOMPETISI &amp; PARTISIPASI</span>
@@ -985,7 +952,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary btn-full">
-              Kirim via WhatsApp / Email <span aria-hidden="true">→</span>
+              Kirim via WhatsApp <span aria-hidden="true">→</span>
             </button>
           </form>
         </div>
@@ -1021,6 +988,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- JavaScript Terpisah (dengan cache-buster ?v=3) -->
+  <script src="script.js?v=3"></script>
 </body>
 </html>
