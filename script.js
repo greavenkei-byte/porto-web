@@ -699,6 +699,7 @@ function initIdCardPhysics() {
   const ctx = canvas.getContext('2d');
 
   let isFlipped = false;
+  let currentFlipDeg = 0;
   let isDragging = false;
   let dragMoved = false;
   let startX = 0;
@@ -716,7 +717,7 @@ function initIdCardPhysics() {
   function toggleFlip() {
     isFlipped = !isFlipped;
     playWhooshSound();
-    angularVel += (isFlipped ? 1 : -1) * 0.045;
+    angularVel += (isFlipped ? 1 : -1) * 0.05;
   }
 
   flipBtn?.addEventListener('click', (e) => {
@@ -738,7 +739,7 @@ function initIdCardPhysics() {
     if (isDragging) {
       const nextX = Math.max(-75, Math.min(75, e.clientX - startX));
       const nextY = Math.max(-25, Math.min(55, e.clientY - startY));
-      if (Math.hypot(nextX - offsetX, nextY - offsetY) > 3) {
+      if (Math.hypot(nextX - offsetX, nextY - offsetY) > 4) {
         dragMoved = true;
       }
       offsetX = nextX;
@@ -754,7 +755,8 @@ function initIdCardPhysics() {
       ) {
         const nx = (e.clientX - rect.left) / rect.width - 0.5;
         const ny = (e.clientY - rect.top) / rect.height - 0.5;
-        tiltY = nx * 16;
+        const dirSign = isFlipped ? -1 : 1;
+        tiltY = nx * 16 * dirSign;
         tiltX = -ny * 14;
       } else {
         tiltX *= 0.9;
@@ -829,13 +831,14 @@ function initIdCardPhysics() {
       angle += angularVel;
     }
 
-    const flipDeg = isFlipped ? 180 : 0;
+    const targetFlipDeg = isFlipped ? 180 : 0;
+    currentFlipDeg += (targetFlipDeg - currentFlipDeg) * 0.14;
     const swingDeg = (angle * 180) / Math.PI;
 
     card.style.transform = `
       translate3d(${offsetX.toFixed(2)}px, ${offsetY.toFixed(2)}px, 0)
       rotateZ(${swingDeg.toFixed(2)}deg)
-      rotateY(${(flipDeg + tiltY).toFixed(2)}deg)
+      rotateY(${(currentFlipDeg + tiltY).toFixed(2)}deg)
       rotateX(${tiltX.toFixed(2)}deg)
     `;
 
