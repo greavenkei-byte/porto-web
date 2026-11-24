@@ -541,12 +541,17 @@ function initThemeAndSound() {
   const soundToggle = document.getElementById('soundToggle');
   const htmlEl = document.documentElement;
 
-  const savedTheme = localStorage.getItem('joprass_theme') || 'dark';
+  let savedTheme = 'dark';
+  try {
+    savedTheme = localStorage.getItem('joprass_theme') || 'dark';
+  } catch (_) {}
   applyTheme(savedTheme);
 
   function applyTheme(theme) {
     htmlEl.setAttribute('data-theme', theme);
-    localStorage.setItem('joprass_theme', theme);
+    try {
+      localStorage.setItem('joprass_theme', theme);
+    } catch (_) {}
     const sunIcon = themeToggle?.querySelector('.icon-sun');
     const moonIcon = themeToggle?.querySelector('.icon-moon');
     if (sunIcon && moonIcon) {
@@ -724,7 +729,9 @@ function initIdCardPhysics() {
     dragMoved = false;
     startX = e.clientX - offsetX;
     startY = e.clientY - offsetY;
-    card.setPointerCapture(e.pointerId);
+    try {
+      card.setPointerCapture(e.pointerId);
+    } catch (_) {}
   });
 
   window.addEventListener('pointermove', (e) => {
@@ -874,7 +881,6 @@ function initProjectsCarousel() {
   let cardEls = [];
   let dotEls = [];
 
-  // Continuous physics position for ultra-smooth 60fps 3D glide
   let continuousPos = 0;
   let targetPos = 0;
   let velocity = 0;
@@ -885,7 +891,6 @@ function initProjectsCarousel() {
   let lastPointerX = 0;
   let lastAnnouncedIdx = -1;
 
-  // Hover 3D tilt on center card
   let hoverTiltX = 0;
   let hoverTiltY = 0;
 
@@ -988,7 +993,6 @@ function initProjectsCarousel() {
 
   resetCarouselPhysicsFn = rebuildStage;
 
-  // Pointer Drag-to-Slide (Mouse + Touch)
   stage.addEventListener('pointerdown', (e) => {
     if (!currentItems.length) return;
     isGrabbing = true;
@@ -1001,7 +1005,6 @@ function initProjectsCarousel() {
   });
 
   window.addEventListener('pointermove', (e) => {
-    // 3D cursor tilt on active center card when hovering stage
     const rect = stage.getBoundingClientRect();
     if (
       e.clientX >= rect.left &&
@@ -1043,7 +1046,6 @@ function initProjectsCarousel() {
     }
   });
 
-  // Trackpad / Wheel Horizontal & Vertical-to-Horizontal Glide
   let wheelTimeout = null;
   stage.addEventListener('wheel', (e) => {
     if (!currentItems.length) return;
@@ -1058,7 +1060,6 @@ function initProjectsCarousel() {
     }, 110);
   }, { passive: false });
 
-  // 60FPS Render Loop for Silk-Smooth 3D Perspective & Velocity Skew
   function animateShowcase() {
     if (state.currentPage === 'projects' && cardEls.length) {
       const prevPos = continuousPos;
@@ -1089,7 +1090,6 @@ function initProjectsCarousel() {
           ? 1.05 - absOffset * 0.08
           : Math.max(0.74, 0.94 - absOffset * 0.048);
 
-        // Dynamic 3D rotation + velocity lean like reference video
         const velLean = Math.max(-12, Math.min(12, frameVel * 48));
         const baseRotateY = -offset * 11 + velLean;
         const extraX = isCenter ? hoverTiltX * (1 - absOffset * 2) : 0;
@@ -1113,7 +1113,6 @@ function initProjectsCarousel() {
   }
   animateShowcase();
 
-  // Branch Tabs & Filters
   const branchTabs = document.querySelectorAll('.branch-tab');
   const filterPanels = {
     '2d3d': document.getElementById('filters-2d3d'),
