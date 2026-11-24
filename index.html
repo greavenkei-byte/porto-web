@@ -17,8 +17,8 @@
     rel="stylesheet"
   />
 
-  <!-- Stylesheet Versi 4 -->
-  <link rel="stylesheet" href="style.css?v=4" />
+  <!-- Stylesheet Versi 5 -->
+  <link rel="stylesheet" href="style.css?v=5" />
 </head>
 <body>
   <!-- Cursor Ambient Glow -->
@@ -33,12 +33,35 @@
   </div>
 
   <!-- ======================================================================
-       NAVBAR
+       NAVBAR (DENGAN LOGO JP DI SAMPING TULISAN JOPRASS)
        ====================================================================== -->
   <header class="navbar">
     <div class="container nav-container">
       <a href="#home" class="nav-brand" data-nav="home">
-        <span class="brand-dot"></span>
+        <span class="brand-logo-badge" aria-hidden="true">
+          <img
+            src="assets/logo-jp.png"
+            alt="Logo JP"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <svg class="brand-logo-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="navJpSilver" x1="15" y1="15" x2="105" y2="105" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FFFFFF" />
+                <stop offset="55%" stop-color="#CBD5E1" />
+                <stop offset="100%" stop-color="#64748B" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M46 22H59V75C59 90.464 46.464 103 31 103C22 103 15 98.5 12 92L22 83.5C24 87.2 27 90 31 90C39.5 90 46 83.5 46 75V22Z"
+              fill="url(#navJpSilver)"
+            />
+            <path
+              d="M66 22H91C103.7 22 113 31 113 43.5C113 56 103.7 65 91 65H79V101H66V22ZM79 33.5V53.5H90C96.5 53.5 100.5 49.5 100.5 43.5C100.5 37.5 96.5 33.5 90 33.5H79Z"
+              fill="url(#navJpSilver)"
+            />
+          </svg>
+        </span>
         <span>JOPRASS</span>
       </a>
 
@@ -165,12 +188,10 @@
                     <stop offset="100%" stop-color="#64748B" />
                   </linearGradient>
                 </defs>
-                <!-- Letter J -->
                 <path
                   d="M46 24H58V74C58 88.3594 46.3594 100 32 100C23.5 100 17 96 14 90L23 82C25 85.5 28 88 32 88C40 88 46 82 46 74V24Z"
                   fill="url(#jpSilver)"
                 />
-                <!-- Letter P -->
                 <path
                   d="M66 24H90C102.15 24 111 32.5 111 44.5C111 56.5 102.15 65 90 65H78V98H66V24ZM78 35V54H89C95.2 54 99 50.2 99 44.5C99 38.8 95.2 35 89 35H78Z"
                   fill="url(#jpSilver)"
@@ -181,7 +202,6 @@
 
           <!-- Orbiting Creative Software Badges -->
           <div class="orbit-track">
-            <!-- Node 1: Blender -->
             <div class="orbit-node node-1">
               <div class="orbit-icon-card">
                 <svg viewBox="0 0 64 64" fill="none">
@@ -193,7 +213,6 @@
               </div>
             </div>
 
-            <!-- Node 2: CapCut -->
             <div class="orbit-node node-2">
               <div class="orbit-icon-card">
                 <svg viewBox="0 0 64 64" fill="none">
@@ -204,7 +223,6 @@
               </div>
             </div>
 
-            <!-- Node 3: After Effects -->
             <div class="orbit-node node-3">
               <div class="orbit-icon-card">
                 <svg viewBox="0 0 64 64" fill="none">
@@ -216,7 +234,6 @@
               </div>
             </div>
 
-            <!-- Node 4: Autodesk Maya -->
             <div class="orbit-node node-4">
               <div class="orbit-icon-card">
                 <svg viewBox="0 0 64 64" fill="none">
@@ -275,7 +292,12 @@
 
         <div class="showreel-card interactive-surface reveal">
           <div class="showreel-media">
-            <video class="showreel-video" src="assets/showreel.mp4" poster="assets/showreel-poster.jpg" controls playsinline></video>
+            <img
+              class="showreel-poster-img"
+              src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1280&q=80"
+              alt="Preview Showreel 3D Animation & Multimedia"
+            />
+            <video class="showreel-video" src="assets/showreel.mp4" playsinline></video>
             <div class="showreel-fallback-overlay" id="showreelFallback">
               <div class="showreel-play-ring">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
@@ -312,7 +334,6 @@
         </div>
 
         <div class="capabilities-grid">
-          <!-- Card 1: 3D & 2D Animation -->
           <article class="capability-card interactive-surface reveal">
             <div class="cap-card-shine"></div>
             <div class="cap-top">
@@ -355,7 +376,6 @@
             </div>
           </article>
 
-          <!-- Card 2: Multimedia & Video Production -->
           <article class="capability-card interactive-surface reveal">
             <div class="cap-card-shine"></div>
             <div class="cap-top">
@@ -414,7 +434,10 @@
         <div class="selected-works-grid">
           <article class="work-preview-card interactive-surface reveal" data-open-project="0">
             <div class="work-thumb">
-              <img src="assets/work-3d-body.jpg" alt="3D Character Body Mechanics" onerror="this.style.display='none'" />
+              <img
+                src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=80"
+                alt="3D Character Body Mechanics"
+              />
               <span class="work-badge mono-label">3D ANIMATION • KLS 11</span>
             </div>
             <div class="work-body">
@@ -427,7 +450,10 @@
 
           <article class="work-preview-card interactive-surface reveal" data-open-project="1">
             <div class="work-thumb">
-              <img src="assets/work-3d-acting.jpg" alt="3D Character Acting & Expression" onerror="this.style.display='none'" />
+              <img
+                src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=900&q=80"
+                alt="3D Character Acting & Expression"
+              />
               <span class="work-badge mono-label">3D ANIMATION • KLS 11</span>
             </div>
             <div class="work-body">
@@ -440,7 +466,10 @@
 
           <article class="work-preview-card interactive-surface reveal" data-open-project="10">
             <div class="work-thumb">
-              <img src="assets/work-osis-aftermovie.jpg" alt="After Movie & Event Recap OSIS" onerror="this.style.display='none'" />
+              <img
+                src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=900&q=80"
+                alt="After Movie & Event Recap OSIS"
+              />
               <span class="work-badge mono-label">OSIS SEKBID 9 • EDITING</span>
             </div>
             <div class="work-body">
@@ -538,11 +567,9 @@
 
                   <div class="idcard-photo-frame">
                     <img
-                      src="assets/profile.jpg"
+                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=500&q=80"
                       alt="Foto Greaven Keiyoshi"
-                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                     />
-                    <div class="idcard-photo-fallback" style="display:none;">JP</div>
                   </div>
 
                   <div class="idcard-identity">
@@ -758,7 +785,7 @@
     </section>
 
     <!-- ====================================================================
-         PAGE 3: PROJECTS
+         PAGE 3: PROJECTS (INTERACTIVE 3D DRAG-AND-GLIDE SHOWCASE)
          ==================================================================== -->
     <section class="page-section" id="page-projects">
       <div class="container page-top-pad" style="padding-bottom: 12px;">
@@ -766,7 +793,7 @@
           <span class="mono-label section-eyebrow">ARCHIVE // 18 CURATED WORKS</span>
           <h1 class="section-title">Selected &amp; Archive Projects</h1>
           <p class="section-subtitle">
-            Pilih cabang karya di bawah ini dan gunakan filter untuk menelusuri eksplorasi animasi 2D/3D maupun dokumentasi multimedia.
+            Tarik (drag) ke kiri/kanan, gunakan scroll wheel, atau klik kartu untuk menelusuri 18 karya animasi 2D/3D dan produksi multimedia.
           </p>
         </div>
 
@@ -833,8 +860,9 @@
         </div>
       </div>
 
-      <!-- Full-Bleed Edge-to-Edge 3D Carousel -->
+      <!-- Full-Bleed Edge-to-Edge Interactive 3D Carousel -->
       <div class="carousel-fullbleed">
+        <div class="carousel-ambient-backdrop" id="carouselBackdrop"></div>
         <div class="carousel-stage" id="carouselStage"></div>
 
         <div class="carousel-controls">
@@ -844,7 +872,7 @@
         </div>
 
         <div class="carousel-counter-wrap">
-          <span class="mono-label" id="carouselCounter">01 / 10</span>
+          <span class="mono-label" id="carouselCounter">01 / 10 • DRAG ATAU KLIK KARTU</span>
         </div>
       </div>
     </section>
@@ -948,71 +976,138 @@
     </section>
 
     <!-- ====================================================================
-         PAGE 5: CONTACT
+         PAGE 5: CONTACT (SESUAI SUSUNAN FOTO 1)
          ==================================================================== -->
     <section class="page-section" id="page-contact">
       <div class="container page-top-pad">
-        <div class="contact-grid">
-          <div class="reveal">
-            <span class="mono-label section-eyebrow">GET IN TOUCH // COLLABORATION</span>
-            <h1 class="section-title">Mari Mulai Diskusi Proyek.</h1>
-            <p class="section-subtitle">
-              Hubungi saya untuk kebutuhan animasi karakter 3D, magang studio, editing video, maupun dokumentasi acara.
-            </p>
+        <div class="contact-editorial-wrap">
+          <div class="contact-eyebrow-row reveal">
+            <span class="contact-eyebrow-num mono-label">01</span>
+            <span class="contact-eyebrow-line"></span>
+            <span class="mono-label">CONTACT</span>
+          </div>
 
-            <div class="contact-cards">
+          <h1 class="contact-hero-title reveal">
+            Terima kasih telah <br />
+            berkunjung.
+          </h1>
+
+          <p class="contact-hero-desc reveal">
+            Apabila Anda tertarik untuk berdiskusi mengenai proyek, kolaborasi, atau ingin mengetahui lebih lanjut mengenai karya saya, saya dengan senang hati dapat dihubungi melalui email maupun media sosial.
+          </p>
+
+          <!-- Full-width Email Card -->
+          <div class="contact-email-banner interactive-surface reveal">
+            <div class="contact-email-info">
+              <span class="mono-label contact-mini-label">EMAIL</span>
+              <a href="mailto:greaven.kei@gmail.com" class="contact-email-address">
+                greaven.kei@gmail.com
+              </a>
+              <span class="mono-label contact-location-label">MADIUN, JAWA TIMUR</span>
+            </div>
+
+            <a href="mailto:greaven.kei@gmail.com" class="contact-email-btn">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="3"></rect>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>Kirim Email</span>
+            </a>
+          </div>
+
+          <!-- Social Media 2x2 Grid -->
+          <div class="contact-social-section reveal">
+            <span class="mono-label contact-social-heading">SOCIAL MEDIA</span>
+
+            <div class="contact-social-grid">
+              <!-- Instagram -->
+              <a
+                href="https://instagram.com/joprass_"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-link-card interactive-surface"
+              >
+                <div class="social-card-left">
+                  <div class="social-icon-wrap">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                      <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+                      <circle cx="12" cy="12" r="4"></circle>
+                      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+                    </svg>
+                  </div>
+                  <div class="social-card-text">
+                    <strong>Instagram</strong>
+                    <span class="mono-label">@joprass_</span>
+                  </div>
+                </div>
+                <span class="social-arrow">↗</span>
+              </a>
+
+              <!-- TikTok -->
+              <a
+                href="https://tiktok.com/@keiyoshi.16"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-link-card interactive-surface"
+              >
+                <div class="social-card-left">
+                  <div class="social-icon-wrap">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                      <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                    </svg>
+                  </div>
+                  <div class="social-card-text">
+                    <strong>TikTok</strong>
+                    <span class="mono-label">@keiyoshi.16</span>
+                  </div>
+                </div>
+                <span class="social-arrow">↗</span>
+              </a>
+
+              <!-- YouTube -->
+              <a
+                href="https://youtube.com/@Joprass16"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-link-card interactive-surface"
+              >
+                <div class="social-card-left">
+                  <div class="social-icon-wrap">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                      <rect x="2" y="5" width="20" height="14" rx="4"></rect>
+                      <polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"></polygon>
+                    </svg>
+                  </div>
+                  <div class="social-card-text">
+                    <strong>YouTube</strong>
+                    <span class="mono-label">@Joprass16</span>
+                  </div>
+                </div>
+                <span class="social-arrow">↗</span>
+              </a>
+
+              <!-- WhatsApp -->
               <a
                 href="https://wa.me/62895622607368"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="contact-item interactive-surface"
+                class="social-link-card interactive-surface"
               >
-                <span class="mono-label">WHATSAPP / TELEPON</span>
-                <strong>+62 895-6226-07368</strong>
+                <div class="social-card-left">
+                  <div class="social-icon-wrap">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                  </div>
+                  <div class="social-card-text">
+                    <strong>WhatsApp</strong>
+                    <span class="mono-label">+62 895-6226-07368</span>
+                  </div>
+                </div>
+                <span class="social-arrow">↗</span>
               </a>
-
-              <a href="mailto:greaven.kei@gmail.com" class="contact-item interactive-surface">
-                <span class="mono-label">EMAIL RESMI</span>
-                <strong>greaven.kei@gmail.com</strong>
-              </a>
-
-              <div class="contact-item interactive-surface">
-                <span class="mono-label">DOMISILI</span>
-                <strong>Madiun, Jawa Timur, Indonesia</strong>
-              </div>
             </div>
           </div>
-
-          <form class="contact-form interactive-surface reveal" id="contactForm">
-            <div class="form-group">
-              <label for="senderName" class="mono-label">NAMA LENGKAP / STUDIO</label>
-              <input type="text" id="senderName" placeholder="Contoh: Budi / Studio Animasi" required />
-            </div>
-
-            <div class="form-group">
-              <label for="senderEmail" class="mono-label">EMAIL KONTAK</label>
-              <input type="email" id="senderEmail" placeholder="nama@email.com" required />
-            </div>
-
-            <div class="form-group">
-              <label for="senderTopic" class="mono-label">KATEGORI KEBUTUHAN</label>
-              <select id="senderTopic">
-                <option value="3D Character Animation / Magang">3D Character Animation / Magang Studio</option>
-                <option value="Video Editing & Reels">Video Editing &amp; Reels</option>
-                <option value="Videografi & Live Switcher">Videografi &amp; Live Switcher</option>
-                <option value="Kolaborasi Kreatif Lainnya">Kolaborasi Kreatif Lainnya</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="senderMessage" class="mono-label">DETAIL PESAN</label>
-              <textarea id="senderMessage" rows="4" placeholder="Ceritakan singkat kebutuhan proyek atau jadwal yang diinginkan..." required></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-full">
-              Kirim Pesan via WhatsApp →
-            </button>
-          </form>
         </div>
       </div>
     </section>
@@ -1050,7 +1145,7 @@
     </div>
   </footer>
 
-  <!-- Script Versi 4 -->
-  <script src="script.js?v=4"></script>
+  <!-- Script Versi 5 -->
+  <script src="script.js?v=5"></script>
 </body>
 </html>
