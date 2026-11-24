@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PORTFOLIO DATA — 18 WORKS (10 WORKS 2D/3D + 8 WORKS MULTIMEDIA)
+   PORTFOLIO DATA — 18 WORKS (DENGAN FOTO RESOLUSI TINGGI DARI UNSPLASH)
    ========================================================================== */
 const PROJECTS_DATA = [
   {
@@ -13,8 +13,8 @@ const PROJECTS_DATA = [
     subtitle: 'Blender • Graph Editor & Weight Shift',
     desc: 'Eksplorasi mekanika tubuh karakter 3D seperti lompatan, pendaratan, dan perpindahan pusat gravitasi menggunakan pengaturan kurva Graph Editor yang presisi.',
     tools: ['Blender', 'Graph Editor', 'Character Rigging'],
-    image: 'assets/work-3d-body.jpg',
-    video: 'assets/work-3d-body.mp4'
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=80',
+    video: ''
   },
   {
     id: 1,
@@ -27,7 +27,7 @@ const PROJECTS_DATA = [
     subtitle: 'Blender • Facial Pose & Gesture',
     desc: 'Latihan akting karakter 3D yang menonjolkan ekspresi wajah, antisipasi gerakan tangan, serta ritme jeda (timing) agar emosi karakter terasa hidup.',
     tools: ['Blender', 'Character Acting', 'Lighting'],
-    image: 'assets/work-3d-acting.jpg',
+    image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=900&q=80',
     video: ''
   },
   {
@@ -41,7 +41,7 @@ const PROJECTS_DATA = [
     subtitle: 'Autodesk Maya & Blender • Staging',
     desc: 'Sekuens aksi dinamis dengan perpaduan pergerakan kamera sinematik, follow-through, dan penataan pencahayaan dramatis.',
     tools: ['Autodesk Maya', 'Blender', 'Camera Staging'],
-    image: 'assets/work-3d-action.jpg',
+    image: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=900&q=80',
     video: ''
   },
   {
@@ -55,7 +55,7 @@ const PROJECTS_DATA = [
     subtitle: 'Blender • Phoneme & Eye Dart',
     desc: 'Sinkronisasi gerak bibir (lip sync) dengan dialog audio yang dipadukan gerakan mata dan bahasa tubuh alami.',
     tools: ['Blender', 'Lip Sync', 'Animation Curves'],
-    image: 'assets/work-3d-lipsync.jpg',
+    image: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=900&q=80',
     video: ''
   },
   {
@@ -69,7 +69,7 @@ const PROJECTS_DATA = [
     subtitle: 'Blender • Locomotion & Overlapping Action',
     desc: 'Animasi siklus berjalan karakter dengan variasi kepribadian serta penerapan prinsip overlapping action pada bagian sekunder.',
     tools: ['Blender', 'Walk Cycle', 'Keyframing'],
-    image: 'assets/work-3d-walk.jpg',
+    image: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=900&q=80',
     video: ''
   },
   {
@@ -83,7 +83,7 @@ const PROJECTS_DATA = [
     subtitle: '2D Digital Animation • Line & Timing',
     desc: 'Pendalaman animasi 2D frame-by-frame di Kelas 11 dengan fokus pada keluwesan garis gerak (arc), squash & stretch, dan smear frame.',
     tools: ['2D Animation', 'Frame-by-Frame', 'Timing'],
-    image: 'assets/work-2d-action.jpg',
+    image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=900&q=80',
     video: ''
   },
   {
@@ -97,7 +97,7 @@ const PROJECTS_DATA = [
     subtitle: 'Gambar 2D & Dasar Gerak • Kelas 10',
     desc: 'Latihan dasar 12 prinsip animasi mulai dari bouncing ball, pendulum, hingga ekspresi karakter 2D.',
     tools: ['2D Drawing', '12 Principles', 'Storyboarding'],
-    image: 'assets/work-2d-principles.jpg',
+    image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80',
     video: ''
   },
   {
@@ -111,7 +111,7 @@ const PROJECTS_DATA = [
     subtitle: 'Blender • Topology & Clean Mesh (Kls 10)',
     desc: 'Pemodelan objek hard-surface dengan struktur topologi bersih dan bevel presisi sebagai fondasi 3D di Kelas 10.',
     tools: ['Blender', 'Hard Surface', '3D Modeling'],
-    image: 'assets/work-3d-hardsurface.jpg',
+    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=900&q=80',
     video: ''
   },
   {
@@ -125,7 +125,7 @@ const PROJECTS_DATA = [
     subtitle: 'Blender • Interior Modeling & Lighting (Kls 10)',
     desc: 'Perancangan ruang isometrik lengkap dengan properti ruangan, material dasar, dan pencahayaan hangat.',
     tools: ['Blender', 'Environment', 'Shader & Light'],
-    image: 'assets/work-3d-room.jpg',
+    image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=900&q=80',
     video: ''
   },
   {
@@ -139,7 +139,7 @@ const PROJECTS_DATA = [
     subtitle: 'Blender • UV Unwrapping & Texturing (Kls 10)',
     desc: 'Pembuatan aset bergaya stylized beserta penataan UV map dan pewarnaan tekstur siap render.',
     tools: ['Blender', 'UV Mapping', 'Texturing'],
-    image: 'assets/work-3d-stylized.jpg',
+    image: 'https://images.unsplash.com/photo-1618172193622-ae2d025f4032?auto=format&fit=crop&w=900&q=80',
     video: ''
   },
   {
@@ -151,7 +151,7 @@ const PROJECTS_DATA = [
     subtitle: 'Editing & Videografi • Sekbid 9 SMKN 4 Madiun',
     desc: 'Penyuntingan video after-movie acara besar sekolah dengan transisi dinamis yang selaras dengan ritme musik serta koordinasi tim liputan OSIS.',
     tools: ['CapCut', 'DSLR / Mirrorless', 'Koordinasi Liputan'],
-    image: 'assets/work-osis-aftermovie.jpg',
+    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=900&q=80',
     video: ''
   },
   {
@@ -163,7 +163,7 @@ const PROJECTS_DATA = [
     subtitle: 'Videografi Lapangan & Publikasi Digital',
     desc: 'Bertugas langsung di lapangan mengabadikan momen upacara, HUT sekolah, dan kegiatan siswa untuk publikasi resmi media sosial.',
     tools: ['Mirrorless', 'Video Recap', 'Social Media Reels'],
-    image: 'assets/work-osis-liputan.jpg',
+    image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=80',
     video: ''
   },
   {
@@ -172,10 +172,10 @@ const PROJECTS_DATA = [
     mulmedCat: 'gereja',
     badge: 'TIM MULMED • SWITCHER',
     title: 'Live Streaming & Visual Switcher',
-    subtitle: 'Multi-Camera Switching • Tim Multimedia Gereja',
+    subtitle: 'Multi-Camera Switching • Tim Multimedia',
     desc: 'Mengendalikan perpindahan sudut kamera secara langsung melalui perangkat switcher dan OBS untuk menjaga alur visual siaran live streaming.',
     tools: ['OBS / Switcher', 'Multi-Cam', 'Live Production'],
-    image: 'assets/work-switcher.jpg',
+    image: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=900&q=80',
     video: ''
   },
   {
@@ -187,7 +187,7 @@ const PROJECTS_DATA = [
     subtitle: 'Pengoperasian Kamera & Framing',
     desc: 'Bertugas sebagai kameramen utama dalam pengambilan gambar dinamis selama acara berlangsung dengan komposisi framing yang stabil.',
     tools: ['Broadcast Camera', 'Camcorder', 'Live Framing'],
-    image: 'assets/work-cameraman.jpg',
+    image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=900&q=80',
     video: ''
   },
   {
@@ -199,7 +199,7 @@ const PROJECTS_DATA = [
     subtitle: 'Videografi & Post-Production Proyek Klien',
     desc: 'Mengerjakan perekaman lapangan dan penyuntingan video dokumentasi acara, highlight kegiatan, hingga konten promosi pesanan klien.',
     tools: ['CapCut', 'KineMaster', 'DSLR / Mirrorless'],
-    image: 'assets/work-freelance-edit.jpg',
+    image: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=900&q=80',
     video: ''
   },
   {
@@ -211,7 +211,7 @@ const PROJECTS_DATA = [
     subtitle: 'Sinematografi & Editing Kegiatan Praktik',
     desc: 'Produksi video dokumentasi kegiatan praktik kelas dan profil jurusan dengan alur visual yang informatif dan rapi.',
     tools: ['CapCut', 'Mirrorless', 'Color Grading'],
-    image: 'assets/work-osis-profil.jpg',
+    image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=80',
     video: ''
   },
   {
@@ -223,7 +223,7 @@ const PROJECTS_DATA = [
     subtitle: 'Setup Kamera Besar & Kestabilan Gambar',
     desc: 'Pengoperasian kamera broadcast dan camcorder untuk liputan acara berskala besar dengan pengaturan fokus serta eksposur manual.',
     tools: ['Broadcast Camera', 'Camcorder', 'Tripod Fluid Head'],
-    image: 'assets/work-broadcast.jpg',
+    image: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=900&q=80',
     video: ''
   },
   {
@@ -235,7 +235,7 @@ const PROJECTS_DATA = [
     subtitle: 'Editing Cepat & Ritme Audio Presisi',
     desc: 'Penyuntingan video vertikal 9:16 untuk kebutuhan Reels dan TikTok dengan pemotongan adegan yang tepat mengikuti ketukan audio.',
     tools: ['CapCut', 'KineMaster', 'Beat Sync Editing'],
-    image: 'assets/work-freelance-reels.jpg',
+    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=900&q=80',
     video: ''
   }
 ];
@@ -259,6 +259,7 @@ const state = {
 let audioCtx = null;
 let refreshRevealsFn = null;
 let animateProficiencyFn = null;
+let resetCarouselPhysicsFn = null;
 
 function ensureAudioContext() {
   if (!audioCtx) {
@@ -338,8 +339,7 @@ function bootPortfolioApp() {
     initShowreel,
     initIdCardPhysics,
     initProjectsCarousel,
-    initModal,
-    initContactForm
+    initModal
   ].forEach((fn) => {
     try {
       fn();
@@ -371,7 +371,8 @@ function initInteractiveClickEffects() {
     '.work-preview-card',
     '.timeline-card',
     '.info-box',
-    '.contact-item',
+    '.social-link-card',
+    '.contact-email-btn',
     '.skill-pill',
     '.prof-item',
     '.carousel-nav-btn',
@@ -385,7 +386,6 @@ function initInteractiveClickEffects() {
 
     playClickSound();
 
-    // Ensure positioning for ripple
     const computedPos = window.getComputedStyle(target).position;
     if (computedPos === 'static') {
       target.classList.add('has-ripple');
@@ -405,14 +405,12 @@ function initInteractiveClickEffects() {
     target.appendChild(ripple);
     setTimeout(() => ripple.remove(), 620);
 
-    // Tactile spring animation
     target.classList.remove('is-clicked');
     void target.offsetWidth;
     target.classList.add('is-clicked');
     setTimeout(() => target.classList.remove('is-clicked'), 380);
   });
 
-  // Make Workflow Steps (KEYFRAME 01 - 04) selectable on click
   const workflowSteps = document.querySelectorAll('.workflow-step');
   workflowSteps.forEach((step) => {
     step.addEventListener('click', () => {
@@ -632,8 +630,8 @@ function navigateToPage(pageName) {
 
     window.scrollTo({ top: 0, behavior: 'instant' });
 
-    if (pageName === 'projects') {
-      renderCarousel(true);
+    if (pageName === 'projects' && resetCarouselPhysicsFn) {
+      resetCarouselPhysicsFn(true);
     }
 
     if (pageName === 'about' && animateProficiencyFn) {
@@ -659,12 +657,16 @@ function initShowreel() {
   if (!video || !overlay) return;
 
   video.addEventListener('loadeddata', () => {
+    video.classList.add('is-playing');
+    video.controls = true;
     overlay.classList.add('hidden');
   });
 
   overlay.addEventListener('click', () => {
     video.play()
       .then(() => {
+        video.classList.add('is-playing');
+        video.controls = true;
         overlay.classList.add('hidden');
       })
       .catch(() => {
@@ -838,7 +840,7 @@ function initIdCardPhysics() {
 }
 
 /* ==========================================================================
-   PROJECTS: FULL-BLEED EDGE-TO-EDGE CAROUSEL & MULTI-FILTER SYSTEM
+   PROJECTS: INERTIAL 3D DRAG-TO-SLIDE + CURSOR TILT SHOWCASE CAROUSEL
    ========================================================================== */
 function getFilteredProjects() {
   return PROJECTS_DATA.filter((item) => {
@@ -863,6 +865,255 @@ function getFilteredProjects() {
 }
 
 function initProjectsCarousel() {
+  const stage = document.getElementById('carouselStage');
+  const dotsWrap = document.getElementById('carouselDots');
+  const counterEl = document.getElementById('carouselCounter');
+  if (!stage || !dotsWrap || !counterEl) return;
+
+  let currentItems = [];
+  let cardEls = [];
+  let dotEls = [];
+
+  // Continuous physics position for ultra-smooth 60fps 3D glide
+  let continuousPos = 0;
+  let targetPos = 0;
+  let velocity = 0;
+  let isGrabbing = false;
+  let hasDragged = false;
+  let grabStartX = 0;
+  let grabStartPos = 0;
+  let lastPointerX = 0;
+  let lastAnnouncedIdx = -1;
+
+  // Hover 3D tilt on center card
+  let hoverTiltX = 0;
+  let hoverTiltY = 0;
+
+  function wrapDelta(rawDelta, total) {
+    if (total <= 1) return 0;
+    let d = ((rawDelta % total) + total) % total;
+    if (d > total / 2) d -= total;
+    return d;
+  }
+
+  function snapToNearest() {
+    if (!currentItems.length) return;
+    targetPos = Math.round(targetPos);
+  }
+
+  function goToIndex(idx) {
+    if (!currentItems.length) return;
+    const total = currentItems.length;
+    const currentWrapped = ((Math.round(targetPos) % total) + total) % total;
+    const diff = wrapDelta(idx - currentWrapped, total);
+    targetPos += diff;
+    playWhooshSound();
+  }
+
+  function stepCarousel(delta) {
+    if (!currentItems.length) return;
+    targetPos += delta;
+    playWhooshSound();
+  }
+
+  function rebuildStage(dealWave = true) {
+    currentItems = getFilteredProjects();
+    stage.innerHTML = '';
+    dotsWrap.innerHTML = '';
+    cardEls = [];
+    dotEls = [];
+
+    continuousPos = 0;
+    targetPos = 0;
+    velocity = 0;
+    lastAnnouncedIdx = -1;
+
+    if (!currentItems.length) {
+      stage.innerHTML = `
+        <div class="info-box" style="text-align:center; max-width:420px;">
+          <h3 class="card-title">Tidak ada karya pada filter ini</h3>
+          <p class="card-desc">Silakan pilih kombinasi filter lain untuk menampilkan karya.</p>
+        </div>
+      `;
+      counterEl.textContent = '00 / 00';
+      return;
+    }
+
+    currentItems.forEach((item, idx) => {
+      const card = document.createElement('article');
+      card.className = `carousel-card${dealWave ? ' is-dealing' : ''}`;
+      if (dealWave) {
+        card.style.animationDelay = `${Math.min(idx * 45, 320)}ms`;
+      }
+
+      card.innerHTML = `
+        <div class="carousel-card-gloss"></div>
+        <div class="carousel-card-media">
+          <img src="${item.image}" alt="${item.title}" loading="lazy" />
+          <span class="carousel-card-badge">${item.badge}</span>
+        </div>
+        <div class="carousel-card-body">
+          <div>
+            <h3 class="carousel-card-title">${item.title}</h3>
+            <div class="carousel-card-sub">${item.subtitle}</div>
+            <p class="carousel-card-desc">${item.desc}</p>
+          </div>
+          <div class="carousel-card-action">KLIK UNTUK DETAIL KARYA →</div>
+        </div>
+      `;
+
+      card.addEventListener('click', () => {
+        if (hasDragged) return;
+        const total = currentItems.length;
+        const activeIdx = ((Math.round(targetPos) % total) + total) % total;
+        if (idx === activeIdx) {
+          openProjectModal(item);
+        } else {
+          goToIndex(idx);
+        }
+      });
+
+      stage.appendChild(card);
+      cardEls.push(card);
+
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'carousel-dot';
+      dot.setAttribute('aria-label', `Pilih karya ${idx + 1}`);
+      dot.addEventListener('click', () => goToIndex(idx));
+      dotsWrap.appendChild(dot);
+      dotEls.push(dot);
+    });
+  }
+
+  resetCarouselPhysicsFn = rebuildStage;
+
+  // Pointer Drag-to-Slide (Mouse + Touch)
+  stage.addEventListener('pointerdown', (e) => {
+    if (!currentItems.length) return;
+    isGrabbing = true;
+    hasDragged = false;
+    grabStartX = e.clientX;
+    lastPointerX = e.clientX;
+    grabStartPos = targetPos;
+    velocity = 0;
+    stage.classList.add('is-grabbing');
+  });
+
+  window.addEventListener('pointermove', (e) => {
+    // 3D cursor tilt on active center card when hovering stage
+    const rect = stage.getBoundingClientRect();
+    if (
+      e.clientX >= rect.left &&
+      e.clientX <= rect.right &&
+      e.clientY >= rect.top &&
+      e.clientY <= rect.bottom
+    ) {
+      const nx = (e.clientX - rect.left) / rect.width - 0.5;
+      const ny = (e.clientY - rect.top) / rect.height - 0.5;
+      hoverTiltY = nx * 10;
+      hoverTiltX = -ny * 8;
+    } else {
+      hoverTiltX *= 0.9;
+      hoverTiltY *= 0.9;
+    }
+
+    if (!isGrabbing) return;
+    const dx = e.clientX - grabStartX;
+    if (Math.abs(dx) > 6) {
+      hasDragged = true;
+    }
+    const spacingX = window.innerWidth < 768 ? 240 : 320;
+    targetPos = grabStartPos - dx / spacingX;
+    velocity = -(e.clientX - lastPointerX) / spacingX;
+    lastPointerX = e.clientX;
+  }, { passive: true });
+
+  window.addEventListener('pointerup', () => {
+    if (!isGrabbing) return;
+    isGrabbing = false;
+    stage.classList.remove('is-grabbing');
+    if (hasDragged) {
+      targetPos += velocity * 3.2;
+      snapToNearest();
+      playWhooshSound();
+      setTimeout(() => {
+        hasDragged = false;
+      }, 60);
+    }
+  });
+
+  // Trackpad / Wheel Horizontal & Vertical-to-Horizontal Glide
+  let wheelTimeout = null;
+  stage.addEventListener('wheel', (e) => {
+    if (!currentItems.length) return;
+    const dominantDelta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    if (Math.abs(dominantDelta) < 4) return;
+    e.preventDefault();
+    targetPos += dominantDelta * 0.0024;
+    clearTimeout(wheelTimeout);
+    wheelTimeout = setTimeout(() => {
+      snapToNearest();
+      playWhooshSound();
+    }, 110);
+  }, { passive: false });
+
+  // 60FPS Render Loop for Silk-Smooth 3D Perspective & Velocity Skew
+  function animateShowcase() {
+    if (state.currentPage === 'projects' && cardEls.length) {
+      const prevPos = continuousPos;
+      const ease = isGrabbing ? 0.32 : 0.13;
+      continuousPos += (targetPos - continuousPos) * ease;
+      const frameVel = continuousPos - prevPos;
+
+      const total = currentItems.length;
+      const spacingX = window.innerWidth < 768 ? 235 : 305;
+      const activeIdx = ((Math.round(continuousPos) % total) + total) % total;
+
+      if (activeIdx !== lastAnnouncedIdx) {
+        lastAnnouncedIdx = activeIdx;
+        const pad = (n) => String(n).padStart(2, '0');
+        counterEl.textContent = `${pad(activeIdx + 1)} / ${pad(total)} • DRAG ATAU KLIK KARTU`;
+        dotEls.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+      }
+
+      cardEls.forEach((card, idx) => {
+        const offset = wrapDelta(idx - continuousPos, total);
+        const absOffset = Math.abs(offset);
+        const isCenter = absOffset < 0.35;
+        const isVisible = absOffset <= 4.2;
+
+        const translateX = offset * spacingX;
+        const translateZ = (1 - Math.min(absOffset, 2.5) / 2.5) * 75 - absOffset * 58;
+        const scale = isCenter
+          ? 1.05 - absOffset * 0.08
+          : Math.max(0.74, 0.94 - absOffset * 0.048);
+
+        // Dynamic 3D rotation + velocity lean like reference video
+        const velLean = Math.max(-12, Math.min(12, frameVel * 48));
+        const baseRotateY = -offset * 11 + velLean;
+        const extraX = isCenter ? hoverTiltX * (1 - absOffset * 2) : 0;
+        const extraY = isCenter ? hoverTiltY * (1 - absOffset * 2) : 0;
+        const opacity = !isVisible ? 0 : Math.max(0.28, 1 - absOffset * 0.18);
+
+        card.classList.toggle('is-center', isCenter);
+        card.style.transform = `
+          translate3d(${translateX.toFixed(2)}px, 0px, ${translateZ.toFixed(2)}px)
+          scale(${scale.toFixed(4)})
+          rotateY(${(baseRotateY + extraY).toFixed(2)}deg)
+          rotateX(${extraX.toFixed(2)}deg)
+        `;
+        card.style.zIndex = String(30 - Math.round(absOffset * 5));
+        card.style.opacity = opacity.toFixed(3);
+        card.style.pointerEvents = isVisible ? 'auto' : 'none';
+      });
+    }
+
+    requestAnimationFrame(animateShowcase);
+  }
+  animateShowcase();
+
+  // Branch Tabs & Filters
   const branchTabs = document.querySelectorAll('.branch-tab');
   const filterPanels = {
     '2d3d': document.getElementById('filters-2d3d'),
@@ -876,7 +1127,6 @@ function initProjectsCarousel() {
 
       playWhooshSound();
       state.branch = branch;
-      state.carouselIndex = 0;
 
       branchTabs.forEach((t) => {
         const active = t === tab;
@@ -891,7 +1141,7 @@ function initProjectsCarousel() {
         filterPanels.mulmed.style.display = branch === 'mulmed' ? 'flex' : 'none';
       }
 
-      renderCarousel(true);
+      rebuildStage(true);
     });
   });
 
@@ -905,19 +1155,13 @@ function initProjectsCarousel() {
         if (groupName) {
           state.filters[groupName] = pill.getAttribute('data-value') || 'all';
         }
-        state.carouselIndex = 0;
-        renderCarousel(true);
+        rebuildStage(true);
       });
     });
   });
 
-  document.getElementById('carouselPrev')?.addEventListener('click', () => {
-    stepCarousel(-1);
-  });
-
-  document.getElementById('carouselNext')?.addEventListener('click', () => {
-    stepCarousel(1);
-  });
+  document.getElementById('carouselPrev')?.addEventListener('click', () => stepCarousel(-1));
+  document.getElementById('carouselNext')?.addEventListener('click', () => stepCarousel(1));
 
   window.addEventListener('keydown', (e) => {
     if (state.currentPage !== 'projects') return;
@@ -926,144 +1170,11 @@ function initProjectsCarousel() {
     if (e.key === 'ArrowRight') stepCarousel(1);
   });
 
-  const stage = document.getElementById('carouselStage');
-  let touchStartX = 0;
-  stage?.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].clientX;
-  }, { passive: true });
-
-  stage?.addEventListener('touchend', (e) => {
-    const diff = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(diff) > 42) {
-      stepCarousel(diff < 0 ? 1 : -1);
-    }
-  }, { passive: true });
-
-  renderCarousel(false);
+  rebuildStage(false);
 }
-
-function stepCarousel(delta) {
-  const items = getFilteredProjects();
-  if (!items.length) return;
-  state.carouselIndex = (state.carouselIndex + delta + items.length) % items.length;
-  renderCarousel(false);
-}
-
-function renderCarousel(animateStage = false) {
-  const stage = document.getElementById('carouselStage');
-  const dotsWrap = document.getElementById('carouselDots');
-  const counterEl = document.getElementById('carouselCounter');
-  if (!stage || !dotsWrap || !counterEl) return;
-
-  if (animateStage) {
-    stage.classList.remove('is-filtering');
-    void stage.offsetWidth;
-    stage.classList.add('is-filtering');
-  }
-
-  const items = getFilteredProjects();
-  stage.innerHTML = '';
-  dotsWrap.innerHTML = '';
-
-  if (!items.length) {
-    stage.innerHTML = `
-      <div class="info-box" style="text-align:center; max-width:420px;">
-        <h3 class="card-title">Tidak ada karya pada filter ini</h3>
-        <p class="card-desc">Silakan pilih kombinasi filter lain untuk menampilkan karya.</p>
-      </div>
-    `;
-    counterEl.textContent = '00 / 00';
-    return;
-  }
-
-  if (state.carouselIndex >= items.length) {
-    state.carouselIndex = 0;
-  }
-
-  const total = items.length;
-
-  items.forEach((item, idx) => {
-    let offset = idx - state.carouselIndex;
-    if (total > 2) {
-      if (offset > Math.floor(total / 2)) offset -= total;
-      if (offset < -Math.floor(total / 2)) offset += total;
-    }
-
-    const absOffset = Math.abs(offset);
-    const isCenter = offset === 0;
-    const isVisible = absOffset <= 4;
-    const spacingX = window.innerWidth < 768 ? 225 : 295;
-    const translateX = offset * spacingX;
-    const translateZ = isCenter ? 40 : -absOffset * 70;
-    const scale = isCenter ? 1.04 : Math.max(0.76, 0.94 - absOffset * 0.045);
-    const rotateY = offset === 0 ? 0 : offset > 0 ? -Math.min(14, absOffset * 4) : Math.min(14, absOffset * 4);
-    const opacity = !isVisible ? 0 : isCenter ? 1 : Math.max(0.38, 0.88 - absOffset * 0.14);
-
-    const card = document.createElement('article');
-    card.className = `carousel-card${isCenter ? ' is-center' : ''}`;
-    card.style.transform = `translate3d(${translateX}px, 0, ${translateZ}px) scale(${scale}) rotateY(${rotateY}deg)`;
-    card.style.zIndex = String(20 - absOffset);
-    card.style.opacity = String(opacity);
-    card.style.pointerEvents = isVisible ? 'auto' : 'none';
-
-    card.innerHTML = `
-      <div class="carousel-card-gloss"></div>
-      <div class="carousel-card-media">
-        <img
-          src="${item.image}"
-          alt="${item.title}"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <div class="carousel-card-art" style="display:none;">
-          <span>${item.badge}</span>
-          <strong style="font-family:var(--font-display); color:#fff; font-size:1.05rem;">${item.title}</strong>
-        </div>
-        <span class="carousel-card-badge">${item.badge}</span>
-      </div>
-      <div class="carousel-card-body">
-        <div>
-          <h3 class="carousel-card-title">${item.title}</h3>
-          <div class="carousel-card-sub">${item.subtitle}</div>
-          <p class="carousel-card-desc">${item.desc}</p>
-        </div>
-        <div class="carousel-card-action">KLIK UNTUK DETAIL KARYA →</div>
-      </div>
-    `;
-
-    card.addEventListener('click', () => {
-      if (isCenter) {
-        openProjectModal(item);
-      } else {
-        state.carouselIndex = idx;
-        renderCarousel(false);
-      }
-    });
-
-    stage.appendChild(card);
-
-    const dot = document.createElement('button');
-    dot.type = 'button';
-    dot.className = `carousel-dot${isCenter ? ' active' : ''}`;
-    dot.setAttribute('aria-label', `Pilih karya ${idx + 1}`);
-    dot.addEventListener('click', () => {
-      state.carouselIndex = idx;
-      renderCarousel(false);
-    });
-    dotsWrap.appendChild(dot);
-  });
-
-  const pad = (n) => String(n).padStart(2, '0');
-  counterEl.textContent = `${pad(state.carouselIndex + 1)} / ${pad(total)}`;
-}
-
-window.addEventListener('resize', () => {
-  if (state.currentPage === 'projects') {
-    renderCarousel(false);
-  }
-}, { passive: true });
 
 /* ==========================================================================
-   PROJECT QUICK PREVIEW MODAL (WITH SMOOTH SCALE & FADE)
+   PROJECT QUICK PREVIEW MODAL
    ========================================================================== */
 function initModal() {
   const modal = document.getElementById('projectModal');
@@ -1095,7 +1206,7 @@ function openProjectModal(project) {
 
   media.innerHTML = project.video
     ? `<video src="${project.video}" poster="${project.image}" controls autoplay playsinline></video>`
-    : `<img src="${project.image}" alt="${project.title}" onerror="this.parentElement.style.display='none'" />`;
+    : `<img src="${project.image}" alt="${project.title}" />`;
 
   media.style.display = 'block';
   badges.innerHTML = `<span class="tag-pill">${project.badge}</span><span class="tag-pill">${project.subtitle}</span>`;
@@ -1119,25 +1230,4 @@ function closeProjectModal() {
       media.innerHTML = '';
     }
   }, 340);
-}
-
-/* ==========================================================================
-   CONTACT FORM (DIRECT WHATSAPP HANDOFF)
-   ========================================================================== */
-function initContactForm() {
-  const form = document.getElementById('contactForm');
-  if (!form) return;
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    playClickSound();
-
-    const name = document.getElementById('senderName')?.value.trim() || '';
-    const email = document.getElementById('senderEmail')?.value.trim() || '';
-    const topic = document.getElementById('senderTopic')?.value || '';
-    const message = document.getElementById('senderMessage')?.value.trim() || '';
-
-    const text = `Halo Greaven (Joprass), saya *${name}* (${email}).%0A%0A*Kebutuhan Proyek:* ${topic}%0A*Detail Pesan:* ${message}`;
-    window.open(`https://wa.me/62895622607368?text=${text}`, '_blank', 'noopener,noreferrer');
-  });
 }
