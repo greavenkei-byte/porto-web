@@ -327,19 +327,35 @@ function playWhooshSound() {
 }
 
 /* ==========================================================================
-   INITIALIZATION
+   INITIALIZATION (SAFE BOOTSTRAP WITH ERROR ISOLATION)
    ========================================================================== */
-document.addEventListener('DOMContentLoaded', () => {
-  initCursorFollower();
-  initThemeAndSound();
-  initNavigation();
-  initShowreel();
-  initIdCardPhysics();
-  initProjectsCarousel();
-  initModal();
-  initContactForm();
-  triggerRevealObserver();
-});
+function bootPortfolioApp() {
+  const modules = [
+    initCursorFollower,
+    initThemeAndSound,
+    initNavigation,
+    initShowreel,
+    initIdCardPhysics,
+    initProjectsCarousel,
+    initModal,
+    initContactForm,
+    triggerRevealObserver
+  ];
+
+  modules.forEach((fn) => {
+    try {
+      fn();
+    } catch (err) {
+      console.error(`Gagal memuat modul ${fn.name}:`, err);
+    }
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootPortfolioApp);
+} else {
+  bootPortfolioApp();
+}
 
 /* ==========================================================================
    CURSOR FOLLOWER
@@ -482,6 +498,11 @@ function navigateToPage(pageName) {
 
 function triggerRevealObserver() {
   const reveals = document.querySelectorAll('.page-section.active .reveal');
+  if (!('IntersectionObserver' in window)) {
+    reveals.forEach((el) => el.classList.add('is-visible'));
+    return;
+  }
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -491,11 +512,10 @@ function triggerRevealObserver() {
         }
       });
     },
-    { threshold: 0.08 }
+    { threshold: 0.05 }
   );
 
   reveals.forEach((el) => {
-    el.classList.remove('is-visible');
     observer.observe(el);
   });
 }
