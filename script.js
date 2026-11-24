@@ -1,9 +1,7 @@
 /* ==========================================================================
    PORTFOLIO DATA — 18 WORKS (10 WORKS 2D/3D + 8 WORKS MULTIMEDIA)
-   All media assets point to assets/
    ========================================================================== */
 const PROJECTS_DATA = [
-  // --- BRANCH 01: KARYA 2D & 3D (10 KARYA) ---
   {
     id: 0,
     branch: '2d3d',
@@ -144,8 +142,6 @@ const PROJECTS_DATA = [
     image: 'assets/work-3d-stylized.jpg',
     video: ''
   },
-
-  // --- BRANCH 02: MULTIMEDIA & DOKUMENTASI (8 KARYA) ---
   {
     id: 10,
     branch: 'mulmed',
@@ -327,10 +323,10 @@ function playWhooshSound() {
 }
 
 /* ==========================================================================
-   INITIALIZATION (SAFE BOOTSTRAP WITH ERROR ISOLATION)
+   BOOTSTRAP
    ========================================================================== */
 function bootPortfolioApp() {
-  const modules = [
+  [
     initCursorFollower,
     initThemeAndSound,
     initNavigation,
@@ -338,15 +334,12 @@ function bootPortfolioApp() {
     initIdCardPhysics,
     initProjectsCarousel,
     initModal,
-    initContactForm,
-    triggerRevealObserver
-  ];
-
-  modules.forEach((fn) => {
+    initContactForm
+  ].forEach((fn) => {
     try {
       fn();
     } catch (err) {
-      console.error(`Gagal memuat modul ${fn.name}:`, err);
+      console.error(err);
     }
   });
 }
@@ -363,7 +356,6 @@ if (document.readyState === 'loading') {
 function initCursorFollower() {
   const glow = document.getElementById('cursorGlow');
   if (!glow) return;
-
   let targetX = window.innerWidth / 2;
   let targetY = window.innerHeight / 2;
   let currentX = targetX;
@@ -447,7 +439,6 @@ function initNavigation() {
     });
   });
 
-  // Home Selected Works preview cards
   document.querySelectorAll('[data-open-project]').forEach((card) => {
     card.addEventListener('click', () => {
       const id = Number(card.getAttribute('data-open-project'));
@@ -484,7 +475,6 @@ function navigateToPage(pageName) {
     });
 
     window.scrollTo({ top: 0, behavior: 'instant' });
-    triggerRevealObserver();
 
     if (pageName === 'projects') {
       renderCarousel();
@@ -493,31 +483,7 @@ function navigateToPage(pageName) {
     setTimeout(() => {
       curtain?.classList.remove('active');
     }, 180);
-  }, 260);
-}
-
-function triggerRevealObserver() {
-  const reveals = document.querySelectorAll('.page-section.active .reveal');
-  if (!('IntersectionObserver' in window)) {
-    reveals.forEach((el) => el.classList.add('is-visible'));
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.05 }
-  );
-
-  reveals.forEach((el) => {
-    observer.observe(el);
-  });
+  }, 240);
 }
 
 /* ==========================================================================
@@ -559,7 +525,6 @@ function initIdCardPhysics() {
   let startX = 0;
   let startY = 0;
 
-  // Spring physics state
   let angle = 0;
   let angularVel = 0;
   let offsetX = 0;
@@ -634,7 +599,6 @@ function initIdCardPhysics() {
     const topRightX = 192;
     const ctrlY = clipY * 0.55;
 
-    // Strap gradient
     const grad = ctx.createLinearGradient(0, 0, 0, clipY);
     grad.addColorStop(0, '#18181b');
     grad.addColorStop(0.5, '#27272a');
@@ -654,7 +618,6 @@ function initIdCardPhysics() {
     ctx.lineWidth = 1;
     ctx.stroke();
 
-    // Lanyard text "JOPRASS"
     ctx.translate((170 + clipX) * 0.5, clipY * 0.48);
     ctx.rotate(Math.atan2(clipY, clipX - 170));
     ctx.fillStyle = 'rgba(255,255,255,0.75)';
@@ -663,7 +626,6 @@ function initIdCardPhysics() {
     ctx.fillText('JOPRASS', 0, 3);
     ctx.restore();
 
-    // Metal ring connector
     ctx.beginPath();
     ctx.arc(clipX, clipY + 4, 7, 0, Math.PI * 2);
     ctx.strokeStyle = '#e4e4e7';
@@ -786,7 +748,6 @@ function initProjectsCarousel() {
     stepCarousel(1);
   });
 
-  // Keyboard navigation when on Projects page
   window.addEventListener('keydown', (e) => {
     if (state.currentPage !== 'projects') return;
     if (document.getElementById('projectModal')?.classList.contains('open')) return;
@@ -794,7 +755,6 @@ function initProjectsCarousel() {
     if (e.key === 'ArrowRight') stepCarousel(1);
   });
 
-  // Touch swipe on carousel stage
   const stage = document.getElementById('carouselStage');
   let touchStartX = 0;
   stage?.addEventListener('touchstart', (e) => {
@@ -847,7 +807,6 @@ function renderCarousel() {
   const total = items.length;
 
   items.forEach((item, idx) => {
-    // Shortest signed circular distance so cards span full screen left-to-right
     let offset = idx - state.carouselIndex;
     if (total > 2) {
       if (offset > Math.floor(total / 2)) offset -= total;
@@ -856,8 +815,6 @@ function renderCarousel() {
 
     const absOffset = Math.abs(offset);
     const isCenter = offset === 0;
-
-    // Show up to 4 layers on both left & right edges so 100vw viewport looks full
     const isVisible = absOffset <= 4;
     const spacingX = window.innerWidth < 768 ? 225 : 295;
     const translateX = offset * spacingX;
@@ -910,7 +867,6 @@ function renderCarousel() {
 
     stage.appendChild(card);
 
-    // Dot indicator
     const dot = document.createElement('button');
     dot.type = 'button';
     dot.className = `carousel-dot${isCenter ? ' active' : ''}`;
