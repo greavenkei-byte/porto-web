@@ -1,1111 +1,988 @@
-(function() {
-    try {
-        if ((localStorage.getItem('gkp_theme') || 'dark') === 'light') {
-            document.documentElement.setAttribute('data-theme', 'light');
-        }
-    } catch (e) {}
-})();
+/* ==========================================================================
+   PORTFOLIO DATA — 18 WORKS (10 WORKS 2D/3D + 8 WORKS MULTIMEDIA)
+   All media assets point to assets/
+   ========================================================================== */
+const PROJECTS_DATA = [
+  // --- BRANCH 01: KARYA 2D & 3D (10 KARYA) ---
+  {
+    id: 0,
+    branch: '2d3d',
+    type: '3d',
+    grade: '11',
+    division: 'animation',
+    badge: '3D ANIMATION • KLS 11',
+    title: '3D Character Body Mechanics',
+    subtitle: 'Blender • Graph Editor & Weight Shift',
+    desc: 'Eksplorasi mekanika tubuh karakter 3D seperti lompatan, pendaratan, dan perpindahan pusat gravitasi menggunakan pengaturan kurva Graph Editor yang presisi.',
+    tools: ['Blender', 'Graph Editor', 'Character Rigging'],
+    image: 'assets/work-3d-body.jpg',
+    video: 'assets/work-3d-body.mp4'
+  },
+  {
+    id: 1,
+    branch: '2d3d',
+    type: '3d',
+    grade: '11',
+    division: 'animation',
+    badge: '3D ANIMATION • KLS 11',
+    title: '3D Character Acting & Expression',
+    subtitle: 'Blender • Facial Pose & Gesture',
+    desc: 'Latihan akting karakter 3D yang menonjolkan ekspresi wajah, antisipasi gerakan tangan, serta ritme jeda (timing) agar emosi karakter terasa hidup.',
+    tools: ['Blender', 'Character Acting', 'Lighting'],
+    image: 'assets/work-3d-acting.jpg',
+    video: ''
+  },
+  {
+    id: 2,
+    branch: '2d3d',
+    type: '3d',
+    grade: '11',
+    division: 'animation',
+    badge: '3D ANIMATION • KLS 11',
+    title: '3D Dynamic Action & Camera Cut',
+    subtitle: 'Autodesk Maya & Blender • Staging',
+    desc: 'Sekuens aksi dinamis dengan perpaduan pergerakan kamera sinematik, follow-through, dan penataan pencahayaan dramatis.',
+    tools: ['Autodesk Maya', 'Blender', 'Camera Staging'],
+    image: 'assets/work-3d-action.jpg',
+    video: ''
+  },
+  {
+    id: 3,
+    branch: '2d3d',
+    type: '3d',
+    grade: '11',
+    division: 'animation',
+    badge: '3D ANIMATION • KLS 11',
+    title: '3D Dialogue & Lip Sync Study',
+    subtitle: 'Blender • Phoneme & Eye Dart',
+    desc: 'Sinkronisasi gerak bibir (lip sync) dengan dialog audio yang dipadukan gerakan mata dan bahasa tubuh alami.',
+    tools: ['Blender', 'Lip Sync', 'Animation Curves'],
+    image: 'assets/work-3d-lipsync.jpg',
+    video: ''
+  },
+  {
+    id: 4,
+    branch: '2d3d',
+    type: '3d',
+    grade: '10',
+    division: 'animation',
+    badge: '3D WALK CYCLE • KLS 10',
+    title: '3D Walk Cycle & Physics Timing',
+    subtitle: 'Blender • Locomotion & Overlapping Action',
+    desc: 'Animasi siklus berjalan karakter dengan variasi kepribadian serta penerapan prinsip overlapping action pada bagian sekunder.',
+    tools: ['Blender', 'Walk Cycle', 'Keyframing'],
+    image: 'assets/work-3d-walk.jpg',
+    video: ''
+  },
+  {
+    id: 5,
+    branch: '2d3d',
+    type: '2d',
+    grade: '11',
+    division: 'animation',
+    badge: '2D ANIMATION • KLS 11',
+    title: '2D Character Frame-by-Frame Action',
+    subtitle: '2D Digital Animation • Line & Timing',
+    desc: 'Pendalaman animasi 2D frame-by-frame di Kelas 11 dengan fokus pada keluwesan garis gerak (arc), squash & stretch, dan smear frame.',
+    tools: ['2D Animation', 'Frame-by-Frame', 'Timing'],
+    image: 'assets/work-2d-action.jpg',
+    video: ''
+  },
+  {
+    id: 6,
+    branch: '2d3d',
+    type: '2d',
+    grade: '10',
+    division: 'animation',
+    badge: '2D FUNDAMENTAL • KLS 10',
+    title: '2D 12 Principles of Animation',
+    subtitle: 'Gambar 2D & Dasar Gerak • Kelas 10',
+    desc: 'Latihan dasar 12 prinsip animasi mulai dari bouncing ball, pendulum, hingga ekspresi karakter 2D.',
+    tools: ['2D Drawing', '12 Principles', 'Storyboarding'],
+    image: 'assets/work-2d-principles.jpg',
+    video: ''
+  },
+  {
+    id: 7,
+    branch: '2d3d',
+    type: '3d',
+    grade: '10',
+    division: 'modeling',
+    badge: '3D MODELING • KLS 10',
+    title: '3D Hard Surface & Prop Modeling',
+    subtitle: 'Blender • Topology & Clean Mesh (Kls 10)',
+    desc: 'Pemodelan objek hard-surface dengan struktur topologi bersih dan bevel presisi sebagai fondasi 3D di Kelas 10.',
+    tools: ['Blender', 'Hard Surface', '3D Modeling'],
+    image: 'assets/work-3d-hardsurface.jpg',
+    video: ''
+  },
+  {
+    id: 8,
+    branch: '2d3d',
+    type: '3d',
+    grade: '10',
+    division: 'modeling',
+    badge: '3D ENVIRONMENT • KLS 10',
+    title: '3D Isometric Room Environment',
+    subtitle: 'Blender • Interior Modeling & Lighting (Kls 10)',
+    desc: 'Perancangan ruang isometrik lengkap dengan properti ruangan, material dasar, dan pencahayaan hangat.',
+    tools: ['Blender', 'Environment', 'Shader & Light'],
+    image: 'assets/work-3d-room.jpg',
+    video: ''
+  },
+  {
+    id: 9,
+    branch: '2d3d',
+    type: '3d',
+    grade: '10',
+    division: 'modeling',
+    badge: '3D ASSET • KLS 10',
+    title: '3D Stylized Asset & UV Mapping',
+    subtitle: 'Blender • UV Unwrapping & Texturing (Kls 10)',
+    desc: 'Pembuatan aset bergaya stylized beserta penataan UV map dan pewarnaan tekstur siap render.',
+    tools: ['Blender', 'UV Mapping', 'Texturing'],
+    image: 'assets/work-3d-stylized.jpg',
+    video: ''
+  },
 
+  // --- BRANCH 02: MULTIMEDIA & DOKUMENTASI (8 KARYA) ---
+  {
+    id: 10,
+    branch: 'mulmed',
+    mulmedCat: 'osis',
+    badge: 'OSIS SEKBID 9 • EDITING',
+    title: 'After Movie & Event Recap OSIS',
+    subtitle: 'Editing & Videografi • Sekbid 9 SMKN 4 Madiun',
+    desc: 'Penyuntingan video after-movie acara besar sekolah dengan transisi dinamis yang selaras dengan ritme musik serta koordinasi tim liputan OSIS.',
+    tools: ['CapCut', 'DSLR / Mirrorless', 'Koordinasi Liputan'],
+    image: 'assets/work-osis-aftermovie.jpg',
+    video: ''
+  },
+  {
+    id: 11,
+    branch: 'mulmed',
+    mulmedCat: 'osis',
+    badge: 'OSIS SEKBID 9 • LIPUTAN',
+    title: 'Dokumentasi Upacara & Hari Besar Sekolah',
+    subtitle: 'Videografi Lapangan & Publikasi Digital',
+    desc: 'Bertugas langsung di lapangan mengabadikan momen upacara, HUT sekolah, dan kegiatan siswa untuk publikasi resmi media sosial.',
+    tools: ['Mirrorless', 'Video Recap', 'Social Media Reels'],
+    image: 'assets/work-osis-liputan.jpg',
+    video: ''
+  },
+  {
+    id: 12,
+    branch: 'mulmed',
+    mulmedCat: 'gereja',
+    badge: 'TIM MULMED • SWITCHER',
+    title: 'Live Streaming & Visual Switcher',
+    subtitle: 'Multi-Camera Switching • Tim Multimedia Gereja',
+    desc: 'Mengendalikan perpindahan sudut kamera secara langsung melalui perangkat switcher dan OBS untuk menjaga alur visual siaran live streaming.',
+    tools: ['OBS / Switcher', 'Multi-Cam', 'Live Production'],
+    image: 'assets/work-switcher.jpg',
+    video: ''
+  },
+  {
+    id: 13,
+    branch: 'mulmed',
+    mulmedCat: 'gereja',
+    badge: 'TIM MULMED • CAMERAMAN',
+    title: 'Cameraman Utama Multi-Cam Event',
+    subtitle: 'Pengoperasian Kamera & Framing',
+    desc: 'Bertugas sebagai kameramen utama dalam pengambilan gambar dinamis selama acara berlangsung dengan komposisi framing yang stabil.',
+    tools: ['Broadcast Camera', 'Camcorder', 'Live Framing'],
+    image: 'assets/work-cameraman.jpg',
+    video: ''
+  },
+  {
+    id: 14,
+    branch: 'mulmed',
+    mulmedCat: 'freelance',
+    badge: 'FREELANCE • PRODUCTION',
+    title: 'Freelance Video Editing & Event Shoot',
+    subtitle: 'Videografi & Post-Production Proyek Klien',
+    desc: 'Mengerjakan perekaman lapangan dan penyuntingan video dokumentasi acara, highlight kegiatan, hingga konten promosi pesanan klien.',
+    tools: ['CapCut', 'KineMaster', 'DSLR / Mirrorless'],
+    image: 'assets/work-freelance-edit.jpg',
+    video: ''
+  },
+  {
+    id: 15,
+    branch: 'mulmed',
+    mulmedCat: 'osis',
+    badge: 'OSIS SEKBID 9 • VIDEO PROFIL',
+    title: 'Video Profil & Praktik Jurusan Sekolah',
+    subtitle: 'Sinematografi & Editing Kegiatan Praktik',
+    desc: 'Produksi video dokumentasi kegiatan praktik kelas dan profil jurusan dengan alur visual yang informatif dan rapi.',
+    tools: ['CapCut', 'Mirrorless', 'Color Grading'],
+    image: 'assets/work-osis-profil.jpg',
+    video: ''
+  },
+  {
+    id: 16,
+    branch: 'mulmed',
+    mulmedCat: 'gereja',
+    badge: 'TIM MULMED • BROADCAST',
+    title: 'Operasional Broadcast Camera & Camcorder',
+    subtitle: 'Setup Kamera Besar & Kestabilan Gambar',
+    desc: 'Pengoperasian kamera broadcast dan camcorder untuk liputan acara berskala besar dengan pengaturan fokus serta eksposur manual.',
+    tools: ['Broadcast Camera', 'Camcorder', 'Tripod Fluid Head'],
+    image: 'assets/work-broadcast.jpg',
+    video: ''
+  },
+  {
+    id: 17,
+    branch: 'mulmed',
+    mulmedCat: 'freelance',
+    badge: 'FREELANCE • VERTICAL REELS',
+    title: 'Konten Media Sosial Vertikal & Beat Sync',
+    subtitle: 'Editing Cepat & Ritme Audio Presisi',
+    desc: 'Penyuntingan video vertikal 9:16 untuk kebutuhan Reels dan TikTok dengan pemotongan adegan yang tepat mengikuti ketukan audio.',
+    tools: ['CapCut', 'KineMaster', 'Beat Sync Editing'],
+    image: 'assets/work-freelance-reels.jpg',
+    video: ''
+  }
+];
+
+/* ==========================================================================
+   STATE & AUDIO SYNTHESIZER
+   ========================================================================== */
+const state = {
+  currentPage: 'home',
+  soundEnabled: true,
+  branch: '2d3d',
+  filters: {
+    type: 'all',
+    grade: 'all',
+    division: 'all',
+    mulmedCat: 'all'
+  },
+  carouselIndex: 0
+};
+
+let audioCtx = null;
+
+function ensureAudioContext() {
+  if (!audioCtx) {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (AudioContextClass) {
+      audioCtx = new AudioContextClass();
+    }
+  }
+  if (audioCtx && audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+}
+
+function playClickSound() {
+  if (!state.soundEnabled) return;
+  try {
+    ensureAudioContext();
+    if (!audioCtx) return;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(520, audioCtx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(220, audioCtx.currentTime + 0.055);
+    gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.055);
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.06);
+  } catch (_) {}
+}
+
+function playWhooshSound() {
+  if (!state.soundEnabled) return;
+  try {
+    ensureAudioContext();
+    if (!audioCtx) return;
+    const bufferSize = audioCtx.sampleRate * 0.24;
+    const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) {
+      data[i] = (Math.random() * 2 - 1) * Math.sin((i / bufferSize) * Math.PI);
+    }
+
+    const noise = audioCtx.createBufferSource();
+    noise.buffer = buffer;
+
+    const filter = audioCtx.createBiquadFilter();
+    filter.type = 'bandpass';
+    filter.frequency.setValueAtTime(320, audioCtx.currentTime);
+    filter.frequency.exponentialRampToValueAtTime(1100, audioCtx.currentTime + 0.12);
+    filter.frequency.exponentialRampToValueAtTime(280, audioCtx.currentTime + 0.24);
+    filter.Q.value = 1.6;
+
+    const gain = audioCtx.createGain();
+    gain.gain.setValueAtTime(0.09, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.24);
+
+    noise.connect(filter);
+    filter.connect(gain);
+    gain.connect(audioCtx.destination);
+    noise.start();
+  } catch (_) {}
+}
+
+/* ==========================================================================
+   INITIALIZATION
+   ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
-    // =========================================================================
-    // 0. WEB AUDIO API — TACTILE UI + WIND WHOOSH CARD FLIP SFX
-    // =========================================================================
-    const SoundFX = (() => {
-        let ctx = null;
-        let isMuted = false;
-        try { isMuted = localStorage.getItem('gkp_sound') === 'muted'; } catch (e) {}
-
-        function getContext() {
-            if (!ctx) {
-                const AudioCtx = window.AudioContext || window.webkitAudioContext;
-                if (AudioCtx) ctx = new AudioCtx();
-            }
-            if (ctx && ctx.state === 'suspended') ctx.resume().catch(() => {});
-            return ctx;
-        }
-
-        function playHover() {
-            if (isMuted) return;
-            const audio = getContext();
-            if (!audio) return;
-            const now = audio.currentTime;
-            const osc = audio.createOscillator();
-            const gain = audio.createGain();
-            osc.type = 'sine';
-            osc.frequency.setValueAtTime(640, now);
-            osc.frequency.exponentialRampToValueAtTime(920, now + 0.032);
-            gain.gain.setValueAtTime(0.02, now);
-            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.035);
-            osc.connect(gain); gain.connect(audio.destination);
-            osc.start(now); osc.stop(now + 0.04);
-        }
-
-        function playClick() {
-            if (isMuted) return;
-            const audio = getContext();
-            if (!audio) return;
-            const now = audio.currentTime;
-            const osc = audio.createOscillator();
-            const gain = audio.createGain();
-            osc.type = 'triangle';
-            osc.frequency.setValueAtTime(340, now);
-            osc.frequency.exponentialRampToValueAtTime(125, now + 0.068);
-            gain.gain.setValueAtTime(0.085, now);
-            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.072);
-            osc.connect(gain); gain.connect(audio.destination);
-            osc.start(now); osc.stop(now + 0.078);
-        }
-
-        function playWhoosh() {
-            if (isMuted) return;
-            const audio = getContext();
-            if (!audio) return;
-            const now = audio.currentTime;
-            const duration = 0.26;
-            const bufferSize = Math.floor(audio.sampleRate * duration);
-            const buffer = audio.createBuffer(1, bufferSize, audio.sampleRate);
-            const data = buffer.getChannelData(0);
-            for (let i = 0; i < bufferSize; i++) {
-                data[i] = (Math.random() * 2 - 1) * Math.sin((i / bufferSize) * Math.PI);
-            }
-            const noise = audio.createBufferSource();
-            noise.buffer = buffer;
-            const filter = audio.createBiquadFilter();
-            filter.type = 'bandpass';
-            filter.frequency.setValueAtTime(260, now);
-            filter.frequency.exponentialRampToValueAtTime(920, now + 0.13);
-            filter.frequency.exponentialRampToValueAtTime(300, now + duration);
-            filter.Q.value = 1.6;
-            const gain = audio.createGain();
-            gain.gain.setValueAtTime(0.065, now);
-            gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
-            noise.connect(filter); filter.connect(gain); gain.connect(audio.destination);
-            noise.start(now);
-        }
-
-        function playWindFlip() {
-            if (isMuted) return;
-            const audio = getContext();
-            if (!audio) return;
-            const now = audio.currentTime;
-            const duration = 0.56;
-            const bufferSize = Math.floor(audio.sampleRate * duration);
-            const buffer = audio.createBuffer(1, bufferSize, audio.sampleRate);
-            const data = buffer.getChannelData(0);
-            for (let i = 0; i < bufferSize; i++) {
-                const env = Math.pow(Math.sin((i / bufferSize) * Math.PI), 1.35);
-                data[i] = (Math.random() * 2 - 1) * env;
-            }
-            const noise = audio.createBufferSource();
-            noise.buffer = buffer;
-            const filter = audio.createBiquadFilter();
-            filter.type = 'bandpass';
-            filter.frequency.setValueAtTime(190, now);
-            filter.frequency.exponentialRampToValueAtTime(780, now + 0.22);
-            filter.frequency.exponentialRampToValueAtTime(210, now + duration);
-            filter.Q.value = 2.4;
-            const gain = audio.createGain();
-            gain.gain.setValueAtTime(0.001, now);
-            gain.gain.linearRampToValueAtTime(0.16, now + 0.16);
-            gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
-            noise.connect(filter); filter.connect(gain); gain.connect(audio.destination);
-            noise.start(now);
-        }
-
-        function playSuccess() {
-            if (isMuted) return;
-            const audio = getContext();
-            if (!audio) return;
-            const now = audio.currentTime;
-            [587.33, 880].forEach((freq, idx) => {
-                const osc = audio.createOscillator();
-                const gain = audio.createGain();
-                const start = now + idx * 0.08;
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(freq, start);
-                gain.gain.setValueAtTime(0.07, start);
-                gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.22);
-                osc.connect(gain); gain.connect(audio.destination);
-                osc.start(start); osc.stop(start + 0.23);
-            });
-        }
-
-        return {
-            get muted() { return isMuted; },
-            toggle() {
-                isMuted = !isMuted;
-                try { localStorage.setItem('gkp_sound', isMuted ? 'muted' : 'on'); } catch (e) {}
-                if (!isMuted) playClick();
-                return isMuted;
-            },
-            hover: playHover,
-            click: playClick,
-            whoosh: playWhoosh,
-            windFlip: playWindFlip,
-            success: playSuccess
-        };
-    })();
-
-    let lastHoveredEl = null;
-    document.addEventListener('mouseover', (e) => {
-        const target = e.target.closest('a, button, .branch-btn, .filter-btn, .social-box, .nav-project-card, .carousel-nav-btn');
-        if (target && target !== lastHoveredEl) {
-            lastHoveredEl = target;
-            SoundFX.hover();
-        } else if (!target) {
-            lastHoveredEl = null;
-        }
-    }, { passive: true });
-
-    document.addEventListener('click', (e) => {
-        const target = e.target.closest('button, .branch-btn, .filter-btn, .btn-primary, .btn-secondary, .btn-cv, .social-box');
-        if (target && !target.classList.contains('sound-toggle-btn') && target.id !== 'flip-card-btn' && target.id !== 'copy-email-btn') {
-            SoundFX.click();
-        }
-    });
-
-    // =========================================================================
-    // 1. CURSOR SPOTLIGHT / SHADOW, MAGNETIC PULL & 3D TILT CARDS
-    // =========================================================================
-    const spotlight = document.getElementById('cursor-spotlight');
-    if (spotlight && window.matchMedia('(pointer: fine)').matches) {
-        let spotX = window.innerWidth / 2, spotY = window.innerHeight / 2;
-        let curX = spotX, curY = spotY;
-
-        window.addEventListener('mousemove', (e) => {
-            spotX = e.clientX;
-            spotY = e.clientY;
-        }, { passive: true });
-
-        function renderSpotlight() {
-            curX += (spotX - curX) * 0.14;
-            curY += (spotY - curY) * 0.14;
-            spotlight.style.left = `${curX}px`;
-            spotlight.style.top = `${curY}px`;
-            requestAnimationFrame(renderSpotlight);
-        }
-        renderSpotlight();
-
-        document.querySelectorAll('.magnetic-btn').forEach(btn => {
-            btn.addEventListener('mousemove', (e) => {
-                const rect = btn.getBoundingClientRect();
-                const offsetX = (e.clientX - (rect.left + rect.width / 2)) * 0.22;
-                const offsetY = (e.clientY - (rect.top + rect.height / 2)) * 0.22;
-                btn.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`;
-            });
-            btn.addEventListener('mouseleave', () => {
-                btn.style.transform = 'translate3d(0, 0, 0)';
-            });
-        });
-
-        document.querySelectorAll('.tilt-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width - 0.5;
-                const y = (e.clientY - rect.top) / rect.height - 0.5;
-                card.style.transform = `perspective(900px) rotateX(${(-y * 5).toFixed(2)}deg) rotateY(${(x * 5).toFixed(2)}deg)`;
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)';
-            });
-        });
-    }
-
-    // =========================================================================
-    // 2. SCROLL PROGRESS, TRANSITION CURTAIN & WIREFRAME PRELOADER
-    // =========================================================================
-    const progressBar = document.createElement('div');
-    progressBar.className = 'scroll-progress-bar';
-    document.body.appendChild(progressBar);
-
-    function updateScrollProgress() {
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        progressBar.style.width = `${docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0}%`;
-    }
-
-    const pageTransition = document.getElementById('page-transition');
-    const preloader = document.getElementById('preloader');
-    const loaderBar = document.getElementById('loader-bar');
-    const loaderPercent = document.getElementById('loader-percent');
-
-    let alreadyVisited = false;
-    try { alreadyVisited = sessionStorage.getItem('gkp_visited') === 'true'; } catch (e) {}
-
-    function closePreloader() {
-        if (!preloader) return;
-        preloader.classList.add('slide-up');
-        try { sessionStorage.setItem('gkp_visited', 'true'); } catch (e) {}
-        setTimeout(() => preloader.classList.add('hidden'), 850);
-    }
-
-    if (preloader) {
-        if (alreadyVisited) {
-            preloader.classList.add('hidden');
-            if (pageTransition) setTimeout(() => pageTransition.classList.add('is-loaded'), 100);
-        } else {
-            if (pageTransition) pageTransition.classList.add('is-loaded');
-            let progress = 0;
-            const interval = setInterval(() => {
-                progress += Math.floor(Math.random() * 8) + 5;
-                if (progress >= 100) {
-                    progress = 100;
-                    clearInterval(interval);
-                    if (loaderBar) loaderBar.style.width = '100%';
-                    if (loaderPercent) loaderPercent.textContent = '100%';
-                    setTimeout(closePreloader, 300);
-                } else {
-                    if (loaderBar) loaderBar.style.width = progress + '%';
-                    if (loaderPercent) loaderPercent.textContent = String(progress).padStart(3, '0') + '%';
-                }
-            }, 30);
-            setTimeout(() => { clearInterval(interval); closePreloader(); }, 2400);
-        }
-    }
-
-    // =========================================================================
-    // 3. NAVBAR CONTROLS (SOUND, THEME, MOBILE MENU, BACK TO TOP)
-    // =========================================================================
-    const sunIcon = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
-    const moonIcon = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
-    const soundOnIcon = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>`;
-    const soundOffIcon = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>`;
-
-    const navContainer = document.querySelector('.nav-container');
-    const btnCv = navContainer ? navContainer.querySelector('.btn-cv') : null;
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    const soundBtn = document.createElement('button');
-    soundBtn.type = 'button';
-    soundBtn.className = 'sound-toggle-btn';
-    soundBtn.setAttribute('aria-label', 'Aktifkan / Matikan Efek Suara');
-
-    const themeBtn = document.createElement('button');
-    themeBtn.type = 'button';
-    themeBtn.className = 'theme-toggle-btn';
-    themeBtn.setAttribute('aria-label', 'Ganti Tema Gelap / Terang');
-
-    let mobileThemeLink = null, mobileSoundLink = null;
-    if (mobileMenu) {
-        mobileSoundLink = document.createElement('a');
-        mobileSoundLink.href = '#';
-        mobileSoundLink.addEventListener('click', (e) => { e.preventDefault(); SoundFX.toggle(); updateSoundUI(); });
-        mobileMenu.appendChild(mobileSoundLink);
-
-        mobileThemeLink = document.createElement('a');
-        mobileThemeLink.href = '#';
-        mobileThemeLink.addEventListener('click', (e) => { e.preventDefault(); toggleTheme(); });
-        mobileMenu.appendChild(mobileThemeLink);
-    }
-
-    function updateSoundUI() {
-        const muted = SoundFX.muted;
-        soundBtn.innerHTML = muted ? soundOffIcon : soundOnIcon;
-        soundBtn.classList.toggle('is-muted', muted);
-        if (mobileSoundLink) mobileSoundLink.textContent = muted ? 'Efek Suara: Mati' : 'Efek Suara: Aktif';
-    }
-
-    function updateThemeUI() {
-        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-        themeBtn.innerHTML = isLight ? moonIcon : sunIcon;
-        if (mobileThemeLink) mobileThemeLink.textContent = isLight ? 'Mode Gelap (Dark)' : 'Mode Terang (Light)';
-    }
-
-    function toggleTheme() {
-        const nextTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-        if (nextTheme === 'light') document.documentElement.setAttribute('data-theme', 'light');
-        else document.documentElement.removeAttribute('data-theme');
-        try { localStorage.setItem('gkp_theme', nextTheme); } catch (e) {}
-        updateThemeUI();
-    }
-
-    soundBtn.addEventListener('click', () => { SoundFX.toggle(); updateSoundUI(); });
-    themeBtn.addEventListener('click', toggleTheme);
-
-    if (navContainer) {
-        const actionsWrap = document.createElement('div');
-        actionsWrap.className = 'nav-actions';
-        actionsWrap.appendChild(soundBtn);
-        actionsWrap.appendChild(themeBtn);
-        if (btnCv) actionsWrap.appendChild(btnCv);
-        if (hamburgerBtn) actionsWrap.appendChild(hamburgerBtn);
-        navContainer.appendChild(actionsWrap);
-    }
-
-    updateSoundUI();
-    updateThemeUI();
-
-    function setMobileMenuState(isOpen) {
-        if (!mobileMenu || !hamburgerBtn) return;
-        mobileMenu.classList.toggle('active', isOpen);
-        hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
-    }
-
-    if (hamburgerBtn && mobileMenu) {
-        hamburgerBtn.addEventListener('click', () => setMobileMenuState(!mobileMenu.classList.contains('active')));
-    }
-
-    const bttBtn = document.createElement('button');
-    bttBtn.type = 'button';
-    bttBtn.className = 'back-to-top-btn';
-    bttBtn.setAttribute('aria-label', 'Kembali ke Atas');
-    bttBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>`;
-    document.body.appendChild(bttBtn);
-    bttBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    // =========================================================================
-    // 4. SCROLL REVEAL, TIMELINE PROGRESS & PROFICIENCY BARS
-    // =========================================================================
-    const revealEls = document.querySelectorAll('.reveal');
-    let revealObserver = null;
-
-    function refreshReveals() {
-        if ('IntersectionObserver' in window) {
-            if (revealObserver) revealObserver.disconnect();
-            revealObserver = new IntersectionObserver((entries, obs) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        obs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
-            revealEls.forEach(el => { if (!el.classList.contains('visible')) revealObserver.observe(el); });
-        } else {
-            revealEls.forEach(el => el.classList.add('visible'));
-        }
-    }
-    refreshReveals();
-
-    const timeline = document.getElementById('process-timeline');
-    const timelineProgress = document.getElementById('timeline-progress');
-    function updateTimelineProgress() {
-        if (!timeline || !timelineProgress) return;
-        const rect = timeline.getBoundingClientRect();
-        if (rect.height === 0) return;
-        const scrolled = Math.min(Math.max(window.innerHeight * 0.65 - rect.top, 0), rect.height);
-        timelineProgress.style.height = `${(scrolled / rect.height) * 100}%`;
-    }
-
-    const profPanel = document.getElementById('proficiency-panel');
-    let profAnimated = false;
-    function runProficiencyAnimation() {
-        if (!profPanel || profAnimated) return;
-        profAnimated = true;
-        profPanel.querySelectorAll('.prof-item').forEach((item, idx) => {
-            const target = parseInt(item.getAttribute('data-target'), 10) || 0;
-            const fill = item.querySelector('.prof-fill');
-            const pctText = item.querySelector('.prof-pct');
-            setTimeout(() => {
-                if (fill) fill.style.width = `${target}%`;
-                let current = 0;
-                const counter = setInterval(() => {
-                    current += target / 65;
-                    if (current >= target) { current = target; clearInterval(counter); }
-                    if (pctText) pctText.textContent = `${Math.round(current)}%`;
-                }, 20);
-            }, idx * 120);
-        });
-    }
-
-    function checkProficiencyVisible() {
-        if (!profPanel || profAnimated || currentActivePage !== 'about') return;
-        const rect = profPanel.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.9 && rect.bottom > 0) runProficiencyAnimation();
-    }
-
-    let isScrolling = false;
-    window.addEventListener('scroll', () => {
-        if (!isScrolling) {
-            window.requestAnimationFrame(() => {
-                updateScrollProgress();
-                bttBtn.classList.toggle('show', window.scrollY > 360);
-                updateTimelineProgress();
-                if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 12) {
-                    document.querySelectorAll('.page-view.active .reveal, .footer.reveal').forEach(el => el.classList.add('visible'));
-                }
-                checkProficiencyVisible();
-                isScrolling = false;
-            });
-            isScrolling = true;
-        }
-    }, { passive: true });
-    updateScrollProgress();
-
-    // =========================================================================
-    // 5. DATA 15 KARYA & DYNAMIC PROJECT DETAIL LOADER
-    // =========================================================================
-    const projectsData = [
-        { id: 'anim-01', title: '3D Character Body Mechanics', category: '3D • Divisi Animation (Kelas 11)', year: '2026', role: '3D Animator', tools: 'Blender', client: 'Core Focus — Kelas 11', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80', desc: 'Eksplorasi mekanika gerak karakter (walk cycle dan body mechanics) menggunakan Blender untuk melatih pemahaman terhadap prinsip animasi.', challenge: 'Menjaga konsistensi timing, spacing, dan perpindahan pusat gravitasi agar gerakan karakter terasa memiliki bobot dan natural.', steps: ['01 Referensi', '02 Blocking', '03 Spline', '04 Render'], result: 'Menghasilkan siklus gerakan karakter yang halus dengan kurva Graph Editor yang bersih.' },
-        { id: 'anim-02', title: '3D Logo Bumper — Forum BKK Jatim', category: '3D • Divisi Animation (Kelas 11)', year: '2026', role: '3D Animator & Motion Designer', tools: 'Blender, After Effects', client: 'Forum BKK Jawa Timur', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80', desc: 'Produksi video bumper pembuka 3D resmi dan aset visual promosi untuk acara regional Forum Bursa Kerja Khusus (BKK) Jawa Timur.', challenge: 'Menyelaraskan pergerakan kamera 3D dengan aksen suara dalam durasi singkat agar terlihat megah dan profesional.', steps: ['01 Konsep', '02 Camera Anim', '03 Lighting', '04 Compositing'], result: 'Bumper 3D beresolusi tinggi yang digunakan sebagai pembuka resmi rangkaian acara.' },
-        { id: 'anim-03', title: '3D Character Acting & Expression', category: '3D • Divisi Animation (Kelas 11)', year: '2026', role: '3D Character Animator', tools: 'Autodesk Maya, Blender', client: 'Core Focus — Kelas 11', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=1200&q=80', desc: 'Latihan akting karakter, gestur tangan, dan ekspresi wajah menggunakan rig karakter anime/stylized.', challenge: 'Menyampaikan emosi karakter hanya melalui siluet pose tubuh dan pergerakan mata sebelum dialog masuk.', steps: ['01 Video Ref', '02 Key Poses', '03 Facial Pass', '04 Polish'], result: 'Klip akting karakter ekspresif dengan pose yang terbaca jelas.' },
-        { id: 'anim-04', title: '3D Dynamic Action & Camera Cut', category: '3D • Divisi Animation (Kelas 11)', year: '2026', role: '3D Animator', tools: 'Blender', client: 'Core Focus — Kelas 11', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80', desc: 'Koreografi gerak cepat dengan pergantian sudut kamera sinematik dan efek aksentuasi gerak.', challenge: 'Menjaga orientasi penonton saat kamera berpindah sudut dalam tempo cepat.', steps: ['01 Storyboard', '02 Camera Block', '03 Action Timing', '04 Render'], result: 'Sekuens aksi 3D yang enerjik dengan ritme kamera dinamis.' },
-        { id: 'anim-10-1', title: '3D Walk Cycle & Physics Timing', category: '3D • Divisi Animation (Kelas 10)', year: '2025', role: '3D Animator', tools: 'Blender', client: 'Fondasi Jurusan Animasi Kelas 10', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=1200&q=80', desc: 'Fondasi animasi 3D kelas 10: siklus langkah kaki dan simulasi berat benda (pendulum & ball).', challenge: 'Memahami kurva F-Curve dan menjaga kontak kaki tetap menempel kuat pada lantai.', steps: ['01 Contact Pose', '02 Passing Pose', '03 In-Between', '04 Loop'], result: 'Animasi dasar yang menjadi fondasi lompatan skill di kelas 11.' },
-        { id: '2d-10-1', title: '2D 12 Principles of Animation', category: '2D • Divisi Animation (Kelas 10)', year: '2025', role: '2D Animator', tools: 'Adobe After Effects', client: 'Tugas Animasi Kelas 10', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80', desc: 'Penerapan squash & stretch, anticipation, dan follow-through pada animasi 2D dasar.', challenge: 'Mengatur kurva kecepatan (easy ease) agar gerak terasa elastis dan tidak kaku.', steps: ['01 Sketch', '02 Keyframe', '03 Speed Graph', '04 Export'], result: 'Klip studi prinsip dasar animasi 2D.' },
-        { id: '2d-10-2', title: '2D Motion Graphics & Typography', category: '2D • Divisi Animation (Kelas 10)', year: '2025', role: 'Motion Designer', tools: 'Adobe After Effects', client: 'Tugas Animasi Kelas 10', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80', desc: 'Eksplorasi transisi bentuk geometris dan tipografi dinamis sinkron dengan ketukan musik.', challenge: 'Menjaga keterbacaan teks di tengah transisi bentuk yang cepat.', steps: ['01 Layout', '02 Masking', '03 Audio Sync', '04 Render'], result: 'Video motion graphics pembuka bergaya modern.' },
-        { id: 'mod-10-1', title: '3D Hard Surface & Prop Modeling', category: '3D • Divisi Modeling (Kelas 10)', year: '2025', role: '3D Modeler (Arsip Kls 10)', tools: 'Blender', client: 'Arsip Modeling Kelas 10', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=1200&q=80', desc: 'Arsip kelas 10: pembentukan objek mekanik, pengaturan bevel, dan topologi quad bersih.', challenge: 'Menghindari pinching pada permukaan lengkung dengan mengatur edge loop yang rapi.', steps: ['01 Blockout', '02 Edge Loop', '03 Shading', '04 Turntable'], result: 'Aset 3D prop bersih sebagai bagian dari pembelajaran dasar di kelas 10.' },
-        { id: 'mod-10-2', title: '3D Isometric Room Environment', category: '3D • Divisi Modeling (Kelas 10)', year: '2025', role: '3D Modeler (Arsip Kls 10)', tools: 'Blender, Autodesk Maya', client: 'Arsip Modeling Kelas 10', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80', desc: 'Arsip kelas 10: pemodelan interior ruangan miniatur lengkap dengan pencahayaan studio hangat.', challenge: 'Menata komposisi puluhan objek kecil agar terlihat harmonis dalam satu bingkai isometrik.', steps: ['01 Room Shell', '02 Furniture', '03 Warm Light', '04 Cycles Render'], result: 'Render lingkungan ruangan 3D isometrik.' },
-        { id: 'mod-10-3', title: '3D Stylized Asset & UV Mapping', category: '3D • Divisi Modeling (Kelas 10)', year: '2025', role: '3D Modeler (Arsip Kls 10)', tools: 'Autodesk Maya', client: 'Arsip Modeling Kelas 10', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=1200&q=80', desc: 'Arsip kelas 10: latihan modeling aset bergaya stylized dan pemetaan UV dasar di Maya.', challenge: 'Memotong UV seam secara rapi agar tekstur tidak tertarik.', steps: ['01 Base Mesh', '02 Sculpt/Detail', '03 UV Unwrap', '04 Render'], result: 'Aset 3D siap pakai sebelum fokus penuh beralih ke divisi animasi di kelas 11.' },
-        { id: 'mulmed-01', title: 'After Movie & Event Recap OSIS', category: 'Multimedia • Editing & Videografi', year: '2026', role: 'Ketua Sekbid 9 & Video Editor', tools: 'CapCut, Adobe After Effects', client: 'OSIS SMKN 4 Madiun', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80', desc: 'Penyuntingan video dokumentasi acara besar sekolah dan koordinasi tim liputan OSIS.', challenge: 'Menggabungkan berbagai rekaman kamera siswa menjadi alur cerita yang energik dalam waktu singkat.', steps: ['01 Liputan', '02 Seleksi Klip', '03 Beat Sync', '04 Color Grade'], result: 'Video rekap resmi yang dipublikasikan di kanal media sosial sekolah.' },
-        { id: 'mulmed-02', title: 'Bertugas Liputan & Publikasi OSIS', category: 'Multimedia • Dokumentasi Lapangan', year: '2026', role: 'Ketua Sekbid 9 (Media & TIK)', tools: 'Kamera DSLR/Mirrorless, CapCut', client: 'OSIS SMKN 4 Madiun', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=80', desc: 'Momen bertugas di lapangan mengabadikan kegiatan siswa dan mengelola konten media sosial resmi.', challenge: 'Menangkap momen krusial panggung secara spontan dalam kondisi pencahayaan berubah-ubah.', steps: ['01 Briefing Tim', '02 Fotografi Event', '03 Kurasi Foto', '04 Publikasi'], result: 'Arsip dokumentasi visual rapi untuk seluruh program kerja OSIS.' },
-        { id: 'mulmed-03', title: 'Tim Mulmed & Visual Switcher', category: 'Multimedia • Live Streaming', year: '2025 - 2026', role: 'Visual Switcher Operator', tools: 'Video Switcher, OBS Studio', client: 'Tim Multimedia Gereja', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80', desc: 'Bertugas mengoperasikan visual switcher dan pengaturan transisi siaran langsung multi-kamera.', challenge: 'Menjaga kelancaran perpindahan kamera secara real-time tanpa jeda selama siaran langsung.', steps: ['01 Cek Sinyal', '02 Koordinasi Cam', '03 Live Switching', '04 Monitoring'], result: 'Tayangan siaran langsung yang stabil dan enak ditonton.' },
-        { id: 'mulmed-04', title: 'Cameraman Utama Tim Multimedia', category: 'Multimedia • Videografi', year: '2025 - 2026', role: 'Cameraman / Videografer', tools: 'Kamera Broadcast & Tripod Fluid Head', client: 'Tim Multimedia Gereja', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80', desc: 'Pengambilan sudut gambar dinamis dan menjaga komposisi visual selama acara berlangsung.', challenge: 'Menjaga pergerakan panning dan zooming tetap halus sepanjang durasi acara.', steps: ['01 Setup Rig', '02 Framing', '03 Live Shoot', '04 Wrap'], result: 'Rekaman kamera jernih dan stabil untuk siaran langsung maupun arsip.' },
-        { id: 'mulmed-05', title: 'Freelance Camera & Video Editing', category: 'Multimedia • Freelance Project', year: '2025 - 2026', role: 'Freelance Videographer & Editor', tools: 'CapCut, KineMaster, After Effects', client: 'Klien Independen', videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27667-large.mp4', posterUrl: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80', desc: 'Mengerjakan perekaman lapangan, operator rekaman, hingga editing video promosi untuk klien.', challenge: 'Menyesuaikan gaya penyuntingan dengan kebutuhan spesifik masing-masing klien secara tepat waktu.', steps: ['01 Brief Klien', '02 Shooting', '03 Editing & Revisi', '04 Delivery'], result: 'Hasil video komersial dan dokumentasi yang memuaskan klien.' }
-    ];
-
-    function loadProjectDetail(projectId) {
-        const currentIndex = projectsData.findIndex(p => p.id === projectId);
-        const safeIndex = currentIndex !== -1 ? currentIndex : 0;
-        const project = projectsData[safeIndex];
-        const prevProject = projectsData[(safeIndex - 1 + projectsData.length) % projectsData.length];
-        const nextProject = projectsData[(safeIndex + 1) % projectsData.length];
-
-        document.getElementById('dt-cat-year').textContent = `${project.category} • ${project.year}`;
-        document.getElementById('dt-title').textContent = project.title;
-
-        const videoEl = document.getElementById('dt-video');
-        videoEl.setAttribute('poster', project.posterUrl);
-        document.getElementById('dt-video-src').setAttribute('src', project.videoUrl);
-        videoEl.load();
-
-        document.getElementById('dt-desc').textContent = project.desc;
-        document.getElementById('dt-challenge').textContent = project.challenge;
-        document.getElementById('dt-result').textContent = project.result;
-        document.getElementById('dt-steps').innerHTML = project.steps.map(step => `<span class="step-pill">${step}</span>`).join('');
-
-        document.getElementById('info-year').textContent = project.year;
-        document.getElementById('info-cat').textContent = project.category;
-        document.getElementById('info-role').textContent = project.role;
-        document.getElementById('info-tools').textContent = project.tools;
-        document.getElementById('info-client').textContent = project.client;
-
-        const prevBtn = document.getElementById('nav-prev');
-        const nextBtn = document.getElementById('nav-next');
-        prevBtn.href = `#project-detail?id=${prevProject.id}`;
-        prevBtn.setAttribute('data-project-id', prevProject.id);
-        document.getElementById('prev-title').textContent = prevProject.title;
-
-        nextBtn.href = `#project-detail?id=${nextProject.id}`;
-        nextBtn.setAttribute('data-project-id', nextProject.id);
-        document.getElementById('next-title').textContent = nextProject.title;
-    }
-
-    // =========================================================================
-    // 6. SINGLE-PAGE VIEW ROUTER
-    // =========================================================================
-    const views = {
-        home: document.getElementById('view-home'),
-        about: document.getElementById('view-about'),
-        projects: document.getElementById('view-projects'),
-        'project-detail': document.getElementById('view-project-detail'),
-        experience: document.getElementById('view-experience'),
-        contact: document.getElementById('view-contact')
-    };
-
-    let currentActivePage = 'home';
-
-    function activateView(pageName, projectId = null, updateHash = true, skipScrollTop = false) {
-        if (!views[pageName]) pageName = 'home';
-        currentActivePage = pageName;
-
-        document.querySelectorAll('video').forEach(v => {
-            if (!v.classList.contains('hero-bg-video')) v.pause();
-        });
-
-        Object.entries(views).forEach(([key, el]) => {
-            if (el) el.classList.toggle('active', key === pageName);
-        });
-
-        const navHighlight = pageName === 'project-detail' ? 'projects' : pageName;
-        document.querySelectorAll('.nav-links a[data-page]').forEach(a => {
-            a.classList.toggle('active', a.getAttribute('data-page') === navHighlight);
-        });
-
-        if (pageName === 'project-detail') loadProjectDetail(projectId || 'anim-01');
-
-        if (updateHash) {
-            const newHash = pageName === 'project-detail' ? `#project-detail?id=${projectId || 'anim-01'}` : `#${pageName}`;
-            if (window.location.hash !== newHash) history.pushState(null, '', newHash);
-        }
-
-        if (!skipScrollTop) {
-            window.scrollTo({ top: 0, behavior: 'instant' });
-        }
-        updateScrollProgress();
-        refreshReveals();
-
-        if (pageName === 'about') checkProficiencyVisible();
-        if (pageName === 'projects' && typeof window.update3DCarousel === 'function') window.update3DCarousel(true);
-    }
-
-    function transitionToPage(pageName, projectId = null) {
-        setMobileMenuState(false);
-        SoundFX.whoosh();
-
-        if (pageTransition) {
-            pageTransition.classList.remove('is-loaded');
-            pageTransition.classList.add('is-leaving');
-            setTimeout(() => {
-                activateView(pageName, projectId, true, false);
-                requestAnimationFrame(() => {
-                    pageTransition.classList.remove('is-leaving');
-                    pageTransition.classList.add('is-loaded');
-                });
-            }, 380);
-        } else {
-            activateView(pageName, projectId, true, false);
-        }
-    }
-
-    document.addEventListener('click', (e) => {
-        const projectLink = e.target.closest('a[data-project-id]');
-        if (projectLink) {
-            e.preventDefault();
-            transitionToPage('project-detail', projectLink.getAttribute('data-project-id'));
-            return;
-        }
-
-        const pageLink = e.target.closest('a[data-page]');
-        if (pageLink) {
-            e.preventDefault();
-            const targetPage = pageLink.getAttribute('data-page');
-            if (targetPage === currentActivePage && targetPage !== 'project-detail') {
-                setMobileMenuState(false);
-                SoundFX.click();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                return;
-            }
-            transitionToPage(targetPage);
-        }
-    });
-
-    function parseHashAndLoad() {
-        const rawHash = window.location.hash.replace(/^#/, '');
-        if (!rawHash) { activateView('home', null, false, false); return; }
-        if (rawHash === 'showreel-sec') {
-            activateView('home', null, false, true);
-            setTimeout(() => {
-                document.getElementById('showreel-sec')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 80);
-            return;
-        }
-        if (rawHash.startsWith('project-detail')) {
-            const params = new URLSearchParams(rawHash.split('?')[1] || '');
-            activateView('project-detail', params.get('id') || 'anim-01', false, false);
-            return;
-        }
-        activateView(views[rawHash] ? rawHash : 'home', null, false, false);
-    }
-
-    window.addEventListener('popstate', parseHashAndLoad);
-    parseHashAndLoad();
-
-    // =========================================================================
-    // 7. SPRING PHYSICS ID CARD + DYNAMIC LIFT FLIP + EDGE WIND GUST & SFX
-    // =========================================================================
-    const idCard = document.getElementById('physics-id-card');
-    const windWrapper = document.getElementById('card-wind-wrapper');
-    const lanyardSvgLine = document.getElementById('lanyard-dynamic-line');
-    const flipBtn = document.getElementById('flip-card-btn');
-
-    if (idCard) {
-        let isDragging = false, isFlipped = false;
-        let downX = 0, downY = 0, startX = 0, startY = 0;
-        let posX = 0, posY = 0, velX = 0, velY = 0;
-        let flipAngle = 0, flipVel = 0;
-        const stiffness = 0.08, damping = 0.82;
-
-        idCard.addEventListener('dragstart', (e) => e.preventDefault());
-
-        function triggerWindEffect() {
-            SoundFX.windFlip();
-            if (!windWrapper) return;
-            windWrapper.classList.remove('is-flipping');
-            void windWrapper.offsetWidth;
-            windWrapper.classList.add('is-flipping');
-        }
-
-        function flipIdCard() {
-            isFlipped = !isFlipped;
-            flipVel += isFlipped ? 14 : -14;
-            triggerWindEffect();
-        }
-
-        if (flipBtn) {
-            flipBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                flipIdCard();
-            });
-        }
-
-        const onPointerDown = (e) => {
-            if (e.target.closest('#flip-card-btn')) return;
-            isDragging = true;
-            idCard.style.cursor = 'grabbing';
-            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-            downX = clientX;
-            downY = clientY;
-            startX = clientX - posX;
-            startY = clientY - posY;
-        };
-
-        const onPointerMove = (e) => {
-            if (!isDragging) return;
-            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-            const maxDragX = Math.min(130, Math.max(40, (window.innerWidth - 280) / 2));
-            posX = Math.max(-maxDragX, Math.min(maxDragX, clientX - startX));
-            posY = Math.max(-50, Math.min(120, clientY - startY));
-        };
-
-        const onPointerUp = (e) => {
-            if (!isDragging) return;
-            isDragging = false;
-            idCard.style.cursor = 'grab';
-            const clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
-            const clientY = e.changedTouches ? e.changedTouches[0].clientY : e.clientY;
-            const movedDist = Math.hypot(clientX - downX, clientY - downY);
-            if (movedDist < 6) {
-                flipIdCard();
-            } else {
-                SoundFX.click();
-            }
-        };
-
-        idCard.addEventListener('mousedown', onPointerDown);
-        window.addEventListener('mousemove', onPointerMove);
-        window.addEventListener('mouseup', onPointerUp);
-        idCard.addEventListener('touchstart', onPointerDown, { passive: true });
-        window.addEventListener('touchmove', onPointerMove, { passive: true });
-        window.addEventListener('touchend', onPointerUp);
-
-        let time = 0;
-        function animateCard() {
-            if (currentActivePage === 'about') {
-                time += 0.03;
-                if (!isDragging) {
-                    const idleX = Math.sin(time) * 4;
-                    velX = (velX + (idleX - posX) * stiffness) * damping;
-                    velY = (velY + (0 - posY) * stiffness) * damping;
-                    posX += velX;
-                    posY += velY;
-                }
-
-                const targetFlip = isFlipped ? 180 : 0;
-                const flipForce = (targetFlip - flipAngle) * 0.11;
-                flipVel = (flipVel + flipForce) * 0.78;
-                flipAngle += flipVel;
-
-                const midProgress = Math.sin((Math.min(Math.max(flipAngle, 0), 180) / 180) * Math.PI);
-                const flipLift = midProgress * 45;
-                const flipRoll = Math.sin((flipAngle / 180) * Math.PI) * 8;
-                const tiltZ = posX * 0.14 + flipRoll;
-                const tiltX = -posY * 0.12 + midProgress * 7;
-
-                idCard.style.transform = `translate3d(${posX}px, ${posY}px, ${flipLift}px) rotateZ(${tiltZ}deg) rotateX(${tiltX}deg) rotateY(${flipAngle}deg)`;
-
-                if (lanyardSvgLine) {
-                    const endX = 160 + posX;
-                    const endY = 117 + posY;
-                    const ctrlX = 160 + posX * 0.45;
-                    const ctrlY = 52 + posY * 0.35;
-                    lanyardSvgLine.setAttribute('d', `M 160 -15 Q ${ctrlX} ${ctrlY} ${endX} ${endY}`);
-                    const clasp = document.getElementById('lanyard-clasp');
-                    if (clasp) clasp.setAttribute('transform', `translate(${endX}, ${endY}) rotate(${posX * 0.14})`);
-                }
-            }
-            requestAnimationFrame(animateCard);
-        }
-        animateCard();
-    }
-
-    // =========================================================================
-    // 8. 3D CAROUSEL (FIXED CLICK TARGETING, NO FLY-AROUND & FADE TRANSITION)
-    // =========================================================================
-    const branchBtns = document.querySelectorAll('.branch-btn');
-    const panel2d3d = document.getElementById('panel-2d3d');
-    const panelMulmed = document.getElementById('panel-mulmed');
-    const carouselStage = document.getElementById('projects-grid');
-    const carouselWrapper = document.getElementById('carousel-3d-wrapper');
-    const carouselControls = document.getElementById('carousel-3d-controls');
-    const carouselDots = document.getElementById('carousel-dots');
-    const carouselCounter = document.getElementById('carousel-counter');
-    const ambientGlow = document.getElementById('carousel-ambient-glow');
-    const prevCarouselBtn = document.getElementById('carousel-prev-btn');
-    const nextCarouselBtn = document.getElementById('carousel-next-btn');
-    const allProjectCards = Array.from(document.querySelectorAll('.project-card'));
-    const emptyMsg = document.getElementById('empty-filter-msg');
-
-    if (branchBtns.length > 0 && allProjectCards.length > 0) {
-        let state = { branch: '2d3d', dim: 'all', grade: 'all', div: 'all', mulmed: 'all' };
-        let activeCards = [];
-        let activeIndex = 0;
-        let suppressClickUntil = 0;
-
-        function renderCarouselDots() {
-            if (!carouselDots) return;
-            carouselDots.innerHTML = activeCards.map((_, idx) =>
-                `<button type="button" class="carousel-dot ${idx === activeIndex ? 'active' : ''}" data-idx="${idx}" aria-label="Slide ${idx + 1}"></button>`
-            ).join('');
-            carouselDots.querySelectorAll('.carousel-dot').forEach(dot => {
-                dot.addEventListener('click', () => {
-                    const targetIdx = parseInt(dot.getAttribute('data-idx'), 10);
-                    if (targetIdx !== activeIndex) {
-                        activeIndex = targetIdx;
-                        SoundFX.click();
-                        update3DCarousel();
-                    }
-                });
-            });
-        }
-
-        function update3DCarousel(instant = false) {
-            const total = activeCards.length;
-            if (total === 0) {
-                if (carouselWrapper) carouselWrapper.style.display = 'none';
-                if (emptyMsg) emptyMsg.style.display = 'block';
-                return;
-            }
-
-            if (carouselWrapper) carouselWrapper.style.display = 'block';
-            if (emptyMsg) emptyMsg.style.display = 'none';
-            if (carouselControls) carouselControls.style.visibility = total > 1 ? 'visible' : 'hidden';
-
-            if (activeIndex >= total) activeIndex = 0;
-            if (activeIndex < 0) activeIndex = total - 1;
-
-            const spacingX = window.innerWidth < 768 ? 225 : 335;
-
-            activeCards.forEach((card, idx) => {
-                let offset = idx - activeIndex;
-                if (total > 2) {
-                    if (offset > Math.floor(total / 2)) offset -= total;
-                    if (offset < -Math.floor(total / 2)) offset += total;
-                }
-
-                const prevOffset = card.dataset.offset !== undefined ? parseInt(card.dataset.offset, 10) : offset;
-                card.dataset.offset = String(offset);
-
-                const isWrapJump = !instant && Math.abs(offset - prevOffset) > 2;
-                const absOffset = Math.abs(offset);
-                card.classList.toggle('is-center', offset === 0);
-
-                let targetTransform = '';
-                let targetOpacity = '0';
-                let targetPointer = 'none';
-                let targetFilter = 'brightness(0.5)';
-                let targetZ = '1';
-
-                if (absOffset > 2) {
-                    targetTransform = `translate3d(${offset * spacingX}px, 22px, -320px) rotateY(${offset > 0 ? -32 : 32}deg) scale(0.7)`;
-                    targetOpacity = '0';
-                    targetPointer = 'none';
-                    targetZ = '1';
-                } else {
-                    const translateX = offset * spacingX;
-                    const translateZ = offset === 0 ? 40 : -absOffset * 110;
-                    const translateY = absOffset * 12;
-                    const rotateY = offset === 0 ? 0 : (offset > 0 ? -22 : 22);
-                    const rotateZ = offset === 0 ? 0 : (offset > 0 ? 2 : -2);
-                    const scale = offset === 0 ? 1 : Math.max(0.78, 1 - absOffset * 0.12);
-
-                    targetTransform = `translate3d(${translateX}px, ${translateY}px, ${translateZ}px) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) scale(${scale})`;
-                    targetOpacity = offset === 0 ? '1' : (absOffset === 1 ? '0.82' : '0.45');
-                    targetPointer = 'auto';
-                    targetFilter = offset === 0 ? 'brightness(1)' : `brightness(${absOffset === 1 ? 0.76 : 0.54})`;
-                    targetZ = String(30 - absOffset * 10);
-                }
-
-                if (instant || isWrapJump) {
-                    card.style.transition = 'none';
-                    card.style.opacity = '0';
-                    card.style.transform = targetTransform;
-                    card.style.zIndex = targetZ;
-                    card.style.filter = targetFilter;
-                    card.style.pointerEvents = targetPointer;
-                    void card.offsetWidth;
-                    card.style.transition = '';
-                    requestAnimationFrame(() => {
-                        card.style.opacity = targetOpacity;
-                    });
-                } else {
-                    card.style.opacity = targetOpacity;
-                    card.style.pointerEvents = targetPointer;
-                    card.style.filter = targetFilter;
-                    card.style.zIndex = targetZ;
-                    card.style.transform = targetTransform;
-                }
-            });
-
-            const centerCard = activeCards[activeIndex];
-            if (centerCard && ambientGlow) {
-                const glowColor = centerCard.getAttribute('data-glow') || '#38BDF8';
-                ambientGlow.style.background = `radial-gradient(circle, ${glowColor}44 0%, transparent 70%)`;
-            }
-
-            if (carouselCounter) {
-                carouselCounter.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
-            }
-
-            if (carouselDots) {
-                carouselDots.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === activeIndex));
-            }
-        }
-
-        window.update3DCarousel = update3DCarousel;
-
-        // KLIK KARTU SAMPING -> LANGSUNG PINDAH KE KARTU TERSEBUT (BUKAN KARTU LAIN)
-        allProjectCards.forEach(card => {
-            card.addEventListener('click', (e) => {
-                if (Date.now() < suppressClickUntil) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    return;
-                }
-                const idx = activeCards.indexOf(card);
-                if (idx === -1) return;
-
-                if (idx !== activeIndex) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    activeIndex = idx;
-                    SoundFX.click();
-                    update3DCarousel();
-                }
-            });
-        });
-
-        if (prevCarouselBtn) {
-            prevCarouselBtn.addEventListener('click', () => {
-                if (activeCards.length <= 1) return;
-                activeIndex = (activeIndex - 1 + activeCards.length) % activeCards.length;
-                update3DCarousel();
-            });
-        }
-
-        if (nextCarouselBtn) {
-            nextCarouselBtn.addEventListener('click', () => {
-                if (activeCards.length <= 1) return;
-                activeIndex = (activeIndex + 1) % activeCards.length;
-                update3DCarousel();
-            });
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (currentActivePage !== 'projects' || activeCards.length <= 1) return;
-            const modalOpen = document.getElementById('preview-modal')?.classList.contains('open');
-            if (modalOpen) return;
-            if (e.key === 'ArrowLeft') {
-                SoundFX.click();
-                activeIndex = (activeIndex - 1 + activeCards.length) % activeCards.length;
-                update3DCarousel();
-            } else if (e.key === 'ArrowRight') {
-                SoundFX.click();
-                activeIndex = (activeIndex + 1) % activeCards.length;
-                update3DCarousel();
-            }
-        });
-
-        // DRAG / SWIPE DENGAN PENCEGAH DOUBLE-CLICK
-        if (carouselStage) {
-            let dragStartX = 0, isStageDragging = false;
-
-            carouselStage.addEventListener('mousedown', (e) => {
-                if (e.button !== 0 || e.target.closest('.project-card.is-center button, .project-card.is-center a')) return;
-                isStageDragging = true;
-                dragStartX = e.clientX;
-            });
-
-            window.addEventListener('mouseup', (e) => {
-                if (!isStageDragging) return;
-                isStageDragging = false;
-                const diff = e.clientX - dragStartX;
-                if (Math.abs(diff) > 35 && activeCards.length > 1) {
-                    suppressClickUntil = Date.now() + 120;
-                    SoundFX.click();
-                    activeIndex = diff < 0
-                        ? (activeIndex + 1) % activeCards.length
-                        : (activeIndex - 1 + activeCards.length) % activeCards.length;
-                    update3DCarousel();
-                }
-            });
-
-            carouselStage.addEventListener('touchstart', (e) => {
-                dragStartX = e.touches[0].clientX;
-            }, { passive: true });
-
-            carouselStage.addEventListener('touchend', (e) => {
-                const diff = e.changedTouches[0].clientX - dragStartX;
-                if (Math.abs(diff) > 35 && activeCards.length > 1) {
-                    suppressClickUntil = Date.now() + 120;
-                    SoundFX.click();
-                    activeIndex = diff < 0
-                        ? (activeIndex + 1) % activeCards.length
-                        : (activeIndex - 1 + activeCards.length) % activeCards.length;
-                    update3DCarousel();
-                }
-            });
-        }
-
-        window.addEventListener('resize', () => { if (currentActivePage === 'projects') update3DCarousel(true); });
-
-        function applyProjectFilters(withFade = true) {
-            const runFilterUpdate = () => {
-                activeCards = [];
-                allProjectCards.forEach(card => {
-                    delete card.dataset.offset;
-                    const cBranch = card.getAttribute('data-branch');
-                    let match = false;
-                    if (state.branch === '2d3d' && cBranch === '2d3d') {
-                        match = (state.dim === 'all' || card.getAttribute('data-dim') === state.dim) &&
-                                (state.grade === 'all' || card.getAttribute('data-grade') === state.grade) &&
-                                (state.div === 'all' || card.getAttribute('data-div') === state.div);
-                    } else if (state.branch === 'mulmed' && cBranch === 'mulmed') {
-                        match = state.mulmed === 'all' || card.getAttribute('data-mulmed') === state.mulmed;
-                    }
-                    card.classList.toggle('hidden-card', !match);
-                    if (match) activeCards.push(card);
-                });
-                activeIndex = 0;
-                renderCarouselDots();
-                update3DCarousel(true);
-            };
-
-            if (withFade && carouselStage) {
-                carouselStage.classList.add('is-switching');
-                setTimeout(() => {
-                    runFilterUpdate();
-                    requestAnimationFrame(() => {
-                        carouselStage.classList.remove('is-switching');
-                    });
-                }, 180);
-            } else {
-                runFilterUpdate();
-            }
-        }
-
-        branchBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (btn.classList.contains('active')) return;
-                branchBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                state.branch = btn.getAttribute('data-branch');
-                if (panel2d3d) panel2d3d.classList.toggle('hidden', state.branch !== '2d3d');
-                if (panelMulmed) panelMulmed.classList.toggle('hidden', state.branch !== 'mulmed');
-                applyProjectFilters(true);
-            });
-        });
-
-        function bindPillGroup(containerId, stateKey) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-            const pills = container.querySelectorAll('.filter-btn');
-            pills.forEach(pill => {
-                pill.addEventListener('click', () => {
-                    if (pill.classList.contains('active')) return;
-                    pills.forEach(p => p.classList.remove('active'));
-                    pill.classList.add('active');
-                    state[stateKey] = pill.getAttribute('data-val');
-                    applyProjectFilters(true);
-                });
-            });
-        }
-
-        bindPillGroup('filter-dim', 'dim');
-        bindPillGroup('filter-grade', 'grade');
-        bindPillGroup('filter-div', 'div');
-        bindPillGroup('filter-mulmed', 'mulmed');
-        applyProjectFilters(false);
-    }
-
-    // =========================================================================
-    // 9. QUICK PREVIEW MODAL & COPY EMAIL TOAST
-    // =========================================================================
-    const previewModal = document.getElementById('preview-modal');
-    const modalMediaArea = document.getElementById('modal-media-area');
-    const modalTitleText = document.getElementById('modal-title-text');
-    const modalMetaText = document.getElementById('modal-meta-text');
-    const modalCloseBtn = document.getElementById('modal-close-btn');
-    const modalPrevBtn = document.getElementById('modal-prev-btn');
-    const modalNextBtn = document.getElementById('modal-next-btn');
-
-    if (previewModal && modalMediaArea) {
-        let visibleQuickBtns = [], currentModalIdx = 0;
-
-        function renderQuickPreview(btn) {
-            if (!btn) return;
-            const type = btn.getAttribute('data-type');
-            const src = btn.getAttribute('data-src');
-            const title = btn.getAttribute('data-title');
-            const meta = btn.getAttribute('data-meta');
-            modalMediaArea.innerHTML = type === 'video'
-                ? `<video controls autoplay playsinline><source src="${src}" type="video/mp4"></video>`
-                : `<img src="${src}" alt="${title}">`;
-            if (modalTitleText) modalTitleText.textContent = title;
-            if (modalMetaText) modalMetaText.textContent = meta;
-        }
-
-        document.querySelectorAll('.btn-quick-view').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                visibleQuickBtns = Array.from(document.querySelectorAll('.project-card:not(.hidden-card) .btn-quick-view'));
-                currentModalIdx = visibleQuickBtns.indexOf(btn);
-                renderQuickPreview(btn);
-                previewModal.classList.add('open');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        function closePreviewModal() {
-            previewModal.classList.remove('open');
-            modalMediaArea.innerHTML = '';
-            document.body.style.overflow = '';
-        }
-
-        if (modalPrevBtn) modalPrevBtn.addEventListener('click', () => {
-            if (!visibleQuickBtns.length) return;
-            currentModalIdx = (currentModalIdx - 1 + visibleQuickBtns.length) % visibleQuickBtns.length;
-            renderQuickPreview(visibleQuickBtns[currentModalIdx]);
-        });
-
-        if (modalNextBtn) modalNextBtn.addEventListener('click', () => {
-            if (!visibleQuickBtns.length) return;
-            currentModalIdx = (currentModalIdx + 1) % visibleQuickBtns.length;
-            renderQuickPreview(visibleQuickBtns[currentModalIdx]);
-        });
-
-        if (modalCloseBtn) modalCloseBtn.addEventListener('click', closePreviewModal);
-        previewModal.addEventListener('click', (e) => { if (e.target === previewModal) closePreviewModal(); });
-
-        document.addEventListener('keydown', (e) => {
-            if (!previewModal.classList.contains('open')) return;
-            if (e.key === 'Escape') closePreviewModal();
-            if (e.key === 'ArrowLeft' && modalPrevBtn) modalPrevBtn.click();
-            if (e.key === 'ArrowRight' && modalNextBtn) modalNextBtn.click();
-        });
-    }
-
-    const copyEmailBtn = document.getElementById('copy-email-btn');
-    if (copyEmailBtn) {
-        const toastEl = document.createElement('div');
-        toastEl.className = 'copy-toast';
-        document.body.appendChild(toastEl);
-        let toastTimer = null;
-
-        copyEmailBtn.addEventListener('click', async () => {
-            const email = copyEmailBtn.getAttribute('data-email') || 'greaven.kei@gmail.com';
-            try {
-                await navigator.clipboard.writeText(email);
-                SoundFX.success();
-                toastEl.textContent = `Email ${email} berhasil disalin!`;
-                toastEl.classList.add('show');
-                clearTimeout(toastTimer);
-                toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2500);
-            } catch (err) {
-                console.error('Gagal menyalin email:', err);
-            }
-        });
-    }
+  initCursorFollower();
+  initThemeAndSound();
+  initNavigation();
+  initShowreel();
+  initIdCardPhysics();
+  initProjectsCarousel();
+  initModal();
+  initContactForm();
+  triggerRevealObserver();
 });
+
+/* ==========================================================================
+   CURSOR FOLLOWER
+   ========================================================================== */
+function initCursorFollower() {
+  const glow = document.getElementById('cursorGlow');
+  if (!glow) return;
+
+  let targetX = window.innerWidth / 2;
+  let targetY = window.innerHeight / 2;
+  let currentX = targetX;
+  let currentY = targetY;
+
+  window.addEventListener('mousemove', (e) => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+  }, { passive: true });
+
+  function animateGlow() {
+    currentX += (targetX - currentX) * 0.12;
+    currentY += (targetY - currentY) * 0.12;
+    glow.style.left = `${currentX}px`;
+    glow.style.top = `${currentY}px`;
+    requestAnimationFrame(animateGlow);
+  }
+  animateGlow();
+}
+
+/* ==========================================================================
+   THEME & SOUND TOGGLES
+   ========================================================================== */
+function initThemeAndSound() {
+  const themeToggle = document.getElementById('themeToggle');
+  const soundToggle = document.getElementById('soundToggle');
+  const htmlEl = document.documentElement;
+
+  const savedTheme = localStorage.getItem('joprass_theme') || 'dark';
+  applyTheme(savedTheme);
+
+  function applyTheme(theme) {
+    htmlEl.setAttribute('data-theme', theme);
+    localStorage.setItem('joprass_theme', theme);
+    const sunIcon = themeToggle?.querySelector('.icon-sun');
+    const moonIcon = themeToggle?.querySelector('.icon-moon');
+    if (sunIcon && moonIcon) {
+      sunIcon.style.display = theme === 'dark' ? 'block' : 'none';
+      moonIcon.style.display = theme === 'light' ? 'block' : 'none';
+    }
+  }
+
+  themeToggle?.addEventListener('click', () => {
+    playClickSound();
+    const next = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+  });
+
+  soundToggle?.addEventListener('click', () => {
+    state.soundEnabled = !state.soundEnabled;
+    const onIcon = soundToggle.querySelector('.icon-sound-on');
+    const offIcon = soundToggle.querySelector('.icon-sound-off');
+    if (onIcon && offIcon) {
+      onIcon.style.display = state.soundEnabled ? 'block' : 'none';
+      offIcon.style.display = state.soundEnabled ? 'none' : 'block';
+    }
+    if (state.soundEnabled) playClickSound();
+  });
+}
+
+/* ==========================================================================
+   MULTI-PAGE NAVIGATION WITH "JOPRASS" CURTAIN TRANSITION
+   ========================================================================== */
+function initNavigation() {
+  const navTriggers = document.querySelectorAll('[data-nav]');
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    playClickSound();
+    mobileMenu?.classList.toggle('open');
+  });
+
+  navTriggers.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetPage = btn.getAttribute('data-nav');
+      if (!targetPage) return;
+      mobileMenu?.classList.remove('open');
+      navigateToPage(targetPage);
+    });
+  });
+
+  // Home Selected Works preview cards
+  document.querySelectorAll('[data-open-project]').forEach((card) => {
+    card.addEventListener('click', () => {
+      const id = Number(card.getAttribute('data-open-project'));
+      const project = PROJECTS_DATA.find((p) => p.id === id);
+      if (project) {
+        playClickSound();
+        openProjectModal(project);
+      }
+    });
+  });
+}
+
+function navigateToPage(pageName) {
+  if (pageName === state.currentPage) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
+
+  playWhooshSound();
+  const curtain = document.getElementById('pageTransition');
+  curtain?.classList.add('active');
+
+  setTimeout(() => {
+    state.currentPage = pageName;
+
+    document.querySelectorAll('.page-section').forEach((sec) => {
+      sec.classList.toggle('active', sec.id === `page-${pageName}`);
+    });
+
+    document.querySelectorAll('[data-nav]').forEach((el) => {
+      if (el.classList.contains('nav-link') || el.classList.contains('mobile-nav-link')) {
+        el.classList.toggle('active', el.getAttribute('data-nav') === pageName);
+      }
+    });
+
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    triggerRevealObserver();
+
+    if (pageName === 'projects') {
+      renderCarousel();
+    }
+
+    setTimeout(() => {
+      curtain?.classList.remove('active');
+    }, 180);
+  }, 260);
+}
+
+function triggerRevealObserver() {
+  const reveals = document.querySelectorAll('.page-section.active .reveal');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08 }
+  );
+
+  reveals.forEach((el) => {
+    el.classList.remove('is-visible');
+    observer.observe(el);
+  });
+}
+
+/* ==========================================================================
+   SHOWREEL PLAYER OVERLAY
+   ========================================================================== */
+function initShowreel() {
+  const video = document.querySelector('.showreel-video');
+  const overlay = document.getElementById('showreelFallback');
+  if (!video || !overlay) return;
+
+  video.addEventListener('loadeddata', () => {
+    overlay.classList.add('hidden');
+  });
+
+  overlay.addEventListener('click', () => {
+    playClickSound();
+    overlay.classList.add('hidden');
+    video.play().catch(() => {
+      overlay.classList.remove('hidden');
+    });
+  });
+}
+
+/* ==========================================================================
+   ABOUT: INTERACTIVE 3D HANGING ID CARD & SPRING LANYARD PHYSICS
+   ========================================================================== */
+function initIdCardPhysics() {
+  const scene = document.getElementById('idCardScene');
+  const card = document.getElementById('idCard3d');
+  const canvas = document.getElementById('lanyardCanvas');
+  const flipBtn = document.getElementById('flipCardBtn');
+
+  if (!scene || !card || !canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let isFlipped = false;
+  let isDragging = false;
+  let dragMoved = false;
+  let startX = 0;
+  let startY = 0;
+
+  // Spring physics state
+  let angle = 0;
+  let angularVel = 0;
+  let offsetX = 0;
+  let offsetY = 0;
+  let velX = 0;
+  let velY = 0;
+  let tiltX = 0;
+  let tiltY = 0;
+
+  function toggleFlip() {
+    isFlipped = !isFlipped;
+    playWhooshSound();
+    angularVel += (isFlipped ? 1 : -1) * 0.045;
+  }
+
+  flipBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleFlip();
+  });
+
+  card.addEventListener('pointerdown', (e) => {
+    isDragging = true;
+    dragMoved = false;
+    startX = e.clientX - offsetX;
+    startY = e.clientY - offsetY;
+    card.setPointerCapture(e.pointerId);
+  });
+
+  window.addEventListener('pointermove', (e) => {
+    if (isDragging) {
+      const nextX = Math.max(-75, Math.min(75, e.clientX - startX));
+      const nextY = Math.max(-25, Math.min(55, e.clientY - startY));
+      if (Math.hypot(nextX - offsetX, nextY - offsetY) > 3) {
+        dragMoved = true;
+      }
+      offsetX = nextX;
+      offsetY = nextY;
+      angle = -offsetX * 0.0045;
+    } else {
+      const rect = card.getBoundingClientRect();
+      if (
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom
+      ) {
+        const nx = (e.clientX - rect.left) / rect.width - 0.5;
+        const ny = (e.clientY - rect.top) / rect.height - 0.5;
+        tiltY = nx * 16;
+        tiltX = -ny * 14;
+      } else {
+        tiltX *= 0.9;
+        tiltY *= 0.9;
+      }
+    }
+  });
+
+  window.addEventListener('pointerup', () => {
+    if (!isDragging) return;
+    isDragging = false;
+    if (!dragMoved) {
+      toggleFlip();
+    } else {
+      playWhooshSound();
+    }
+  });
+
+  function drawLanyard(clipX, clipY) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const topLeftX = 148;
+    const topRightX = 192;
+    const ctrlY = clipY * 0.55;
+
+    // Strap gradient
+    const grad = ctx.createLinearGradient(0, 0, 0, clipY);
+    grad.addColorStop(0, '#18181b');
+    grad.addColorStop(0.5, '#27272a');
+    grad.addColorStop(1, '#3f3f46');
+
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(topLeftX, 0);
+    ctx.quadraticCurveTo(topLeftX + (clipX - 170) * 0.35, ctrlY, clipX - 11, clipY);
+    ctx.lineTo(clipX + 11, clipY);
+    ctx.quadraticCurveTo(topRightX + (clipX - 170) * 0.35, ctrlY, topRightX, 0);
+    ctx.closePath();
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    ctx.strokeStyle = 'rgba(255,255,255,0.22)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // Lanyard text "JOPRASS"
+    ctx.translate((170 + clipX) * 0.5, clipY * 0.48);
+    ctx.rotate(Math.atan2(clipY, clipX - 170));
+    ctx.fillStyle = 'rgba(255,255,255,0.75)';
+    ctx.font = '600 9px "JetBrains Mono", monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('JOPRASS', 0, 3);
+    ctx.restore();
+
+    // Metal ring connector
+    ctx.beginPath();
+    ctx.arc(clipX, clipY + 4, 7, 0, Math.PI * 2);
+    ctx.strokeStyle = '#e4e4e7';
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+  }
+
+  function animateCard() {
+    if (!isDragging) {
+      const stiffness = 0.085;
+      const damping = 0.86;
+
+      velX = (velX + -offsetX * stiffness) * damping;
+      velY = (velY + -offsetY * stiffness) * damping;
+      offsetX += velX;
+      offsetY += velY;
+
+      const targetAngle = -offsetX * 0.004;
+      angularVel = (angularVel + (targetAngle - angle) * 0.09) * 0.88;
+      angle += angularVel;
+    }
+
+    const flipDeg = isFlipped ? 180 : 0;
+    const swingDeg = (angle * 180) / Math.PI;
+
+    card.style.transform = `
+      translate3d(${offsetX.toFixed(2)}px, ${offsetY.toFixed(2)}px, 0)
+      rotateZ(${swingDeg.toFixed(2)}deg)
+      rotateY(${(flipDeg + tiltY).toFixed(2)}deg)
+      rotateX(${tiltX.toFixed(2)}deg)
+    `;
+
+    drawLanyard(170 + offsetX, 134 + offsetY);
+    requestAnimationFrame(animateCard);
+  }
+
+  animateCard();
+}
+
+/* ==========================================================================
+   PROJECTS: FULL-BLEED EDGE-TO-EDGE CAROUSEL & MULTI-FILTER SYSTEM
+   ========================================================================== */
+function getFilteredProjects() {
+  return PROJECTS_DATA.filter((item) => {
+    if (item.branch !== state.branch) return false;
+
+    if (state.branch === '2d3d') {
+      if (state.filters.type !== 'all' && item.type !== state.filters.type) return false;
+      if (state.filters.grade !== 'all' && item.grade !== state.filters.grade) return false;
+      if (state.filters.division !== 'all' && item.division !== state.filters.division) return false;
+      return true;
+    }
+
+    if (state.branch === 'mulmed') {
+      if (state.filters.mulmedCat !== 'all' && item.mulmedCat !== state.filters.mulmedCat) {
+        return false;
+      }
+      return true;
+    }
+
+    return true;
+  });
+}
+
+function initProjectsCarousel() {
+  const branchTabs = document.querySelectorAll('.branch-tab');
+  const filterPanels = {
+    '2d3d': document.getElementById('filters-2d3d'),
+    mulmed: document.getElementById('filters-mulmed')
+  };
+
+  branchTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const branch = tab.getAttribute('data-branch');
+      if (!branch || branch === state.branch) return;
+
+      playClickSound();
+      state.branch = branch;
+      state.carouselIndex = 0;
+
+      branchTabs.forEach((t) => {
+        const active = t === tab;
+        t.classList.toggle('active', active);
+        t.setAttribute('aria-selected', String(active));
+      });
+
+      if (filterPanels['2d3d']) {
+        filterPanels['2d3d'].style.display = branch === '2d3d' ? 'flex' : 'none';
+      }
+      if (filterPanels.mulmed) {
+        filterPanels.mulmed.style.display = branch === 'mulmed' ? 'flex' : 'none';
+      }
+
+      renderCarousel();
+    });
+  });
+
+  document.querySelectorAll('.filter-pills').forEach((group) => {
+    const groupName = group.getAttribute('data-filter-group');
+    group.querySelectorAll('.filter-pill').forEach((pill) => {
+      pill.addEventListener('click', () => {
+        playClickSound();
+        group.querySelectorAll('.filter-pill').forEach((p) => p.classList.remove('active'));
+        pill.classList.add('active');
+
+        if (groupName) {
+          state.filters[groupName] = pill.getAttribute('data-value') || 'all';
+        }
+        state.carouselIndex = 0;
+        renderCarousel();
+      });
+    });
+  });
+
+  document.getElementById('carouselPrev')?.addEventListener('click', () => {
+    stepCarousel(-1);
+  });
+
+  document.getElementById('carouselNext')?.addEventListener('click', () => {
+    stepCarousel(1);
+  });
+
+  // Keyboard navigation when on Projects page
+  window.addEventListener('keydown', (e) => {
+    if (state.currentPage !== 'projects') return;
+    if (document.getElementById('projectModal')?.classList.contains('open')) return;
+    if (e.key === 'ArrowLeft') stepCarousel(-1);
+    if (e.key === 'ArrowRight') stepCarousel(1);
+  });
+
+  // Touch swipe on carousel stage
+  const stage = document.getElementById('carouselStage');
+  let touchStartX = 0;
+  stage?.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].clientX;
+  }, { passive: true });
+
+  stage?.addEventListener('touchend', (e) => {
+    const diff = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(diff) > 42) {
+      stepCarousel(diff < 0 ? 1 : -1);
+    }
+  }, { passive: true });
+
+  renderCarousel();
+}
+
+function stepCarousel(delta) {
+  const items = getFilteredProjects();
+  if (!items.length) return;
+  playClickSound();
+  state.carouselIndex = (state.carouselIndex + delta + items.length) % items.length;
+  renderCarousel();
+}
+
+function renderCarousel() {
+  const stage = document.getElementById('carouselStage');
+  const dotsWrap = document.getElementById('carouselDots');
+  const counterEl = document.getElementById('carouselCounter');
+  if (!stage || !dotsWrap || !counterEl) return;
+
+  const items = getFilteredProjects();
+  stage.innerHTML = '';
+  dotsWrap.innerHTML = '';
+
+  if (!items.length) {
+    stage.innerHTML = `
+      <div class="info-box" style="text-align:center; max-width:420px;">
+        <h3 class="card-title">Tidak ada karya pada filter ini</h3>
+        <p class="card-desc">Silakan pilih kombinasi filter lain untuk menampilkan karya.</p>
+      </div>
+    `;
+    counterEl.textContent = '00 / 00';
+    return;
+  }
+
+  if (state.carouselIndex >= items.length) {
+    state.carouselIndex = 0;
+  }
+
+  const total = items.length;
+
+  items.forEach((item, idx) => {
+    // Shortest signed circular distance so cards span full screen left-to-right
+    let offset = idx - state.carouselIndex;
+    if (total > 2) {
+      if (offset > Math.floor(total / 2)) offset -= total;
+      if (offset < -Math.floor(total / 2)) offset += total;
+    }
+
+    const absOffset = Math.abs(offset);
+    const isCenter = offset === 0;
+
+    // Show up to 4 layers on both left & right edges so 100vw viewport looks full
+    const isVisible = absOffset <= 4;
+    const spacingX = window.innerWidth < 768 ? 225 : 295;
+    const translateX = offset * spacingX;
+    const translateZ = isCenter ? 40 : -absOffset * 70;
+    const scale = isCenter ? 1.04 : Math.max(0.76, 0.94 - absOffset * 0.045);
+    const rotateY = offset === 0 ? 0 : offset > 0 ? -Math.min(14, absOffset * 4) : Math.min(14, absOffset * 4);
+    const opacity = !isVisible ? 0 : isCenter ? 1 : Math.max(0.38, 0.88 - absOffset * 0.14);
+
+    const card = document.createElement('article');
+    card.className = `carousel-card${isCenter ? ' is-center' : ''}`;
+    card.style.transform = `translate3d(${translateX}px, 0, ${translateZ}px) scale(${scale}) rotateY(${rotateY}deg)`;
+    card.style.zIndex = String(20 - absOffset);
+    card.style.opacity = String(opacity);
+    card.style.pointerEvents = isVisible ? 'auto' : 'none';
+
+    card.innerHTML = `
+      <div class="carousel-card-gloss"></div>
+      <div class="carousel-card-media">
+        <img
+          src="${item.image}"
+          alt="${item.title}"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <div class="carousel-card-art" style="display:none;">
+          <span>${item.badge}</span>
+          <strong style="font-family:var(--font-display); color:#fff; font-size:1.05rem;">${item.title}</strong>
+        </div>
+        <span class="carousel-card-badge">${item.badge}</span>
+      </div>
+      <div class="carousel-card-body">
+        <div>
+          <h3 class="carousel-card-title">${item.title}</h3>
+          <div class="carousel-card-sub">${item.subtitle}</div>
+          <p class="carousel-card-desc">${item.desc}</p>
+        </div>
+        <div class="carousel-card-action">KLIK UNTUK DETAIL KARYA →</div>
+      </div>
+    `;
+
+    card.addEventListener('click', () => {
+      if (isCenter) {
+        playClickSound();
+        openProjectModal(item);
+      } else {
+        playClickSound();
+        state.carouselIndex = idx;
+        renderCarousel();
+      }
+    });
+
+    stage.appendChild(card);
+
+    // Dot indicator
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = `carousel-dot${isCenter ? ' active' : ''}`;
+    dot.setAttribute('aria-label', `Pilih karya ${idx + 1}`);
+    dot.addEventListener('click', () => {
+      playClickSound();
+      state.carouselIndex = idx;
+      renderCarousel();
+    });
+    dotsWrap.appendChild(dot);
+  });
+
+  const pad = (n) => String(n).padStart(2, '0');
+  counterEl.textContent = `${pad(state.carouselIndex + 1)} / ${pad(total)}`;
+}
+
+window.addEventListener('resize', () => {
+  if (state.currentPage === 'projects') {
+    renderCarousel();
+  }
+}, { passive: true });
+
+/* ==========================================================================
+   PROJECT QUICK PREVIEW MODAL
+   ========================================================================== */
+function initModal() {
+  const modal = document.getElementById('projectModal');
+  const closeBtn = document.getElementById('modalClose');
+
+  closeBtn?.addEventListener('click', closeProjectModal);
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) closeProjectModal();
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('open')) {
+      closeProjectModal();
+    }
+  });
+}
+
+function openProjectModal(project) {
+  const modal = document.getElementById('projectModal');
+  const media = document.getElementById('modalMedia');
+  const badges = document.getElementById('modalBadges');
+  const title = document.getElementById('modalTitle');
+  const desc = document.getElementById('modalDesc');
+  const tools = document.getElementById('modalTools');
+
+  if (!modal || !media || !badges || !title || !desc || !tools) return;
+
+  media.innerHTML = project.video
+    ? `<video src="${project.video}" poster="${project.image}" controls autoplay playsinline></video>`
+    : `<img src="${project.image}" alt="${project.title}" onerror="this.parentElement.style.display='none'" />`;
+
+  media.style.display = 'block';
+  badges.innerHTML = `<span class="tag-pill">${project.badge}</span><span class="tag-pill">${project.subtitle}</span>`;
+  title.textContent = project.title;
+  desc.textContent = project.desc;
+  tools.innerHTML = project.tools.map((t) => `<span class="skill-pill">${t}</span>`).join('');
+
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+}
+
+function closeProjectModal() {
+  const modal = document.getElementById('projectModal');
+  const media = document.getElementById('modalMedia');
+  if (!modal) return;
+  playClickSound();
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  if (media) media.innerHTML = '';
+}
+
+/* ==========================================================================
+   CONTACT FORM (DIRECT WHATSAPP HANDOFF)
+   ========================================================================== */
+function initContactForm() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    playClickSound();
+
+    const name = document.getElementById('senderName')?.value.trim() || '';
+    const email = document.getElementById('senderEmail')?.value.trim() || '';
+    const topic = document.getElementById('senderTopic')?.value || '';
+    const message = document.getElementById('senderMessage')?.value.trim() || '';
+
+    const text = `Halo Greaven (Joprass), saya *${name}* (${email}).%0A%0A*Kebutuhan Proyek:* ${topic}%0A*Detail Pesan:* ${message}`;
+    window.open(`https://wa.me/62895622607368?text=${text}`, '_blank', 'noopener,noreferrer');
+  });
+}
