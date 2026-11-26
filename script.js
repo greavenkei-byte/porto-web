@@ -386,8 +386,9 @@ function initInteractiveClickEffects() {
 
     playClickSound();
 
-    const computedPos = window.getComputedStyle(target).position;
-    if (computedPos === 'static') {
+    const computedStyle = window.getComputedStyle(target);
+    const prevOverflow = target.style.overflow;
+    if (computedStyle.position === 'static') {
       target.classList.add('has-ripple');
     } else {
       target.style.overflow = 'hidden';
@@ -403,7 +404,10 @@ function initInteractiveClickEffects() {
     ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
 
     target.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 620);
+    setTimeout(() => {
+      ripple.remove();
+      target.style.overflow = prevOverflow;
+    }, 620);
 
     target.classList.remove('is-clicked');
     void target.offsetWidth;
